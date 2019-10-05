@@ -121,8 +121,7 @@
 </ul>
 </li>
 </ul>
-<p>## </p>
-<h3 id="SVD-based-methods"><a href="#SVD-based-methods" class="headerlink" title="SVD based methods"></a>SVD based methods</h3><ul>
+<h2 id><a href="#" class="headerlink" title=" "></a> </h2><h3 id="SVD-based-methods"><a href="#SVD-based-methods" class="headerlink" title="SVD based methods"></a>SVD based methods</h3><ul>
 <li>간단 설명<ul>
 <li>고정된 size의 window를 이용해 특정 단어 주변에 나타나는 단어들의 수를 표현한 co-occurrence matrix를 만듦</li>
 <li>이것을 SVD를 통해 차원을 줄여 word vector로 만든다..</li>
@@ -165,21 +164,23 @@
 <ul>
 <li>Likelihood</li>
 </ul>
-<p>$$<br>Likelihood = L(\theta) = \prod_{t=1}^{T}\prod_{-m\leq j\leq m} P(w_{t+j}|w_{t};\theta)<br>$$</p>
-<p>​        m =&gt; window size</p>
+<script type="math/tex; mode=display">
+Likelihood = L(\theta) = \prod_{t=1}^{T}\prod_{-m\leq j\leq m} P(w_{t+j}|w_{t};\theta)</script><p>​        m =&gt; window size</p>
 <p>​        t =&gt; each position</p>
 <p>Likelihood가 최대가 되는 theta를 찾는다</p>
 <ul>
 <li>P(x|y) y가 일어났을 때 x의 확률</li>
 </ul>
-<p>$$<br>P(x|y) 는 \ y가\ 일어났을\ 때의\ x가\ 일어날\ 확률\<br> P(w_{t+j}|w_t)\text{는 center word가 } w_t\text{일 때}\ \text{position  }t+j\text{의 context word가 }w_{t+j}\text{일 확률}<br>$$</p>
-<ul>
+<script type="math/tex; mode=display">
+P(x|y) 는 \ y가\ 일어났을\ 때의\ x가\ 일어날\ 확률\\
+ P(w_{t+j}|w_t)\text{는 center word가 } w_t\text{일 때}\\ \text{position  }t+j\text{의 context word가 }w_{t+j}\text{일 확률}</script><ul>
 <li><p>Objective Function</p>
 <ul>
 <li><p>theta를 최적화 하기 위한 Function</p>
 </li>
-<li><p>= Loss Function<br>$$<br>J(\theta) = -\frac{1}{T}\log L(\theta)<br>$$</p>
-<ul>
+<li><p>= Loss Function</p>
+<script type="math/tex; mode=display">
+J(\theta) = -\frac{1}{T}\log L(\theta)</script><ul>
 <li>음수인 이유는 maximize가 아니라 minimize 하기 위해</li>
 <li>log는 L(theta)의 곱을 합으로 바꿔주기 위해 (-&gt; 계산 쉬워지라고) </li>
 <li>log : underflow 막기 위해</li>
@@ -190,8 +191,9 @@
 </li>
 </ul>
 <ul>
-<li><p>P(o|c)<br>$$<br>P(o|c) = \cfrac{\exp({\vec{u}<em>o^\top\vec{v}_c})}{\sum</em>{w\in V}\exp({\vec{u}_w^\top\vec{v}_c})}<br>$$</p>
-<ul>
+<li><p>P(o|c)</p>
+<script type="math/tex; mode=display">
+P(o|c) = \cfrac{\exp({\vec{u}_o^\top\vec{v}_c})}{\sum_{w\in V}\exp({\vec{u}_w^\top\vec{v}_c})}</script><ul>
 <li>Softmax Function<ul>
 <li>max =&gt; 여러 개의 x_i 중 가장 큰 확률을 증폭</li>
 <li>soft =&gt; 작은 x_i에도 확률 부여</li>
@@ -206,9 +208,9 @@
 <ul>
 <li><p>theta는 model의 모든 parameter</p>
 </li>
-<li><p>크기 d-dim * 2*V-length (word vector이 context, center 두개가 있으므로)</p>
+<li><p>크기 d-dim <em> 2</em>V-length (word vector이 context, center 두개가 있으므로)</p>
 </li>
-<li><p>Derivative of Objective Function<br>$$<br>J(\theta) = -\frac{1}{T}\log L(\theta)\<del>\<br>J(\theta) = -\frac{1}{T}\sum_{t=1}^T\sum_{-m\leq j\leq m,j\neq0}\log p(w_{t+j}|w_t)<br>\</del>\~\\cfrac{\partial}{\partial \vec{v_c}}\log p(o|c)=\cfrac{\partial}{\partial \vec{v_c}}\log \cfrac{\exp(\vec{u_o^\top}\cdot \vec{v_c})}{\sum_{w=1}^V\exp(\vec{u_w^\top}\cdot \vec{v_c})}\</p>
+<li><p>Derivative of Objective Function<br>$$<br>J(\theta) = -\frac{1}{T}\log L(\theta)\~\\<br>J(\theta) = -\frac{1}{T}\sum<em>{t=1}^T\sum</em>{-m\leq j\leq m,j\neq0}\log p(w<em>{t+j}|w_t)<br>\~\~\\\cfrac{\partial}{\partial \vec{v_c}}\log p(o|c)=\cfrac{\partial}{\partial \vec{v_c}}\log \cfrac{\exp(\vec{u_o^\top}\cdot \vec{v_c})}{\sum</em>{w=1}^V\exp(\vec{u_w^\top}\cdot \vec{v_c})}\\</p>
 </li>
 </ul>
 </li>
@@ -222,9 +224,9 @@
 \cfrac{\partial}{\partial \vec{v_c}}
 J(\theta) = -\frac{1}{T}\sum_{t=1}^T\sum_{-m\leq j\leq m,j\neq0}\cfrac{\partial}{\partial \vec{v_c}}\log p(w_{t+j}|w_t)\\
 =-\frac{1}{T}\sum_{t=1}^T\sum_{-m\leq j\leq m,j\neq0}(\vec{u_{w_{t+j}}}-\sum_{x=1}^VP(x|w_t)\ \vec{u_x})
-$$</code></pre><p>$$</p>
-<p>$$</p>
-<p>​                            -&gt; 각 word vector의 weighted average    </p>
+$$
+</code></pre><script type="math/tex; mode=display">
+</script><p>​                            -&gt; 각 word vector의 weighted average    </p>
 <p>​                            -&gt; 우리 모델이 expect 하는 context word</p>
 <ul>
 <li>Vector Composition<ul>
@@ -250,7 +252,7 @@ $$</code></pre><p>$$</p>
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2019/10/05/cs224n-Lecture01/" data-id="ck1d85dv500007kv04d35jch6" class="article-share-link">
+      <a data-url="https://purumir.github.io/2019/10/05/cs224n-Lecture01/" data-id="ck1d8qq0u000050v01j905c7z" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -315,7 +317,7 @@ $$</code></pre><p>$$</p>
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2019/09/29/리더십-관리-기술/" data-id="ck1d85dvc00017kv0r679qpk5" class="article-share-link">
+      <a data-url="https://purumir.github.io/2019/09/29/리더십-관리-기술/" data-id="ck1d8qq13000150v06hhxcyn1" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -421,5 +423,21 @@ If you are curious about me, contact me <a href="mailto:typenew96@naver.com">[Ma
 
 <script src="/js/script.js"></script>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!--script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script-->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
 </body>
 </html>
