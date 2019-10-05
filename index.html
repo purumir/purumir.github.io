@@ -211,33 +211,11 @@ P(o|c) = \cfrac{\exp({\vec{u}_o^\top\vec{v}_c})}{\sum_{w\in V}\exp({\vec{u}_w^\t
 <li><p>크기 d-dim <em> 2</em>V-length (word vector이 context, center 두개가 있으므로)</p>
 </li>
 <li><p>Derivative of Objective Function</p>
-</li>
-<li></li>
-<li><script type="math/tex; mode=display">
+<script type="math/tex; mode=display">
 J(\theta) = -\frac{1}{T}\log L(\theta)</script></li>
 </ul>
 </li>
 </ul>
-<ul>
-<li>$$<br>J(\theta) = -\frac{1}{T}\log L(\theta)\~\\</li>
-</ul>
-<pre><code>J(\theta) = -\frac{1}{T}\sum_{t=1}^T\sum_{-m\leq j\leq m,j\neq0}\log p(w_{t+j}|w_t)
-\\~\\~\\\cfrac{\partial}{\partial \vec{v_c}}\log p(o|c)=\cfrac{\partial}{\partial \vec{v_c}}\log \cfrac{\exp(\vec{u_o^\top}\cdot \vec{v_c})}{\sum_{w=1}^V\exp(\vec{u_w^\top}\cdot \vec{v_c})}\\
-
-
-=\vec{u_o}-\cfrac{\partial}{\partial \vec{v_c}}\log\sum_{w=1}^V\exp(\vec{u_w^\top}\cdot \vec{v_c})
-= \vec{u_o}-\sum_{x=1}^V\cfrac{\exp(\vec{u_x^\top}\cdot \vec{v_c})}{\sum_{w=1}^V\exp(\vec{u_w^\top}\cdot \vec{v_c})}\vec{u_x}
-
-=\vec{u_o}-\sum_{x=1}^VP(x|c)\ \vec{u_x}
-
-\\~\\~\\
-\cfrac{\partial}{\partial \vec{v_c}}
-J(\theta) = -\frac{1}{T}\sum_{t=1}^T\sum_{-m\leq j\leq m,j\neq0}\cfrac{\partial}{\partial \vec{v_c}}\log p(w_{t+j}|w_t)\\
-=-\frac{1}{T}\sum_{t=1}^T\sum_{-m\leq j\leq m,j\neq0}(\vec{u_{w_{t+j}}}-\sum_{x=1}^VP(x|w_t)\ \vec{u_x})
-$$
-</code></pre><script type="math/tex; mode=display">
-</script><p>​                            -&gt; 각 word vector의 weighted average    </p>
-<p>​                            -&gt; 우리 모델이 expect 하는 context word</p>
 <ul>
 <li>Vector Composition<ul>
 <li>이렇게 만들어진 Word Vector들은 Vector Composition 가능</li>
@@ -262,7 +240,7 @@ $$
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2019/10/05/cs224n-Lecture01/" data-id="ck1d9044q0000jcv08p6wj7ks" class="article-share-link">
+      <a data-url="https://purumir.github.io/2019/10/05/cs224n-Lecture01/" data-id="ck1d94j1n00001gv0sk5h36do" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -327,7 +305,7 @@ $$
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2019/09/29/리더십-관리-기술/" data-id="ck1d9044v0001jcv0vqmqi6el" class="article-share-link">
+      <a data-url="https://purumir.github.io/2019/09/29/리더십-관리-기술/" data-id="ck1d94j23000b1gv07q8ps9bh" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -433,21 +411,5 @@ If you are curious about me, contact me <a href="mailto:typenew96@naver.com">[Ma
 
 <script src="/js/script.js"></script>
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<!--script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script-->
-<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
 </body>
 </html>
