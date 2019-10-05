@@ -210,12 +210,22 @@ P(o|c) = \cfrac{\exp({\vec{u}_o^\top\vec{v}_c})}{\sum_{w\in V}\exp({\vec{u}_w^\t
 </li>
 <li><p>크기 d-dim <em> 2</em>V-length (word vector이 context, center 두개가 있으므로)</p>
 </li>
-<li><p>Derivative of Objective Function<br>$$<br>J(\theta) = -\frac{1}{T}\log L(\theta)\~\\<br>J(\theta) = -\frac{1}{T}\sum<em>{t=1}^T\sum</em>{-m\leq j\leq m,j\neq0}\log p(w<em>{t+j}|w_t)<br>\~\~\\\cfrac{\partial}{\partial \vec{v_c}}\log p(o|c)=\cfrac{\partial}{\partial \vec{v_c}}\log \cfrac{\exp(\vec{u_o^\top}\cdot \vec{v_c})}{\sum</em>{w=1}^V\exp(\vec{u_w^\top}\cdot \vec{v_c})}\\</p>
+<li><p>Derivative of Objective Function</p>
 </li>
+<li></li>
+<li><script type="math/tex; mode=display">
+J(\theta) = -\frac{1}{T}\log L(\theta)</script></li>
 </ul>
 </li>
 </ul>
-<pre><code>=\vec{u_o}-\cfrac{\partial}{\partial \vec{v_c}}\log\sum_{w=1}^V\exp(\vec{u_w^\top}\cdot \vec{v_c})
+<ul>
+<li>$$<br>J(\theta) = -\frac{1}{T}\log L(\theta)\~\\</li>
+</ul>
+<pre><code>J(\theta) = -\frac{1}{T}\sum_{t=1}^T\sum_{-m\leq j\leq m,j\neq0}\log p(w_{t+j}|w_t)
+\\~\\~\\\cfrac{\partial}{\partial \vec{v_c}}\log p(o|c)=\cfrac{\partial}{\partial \vec{v_c}}\log \cfrac{\exp(\vec{u_o^\top}\cdot \vec{v_c})}{\sum_{w=1}^V\exp(\vec{u_w^\top}\cdot \vec{v_c})}\\
+
+
+=\vec{u_o}-\cfrac{\partial}{\partial \vec{v_c}}\log\sum_{w=1}^V\exp(\vec{u_w^\top}\cdot \vec{v_c})
 = \vec{u_o}-\sum_{x=1}^V\cfrac{\exp(\vec{u_x^\top}\cdot \vec{v_c})}{\sum_{w=1}^V\exp(\vec{u_w^\top}\cdot \vec{v_c})}\vec{u_x}
 
 =\vec{u_o}-\sum_{x=1}^VP(x|c)\ \vec{u_x}
@@ -252,7 +262,7 @@ $$
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2019/10/05/cs224n-Lecture01/" data-id="ck1d8qq0u000050v01j905c7z" class="article-share-link">
+      <a data-url="https://purumir.github.io/2019/10/05/cs224n-Lecture01/" data-id="ck1d9044q0000jcv08p6wj7ks" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -317,7 +327,7 @@ $$
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2019/09/29/리더십-관리-기술/" data-id="ck1d8qq13000150v06hhxcyn1" class="article-share-link">
+      <a data-url="https://purumir.github.io/2019/09/29/리더십-관리-기술/" data-id="ck1d9044v0001jcv0vqmqi6el" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
