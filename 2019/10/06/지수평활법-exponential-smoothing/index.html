@@ -5,19 +5,20 @@
   
   <title>지수평활법(exponential smoothing) | Purumir&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="시계열(timeseries) 데이터 구성 요소시계열 데이터는 ‘추세변동’, ‘순환변동’, ‘계절변동’,’우연변동’ 같은 구성요소를 가진다.   추세변동(Trend) 시계열 데이터의 방향성     순환변동(Cycle) 시계열 데이터의 진폭을 동반한 데이터의 fluctuation  계절변동(seasonal variations) 4계절을 기준으로 각 계절에서 데">
+  <meta name="description" content="시계열(timeseries) 데이터 구성 요소시계열 데이터는 ‘추세변동’, ‘순환변동’, ‘계절변동’,’우연변동’ 같은 구성요소를 가진다.   추세변동(Trend) 시계열 데이터의 방향성   순환변동(Cycle) 시계열 데이터의 진폭을 동반한 데이터의 fluctuation  계절변동(seasonal variations) 4계절을 기준으로 각 계절에서 데이터">
 <meta name="keywords" content="machine learning,timeseries,시계열,지수평활법,exponential smoothing">
 <meta property="og:type" content="article">
 <meta property="og:title" content="지수평활법(exponential smoothing)">
 <meta property="og:url" content="https://purumir.github.io/2019/10/06/지수평활법-exponential-smoothing/index.html">
 <meta property="og:site_name" content="Purumir&#39;s Blog">
-<meta property="og:description" content="시계열(timeseries) 데이터 구성 요소시계열 데이터는 ‘추세변동’, ‘순환변동’, ‘계절변동’,’우연변동’ 같은 구성요소를 가진다.   추세변동(Trend) 시계열 데이터의 방향성     순환변동(Cycle) 시계열 데이터의 진폭을 동반한 데이터의 fluctuation  계절변동(seasonal variations) 4계절을 기준으로 각 계절에서 데">
+<meta property="og:description" content="시계열(timeseries) 데이터 구성 요소시계열 데이터는 ‘추세변동’, ‘순환변동’, ‘계절변동’,’우연변동’ 같은 구성요소를 가진다.   추세변동(Trend) 시계열 데이터의 방향성   순환변동(Cycle) 시계열 데이터의 진폭을 동반한 데이터의 fluctuation  계절변동(seasonal variations) 4계절을 기준으로 각 계절에서 데이터">
 <meta property="og:locale" content="ko">
 <meta property="og:image" content="https://purumir.github.io/images/machine_learning/exponential_smoothing_trend_graph_20191006_230610.jpg">
-<meta property="og:updated_time" content="2019-10-06T14:30:37.189Z">
+<meta property="og:image" content="https://purumir.github.io/images/machine_learning/exponential_smoothing_seasonal_variation_20191006_233230.jpg">
+<meta property="og:updated_time" content="2019-10-06T14:34:28.938Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="지수평활법(exponential smoothing)">
-<meta name="twitter:description" content="시계열(timeseries) 데이터 구성 요소시계열 데이터는 ‘추세변동’, ‘순환변동’, ‘계절변동’,’우연변동’ 같은 구성요소를 가진다.   추세변동(Trend) 시계열 데이터의 방향성     순환변동(Cycle) 시계열 데이터의 진폭을 동반한 데이터의 fluctuation  계절변동(seasonal variations) 4계절을 기준으로 각 계절에서 데">
+<meta name="twitter:description" content="시계열(timeseries) 데이터 구성 요소시계열 데이터는 ‘추세변동’, ‘순환변동’, ‘계절변동’,’우연변동’ 같은 구성요소를 가진다.   추세변동(Trend) 시계열 데이터의 방향성   순환변동(Cycle) 시계열 데이터의 진폭을 동반한 데이터의 fluctuation  계절변동(seasonal variations) 4계절을 기준으로 각 계절에서 데이터">
 <meta name="twitter:image" content="https://purumir.github.io/images/machine_learning/exponential_smoothing_trend_graph_20191006_230610.jpg">
   
     <link rel="alternate" href="/atom.xml" title="Purumir&#39;s Blog" type="application/atom+xml">
@@ -119,13 +120,12 @@
 <p>시계열 데이터의 방향성</p>
 <p><img src="/images/machine_learning/exponential_smoothing_trend_graph_20191006_230610.jpg" alt></p>
 </li>
-</ul>
-<ul>
 <li><p>순환변동(Cycle)</p>
 <p>시계열 데이터의 진폭을 동반한 데이터의 fluctuation</p>
 </li>
 <li><p>계절변동(seasonal variations)</p>
 <p>4계절을 기준으로 각 계절에서 데이터의 fluctuation</p>
+<p><img src="/images/machine_learning/exponential_smoothing_seasonal_variation_20191006_233230.jpg" alt></p>
 </li>
 <li><p>우연변동(random movement)</p>
 <p>특별한 사유없이 갑작스러운 데이터의 fluctuation</p>
@@ -141,7 +141,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2019/10/06/지수평활법-exponential-smoothing/" data-id="ck1f30o6h0004a8v06x4wndey" class="article-share-link">
+      <a data-url="https://purumir.github.io/2019/10/06/지수평활법-exponential-smoothing/" data-id="ck1f38hd600049cv06b54zqv9" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
