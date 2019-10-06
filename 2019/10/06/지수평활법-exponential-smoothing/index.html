@@ -5,18 +5,20 @@
   
   <title>지수평활법(exponential smoothing) | Purumir&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="시계열(timeseries) 데이터 구성 요소 추세변동(Trend) ![](/images/machine_learning/exponential_smoothing_trend_graph_20191006_230610.jpg)   순환변동(Cycle)  계절변동(seasonal variations)  우연변동(random movement)">
+  <meta name="description" content="시계열(timeseries) 데이터 구성 요소 추세변동(Trend)     순환변동(Cycle)  계절변동(seasonal variations)  우연변동(random movement)">
 <meta name="keywords" content="machine learning,timeseries,시계열,지수평활법,exponential smoothing">
 <meta property="og:type" content="article">
 <meta property="og:title" content="지수평활법(exponential smoothing)">
 <meta property="og:url" content="https://purumir.github.io/2019/10/06/지수평활법-exponential-smoothing/index.html">
 <meta property="og:site_name" content="Purumir&#39;s Blog">
-<meta property="og:description" content="시계열(timeseries) 데이터 구성 요소 추세변동(Trend) ![](/images/machine_learning/exponential_smoothing_trend_graph_20191006_230610.jpg)   순환변동(Cycle)  계절변동(seasonal variations)  우연변동(random movement)">
+<meta property="og:description" content="시계열(timeseries) 데이터 구성 요소 추세변동(Trend)     순환변동(Cycle)  계절변동(seasonal variations)  우연변동(random movement)">
 <meta property="og:locale" content="ko">
-<meta property="og:updated_time" content="2019-10-06T14:10:52.950Z">
+<meta property="og:image" content="https://purumir.github.io/images/machine_learning/exponential_smoothing_trend_graph_20191006_230610.jpg">
+<meta property="og:updated_time" content="2019-10-06T14:13:13.819Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="지수평활법(exponential smoothing)">
-<meta name="twitter:description" content="시계열(timeseries) 데이터 구성 요소 추세변동(Trend) ![](/images/machine_learning/exponential_smoothing_trend_graph_20191006_230610.jpg)   순환변동(Cycle)  계절변동(seasonal variations)  우연변동(random movement)">
+<meta name="twitter:description" content="시계열(timeseries) 데이터 구성 요소 추세변동(Trend)     순환변동(Cycle)  계절변동(seasonal variations)  우연변동(random movement)">
+<meta name="twitter:image" content="https://purumir.github.io/images/machine_learning/exponential_smoothing_trend_graph_20191006_230610.jpg">
   
     <link rel="alternate" href="/atom.xml" title="Purumir&#39;s Blog" type="application/atom+xml">
   
@@ -112,8 +114,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="시계열-timeseries-데이터-구성-요소"><a href="#시계열-timeseries-데이터-구성-요소" class="headerlink" title="시계열(timeseries) 데이터 구성 요소"></a>시계열(timeseries) 데이터 구성 요소</h3><ul>
-<li>추세변동(Trend)<script type="math/tex; mode=display">
-![](/images/machine_learning/exponential_smoothing_trend_graph_20191006_230610.jpg)</script></li>
+<li><p>추세변동(Trend)</p>
+<p><img src="/images/machine_learning/exponential_smoothing_trend_graph_20191006_230610.jpg" alt></p>
+</li>
 </ul>
 <ul>
 <li><p>순환변동(Cycle)</p>
@@ -133,7 +136,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2019/10/06/지수평활법-exponential-smoothing/" data-id="ck1f2du450004nov0inc3jh7b" class="article-share-link">
+      <a data-url="https://purumir.github.io/2019/10/06/지수평활법-exponential-smoothing/" data-id="ck1f2gtqy0000i4v0uw2as370" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -254,5 +257,21 @@ If you are curious about me, contact me <a href="mailto:typenew96@naver.com">[Ma
 
 <script src="/js/script.js"></script>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!--script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script-->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
 </body>
 </html>
