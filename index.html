@@ -136,12 +136,12 @@
 <p>과거(past) 시점의 일정기간(N)의 평균으로 다음 시점을 예측하는 방법으로 과거 정보의 평균만으로 미래를 예측하기 때문에 정확도가 높다고 보기 어려운 평활법입니다.</p>
 <p>smoothing을 위한 절차는 다음과 같습니다.</p>
 <p>1) 일정기간(N)을 결정</p>
-<p>2) 과거 일정기간(N) 동안 데이터를 평균치를 계산</p>
+<p>2) 과거 일정기간(N) 동안 데이터 평균치를 계산</p>
+<p>3) 예측(Predict)</p>
 </li>
 </ul>
 <script type="math/tex; mode=display">
-  {L}_t = ({D}_t + {D}_{t-1} + ....+ {D}_{t-N+1})/ N</script><p>  3) 예측(Predict)</p>
-<ul>
+  {L}_t = ({D}_t + {D}_{t-1} + ....+ {D}_{t-N+1})/ N</script><ul>
 <li>지수평활법<ul>
 <li>단순지수 평활법(Simple Exponential Smoothing)</li>
 <li>이중지수 평활법(Double Exponential Smoonthing)</li>
@@ -159,7 +159,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2019/10/06/지수평활법-exponential-smoothing/" data-id="ck1hzn8ch0004zov0inq8dep9" class="article-share-link">
+      <a data-url="https://purumir.github.io/2019/10/06/지수평활법-exponential-smoothing/" data-id="ck1hzpjeh0000mgv0lkdntzjo" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -333,7 +333,7 @@ J(\theta) = -\frac{1}{T}\log L(\theta)</script></li>
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2019/10/05/cs224n-Lecture01/" data-id="ck1hzn8c70000zov07ikl2opi" class="article-share-link">
+      <a data-url="https://purumir.github.io/2019/10/05/cs224n-Lecture01/" data-id="ck1hzpjep0001mgv0mgzzjrhp" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -398,7 +398,7 @@ J(\theta) = -\frac{1}{T}\log L(\theta)</script></li>
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2019/09/29/리더십-관리-기술/" data-id="ck1hzn8cc0001zov0rk3hjixv" class="article-share-link">
+      <a data-url="https://purumir.github.io/2019/09/29/리더십-관리-기술/" data-id="ck1hzpjfc000smgv0ipchk23z" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -508,5 +508,21 @@ If you are curious about me, contact me <a href="mailto:typenew96@naver.com">[Ma
 
 <script src="/js/script.js"></script>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!--script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script-->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
 </body>
 </html>
