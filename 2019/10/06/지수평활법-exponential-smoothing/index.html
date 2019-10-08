@@ -16,7 +16,7 @@
 <meta property="og:image" content="https://purumir.github.io/images/machine_learning/exponential_smoothing_trend_with_seasonal_variation_20191006_233859.jpg">
 <meta property="og:image" content="https://purumir.github.io/images/machine_learning/exponential_smoothing_seasonal_variation_20191006_233230.jpg">
 <meta property="og:image" content="https://purumir.github.io/images/machine_learning/exponential_smoothing_trend_graph_20191006_230610.jpg">
-<meta property="og:updated_time" content="2019-10-08T14:46:48.977Z">
+<meta property="og:updated_time" content="2019-10-08T15:07:12.723Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="지수평활법(exponential smoothing)">
 <meta name="twitter:description" content="시계열(timeseries) 데이터 구성 요소시계열 데이터는 ‘추세변동’, ‘순환변동’, ‘계절변동’,’우연변동’ 같은 구성요소를 가집니다.  추세변동(Trend) 시계열 데이터의 방향성   순환변동(Cycle) 시계열 데이터의 진폭을 동반한 데이터의 fluctuation  계절변동(seasonal variations) 4계절을 기준으로 각 계절에서 데이터">
@@ -140,11 +140,12 @@
 <p>smoothing을 위한 절차는 다음과 같습니다.</p>
 <p>1) 일정기간(N)을 결정</p>
 <p>2) 과거 일정기간(N) 동안 데이터를 평균치를 계산</p>
-<script type="math/tex; mode=display">
-{L}_t = ({D}_t + {D}_{t-1} + ....+ {D}_{t-N+1})/ N</script><p>3) 예측(Predict)</p>
 </li>
-<li><p>지수평활법</p>
+</ul>
+<script type="math/tex; mode=display">
+  {L}_t = ({D}_t + {D}_{t-1} + ....+ {D}_{t-N+1})/ N</script><p>  3) 예측(Predict)</p>
 <ul>
+<li>지수평활법<ul>
 <li>단순지수 평활법(Simple Exponential Smoothing)</li>
 <li>이중지수 평활법(Double Exponential Smoonthing)</li>
 <li>홀트-윈터 지수 평활법(Holt-Winter Exponential Smoothing) </li>
@@ -161,7 +162,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2019/10/06/지수평활법-exponential-smoothing/" data-id="ck1hyjq7v0001x4v00vqmco22" class="article-share-link">
+      <a data-url="https://purumir.github.io/2019/10/06/지수평활법-exponential-smoothing/" data-id="ck1hza17l000s2kv078xwlt77" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -282,5 +283,21 @@ If you are curious about me, contact me <a href="mailto:typenew96@naver.com">[Ma
 
 <script src="/js/script.js"></script>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!--script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script-->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
 </body>
 </html>
