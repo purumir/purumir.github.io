@@ -3,19 +3,24 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
-  <title>Tag: timeseries | Purumir&#39;s Blog</title>
+  <title>구간평균법, 지수평활법(exponential smoothing) | Purumir&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="This blog contains the items about machine learning, sw architect, management and my favorites.">
-<meta name="keywords" content="machine learning, sw architecture, management, favorites">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Purumir&#39;s Blog">
-<meta property="og:url" content="https://purumir.github.io/tags/timeseries/index.html">
+  <meta name="description" content="시계열(timeseries) 데이터 구성 요소시계열 데이터는 ‘추세변동’, ‘순환변동’, ‘계절변동’,’우연변동’ 같은 구성요소를 가집니다.  추세변동(Trend) 시계열 데이터의 방향성   순환변동(Cycle) 시계열 데이터의 진폭을 동반한 데이터의 fluctuation  계절변동(seasonal variations) 4계절을 기준으로 각 계절에서 데이터">
+<meta name="keywords" content="machine learning,timeseries,시계열,구간평균법,지수평활법,exponential smoothing">
+<meta property="og:type" content="article">
+<meta property="og:title" content="구간평균법, 지수평활법(exponential smoothing)">
+<meta property="og:url" content="https://purumir.github.io/2019/10/06/구간평균법-지수평활법-exponential-smoothing/index.html">
 <meta property="og:site_name" content="Purumir&#39;s Blog">
-<meta property="og:description" content="This blog contains the items about machine learning, sw architect, management and my favorites.">
+<meta property="og:description" content="시계열(timeseries) 데이터 구성 요소시계열 데이터는 ‘추세변동’, ‘순환변동’, ‘계절변동’,’우연변동’ 같은 구성요소를 가집니다.  추세변동(Trend) 시계열 데이터의 방향성   순환변동(Cycle) 시계열 데이터의 진폭을 동반한 데이터의 fluctuation  계절변동(seasonal variations) 4계절을 기준으로 각 계절에서 데이터">
 <meta property="og:locale" content="ko">
+<meta property="og:image" content="https://purumir.github.io/images/machine_learning/exponential_smoothing_trend_with_seasonal_variation_20191006_233859.jpg">
+<meta property="og:image" content="https://purumir.github.io/images/machine_learning/exponential_smoothing_seasonal_variation_20191006_233230.jpg">
+<meta property="og:image" content="https://purumir.github.io/images/machine_learning/exponential_smoothing_trend_graph_20191006_230610.jpg">
+<meta property="og:updated_time" content="2019-10-09T05:51:12.063Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Purumir&#39;s Blog">
-<meta name="twitter:description" content="This blog contains the items about machine learning, sw architect, management and my favorites.">
+<meta name="twitter:title" content="구간평균법, 지수평활법(exponential smoothing)">
+<meta name="twitter:description" content="시계열(timeseries) 데이터 구성 요소시계열 데이터는 ‘추세변동’, ‘순환변동’, ‘계절변동’,’우연변동’ 같은 구성요소를 가집니다.  추세변동(Trend) 시계열 데이터의 방향성   순환변동(Cycle) 시계열 데이터의 진폭을 동반한 데이터의 fluctuation  계절변동(seasonal variations) 4계절을 기준으로 각 계절에서 데이터">
+<meta name="twitter:image" content="https://purumir.github.io/images/machine_learning/exponential_smoothing_trend_with_seasonal_variation_20191006_233859.jpg">
   
     <link rel="alternate" href="/atom.xml" title="Purumir&#39;s Blog" type="application/atom+xml">
   
@@ -80,40 +85,176 @@
 
     <div class="row">
         <div class="col-sm-8 blog-main">
-          
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <header class="archive-article-header">
+          <article id="post-구간평균법-지수평활법-exponential-smoothing" class="article article-type-post" itemscope itemprop="blogPost">
+
+  <header class="article-header">
     
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/06/구간평균법-지수평활법-exponential-smoothing/">구간평균법, 지수평활법(exponential smoothing)</a>
+    <h1 class="article-title" itemprop="name">
+      구간평균법, 지수평활법(exponential smoothing)
     </h1>
   
 
 
+  </header>
+
+  <div class="article-meta">
     <div class="article-datetime">
-  <a href="/2019/10/06/구간평균법-지수평활법-exponential-smoothing/" class="archive-article-date"><time datetime="2019-10-06T13:53:36.000Z" itemprop="datePublished">10월 6일</time></a>
+  <a href="/2019/10/06/구간평균법-지수평활법-exponential-smoothing/" class="article-date"><time datetime="2019-10-06T13:53:36.000Z" itemprop="datePublished">2019-10-06</time></a>
 </div>
 
-  </header>
-</article>
+    
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/machine-learning/">machine learning</a> / <a class="article-category-link" href="/categories/machine-learning/data-analytics/">data analytics</a>
+  </div>
+
+
+  </div>
+  <div class="article-inner">
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="시계열-timeseries-데이터-구성-요소"><a href="#시계열-timeseries-데이터-구성-요소" class="headerlink" title="시계열(timeseries) 데이터 구성 요소"></a>시계열(timeseries) 데이터 구성 요소</h3><p>시계열 데이터는 ‘추세변동’, ‘순환변동’, ‘계절변동’,’우연변동’ 같은 구성요소를 가집니다.</p>
+<ul>
+<li><p>추세변동(Trend)</p>
+<p>시계열 데이터의 방향성</p>
+<p><img src="/images/machine_learning/exponential_smoothing_trend_with_seasonal_variation_20191006_233859.jpg" alt></p>
+</li>
+<li><p>순환변동(Cycle)</p>
+<p>시계열 데이터의 진폭을 동반한 데이터의 fluctuation</p>
+</li>
+<li><p>계절변동(seasonal variations)</p>
+<p>4계절을 기준으로 각 계절에서 데이터의 fluctuation</p>
+<p><img src="/images/machine_learning/exponential_smoothing_seasonal_variation_20191006_233230.jpg" alt></p>
+</li>
+<li><p>우연변동(random movement)</p>
+<p>특별한 사유없이 갑작스러운 데이터의 fluctuation</p>
+<p><img src="/images/machine_learning/exponential_smoothing_trend_graph_20191006_230610.jpg" alt></p>
+</li>
+</ul>
+<p></p><h3>시계열(timeseries) 데이터 Smoothing(평활법)</h3><br>시계열 데이터 평활법에는 ‘구간평균법’, ‘지수평활법’이 존재하며, ‘지수평활법’에는 ‘단순지수평활법’,’이중지수평활법’, ‘홀트-윈터지수평활법’이 존재합니다.<p></p>
+<ul>
+<li><p><strong>구간평균법</strong></p>
+<p>과거(past) 시점의 일정기간(N)의 평균으로 다음 시점을 예측하는 방법으로 과거 정보의 평균만으로 미래를 예측하기 때문에 정확도가 높다고 보기 어려운 평활법입니다.</p>
+<p>smoothing을 위한 절차는 다음과 같습니다.</p>
+<p>1) 일정기간(N)을 결정</p>
+<p>2) 과거 일정기간(N) 동안 데이터 평균치를 계산</p>
+<script type="math/tex; mode=display">
+{L}_t = ({D}_t + {D}_{t-1} + ....+ {D}_{t-N+1})/ N</script><p>3) 예측(Predict)</p>
+<script type="math/tex; mode=display">
+{F}_{t+1} = \frac{1}{n}\sum_{i=t-n+1}^{t}D_{i}</script><p>구간지수 평활법 사례는 아래와 같습니다. N=3으로 할경우 다음과 같은 구간 평균치와 예측값을     구할수 있습니다.  </p>
+<p>일종의 moving average형태라고 할 수 있습니다.</p>
+<p>구간평균법은 과거 <strong>모든 데이터에 대해서 동일한 가중치</strong>를 주기 때문에 <strong>미래의 예측값이 모두 동일하게 되는 한계</strong>를 가집니다. 그리고 <strong>N을 작게 설정할 경우 최근 데이터의 경향을 많이 반영</strong>하게 되고, <strong>N을 크게 설정할 경우 과거 데이터의 경향을 많이 반영</strong>하게 되어 smoothing하게 예측하게 됩니다.</p>
+</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">timestep</th>
+<th>dataset</th>
+<th>구간평균치</th>
+<th>예측값</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">0</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td>10</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td>20</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td>30</td>
+<td>20<br>=(10+20+30)/3</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td>40</td>
+<td>63.3<br>=(20+30+40)/3</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td>50</td>
+<td>86.7<br>=(30+40+50)/3</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td></td>
+<td></td>
+<td>86.7<br>(마지막 레벨 계산값이 예측치)</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td></td>
+<td></td>
+<td>86.7</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li><strong>지수평활법</strong><ul>
+<li>단순지수 평활법(Simple Exponential Smoothing)</li>
+<li>이중지수 평활법(Double Exponential Smoonthing)</li>
+<li>홀트-윈터 지수 평활법(Holt-Winter Exponential Smoothing) </li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+      
+
+    
+
+    <footer class="article-footer">
+      <a data-url="https://purumir.github.io/2019/10/06/구간평균법-지수평활법-exponential-smoothing/" data-id="ck1izxb870001qsv03tyh6fjg" class="article-share-link">
+        <i class="fa fa-share"></i> Share
+      </a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/exponential-smoothing/">exponential smoothing</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/machine-learning/">machine learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/timeseries/">timeseries</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/구간평균법/">구간평균법</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/시계열/">시계열</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/지수평활법/">지수평활법</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+    
+<ul id="article-nav" class="nav nav-pills nav-justified">
+  
+  <li role="presentation">
+    <a href="/2019/10/05/cs224n-Lecture01/" id="article-nav-older" class="article-nav-link-wrap">
+      <i class="fa fa-chevron-left pull-left"></i>
+      <span class="article-nav-link-title">cs224n-Lecture01</span>
+    </a>
+  </li>
+  
+  
+</ul>
+
 
   
-  
-    </div></section>
-  
+</article>
 
 
 
