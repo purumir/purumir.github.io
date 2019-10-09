@@ -132,7 +132,7 @@
 </ul>
 <p></p><h3>시계열(timeseries) 데이터 Smoothing(평활법)</h3><br>시계열 데이터 평활법에는 ‘구간평균법’, ‘지수평활법’이 존재하며, ‘지수평활법’에는 ‘단순지수평활법’,’이중지수평활법’, ‘홀트-윈터지수평활법’이 존재합니다.<p></p>
 <ul>
-<li><p>구간평균법</p>
+<li><p><strong>구간평균법</strong></p>
 <p>과거(past) 시점의 일정기간(N)의 평균으로 다음 시점을 예측하는 방법으로 과거 정보의 평균만으로 미래를 예측하기 때문에 정확도가 높다고 보기 어려운 평활법입니다.</p>
 <p>smoothing을 위한 절차는 다음과 같습니다.</p>
 <p>1) 일정기간(N)을 결정</p>
@@ -142,9 +142,9 @@
 <script type="math/tex; mode=display">
 {F}_{t+1} = \frac{1}{n}\sum_{i=t-n+1}^{t}D_{i}</script><p>구간지수 평활법 사례는 아래와 같습니다. N=3으로 할경우 다음과 같은 구간 평균치와 예측값을     구할수 있습니다.  </p>
 <p>일종의 moving average형태라고 할 수 있습니다.</p>
+<p>구간평균법은 과거 <strong>모든 데이터에 대해서 동일한 가중치</strong>를 주기 때문에 <strong>미래의 예측값이 모두 동일하게 되는 한계</strong>를 가집니다. 그리고 <strong>N을 작게 설정할 경우 최근 데이터의 경향을 많이 반영</strong>하게 되고, <strong>N을 크게 설정할 경우 과거 데이터의 경향을 많이 반영</strong>하게 되어 smoothing하게 예측하게 됩니다.</p>
 </li>
 </ul>
-<p>  구간평균법은 과거 모든 데이터에 대해서 동일한 가중치를 주기 때문에 미래의 예측값이 모두 동일하게 되는 한계를 가집니다. 그리고 N을 작게 설정할 경우 최근 데이터의 경향을 많이 반영하게 되고, N을 크게 설정할 경우 과거 데이터의 경향을 많이 반영하게 되어 smoothing하게 예측하게 됩니다.</p>
 <div class="table-container">
 <table>
 <thead>
@@ -208,7 +208,7 @@
 </table>
 </div>
 <ul>
-<li>지수평활법<ul>
+<li><strong>지수평활법</strong><ul>
 <li>단순지수 평활법(Simple Exponential Smoothing)</li>
 <li>이중지수 평활법(Double Exponential Smoonthing)</li>
 <li>홀트-윈터 지수 평활법(Holt-Winter Exponential Smoothing) </li>
@@ -225,7 +225,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2019/10/06/지수평활법-exponential-smoothing/" data-id="ck1iuqasg0001ssv0nuw8vvn5" class="article-share-link">
+      <a data-url="https://purumir.github.io/2019/10/06/지수평활법-exponential-smoothing/" data-id="ck1iuuu040001csv0nwo27sas" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -399,7 +399,7 @@ J(\theta) = -\frac{1}{T}\log L(\theta)</script></li>
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2019/10/05/cs224n-Lecture01/" data-id="ck1iuqas80000ssv072dsfsbw" class="article-share-link">
+      <a data-url="https://purumir.github.io/2019/10/05/cs224n-Lecture01/" data-id="ck1iuutzs0000csv0xbf5ydvq" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -464,7 +464,7 @@ J(\theta) = -\frac{1}{T}\log L(\theta)</script></li>
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2019/09/29/리더십-관리-기술/" data-id="ck1iuqasm0004ssv0tyvjykg3" class="article-share-link">
+      <a data-url="https://purumir.github.io/2019/09/29/리더십-관리-기술/" data-id="ck1iuuu0f0004csv0s9m4m203" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
