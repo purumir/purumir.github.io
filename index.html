@@ -207,6 +207,7 @@
 </tbody>
 </table>
 </div>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">import pandas as pd</span><br><span class="line"></span><br><span class="line">df = pd.DataFrame(&#123;&apos;dataset&apos;: [0, 10, 20, 30, 40, 50]&#125;,columns=[&apos;dataset&apos;])</span><br><span class="line"></span><br><span class="line">def moving_avg(dframe, t, n=3):</span><br><span class="line">  predict = (1/n)*sum(row[&apos;dataset&apos;] for i, row in dframe.iloc[(t-1)+1-n:t+1,:].iterrows())</span><br><span class="line">  return predict</span><br><span class="line">  </span><br><span class="line">moving_avg(df, 6 , n=3) # 40이 출력된다.</span><br></pre></td></tr></table></figure>
 <ul>
 <li><strong>지수평활법</strong><ul>
 <li>단순지수 평활법(Simple Exponential Smoothing)</li>
@@ -225,7 +226,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2019/10/06/지수평활법-exponential-smoothing/" data-id="ck1j1j1iq0001kcv0cnrgb1fc" class="article-share-link">
+      <a data-url="https://purumir.github.io/2019/10/06/지수평활법-exponential-smoothing/" data-id="ck1j1teoh000e80v07dc6j3eo" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -399,7 +400,7 @@ J(\theta) = -\frac{1}{T}\log L(\theta)</script></li>
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2019/10/05/cs224n-Lecture01/" data-id="ck1j1j1ik0000kcv0rsrs7dbf" class="article-share-link">
+      <a data-url="https://purumir.github.io/2019/10/05/cs224n-Lecture01/" data-id="ck1j1tenp000080v0uepcld3l" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -464,7 +465,7 @@ J(\theta) = -\frac{1}{T}\log L(\theta)</script></li>
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2019/09/29/리더십-관리-기술/" data-id="ck1j1j1iw0004kcv0gzi0ub1t" class="article-share-link">
+      <a data-url="https://purumir.github.io/2019/09/29/리더십-관리-기술/" data-id="ck1j1teof000d80v0avxxxid8" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
