@@ -207,7 +207,7 @@
 </tbody>
 </table>
 </div>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">import pandas as pd</span><br><span class="line"></span><br><span class="line">df = pd.DataFrame(&#123;&apos;dataset&apos;: [0, 10, 20, 30, 40, 50]&#125;,columns=[&apos;dataset&apos;])</span><br><span class="line"></span><br><span class="line">def moving_avg(dframe, t, n=3):</span><br><span class="line">  predict = (1/n)*sum(row[&apos;dataset&apos;] for i, row in dframe.iloc[(t-1)+1-n:t+1,:].iterrows())</span><br><span class="line">  return predict</span><br><span class="line">  </span><br><span class="line">moving_avg(df, 6 , n=3) # 40이 출력된다.</span><br></pre></td></tr></table></figure>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line">df = pd.DataFrame(&#123;<span class="string">'dataset'</span>: [<span class="number">0</span>, <span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">40</span>, <span class="number">50</span>]&#125;,columns=[<span class="string">'dataset'</span>])</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">moving_avg</span><span class="params">(dframe, t, n=<span class="number">3</span>)</span>:</span></span><br><span class="line">  predict = (<span class="number">1</span>/n)*sum(row[<span class="string">'dataset'</span>] <span class="keyword">for</span> i, row <span class="keyword">in</span> dframe.iloc[(t<span class="number">-1</span>)+<span class="number">1</span>-n:t+<span class="number">1</span>,:].iterrows())</span><br><span class="line">  <span class="keyword">return</span> predict</span><br><span class="line">  </span><br><span class="line">moving_avg(df, <span class="number">6</span> , n=<span class="number">3</span>) <span class="comment"># 40이 출력된다.</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li><strong>지수평활법</strong><ul>
 <li>단순지수 평활법(Simple Exponential Smoothing)</li>
@@ -226,7 +226,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2019/10/06/지수평활법-exponential-smoothing/" data-id="ck1j1teoh000e80v07dc6j3eo" class="article-share-link">
+      <a data-url="https://purumir.github.io/2019/10/06/지수평활법-exponential-smoothing/" data-id="ck1j1urhj0004ycv0q7tufaec" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -400,7 +400,7 @@ J(\theta) = -\frac{1}{T}\log L(\theta)</script></li>
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2019/10/05/cs224n-Lecture01/" data-id="ck1j1tenp000080v0uepcld3l" class="article-share-link">
+      <a data-url="https://purumir.github.io/2019/10/05/cs224n-Lecture01/" data-id="ck1j1urh60000ycv0w8jn66ji" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -465,7 +465,7 @@ J(\theta) = -\frac{1}{T}\log L(\theta)</script></li>
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2019/09/29/리더십-관리-기술/" data-id="ck1j1teof000d80v0avxxxid8" class="article-share-link">
+      <a data-url="https://purumir.github.io/2019/09/29/리더십-관리-기술/" data-id="ck1j1urhd0001ycv08bv074t9" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
