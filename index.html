@@ -141,8 +141,72 @@
 <p>  2) 과거 일정기간(N) 동안 데이터 평균치를 계산</p>
 <script type="math/tex; mode=display">
   {L}_t = ({D}_t + {D}_{t-1} + ....+ {D}_{t-N+1})/ N</script><p>  3) 예측(Predict)</p>
-<p>  구간지수 평활법 사례는 아래와 같습니다. N=3으로 할경우 다음과 같은 구간 평균치와 예측값을     구할수 있습니다.      </p>
-<p>​       </p>
+<script type="math/tex; mode=display">
+  {F}_{t+1} = \frac{1}{n}\sum_{i=t-n+1}^{t}D_{i}</script><p>  구간지수 평활법 사례는 아래와 같습니다. N=3으로 할경우 다음과 같은 구간 평균치와 예측값을     구할수 있습니다.  (N=3으로 할 경우)    </p>
+<p>  일종의 moving average형태라고 할 수 있습니다.</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">timestep</th>
+<th>dataset</th>
+<th>구간평균치</th>
+<th>예측값</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">0</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td>10</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td>20</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td>30</td>
+<td>20=(10+20+30)/3</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td>40</td>
+<td>63.3=(20+30+40)/3</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td>50</td>
+<td>86.7=(30+40+50)/3</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td></td>
+<td></td>
+<td>86.7(마지막 레벨 계산값이 예측치)</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td></td>
+<td></td>
+<td>86.7</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>  구간평균법은 과거 모든 데이터에 대해서 동일한 가중치를 주기 때문에 미래의 예측값이 모두 동일하게 되는 한계를 가집니다. 그리고 N을 작게 설정할 경우 최근 데이터의 경향을 많이 반영하게 되고, N을 크게 설정할 경우 과거 데이터의 경향을 많이 반영하게 되어 smoothing하게 예측하게 됩니다.</p>
 <ul>
 <li>지수평활법<ul>
 <li>단순지수 평활법(Simple Exponential Smoothing)</li>
@@ -161,12 +225,12 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2019/10/06/지수평활법-exponential-smoothing/" data-id="ck1itpf1p00005kv0tcz6s2ua" class="article-share-link">
+      <a data-url="https://purumir.github.io/2019/10/06/지수평활법-exponential-smoothing/" data-id="ck1iud8rm0004o4v03js0mmxy" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/exponential-smoothing/">exponential smoothing</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/machine-learning/">machine learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/timeseries/">timeseries</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/시계열/">시계열</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/지수평활법/">지수평활법</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/exponential-smoothing/">exponential smoothing</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/machine-learning/">machine learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/timeseries/">timeseries</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/구간평균법/">구간평균법</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/시계열/">시계열</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/지수평활법/">지수평활법</a></li></ul>
 
 
     </footer>
@@ -335,7 +399,7 @@ J(\theta) = -\frac{1}{T}\log L(\theta)</script></li>
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2019/10/05/cs224n-Lecture01/" data-id="ck1itpf2600015kv0ama0ncba" class="article-share-link">
+      <a data-url="https://purumir.github.io/2019/10/05/cs224n-Lecture01/" data-id="ck1iud8r80000o4v0h2kvgm4d" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -400,7 +464,7 @@ J(\theta) = -\frac{1}{T}\log L(\theta)</script></li>
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2019/09/29/리더십-관리-기술/" data-id="ck1itpf2g00045kv082prhfbv" class="article-share-link">
+      <a data-url="https://purumir.github.io/2019/09/29/리더십-관리-기술/" data-id="ck1iud8rf0001o4v0x0kj0cg6" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -444,7 +508,7 @@ If you are curious about me, contact me <a href="mailto:typenew96@naver.com">[Ma
   
   <div class="sidebar-module">
     <h4>Tags</h4>
-    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/cs224n/">cs224n</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/decisionmakingskills/">decisionmakingskills</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/exponential-smoothing/">exponential smoothing</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/interpersonalskills/">interpersonalskills</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/leadership/">leadership</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/machine-learning/">machine learning</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/natural-language-processing/">natural language processing</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/professionalskills/">professionalskills</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/timeseries/">timeseries</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/word2vec/">word2vec</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/내가준비하고있는리더십/">내가준비하고있는리더십</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/리더십/">리더십</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/시계열/">시계열</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/지수평활법/">지수평활법</a><span class="sidebar-module-list-count">1</span></li></ul>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/cs224n/">cs224n</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/decisionmakingskills/">decisionmakingskills</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/exponential-smoothing/">exponential smoothing</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/interpersonalskills/">interpersonalskills</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/leadership/">leadership</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/machine-learning/">machine learning</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/natural-language-processing/">natural language processing</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/professionalskills/">professionalskills</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/timeseries/">timeseries</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/word2vec/">word2vec</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/구간평균법/">구간평균법</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/내가준비하고있는리더십/">내가준비하고있는리더십</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/리더십/">리더십</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/시계열/">시계열</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/지수평활법/">지수평활법</a><span class="sidebar-module-list-count">1</span></li></ul>
   </div>
 
 
@@ -453,7 +517,7 @@ If you are curious about me, contact me <a href="mailto:typenew96@naver.com">[Ma
   <div class="sidebar-module">
     <h4>Tag Cloud</h4>
     <p class="tagcloud">
-      <a href="/tags/cs224n/" style="font-size: 10px;">cs224n</a> <a href="/tags/decisionmakingskills/" style="font-size: 10px;">decisionmakingskills</a> <a href="/tags/exponential-smoothing/" style="font-size: 10px;">exponential smoothing</a> <a href="/tags/interpersonalskills/" style="font-size: 10px;">interpersonalskills</a> <a href="/tags/leadership/" style="font-size: 10px;">leadership</a> <a href="/tags/machine-learning/" style="font-size: 20px;">machine learning</a> <a href="/tags/natural-language-processing/" style="font-size: 10px;">natural language processing</a> <a href="/tags/professionalskills/" style="font-size: 10px;">professionalskills</a> <a href="/tags/timeseries/" style="font-size: 10px;">timeseries</a> <a href="/tags/word2vec/" style="font-size: 10px;">word2vec</a> <a href="/tags/내가준비하고있는리더십/" style="font-size: 10px;">내가준비하고있는리더십</a> <a href="/tags/리더십/" style="font-size: 10px;">리더십</a> <a href="/tags/시계열/" style="font-size: 10px;">시계열</a> <a href="/tags/지수평활법/" style="font-size: 10px;">지수평활법</a>
+      <a href="/tags/cs224n/" style="font-size: 10px;">cs224n</a> <a href="/tags/decisionmakingskills/" style="font-size: 10px;">decisionmakingskills</a> <a href="/tags/exponential-smoothing/" style="font-size: 10px;">exponential smoothing</a> <a href="/tags/interpersonalskills/" style="font-size: 10px;">interpersonalskills</a> <a href="/tags/leadership/" style="font-size: 10px;">leadership</a> <a href="/tags/machine-learning/" style="font-size: 20px;">machine learning</a> <a href="/tags/natural-language-processing/" style="font-size: 10px;">natural language processing</a> <a href="/tags/professionalskills/" style="font-size: 10px;">professionalskills</a> <a href="/tags/timeseries/" style="font-size: 10px;">timeseries</a> <a href="/tags/word2vec/" style="font-size: 10px;">word2vec</a> <a href="/tags/구간평균법/" style="font-size: 10px;">구간평균법</a> <a href="/tags/내가준비하고있는리더십/" style="font-size: 10px;">내가준비하고있는리더십</a> <a href="/tags/리더십/" style="font-size: 10px;">리더십</a> <a href="/tags/시계열/" style="font-size: 10px;">시계열</a> <a href="/tags/지수평활법/" style="font-size: 10px;">지수평활법</a>
     </p>
   </div>
 
