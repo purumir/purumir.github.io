@@ -113,14 +113,14 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="Moving-Average의-개념"><a href="#Moving-Average의-개념" class="headerlink" title="Moving Average의 개념"></a>Moving Average의 개념</h3><p>Moving Average의 개념은 지난 post에서 언급한 글(<a href="https://purumir.github.io/2019/10/06/지수평활법-exponential-smoothing/">https://purumir.github.io/2019/10/06/지수평활법-exponential-smoothing/</a> )의 내용을 참조하시기 바랍니다.</p>
-<h3 id="Moving-Average-1-수식유도"><a href="#Moving-Average-1-수식유도" class="headerlink" title="Moving Average(1) 수식유도"></a>Moving Average(1) 수식유도</h3><p>moving average의 수식은 아래와 같이 정의될 수 있습니다.</p>
+<h3 id="Moving-Average-1-수식유도"><a href="#Moving-Average-1-수식유도" class="headerlink" title="Moving Average(1) 수식유도"></a>Moving Average(1) 수식유도</h3><p>moving average(1)의 수식은 아래와 같이 정의될 수 있습니다.</p>
 <script type="math/tex; mode=display">
 {X}_{t} = {a}_{t} - {\theta}{a}_{t-1}\\
 특정한~시점(t, t-1)로~구간이~이동하면서~값이~변하는~수식입니다.</script><p>White Noise성 데이터는 다음과 같은 성질을 가집니다.</p>
 <script type="math/tex; mode=display">
 E({a}_{t}) = 0\\V({a}_{t})={\sigma{a}^2}\\
 Cov({a}_{t},{a}_{t}) = {\sigma{a}^2} / ~~X,Y가~독립적이면~Cov(X,Y)=0~/~Cov(aX, Y) = aCov(X,Y)\\\\
-Corr({a}_{t}, {a}_{s})=0, t!=s\\
+Corr({a}_{t}, {a}_{s})=0, t{\neq}s\\
 \\</script><p>Moving Average의 수식 전개는 아래와 같습니다.</p>
 <p>1) 기대값(Expectation) 전개</p>
 <script type="math/tex; mode=display">
@@ -135,10 +135,17 @@ Cov({x}_{t}, {x}_{t-h})=Cov({a}_{t}-{\theta}{a}_{t-1}, {a}_{t-h}-{\theta{a}_{t-h
 {\gamma}_{x}(h)~에~대한~전개\\
 
 h=0~일경우~~~\\
-Cov({x}_{t}, {x}_{t}) = Cov({a}_{t}, {a}_{t}) - {\theta}Cov({a}_{t-1}, {a}_{t}) - {\theta}Cov({a}_{t}, {a}_{t-1})+{\theta}^2Cov({a}_{t-1}, {a}_{t-1})\\={\sigma{a}^2}+ {\theta}^2{\sigma{a}^2} = (1+{\theta}^2){\sigma{a}^2}\\</script><script type="math/tex; mode=display">
-h=1~일경우~~~\\Cov({x}_{t}, {x}_{t-1}) = Cov({a}_{t}, {a}_{t-1}) -{\theta}Cov({a}_{t-1}, {a}_{t-1})-{\theta}Cov({a}_{t}, {a}_{t-2})+{\theta}^2Cov({a}_{t-1}, {a}_{t-2})=-{\theta}{\sigma{a}^2}</script><script type="math/tex; mode=display">
+{\gamma}_{x}(0)=Cov({x}_{t}, {x}_{t}) = Cov({a}_{t}, {a}_{t}) - {\theta}Cov({a}_{t-1}, {a}_{t}) - {\theta}Cov({a}_{t}, {a}_{t-1})+{\theta}^2Cov({a}_{t-1}, {a}_{t-1})\\={\sigma{a}^2}+ {\theta}^2{\sigma{a}^2} = (1+{\theta}^2){\sigma{a}^2}\\</script><script type="math/tex; mode=display">
+h=1~일경우~~~\\{\gamma}_{x}(1)=Cov({x}_{t}, {x}_{t-1}) = Cov({a}_{t}, {a}_{t-1}) -{\theta}Cov({a}_{t-1}, {a}_{t-1})-{\theta}Cov({a}_{t}, {a}_{t-2})+{\theta}^2Cov({a}_{t-1}, {a}_{t-2})=-{\theta}{\sigma{a}^2}</script><script type="math/tex; mode=display">
 h=2~일~경우\\
-Cov({x}_{t},{x}_{t-2})=Cov({a}_{t},{a}_{t-2})-{\theta}Cov({a}_{t-1}, {a}_{t-2})-{\theta}Cov({a}_{t},{a}_{t-2})+{\theta}^2Cov({a}_{t-1},{a}_{t-2}) = 0</script>
+{\gamma}_{x}(2)=Cov({x}_{t},{x}_{t-2})=Cov({a}_{t},{a}_{t-2})-{\theta}Cov({a}_{t-1}, {a}_{t-2})-{\theta}Cov({a}_{t},{a}_{t-2})+{\theta}^2Cov({a}_{t-1},{a}_{t-2}) = 0</script><p>5) 자기상관계수(Auto Correlation Function) 전개</p>
+<script type="math/tex; mode=display">
+{\rho}_{x}(h) = \frac{\gamma}{\gamma}</script><p>위 수식에 따라 다음과 같이 구할 수 있습니다.</p>
+<script type="math/tex; mode=display">
+</script><h3 id="Moving-Average-2-수식유도"><a href="#Moving-Average-2-수식유도" class="headerlink" title="Moving Average(2) 수식유도"></a>Moving Average(2) 수식유도</h3><p>moving average(2)의 수식은 아래와 같이 정의될 수 있습니다.</p>
+<script type="math/tex; mode=display">
+{X}_{t}={a}_{t}-{\theta}_{1}{a}_{t-1}-{\theta}_{2}{a}_{t-2}</script><p>​    </p>
+
       
     </div>
 
@@ -148,7 +155,7 @@ Cov({x}_{t},{x}_{t-2})=Cov({a}_{t},{a}_{t-2})-{\theta}Cov({a}_{t-1}, {a}_{t-2})-
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2019/10/21/Moving-Average-수식-유도/" data-id="ck1zs817a0001zov04840iafz" class="article-share-link">
+      <a data-url="https://purumir.github.io/2019/10/21/Moving-Average-수식-유도/" data-id="ck1zt10yx000424v0zru8lxq7" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -242,7 +249,7 @@ Cov({x}_{t},{x}_{t-2})=Cov({a}_{t},{a}_{t-2})-{\theta}Cov({a}_{t-1}, {a}_{t-2})-
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2019/10/20/Convolutional-Neural-Network-Part1/" data-id="ck1zs81720000zov08ibbp8u3" class="article-share-link">
+      <a data-url="https://purumir.github.io/2019/10/20/Convolutional-Neural-Network-Part1/" data-id="ck1zt10yd000024v0db6vbsa6" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -307,7 +314,7 @@ Cov({x}_{t},{x}_{t-2})=Cov({a}_{t},{a}_{t-2})-{\theta}Cov({a}_{t-1}, {a}_{t-2})-
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2019/10/17/chatbot-digital-transformation/" data-id="ck1zs817g0005zov08jzhogv7" class="article-share-link">
+      <a data-url="https://purumir.github.io/2019/10/17/chatbot-digital-transformation/" data-id="ck1zt10yp000124v073rsrj3a" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -448,7 +455,7 @@ Cov({x}_{t},{x}_{t-2})=Cov({a}_{t},{a}_{t-2})-{\theta}Cov({a}_{t-1}, {a}_{t-2})-
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2019/10/11/세종대왕의-리더십/" data-id="ck1zs818a001wzov0cnuyiz4v" class="article-share-link">
+      <a data-url="https://purumir.github.io/2019/10/11/세종대왕의-리더십/" data-id="ck1zt110g002a24v0klm9kg5j" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -610,7 +617,7 @@ Cov({x}_{t},{x}_{t-2})=Cov({a}_{t},{a}_{t-2})-{\theta}Cov({a}_{t-1}, {a}_{t-2})-
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2019/10/06/지수평활법-exponential-smoothing/" data-id="ck1zs8189001vzov0fcork626" class="article-share-link">
+      <a data-url="https://purumir.github.io/2019/10/06/지수평활법-exponential-smoothing/" data-id="ck1zt10z6000924v07ruvnvuq" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -784,7 +791,7 @@ J(\theta) = -\frac{1}{T}\log L(\theta)</script></li>
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2019/10/05/cs224n-Lecture01/" data-id="ck1zs817h0006zov09gdzxxil" class="article-share-link">
+      <a data-url="https://purumir.github.io/2019/10/05/cs224n-Lecture01/" data-id="ck1zt10z2000624v0dcnde8rb" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -852,7 +859,7 @@ J(\theta) = -\frac{1}{T}\log L(\theta)</script></li>
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2019/09/29/리더십-관리-기술/" data-id="ck1zs817f0004zov0utmrd6g1" class="article-share-link">
+      <a data-url="https://purumir.github.io/2019/09/29/리더십-관리-기술/" data-id="ck1zt10z0000524v01ssgur98" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
