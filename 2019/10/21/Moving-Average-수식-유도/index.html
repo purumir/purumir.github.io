@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="Purumir&#39;s Blog">
 <meta property="og:description" content="Moving Average의 개념Moving Average의 개념은 지난 post에서 언급한 글(https://purumir.github.io/2019/10/06/지수평활법-exponential-smoothing/ )의 내용을 참조하시기 바랍니다. Moving Average(1) 수식유도moving average(1)의 수식은 아래와 같이 정의될 수 있습니">
 <meta property="og:locale" content="ko">
-<meta property="og:updated_time" content="2019-10-21T06:26:45.590Z">
+<meta property="og:updated_time" content="2019-10-21T08:07:26.990Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Moving_Average_수식_유도">
 <meta name="twitter:description" content="Moving Average의 개념Moving Average의 개념은 지난 post에서 언급한 글(https://purumir.github.io/2019/10/06/지수평활법-exponential-smoothing/ )의 내용을 참조하시기 바랍니다. Moving Average(1) 수식유도moving average(1)의 수식은 아래와 같이 정의될 수 있습니">
@@ -141,6 +141,8 @@ h=1~일경우~~~\\{\gamma}_{x}(1)=Cov({x}_{t}, {x}_{t-1}) = Cov({a}_{t}, {a}_{t-
 h=2~일~경우\\
 {\gamma}_{x}(2)=Cov({x}_{t},{x}_{t-2})=Cov({a}_{t},{a}_{t-2})-{\theta}Cov({a}_{t-1}, {a}_{t-2})\\-{\theta}Cov({a}_{t},{a}_{t-2})+{\theta}^2Cov({a}_{t-1},{a}_{t-2}) = 0</script><p>5) 자기상관계수(Auto Correlation Function) 전개</p>
 <p>자기공분산(auto covariance function)을 통해서 자기상관계수(auto correlation function)을 구하게 됩니다.</p>
+<script type="math/tex; mode=display">
+{\rho}_{x}(h) = \frac{\gamma_{x}(h)}{\sqrt{\gamma_{x}(0)}\sqrt{\gamma_{x}(0)}}</script><hr>
 <h3 id="Moving-Average-2-수식유도"><a href="#Moving-Average-2-수식유도" class="headerlink" title="Moving Average(2) 수식유도"></a>Moving Average(2) 수식유도</h3><p> moving average(2)의 수식은 아래와 같이 정의될 수 있습니다. </p>
 <script type="math/tex; mode=display">
 {X}_{t}={a}_{t}-{\theta}_{1}{a}_{t-1}-{\theta}_{2}{a}_{t-2}</script>
@@ -153,7 +155,7 @@ h=2~일~경우\\
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2019/10/21/Moving-Average-수식-유도/" data-id="ck201ergz0001i8v01fqlgwu5" class="article-share-link">
+      <a data-url="https://purumir.github.io/2019/10/21/Moving-Average-수식-유도/" data-id="ck204axgk0004dcv0ngerw9vi" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
