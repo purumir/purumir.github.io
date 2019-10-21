@@ -124,7 +124,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2019/10/21/Autoregressive-Moving-Average-수식-유도/" data-id="ck1zwbm7000009wv0xcjqsula" class="article-share-link">
+      <a data-url="https://purumir.github.io/2019/10/21/Autoregressive-Moving-Average-수식-유도/" data-id="ck1zwqf2b0000jgv05czpff35" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -184,7 +184,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2019/10/21/Autoregressive-수식-유도/" data-id="ck1zwbm7b00019wv0qapa9jzv" class="article-share-link">
+      <a data-url="https://purumir.github.io/2019/10/21/Autoregressive-수식-유도/" data-id="ck1zwqf2m0001jgv0avu3m4mg" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -237,26 +237,28 @@
 특정한~시점(t, t-1)로~구간이~이동하면서~값이~변하는~수식입니다.</script><p>White Noise성 데이터는 다음과 같은 성질을 가집니다.</p>
 <script type="math/tex; mode=display">
 E({a}_{t}) = 0\\V({a}_{t})={\sigma{a}^2}\\
-Cov({a}_{t},{a}_{t}) = {\sigma{a}^2} / ~~X,Y가~독립적이면~Cov(X,Y)=0~/~Cov(aX, Y) = aCov(X,Y)\\\\
+Cov({a}_{t},{a}_{t}) = {\sigma{a}^2} / ~~X,Y가~독립적이면~Cov(X,Y)=0~\\
+~Cov(aX, Y) = aCov(X,Y)\\\\
 Corr({a}_{t}, {a}_{s})=0, t{\neq}s\\
 \\</script><p>Moving Average의 수식 전개는 아래와 같습니다.</p>
 <p>1) 기대값(Expectation) 전개</p>
 <script type="math/tex; mode=display">
 E({X}_{t}) = E[{a}_{t}-{\theta}{a}_{t-1}] = E({a}_{t})-{\theta}E({a}_{t-1}) = 0 - 0 =0</script><p>2) 분산(Variance) 전개</p>
 <script type="math/tex; mode=display">
-V({X}_{t}) = V({a}_{t} -{\theta}{a}_{t-1}) = V({a}_{t}) + {\theta}^2V({a}_{t-1})~//~Variance에서는~{\theta가~나가면서~제곱이~됩니다.}\\
+V({X}_{t}) = V({a}_{t} -{\theta}{a}_{t-1}) = V({a}_{t}) + {\theta}^2V({a}_{t-1})~\\
+~Variance에서는~{\theta가~나가면서~제곱이~됩니다.}\\
 = {\sigma{a}^2} + {\theta}^2{\sigma{a}^2} = (1+{\theta}^2){\sigma{a}^2}</script><p>3) 공분산(Covariance) 전개</p>
 <script type="math/tex; mode=display">
 Cov({x}_{t}, {x}_{t-h})=Cov({a}_{t}-{\theta}{a}_{t-1}, {a}_{t-h}-{\theta{a}_{t-h-1}})\\
-= Cov({a}_{t}, {a}_{t-h}) - {\theta}Cov({a}_{t-1}, {a}_{t-h})-{\theta}Cov({a}_{t}, {a}_{t-h-1} )+{\theta}^2Cov({a}_{t-1}, {a}_{t-h-1})</script><p>4) 자기공분산(Auto Covariance Function) 전개</p>
+= Cov({a}_{t}, {a}_{t-h}) - {\theta}Cov({a}_{t-1}, {a}_{t-h})\\-{\theta}Cov({a}_{t}, {a}_{t-h-1} )+{\theta}^2Cov({a}_{t-1}, {a}_{t-h-1})</script><p>4) 자기공분산(Auto Covariance Function) 전개</p>
 <script type="math/tex; mode=display">
 {\gamma}_{x}(h)~에~대한~전개\\
 
 h=0~일경우~~~\\
-{\gamma}_{x}(0)=Cov({x}_{t}, {x}_{t}) = Cov({a}_{t}, {a}_{t}) - {\theta}Cov({a}_{t-1}, {a}_{t}) - {\theta}Cov({a}_{t}, {a}_{t-1})+{\theta}^2Cov({a}_{t-1}, {a}_{t-1})\\={\sigma{a}^2}+ {\theta}^2{\sigma{a}^2} = (1+{\theta}^2){\sigma{a}^2}\\</script><script type="math/tex; mode=display">
-h=1~일경우~~~\\{\gamma}_{x}(1)=Cov({x}_{t}, {x}_{t-1}) = Cov({a}_{t}, {a}_{t-1}) -{\theta}Cov({a}_{t-1}, {a}_{t-1})-{\theta}Cov({a}_{t}, {a}_{t-2})+{\theta}^2Cov({a}_{t-1}, {a}_{t-2})=-{\theta}{\sigma{a}^2}</script><script type="math/tex; mode=display">
+{\gamma}_{x}(0)=Cov({x}_{t}, {x}_{t}) = Cov({a}_{t}, {a}_{t}) - {\theta}Cov({a}_{t-1}, {a}_{t}) \\- {\theta}Cov({a}_{t}, {a}_{t-1})+{\theta}^2Cov({a}_{t-1}, {a}_{t-1})\\={\sigma{a}^2}+ {\theta}^2{\sigma{a}^2} = (1+{\theta}^2){\sigma{a}^2}\\</script><script type="math/tex; mode=display">
+h=1~일경우~~~\\{\gamma}_{x}(1)=Cov({x}_{t}, {x}_{t-1}) = Cov({a}_{t}, {a}_{t-1}) -{\theta}Cov({a}_{t-1}, {a}_{t-1})\\-{\theta}Cov({a}_{t}, {a}_{t-2})+{\theta}^2Cov({a}_{t-1}, {a}_{t-2})=-{\theta}{\sigma{a}^2}</script><script type="math/tex; mode=display">
 h=2~일~경우\\
-{\gamma}_{x}(2)=Cov({x}_{t},{x}_{t-2})=Cov({a}_{t},{a}_{t-2})-{\theta}Cov({a}_{t-1}, {a}_{t-2})-{\theta}Cov({a}_{t},{a}_{t-2})+{\theta}^2Cov({a}_{t-1},{a}_{t-2}) = 0</script><p>5) 자기상관계수(Auto Correlation Function) 전개</p>
+{\gamma}_{x}(2)=Cov({x}_{t},{x}_{t-2})=Cov({a}_{t},{a}_{t-2})-{\theta}Cov({a}_{t-1}, {a}_{t-2})\\-{\theta}Cov({a}_{t},{a}_{t-2})+{\theta}^2Cov({a}_{t-1},{a}_{t-2}) = 0</script><p>5) 자기상관계수(Auto Correlation Function) 전개</p>
 <script type="math/tex; mode=display">
 {\rho}_{x}(h) = \frac{\gamma}{\gamma}</script><p>위 수식에 따라 다음과 같이 구할 수 있습니다.</p>
 <script type="math/tex; mode=display">
@@ -273,7 +275,7 @@ h=2~일~경우\\
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2019/10/21/Moving-Average-수식-유도/" data-id="ck1zwbm7i00049wv0xusxxb1r" class="article-share-link">
+      <a data-url="https://purumir.github.io/2019/10/21/Moving-Average-수식-유도/" data-id="ck1zwqf2s0004jgv0gd8wflmt" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -367,7 +369,7 @@ h=2~일~경우\\
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2019/10/20/Convolutional-Neural-Network-Part1/" data-id="ck1zwbm7l00059wv0jrdfntym" class="article-share-link">
+      <a data-url="https://purumir.github.io/2019/10/20/Convolutional-Neural-Network-Part1/" data-id="ck1zwqf2x0006jgv0oa3rg16b" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -432,7 +434,7 @@ h=2~일~경우\\
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2019/10/17/chatbot-digital-transformation/" data-id="ck1zwbm7o00069wv01404b26q" class="article-share-link">
+      <a data-url="https://purumir.github.io/2019/10/17/chatbot-digital-transformation/" data-id="ck1zwqf37000ajgv0tylapqow" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -573,7 +575,7 @@ h=2~일~경우\\
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2019/10/11/세종대왕의-리더십/" data-id="ck1zwbmaa002x9wv00crjut5v" class="article-share-link">
+      <a data-url="https://purumir.github.io/2019/10/11/세종대왕의-리더십/" data-id="ck1zwqf5g002xjgv07d7xcqij" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -735,7 +737,7 @@ h=2~일~경우\\
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2019/10/06/지수평활법-exponential-smoothing/" data-id="ck1zwbm7w000a9wv0u2d6lm30" class="article-share-link">
+      <a data-url="https://purumir.github.io/2019/10/06/지수평활법-exponential-smoothing/" data-id="ck1zwqf350009jgv08o682tsr" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -909,7 +911,7 @@ J(\theta) = -\frac{1}{T}\log L(\theta)</script></li>
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2019/10/05/cs224n-Lecture01/" data-id="ck1zwbm7t00099wv006bkkgij" class="article-share-link">
+      <a data-url="https://purumir.github.io/2019/10/05/cs224n-Lecture01/" data-id="ck1zwqf2u0005jgv0o1oo6h52" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -977,7 +979,7 @@ J(\theta) = -\frac{1}{T}\log L(\theta)</script></li>
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2019/09/29/리더십-관리-기술/" data-id="ck1zwbm80000d9wv03l1ywt76" class="article-share-link">
+      <a data-url="https://purumir.github.io/2019/09/29/리더십-관리-기술/" data-id="ck1zwqf3b000djgv0lhifytsj" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
