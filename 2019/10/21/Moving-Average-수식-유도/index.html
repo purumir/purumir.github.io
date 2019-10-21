@@ -3,19 +3,20 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
-  <title>Category: natural language processing | Purumir&#39;s Blog</title>
+  <title>Moving_Average_수식_유도 | Purumir&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="This blog contains the items about machine learning, sw architect, management and my favorites.">
-<meta name="keywords" content="machine learning, sw architecture, management, favorites">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Purumir&#39;s Blog">
-<meta property="og:url" content="https://purumir.github.io/categories/machine-learning/natural-language-processing/index.html">
+  <meta name="description" content="Moving Average의 개념Moving Average의 개념은 지난 post에서 언급한 글(https://purumir.github.io/2019/10/06/지수평활법-exponential-smoothing/ )의 내용을 참조하시기 바랍니다. Moving Average 수식유도moving average의 수식은 아래와 같이 정의될 수 있습니다.  {X">
+<meta name="keywords" content="machine learning,timeseries,시계열,moving average">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Moving_Average_수식_유도">
+<meta property="og:url" content="https://purumir.github.io/2019/10/21/Moving-Average-수식-유도/index.html">
 <meta property="og:site_name" content="Purumir&#39;s Blog">
-<meta property="og:description" content="This blog contains the items about machine learning, sw architect, management and my favorites.">
+<meta property="og:description" content="Moving Average의 개념Moving Average의 개념은 지난 post에서 언급한 글(https://purumir.github.io/2019/10/06/지수평활법-exponential-smoothing/ )의 내용을 참조하시기 바랍니다. Moving Average 수식유도moving average의 수식은 아래와 같이 정의될 수 있습니다.  {X">
 <meta property="og:locale" content="ko">
+<meta property="og:updated_time" content="2019-10-21T01:20:06.647Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Purumir&#39;s Blog">
-<meta name="twitter:description" content="This blog contains the items about machine learning, sw architect, management and my favorites.">
+<meta name="twitter:title" content="Moving_Average_수식_유도">
+<meta name="twitter:description" content="Moving Average의 개념Moving Average의 개념은 지난 post에서 언급한 글(https://purumir.github.io/2019/10/06/지수평활법-exponential-smoothing/ )의 내용을 참조하시기 바랍니다. Moving Average 수식유도moving average의 수식은 아래와 같이 정의될 수 있습니다.  {X">
   
     <link rel="alternate" href="/atom.xml" title="Purumir&#39;s Blog" type="application/atom+xml">
   
@@ -80,40 +81,77 @@
 
     <div class="row">
         <div class="col-sm-8 blog-main">
-          
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <header class="archive-article-header">
+          <article id="post-Moving-Average-수식-유도" class="article article-type-post" itemscope itemprop="blogPost">
+
+  <header class="article-header">
     
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/05/cs224n-Lecture01/">cs224n-Lecture 1(Introduction and Word Vectors)</a>
+    <h1 class="article-title" itemprop="name">
+      Moving_Average_수식_유도
     </h1>
   
 
 
+  </header>
+
+  <div class="article-meta">
     <div class="article-datetime">
-  <a href="/2019/10/05/cs224n-Lecture01/" class="archive-article-date"><time datetime="2019-10-05T07:15:05.000Z" itemprop="datePublished">10월 5일</time></a>
+  <a href="/2019/10/21/Moving-Average-수식-유도/" class="article-date"><time datetime="2019-10-21T01:14:17.000Z" itemprop="datePublished">2019-10-21</time></a>
 </div>
 
-  </header>
-</article>
+    
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/machine-learning/">machine learning</a> / <a class="article-category-link" href="/categories/machine-learning/data-analytics/">data analytics</a>
+  </div>
+
+
+  </div>
+  <div class="article-inner">
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Moving-Average의-개념"><a href="#Moving-Average의-개념" class="headerlink" title="Moving Average의 개념"></a>Moving Average의 개념</h3><p>Moving Average의 개념은 지난 post에서 언급한 글(<a href="https://purumir.github.io/2019/10/06/지수평활법-exponential-smoothing/">https://purumir.github.io/2019/10/06/지수평활법-exponential-smoothing/</a> )의 내용을 참조하시기 바랍니다.</p>
+<h3 id="Moving-Average-수식유도"><a href="#Moving-Average-수식유도" class="headerlink" title="Moving Average 수식유도"></a>Moving Average 수식유도</h3><p>moving average의 수식은 아래와 같이 정의될 수 있습니다.</p>
+<script type="math/tex; mode=display">
+{X}_{t} = {a}_{t} - {\theta}{a}_{t-1}\\
+특정한~시점(t, t-1)로~구간이~이동하면서~값이~변하는~수식입니다.</script>
+      
+    </div>
+
+    
+      
+
+    
+
+    <footer class="article-footer">
+      <a data-url="https://purumir.github.io/2019/10/21/Moving-Average-수식-유도/" data-id="ck1zqgawl0001ncv098kwy83p" class="article-share-link">
+        <i class="fa fa-share"></i> Share
+      </a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/machine-learning/">machine learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/moving-average/">moving average</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/timeseries/">timeseries</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/시계열/">시계열</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+    
+<ul id="article-nav" class="nav nav-pills nav-justified">
+  
+  <li role="presentation">
+    <a href="/2019/10/20/Convolutional-Neural-Network-Part1/" id="article-nav-older" class="article-nav-link-wrap">
+      <i class="fa fa-chevron-left pull-left"></i>
+      <span class="article-nav-link-title">Convolutional-Neural-Network-Part1</span>
+    </a>
+  </li>
+  
+  
+</ul>
+
 
   
-  
-    </div></section>
-  
+</article>
 
 
 
