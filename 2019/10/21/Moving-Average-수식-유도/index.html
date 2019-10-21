@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="Purumir&#39;s Blog">
 <meta property="og:description" content="Moving Average의 개념Moving Average의 개념은 지난 post에서 언급한 글(https://purumir.github.io/2019/10/06/지수평활법-exponential-smoothing/ )의 내용을 참조하시기 바랍니다.  Moving Average(1) 수식유도moving average(1)의 수식은 아래와 같이 정의될 수 있습">
 <meta property="og:locale" content="ko">
-<meta property="og:updated_time" content="2019-10-21T08:44:47.673Z">
+<meta property="og:updated_time" content="2019-10-21T08:50:07.207Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Moving_Average_수식_유도">
 <meta name="twitter:description" content="Moving Average의 개념Moving Average의 개념은 지난 post에서 언급한 글(https://purumir.github.io/2019/10/06/지수평활법-exponential-smoothing/ )의 내용을 참조하시기 바랍니다.  Moving Average(1) 수식유도moving average(1)의 수식은 아래와 같이 정의될 수 있습">
@@ -157,7 +157,10 @@ h=2일때~\frac{\gamma_{x}(2)}{\gamma_{x}(0)}=\frac{0}{(1+{\theta}^2){\sigma{a}^
 {X}_{t}={a}_{t}-{\theta}_{1}{a}_{t-1}-{\theta}_{2}{a}_{t-2}</script><p>Moving Average(2)의 수식 전개는 아래와 같습니다.</p>
 <p>1) 기대값(Expectation) 전개</p>
 <script type="math/tex; mode=display">
-E(X_{t})=E</script>
+E(X_{t})=E({a}_{t}-{\theta}_{1}{a}_{t-1}-{\theta}_{2}{a}_{t-2})=E({a}_{t})-{\theta_{1}}E({a}_{t-1})-{\theta_{2}E(a_{t-2})}=0-0-0=0</script><p>2) 분산(Variance) 전개</p>
+<p>3) 공분산(Covariance) 전개</p>
+<p>4) 자기공분산(Auto Covariance Function) 전개</p>
+
       
     </div>
 
@@ -167,7 +170,7 @@ E(X_{t})=E</script>
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2019/10/21/Moving-Average-수식-유도/" data-id="ck206cd9c0004xov03l72p2sr" class="article-share-link">
+      <a data-url="https://purumir.github.io/2019/10/21/Moving-Average-수식-유도/" data-id="ck206j27t00012gv0s5meze94" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -296,5 +299,21 @@ If you are curious about me, contact me <a href="mailto:typenew96@naver.com">[Ma
 
 <script src="/js/script.js"></script>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!--script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script-->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
 </body>
 </html>
