@@ -116,7 +116,7 @@
 <h3 id="Moving-Average-1-수식유도"><a href="#Moving-Average-1-수식유도" class="headerlink" title="Moving Average(1) 수식유도"></a>Moving Average(1) 수식유도</h3><p>moving average(1)의 수식은 아래와 같이 정의될 수 있습니다.</p>
 <script type="math/tex; mode=display">
 {X}_{t} = {a}_{t} - {\theta}{a}_{t-1}\\
-특정한~시점(t, t-1)로~구간이~이동하면서~값이~변하는~수식입니다.</script><p>White Noise성 데이터는 다음과 같은 성질을 가집니다.</p>
+a_{t} \simeq WN(0, \delta_{a}^2)일때</script><p>White Noise성 데이터는 다음과 같은 성질을 가집니다.</p>
 <script type="math/tex; mode=display">
 E({a}_{t}) = 0\\V({a}_{t})={\sigma{a}^2}\\
 Cov({a}_{t},{a}_{t}) = {\sigma{a}^2} / ~~t,s가~독립적이면~Cov({a}_{t}, {a}_{s})=0~\\
@@ -166,7 +166,7 @@ E(X_{t})=E</script>
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2019/10/21/Moving-Average-수식-유도/" data-id="ck205rz92000108v0r549frdi" class="article-share-link">
+      <a data-url="https://purumir.github.io/2019/10/21/Moving-Average-수식-유도/" data-id="ck205vcl80004rkv0v0wf3mcn" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -260,7 +260,7 @@ E(X_{t})=E</script>
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2019/10/20/Convolutional-Neural-Network-Part1/" data-id="ck205rz8t000008v06n4ptpzu" class="article-share-link">
+      <a data-url="https://purumir.github.io/2019/10/20/Convolutional-Neural-Network-Part1/" data-id="ck205vckl0000rkv0z1d8jwnj" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -325,7 +325,7 @@ E(X_{t})=E</script>
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2019/10/17/chatbot-digital-transformation/" data-id="ck205rz99000408v0ci9wo6lm" class="article-share-link">
+      <a data-url="https://purumir.github.io/2019/10/17/chatbot-digital-transformation/" data-id="ck205vcky0001rkv0kgklxntj" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -466,7 +466,7 @@ E(X_{t})=E</script>
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2019/10/11/세종대왕의-리더십/" data-id="ck205rzay002a08v03c2soi9w" class="article-share-link">
+      <a data-url="https://purumir.github.io/2019/10/11/세종대왕의-리더십/" data-id="ck205vcn0002arkv0qxf692aa" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -628,7 +628,7 @@ E(X_{t})=E</script>
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2019/10/06/지수평활법-exponential-smoothing/" data-id="ck205rz9i000908v0m8qw4nup" class="article-share-link">
+      <a data-url="https://purumir.github.io/2019/10/06/지수평활법-exponential-smoothing/" data-id="ck205vclk0009rkv000yfekvc" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -802,7 +802,7 @@ J(\theta) = -\frac{1}{T}\log L(\theta)</script></li>
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2019/10/05/cs224n-Lecture01/" data-id="ck205rz9b000508v09ql28ouh" class="article-share-link">
+      <a data-url="https://purumir.github.io/2019/10/05/cs224n-Lecture01/" data-id="ck205vclc0005rkv009oo7dhh" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -870,7 +870,7 @@ J(\theta) = -\frac{1}{T}\log L(\theta)</script></li>
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2019/09/29/리더십-관리-기술/" data-id="ck205rz9e000608v0qf1ftasb" class="article-share-link">
+      <a data-url="https://purumir.github.io/2019/09/29/리더십-관리-기술/" data-id="ck205vclg0006rkv03r4kp03k" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -988,5 +988,21 @@ If you are curious about me, contact me <a href="mailto:typenew96@naver.com">[Ma
 
 <script src="/js/script.js"></script>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!--script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script-->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
 </body>
 </html>
