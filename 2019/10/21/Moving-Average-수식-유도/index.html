@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="Purumir&#39;s Blog">
 <meta property="og:description" content="Moving Average의 개념Moving Average의 개념은 지난 post에서 언급한 글(https://purumir.github.io/2019/10/06/지수평활법-exponential-smoothing/ )의 내용을 참조하시기 바랍니다.  Moving Average(1) 수식유도moving average(1)의 수식은 아래와 같이 정의될 수 있습">
 <meta property="og:locale" content="ko">
-<meta property="og:updated_time" content="2019-10-23T04:19:45.879Z">
+<meta property="og:updated_time" content="2019-10-23T04:22:21.226Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Moving_Average_수식_유도">
 <meta name="twitter:description" content="Moving Average의 개념Moving Average의 개념은 지난 post에서 언급한 글(https://purumir.github.io/2019/10/06/지수평활법-exponential-smoothing/ )의 내용을 참조하시기 바랍니다.  Moving Average(1) 수식유도moving average(1)의 수식은 아래와 같이 정의될 수 있습">
@@ -181,6 +181,11 @@ Cov({x}_{t}, {x}_{t-h}) = Cov({a}_{t}-{\theta}_{1}{a}_{t-1}-{\theta}_{2}{a}_{t-2
 = -\theta_{1}{\sigma{a}^2}+\theta_{1}\theta_{2}{\sigma{a}^2}=(-\theta_{1}+\theta_{1}\theta_{2}){\sigma{a}^2}</script><script type="math/tex; mode=display">
 r_{x}(2) = Cov(x_{t}, x_{t-2}) = -\theta_{2}Cov(a_{t-2}, a_{t-2}) = -\theta_{2}{\sigma{a}^2}\\
 r_{x}(3) = 0(~t-3이~없으므로~모두~0이~된다.)</script><p>5) 자기상관계수(Auto Correlation Function) 전개</p>
+<p>자기공분산(auto covariance function)을 통해서 자기상관계수(auto correlation function)을 구하게 됩니다.</p>
+<script type="math/tex; mode=display">
+{\rho}_{x}(h)= \frac{\gamma_{x}(h)}{\sqrt{\gamma_{x}(0)}\sqrt{\gamma_{x}(h)}} 
+= \frac{\gamma_{x}(h)}{\sqrt{\gamma_{x}(0)}\sqrt{\gamma_{x}(0)}}
+=\frac{\gamma_{k}}{\gamma_{0}}=\frac{Cov({X}_{t},{X}_{t+h})}{\sqrt{V(x_{t})}\sqrt{V(x_{t+h})}}</script><p>위 수식에 따라서</p>
 <script type="math/tex; mode=display">
 {\rho_{x}(h)}에~대해서\\
 h=0일때~\frac{\gamma_{x}(0)}{\gamma_{x}(0)}=1\\
@@ -195,7 +200,7 @@ h=2일때~\frac{\gamma_{x}(2)}{\gamma_{x}(0)}=\frac{ -\theta_{2}{\sigma{a}^2}}{(
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2019/10/21/Moving-Average-수식-유도/" data-id="ck22rr7jx0004qcv0gi9t2d3m" class="article-share-link">
+      <a data-url="https://purumir.github.io/2019/10/21/Moving-Average-수식-유도/" data-id="ck22rudch0005g8v0eikhm41c" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
