@@ -117,7 +117,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2019/11/23/Autoregressive-수식-유도/" data-id="ck4gxnyqg0004ecv0nfunt2s8" class="article-share-link">
+      <a data-url="https://purumir.github.io/2019/11/23/Autoregressive-수식-유도/" data-id="ck4gz5yrn0001a4v0jalvdp4z" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -251,5 +251,21 @@ If you are curious about me, contact me <a href="mailto:typenew96@naver.com">[Ma
 
 <script src="/js/script.js"></script>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!--script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script-->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
 </body>
 </html>
