@@ -3,19 +3,22 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
-  <title>Tag: 광역자치단체 | Purumir&#39;s Blog</title>
+  <title>dark knowledge machine learning architecture | Purumir&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="This blog contains the items about machine learning, sw architect, management and my favorites.">
-<meta name="keywords" content="machine learning, sw architecture, management, favorites">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Purumir&#39;s Blog">
-<meta property="og:url" content="https://purumir.github.io/tags/광역자치단체/index.html">
+  <meta name="description" content="이글은 Medium( https://medium.com/@mahendrakariya/dark-knowledge-in-neural-networks-467e5d699181 ) 글의 내용을 학습하면서 정리한 글입니다.  Neural Network는 그 목적이 각기 다름에도 불구하고, training과정에서 사용하는 network와 deployment과정에서 사용">
+<meta name="keywords" content="machine learning,learning,knowledge distillation">
+<meta property="og:type" content="article">
+<meta property="og:title" content="dark knowledge machine learning architecture">
+<meta property="og:url" content="https://purumir.github.io/2020/01/28/dark-knowledge-machine-learning-architecture/index.html">
 <meta property="og:site_name" content="Purumir&#39;s Blog">
-<meta property="og:description" content="This blog contains the items about machine learning, sw architect, management and my favorites.">
+<meta property="og:description" content="이글은 Medium( https://medium.com/@mahendrakariya/dark-knowledge-in-neural-networks-467e5d699181 ) 글의 내용을 학습하면서 정리한 글입니다.  Neural Network는 그 목적이 각기 다름에도 불구하고, training과정에서 사용하는 network와 deployment과정에서 사용">
 <meta property="og:locale" content="ko">
+<meta property="og:image" content="c:/develop/blog/source/images/machine_learning/dark%20knowledge(student%20teacher">
+<meta property="og:updated_time" content="2020-01-28T04:06:10.678Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Purumir&#39;s Blog">
-<meta name="twitter:description" content="This blog contains the items about machine learning, sw architect, management and my favorites.">
+<meta name="twitter:title" content="dark knowledge machine learning architecture">
+<meta name="twitter:description" content="이글은 Medium( https://medium.com/@mahendrakariya/dark-knowledge-in-neural-networks-467e5d699181 ) 글의 내용을 학습하면서 정리한 글입니다.  Neural Network는 그 목적이 각기 다름에도 불구하고, training과정에서 사용하는 network와 deployment과정에서 사용">
+<meta name="twitter:image" content="c:/develop/blog/source/images/machine_learning/dark%20knowledge(student%20teacher">
   
     <link rel="alternate" href="/atom.xml" title="Purumir&#39;s Blog" type="application/atom+xml">
   
@@ -80,40 +83,78 @@
 
     <div class="row">
         <div class="col-sm-8 blog-main">
-          
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <header class="archive-article-header">
+          <article id="post-dark-knowledge-machine-learning-architecture" class="article article-type-post" itemscope itemprop="blogPost">
+
+  <header class="article-header">
     
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/12/22/출생아수-분석-1-추세-그래프/">출생아수 분석 #1(추세 그래프)</a>
+    <h1 class="article-title" itemprop="name">
+      dark knowledge machine learning architecture
     </h1>
   
 
 
+  </header>
+
+  <div class="article-meta">
     <div class="article-datetime">
-  <a href="/2019/12/22/출생아수-분석-1-추세-그래프/" class="archive-article-date"><time datetime="2019-12-22T06:33:18.000Z" itemprop="datePublished">12월 22일</time></a>
+  <a href="/2020/01/28/dark-knowledge-machine-learning-architecture/" class="article-date"><time datetime="2020-01-28T03:47:34.000Z" itemprop="datePublished">2020-01-28</time></a>
 </div>
 
-  </header>
-</article>
+    
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/machine-learning/">machine learning</a> / <a class="article-category-link" href="/categories/machine-learning/learning/">learning</a> / <a class="article-category-link" href="/categories/machine-learning/learning/architecture/">architecture</a>
+  </div>
+
+
+  </div>
+  <div class="article-inner">
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>이글은 Medium( <a href="https://medium.com/@mahendrakariya/dark-knowledge-in-neural-networks-467e5d699181" target="_blank" rel="noopener">https://medium.com/@mahendrakariya/dark-knowledge-in-neural-networks-467e5d699181</a> ) 글의 내용을 학습하면서 정리한 글입니다.</p>
+<hr>
+<p>Neural Network는 그 목적이 각기 다름에도 불구하고, training과정에서 사용하는 network와 deployment과정에서 사용하는 network가 동일한 네트워크입니다. 이를 언급한 위 글에서는 애벌레와 성충이 되는 과정으로 설명하고 있습니다.</p>
+<h3 id="1-Dark-Knwoledge-개념의-소개"><a href="#1-Dark-Knwoledge-개념의-소개" class="headerlink" title="1) Dark Knwoledge 개념의 소개"></a>1) Dark Knwoledge 개념의 소개</h3><p>이러한 내용을 응용하여 neural network에 대한 model compression을  Bucila et al( <a href="https://www.cs.cornell.edu/~caruana/compression.kdd06.pdf" target="_blank" rel="noopener">https://www.cs.cornell.edu/~caruana/compression.kdd06.pdf</a> )이 소개하였고,  Geoffrey Hinton et al에 의해서 일반화( <a href="https://arxiv.org/abs/1503.02531" target="_blank" rel="noopener">https://arxiv.org/abs/1503.02531</a> ) 되었습니다.</p>
+<h3 id="1-Dark-Knwoledge의-정의"><a href="#1-Dark-Knwoledge의-정의" class="headerlink" title="1) Dark Knwoledge의 정의"></a>1) Dark Knwoledge의 정의</h3><h3 id="2-Dark-Knwoledge-student-teacher-Architecture"><a href="#2-Dark-Knwoledge-student-teacher-Architecture" class="headerlink" title="2) Dark Knwoledge(student teacher ) Architecture"></a>2) Dark Knwoledge(student teacher ) Architecture</h3><p><img src="C:\develop\blog\source\images\machine_learning\dark knowledge(student teacher" alt> architecture concept.jpg)</p>
+
+      
+    </div>
+
+    
+      
+
+    
+
+    <footer class="article-footer">
+      <a data-url="https://purumir.github.io/2020/01/28/dark-knowledge-machine-learning-architecture/" data-id="ck5xczagf0000kgv0q4nhjh05" class="article-share-link">
+        <i class="fa fa-share"></i> Share
+      </a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/knowledge-distillation/">knowledge distillation</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/learning/">learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/machine-learning/">machine learning</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+    
+<ul id="article-nav" class="nav nav-pills nav-justified">
+  
+  <li role="presentation">
+    <a href="/2020/01/20/급변의-시기를-겪는-아시아의-4마리용-대만-탐방기/" id="article-nav-older" class="article-nav-link-wrap">
+      <i class="fa fa-chevron-left pull-left"></i>
+      <span class="article-nav-link-title">급변의 시기를 겪는 아시아의 4마리용, 대만 탐방기</span>
+    </a>
+  </li>
+  
+  
+</ul>
+
 
   
-  
-    </div></section>
-  
+</article>
 
 
 
