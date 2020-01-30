@@ -14,7 +14,7 @@
 <meta property="og:description" content="이글은 Medium( https://medium.com/@mahendrakariya/dark-knowledge-in-neural-networks-467e5d699181 ) 글의 내용을 학습하면서 정리한 글입니다.  Neural Network는 그 목적이 각기 다름에도 불구하고, training과정에서 사용하는 network와 deployment과정에서 사용">
 <meta property="og:locale" content="ko">
 <meta property="og:image" content="https://purumir.github.io/images/machine_learning/dark_knowledge_student_teacher_architecture_concept_v20200128.jpg">
-<meta property="og:updated_time" content="2020-01-30T05:12:08.165Z">
+<meta property="og:updated_time" content="2020-01-30T05:14:59.273Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Dark Knowledge (Knowledge Distillation)">
 <meta name="twitter:description" content="이글은 Medium( https://medium.com/@mahendrakariya/dark-knowledge-in-neural-networks-467e5d699181 ) 글의 내용을 학습하면서 정리한 글입니다.  Neural Network는 그 목적이 각기 다름에도 불구하고, training과정에서 사용하는 network와 deployment과정에서 사용">
@@ -159,7 +159,7 @@
 <hr>
 <h4 id="softmax-temperature"><a href="#softmax-temperature" class="headerlink" title="[softmax- temperature]"></a><strong>[softmax- temperature]</strong></h4><p>Hinton에 의해서 소개된 distribution over the class를 계산하기 위한 방법으로,  training시기에 student-teacher network에 동일한  <strong>temperature parameter</strong> 가 적용됩니다. inference시기에는 <strong>temperature parameter=1</strong>로 설정하여 standard softmax를 사용합니다. 이는 knowledge distillation을 통해 training시 student-teacher에 softened softmax를 사용하여 hidden information이 학습되도록 하고, inference시는 normal softmax를 사용한다는 의미입니다.</p>
 <script type="math/tex; mode=display">
-p_{i}= -\frac{exp(z_{i}/T)}{\sum_{j}{exp(z_{j}/T)}}\\T~is~the~temperature~parameter\\If~T\rightarrow0,~the~distribution~->~Kronecker~(the~one-hot~target~vector)\\If~T\rightarrow +\infty,~the~distribution~->a~uniform~distribution</script><hr>
+p_{i}= -\frac{exp(z_{i}/T)}{\sum_{j}{exp(z_{j}/T)}}\\T~is~the~temperature~parameter\\If~T\rightarrow0,~the~distribution~\rightarrow ~Kronecker~(the~one-hot~target~vector)\\If~T\rightarrow +\infty,~the~distribution~\rightarrow a~uniform~distribution</script><hr>
 <h4 id="2-Dark-Knwoledge-student-teacher-Architecture"><a href="#2-Dark-Knwoledge-student-teacher-Architecture" class="headerlink" title="2) Dark Knwoledge(student teacher) Architecture"></a>2) Dark Knwoledge(student teacher) Architecture</h4><p>dark knowledge를 추출하여 사용하는 방식은 다음과 같습니다. Teacher에 해당하는 Lage Model을 train하고, 이 Neural Network로부터 dark knowledge(hidden knowledge)를 추출합니다. 이 dark knowledge기반으로 Student에 해당하는 Small Network를 학습시키는 방식입니다.</p>
 <p><img src="/images/machine_learning/dark_knowledge_student_teacher_architecture_concept_v20200128.jpg" alt></p>
 <p><sup><a href="#fn_" id="reffn_"></a></sup>: [Dark Knowledge Transfering Architecture Concept]</p>
@@ -176,7 +176,7 @@ p_{i}= -\frac{exp(z_{i}/T)}{\sum_{j}{exp(z_{j}/T)}}\\T~is~the~temperature~parame
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2020/01/28/dark-knowledge-machine-learning-architecture/" data-id="ck60a5z2e0006jcv0mhw6wt9a" class="article-share-link">
+      <a data-url="https://purumir.github.io/2020/01/28/dark-knowledge-machine-learning-architecture/" data-id="ck60abfa1000678v0bc6omzj2" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -305,21 +305,5 @@ If you are curious about me, contact me <a href="mailto:typenew96@naver.com">[Ma
 
 <script src="/js/script.js"></script>
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<!--script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script-->
-<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
 </body>
 </html>
