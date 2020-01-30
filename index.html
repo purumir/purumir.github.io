@@ -131,7 +131,7 @@
 </thead>
 <tbody>
 <tr>
-<td>hard decision(0ne-Hot)</td>
+<td>hard targets(one-hot encoding of the gold class)</td>
 <td>0</td>
 <td>1</td>
 <td>0</td>
@@ -155,6 +155,9 @@
 </table>
 </div>
 <p>hard decision을 적용 할 경우 True로 판정되는 label에만 1이 표기가 되며, normal softmax를 적용하면 False에 해당하는 Cow와 Car는 무시해도 될만큼(negligible) 값이 작다고 할 수 있습니다. 하지만 softened softmax(softmax-temperature) 를 적용할 경우 normal softmax보다 풍부한 정보를 나타낼수 있게 됩니다. 이는 Cat이 Cow로 mis-classifying될 가능성(.2와 .05)이 Cat이 Car로 mis-classifying될 가능성(.2와 .005)보다 크다고 할 수 있습니다.  이렇게 유실될 수 있는 정보를 보다 더 나타내는 것이 가능해 집니다.</p>
+<hr>
+<h4 id="softmax-temperature"><a href="#softmax-temperature" class="headerlink" title="[softmax- temperature]"></a><strong>[softmax- temperature]</strong></h4><p>Hinton에 의해서 소개된 distribution over the class를 계산하기 위한 방법으로,  training시기에 student-teacher network에 동일한  <strong>temperature parameter</strong> 가 적용됩니다. inference시기에는 <strong>temperature parameter=1</strong>로 설정하여 standard softmax를 사용합니다. 이는 knowledge distillation을 통해 training시 student-teacher에 softened softmax를 사용하여 hidden information이 학습되도록 하고, inference시는 normal softmax를 사용한다는 의미입니다.</p>
+<hr>
 <h4 id="2-Dark-Knwoledge-student-teacher-Architecture"><a href="#2-Dark-Knwoledge-student-teacher-Architecture" class="headerlink" title="2) Dark Knwoledge(student teacher) Architecture"></a>2) Dark Knwoledge(student teacher) Architecture</h4><p>dark knowledge를 추출하여 사용하는 방식은 다음과 같습니다. Teacher에 해당하는 Lage Model을 train하고, 이 Neural Network로부터 dark knowledge(hidden knowledge)를 추출합니다. 이 dark knowledge기반으로 Student에 해당하는 Small Network를 학습시키는 방식입니다.</p>
 <p><img src="/images/machine_learning/dark_knowledge_student_teacher_architecture_concept_v20200128.jpg" alt></p>
 <p><sup><a href="#fn_" id="reffn_"></a></sup>: [Dark Knowledge Transfering Architecture Concept]</p>
@@ -162,8 +165,6 @@
 <p>이 그림에서 <strong>New Small Model</strong>이 우리가 학습시키는 Student Network가 됩니다. 이 모델은 먼저 Small Model을 만들어 Teacher Model에서 사용한 학습데이터(x_train, y_train)를 통해 학습을 하고 마진가지로 <strong>logits</strong>를 추출하여, <strong>New Small Model</strong>을 만들게 됩니다. 이 모델에 최종적으로 <strong>학습 데이터(x_train, softened_softmax_probaibilties)</strong>를 학습시키는 과정을 통해 dark knowledge를 tranfering하게 됩니다.</p>
 <p>이러한 과정을 통해 이미지 분류를 위해서 통상적으로 사용하는 Convolution Network보다 훨씬 파라미터수가 적은 비교적 단순한 Dense Network를 통해서 이미지 분류 문제를 수행할 수 있게 됩니다. light-weight Model을 통해 Performance에 크게 손실이 없는 결과를 도출할 수 있게 됩니다.</p>
 <script data-ad-client="ca-pub-4548072043503266" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-
-
       
     </div>
 
@@ -173,7 +174,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2020/01/28/dark-knowledge-machine-learning-architecture/" data-id="ck5xr0jug001hr4v0slp7vznw" class="article-share-link">
+      <a data-url="https://purumir.github.io/2020/01/28/dark-knowledge-machine-learning-architecture/" data-id="ck60922vi0006k4v0o1xssukk" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -225,7 +226,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2020/01/20/급변의-시기를-겪는-아시아의-4마리용-대만-탐방기/" data-id="ck5xr0jui001ir4v0o7qsgznt" class="article-share-link">
+      <a data-url="https://purumir.github.io/2020/01/20/급변의-시기를-겪는-아시아의-4마리용-대만-탐방기/" data-id="ck60922vo000dk4v0nfekt9k9" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -275,7 +276,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2020/01/07/합성곱-신경망-CNN-을-통한-폐기물-분류/" data-id="ck5xr0jux001ur4v07s96pq1y" class="article-share-link">
+      <a data-url="https://purumir.github.io/2020/01/07/합성곱-신경망-CNN-을-통한-폐기물-분류/" data-id="ck60922vv000ik4v0h78ymi0z" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -337,7 +338,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2019/12/22/출생아수-분석-1-추세-그래프/" data-id="ck5xr0jut001qr4v0zo8u6p23" class="article-share-link">
+      <a data-url="https://purumir.github.io/2019/12/22/출생아수-분석-1-추세-그래프/" data-id="ck60922vy000mk4v0gegqeu4w" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -402,7 +403,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2019/11/27/스타트업-창업자의-학력-부풀리기-용인에-대한-윤리적-접근/" data-id="ck5xr0juq001nr4v09prokjzh" class="article-share-link">
+      <a data-url="https://purumir.github.io/2019/11/27/스타트업-창업자의-학력-부풀리기-용인에-대한-윤리적-접근/" data-id="ck60922w0000ok4v03ke3pqq6" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -454,7 +455,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2019/11/23/Autoregressive-수식-유도/" data-id="ck5xr0jro0000r4v0f4nw2j6w" class="article-share-link">
+      <a data-url="https://purumir.github.io/2019/11/23/Autoregressive-수식-유도/" data-id="ck60922vb0001k4v0nb5hftj6" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -514,7 +515,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2019/10/23/정형데이터-분석에서의-BI툴의-사용/" data-id="ck5xr0juo001mr4v0bt89zsf1" class="article-share-link">
+      <a data-url="https://purumir.github.io/2019/10/23/정형데이터-분석에서의-BI툴의-사용/" data-id="ck60922vt000hk4v09me10jbq" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -649,7 +650,7 @@ h=2일때~\frac{\gamma_{x}(2)}{\gamma_{x}(0)}=\frac{ -\theta_{2}{\sigma{a}^2}}{(
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2019/10/21/Moving-Average-수식-유도/" data-id="ck5xr0js70002r4v0rpywtzwc" class="article-share-link">
+      <a data-url="https://purumir.github.io/2019/10/21/Moving-Average-수식-유도/" data-id="ck60922vg0004k4v0zfx3lcrj" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -743,7 +744,7 @@ h=2일때~\frac{\gamma_{x}(2)}{\gamma_{x}(0)}=\frac{ -\theta_{2}{\sigma{a}^2}}{(
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2019/10/20/Convolutional-Neural-Network-Part1/" data-id="ck5xr0js20001r4v05ehdqwqp" class="article-share-link">
+      <a data-url="https://purumir.github.io/2019/10/20/Convolutional-Neural-Network-Part1/" data-id="ck60922v40000k4v05up4qoq9" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -808,7 +809,7 @@ h=2일때~\frac{\gamma_{x}(2)}{\gamma_{x}(0)}=\frac{ -\theta_{2}{\sigma{a}^2}}{(
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2019/10/17/chatbot-digital-transformation/" data-id="ck5xr0jsi0005r4v03qr6wdv6" class="article-share-link">
+      <a data-url="https://purumir.github.io/2019/10/17/chatbot-digital-transformation/" data-id="ck60922vh0005k4v0b86nub6f" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
