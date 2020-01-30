@@ -158,8 +158,8 @@
 <hr>
 <h4 id="softmax-temperature"><a href="#softmax-temperature" class="headerlink" title="[softmax- temperature]"></a><strong>[softmax- temperature]</strong></h4><p>Hinton에 의해서 소개된 distribution over the class를 계산하기 위한 방법으로,  training시기에 student-teacher network에 동일한  <strong>temperature parameter</strong> 가 적용됩니다. inference시기에는 <strong>temperature parameter=1</strong>로 설정하여 standard softmax를 사용합니다. 이는 knowledge distillation을 통해 training시 student-teacher에 softened softmax를 사용하여 hidden information이 학습되도록 하고, inference시는 normal softmax를 사용한다는 의미입니다.</p>
 <script type="math/tex; mode=display">
-p_{i}= -\frac{exp(z_{i}/T)}{\sum_{j}{exp(z_{j}/T)}}\\T~is~the~temperature~parameter\\If~T->0,~the~distribution~->~Kronecker~(the~one-hot~target~vector)\\If~T->+\infty,~the~distribution~->a~uniform~distribution</script><hr>
-<h4 id="2-Dark-Knwoledge-student-teacher-Architecture"><a href="#2-Dark-Knwoledge-student-teacher-Architecture" class="headerlink" title="2) Dark Knwoledge(student teacher) Architecture"></a><strong>2) Dark Knwoledge(student teacher) Architecture</strong></h4><p>dark knowledge를 추출하여 사용하는 방식은 다음과 같습니다. Teacher에 해당하는 Lage Model을 train하고, 이 Neural Network로부터 dark knowledge(hidden knowledge)를 추출합니다. 이 dark knowledge기반으로 Student에 해당하는 Small Network를 학습시키는 방식입니다.</p>
+p_{i}= -\frac{exp(z_{i}/T)}{\sum_{j}{exp(z_{j}/T)}}\\T~is~the~temperature~parameter\\If~T\rightarrow0,~the~distribution~->~Kronecker~(the~one-hot~target~vector)\\If~T\rightarrow +\infty,~the~distribution~->a~uniform~distribution</script><hr>
+<h4 id="2-Dark-Knwoledge-student-teacher-Architecture"><a href="#2-Dark-Knwoledge-student-teacher-Architecture" class="headerlink" title="2) Dark Knwoledge(student teacher) Architecture"></a>2) Dark Knwoledge(student teacher) Architecture</h4><p>dark knowledge를 추출하여 사용하는 방식은 다음과 같습니다. Teacher에 해당하는 Lage Model을 train하고, 이 Neural Network로부터 dark knowledge(hidden knowledge)를 추출합니다. 이 dark knowledge기반으로 Student에 해당하는 Small Network를 학습시키는 방식입니다.</p>
 <p><img src="/images/machine_learning/dark_knowledge_student_teacher_architecture_concept_v20200128.jpg" alt></p>
 <p><sup><a href="#fn_" id="reffn_"></a></sup>: [Dark Knowledge Transfering Architecture Concept]</p>
 <p>위 Concept Architecture에서 확인할 수 있듯이 Teacher에서 Final Activation Layer(softmax)이전까지의 <strong>logits</strong>를 추출하고, 여기까지의 output에 softened softmax(<strong>softmax-temperature</strong>)를 적용하고, 이를 student network의 output으로 사용하게 됩니다. 이를 통해 dark knowledge 개념에서 살펴본것 처럼 rich information을 전달할 수 있게 됩니다.</p>
@@ -175,7 +175,7 @@ p_{i}= -\frac{exp(z_{i}/T)}{\sum_{j}{exp(z_{j}/T)}}\\T~is~the~temperature~parame
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2020/01/28/dark-knowledge-machine-learning-architecture/" data-id="ck60a121p0006sgv0p3aoccxq" class="article-share-link">
+      <a data-url="https://purumir.github.io/2020/01/28/dark-knowledge-machine-learning-architecture/" data-id="ck60a5z2e0006jcv0mhw6wt9a" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -227,7 +227,7 @@ p_{i}= -\frac{exp(z_{i}/T)}{\sum_{j}{exp(z_{j}/T)}}\\T~is~the~temperature~parame
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2020/01/20/급변의-시기를-겪는-아시아의-4마리용-대만-탐방기/" data-id="ck60a121v000bsgv064wu6cbb" class="article-share-link">
+      <a data-url="https://purumir.github.io/2020/01/20/급변의-시기를-겪는-아시아의-4마리용-대만-탐방기/" data-id="ck60a5z2j000bjcv0vrv43ee2" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -277,7 +277,7 @@ p_{i}= -\frac{exp(z_{i}/T)}{\sum_{j}{exp(z_{j}/T)}}\\T~is~the~temperature~parame
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2020/01/07/합성곱-신경망-CNN-을-통한-폐기물-분류/" data-id="ck60a123b003usgv0gaxnzvwy" class="article-share-link">
+      <a data-url="https://purumir.github.io/2020/01/07/합성곱-신경망-CNN-을-통한-폐기물-분류/" data-id="ck60a5z2s000jjcv0dg9cvmmr" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -339,7 +339,7 @@ p_{i}= -\frac{exp(z_{i}/T)}{\sum_{j}{exp(z_{j}/T)}}\\T~is~the~temperature~parame
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2019/12/22/출생아수-분석-1-추세-그래프/" data-id="ck60a1224000ksgv0fwt9gizj" class="article-share-link">
+      <a data-url="https://purumir.github.io/2019/12/22/출생아수-분석-1-추세-그래프/" data-id="ck60a5z2o000fjcv0ckh1yqme" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -404,7 +404,7 @@ p_{i}= -\frac{exp(z_{i}/T)}{\sum_{j}{exp(z_{j}/T)}}\\T~is~the~temperature~parame
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2019/11/27/스타트업-창업자의-학력-부풀리기-용인에-대한-윤리적-접근/" data-id="ck60a121x000esgv0uen1u1pp" class="article-share-link">
+      <a data-url="https://purumir.github.io/2019/11/27/스타트업-창업자의-학력-부풀리기-용인에-대한-윤리적-접근/" data-id="ck60a5z2l000ejcv0tveub6ap" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -456,7 +456,7 @@ p_{i}= -\frac{exp(z_{i}/T)}{\sum_{j}{exp(z_{j}/T)}}\\T~is~the~temperature~parame
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2019/11/23/Autoregressive-수식-유도/" data-id="ck60a12180000sgv0flvk0l4s" class="article-share-link">
+      <a data-url="https://purumir.github.io/2019/11/23/Autoregressive-수식-유도/" data-id="ck60a5z1x0000jcv0gmfg9dez" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -516,7 +516,7 @@ p_{i}= -\frac{exp(z_{i}/T)}{\sum_{j}{exp(z_{j}/T)}}\\T~is~the~temperature~parame
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2019/10/23/정형데이터-분석에서의-BI툴의-사용/" data-id="ck60a1220000fsgv0vqz0xm6b" class="article-share-link">
+      <a data-url="https://purumir.github.io/2019/10/23/정형데이터-분석에서의-BI툴의-사용/" data-id="ck60a5z2r000ijcv0bcz3j0lx" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -651,7 +651,7 @@ h=2일때~\frac{\gamma_{x}(2)}{\gamma_{x}(0)}=\frac{ -\theta_{2}{\sigma{a}^2}}{(
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2019/10/21/Moving-Average-수식-유도/" data-id="ck60a121r0007sgv0f1etldh8" class="article-share-link">
+      <a data-url="https://purumir.github.io/2019/10/21/Moving-Average-수식-유도/" data-id="ck60a5z290002jcv0k0jvmo0y" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -745,7 +745,7 @@ h=2일때~\frac{\gamma_{x}(2)}{\gamma_{x}(0)}=\frac{ -\theta_{2}{\sigma{a}^2}}{(
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2019/10/20/Convolutional-Neural-Network-Part1/" data-id="ck60a121f0001sgv0d7sahr5t" class="article-share-link">
+      <a data-url="https://purumir.github.io/2019/10/20/Convolutional-Neural-Network-Part1/" data-id="ck60a5z260001jcv0hw6bwthp" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -810,7 +810,7 @@ h=2일때~\frac{\gamma_{x}(2)}{\gamma_{x}(0)}=\frac{ -\theta_{2}{\sigma{a}^2}}{(
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2019/10/17/chatbot-digital-transformation/" data-id="ck60a121h0002sgv026m2432g" class="article-share-link">
+      <a data-url="https://purumir.github.io/2019/10/17/chatbot-digital-transformation/" data-id="ck60a5z2d0005jcv0m4ij77f5" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
