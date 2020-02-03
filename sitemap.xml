@@ -2,16 +2,72 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://purumir.github.io/2020/01/28/dark-knowledge-machine-learning-architecture/</loc>
+    <loc>https://purumir.github.io/2019/10/21/Moving-Average-%EC%88%98%EC%8B%9D-%EC%9C%A0%EB%8F%84/</loc>
     
-    <lastmod>2020-01-30T05:37:55.927Z</lastmod>
+    <lastmod>2020-02-03T07:13:50.820Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://purumir.github.io/2019/10/05/cs224n-Lecture01/</loc>
     
-    <lastmod>2020-01-30T04:47:37.368Z</lastmod>
+    <lastmod>2020-02-03T07:13:40.709Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://purumir.github.io/2019/10/20/Convolutional-Neural-Network-Part1/</loc>
+    
+    <lastmod>2020-02-03T07:13:35.060Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://purumir.github.io/2019/10/17/chatbot-digital-transformation/</loc>
+    
+    <lastmod>2020-02-03T07:13:29.600Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://purumir.github.io/2019/12/22/%EC%B6%9C%EC%83%9D%EC%95%84%EC%88%98-%EB%B6%84%EC%84%9D-1-%EC%B6%94%EC%84%B8-%EA%B7%B8%EB%9E%98%ED%94%84/</loc>
+    
+    <lastmod>2020-02-03T07:13:17.162Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://purumir.github.io/2019/10/06/%EC%A7%80%EC%88%98%ED%8F%89%ED%99%9C%EB%B2%95-exponential-smoothing/</loc>
+    
+    <lastmod>2020-02-03T07:13:12.149Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://purumir.github.io/2019/10/23/%EC%A0%95%ED%98%95%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%B6%84%EC%84%9D%EC%97%90%EC%84%9C%EC%9D%98-BI%ED%88%B4%EC%9D%98-%EC%82%AC%EC%9A%A9/</loc>
+    
+    <lastmod>2020-02-03T07:13:06.769Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://purumir.github.io/2019/10/11/%EC%84%B8%EC%A2%85%EB%8C%80%EC%99%95%EC%9D%98-%EB%A6%AC%EB%8D%94%EC%8B%AD/</loc>
+    
+    <lastmod>2020-02-03T07:12:58.501Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://purumir.github.io/2019/09/29/%EB%A6%AC%EB%8D%94%EC%8B%AD-%EA%B4%80%EB%A6%AC-%EA%B8%B0%EC%88%A0/</loc>
+    
+    <lastmod>2020-02-03T07:12:52.038Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://purumir.github.io/2020/01/28/dark-knowledge-machine-learning-architecture/</loc>
+    
+    <lastmod>2020-01-30T05:37:55.927Z</lastmod>
     
   </url>
   
@@ -37,65 +93,9 @@
   </url>
   
   <url>
-    <loc>https://purumir.github.io/2019/12/22/%EC%B6%9C%EC%83%9D%EC%95%84%EC%88%98-%EB%B6%84%EC%84%9D-1-%EC%B6%94%EC%84%B8-%EA%B7%B8%EB%9E%98%ED%94%84/</loc>
-    
-    <lastmod>2019-12-22T14:43:28.759Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://purumir.github.io/2019/11/23/Autoregressive-%EC%88%98%EC%8B%9D-%EC%9C%A0%EB%8F%84/</loc>
     
     <lastmod>2019-11-23T02:11:33.829Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://purumir.github.io/2019/10/11/%EC%84%B8%EC%A2%85%EB%8C%80%EC%99%95%EC%9D%98-%EB%A6%AC%EB%8D%94%EC%8B%AD/</loc>
-    
-    <lastmod>2019-10-26T01:50:59.571Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://purumir.github.io/2019/10/23/%EC%A0%95%ED%98%95%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%B6%84%EC%84%9D%EC%97%90%EC%84%9C%EC%9D%98-BI%ED%88%B4%EC%9D%98-%EC%82%AC%EC%9A%A9/</loc>
-    
-    <lastmod>2019-10-24T04:22:58.373Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://purumir.github.io/2019/10/20/Convolutional-Neural-Network-Part1/</loc>
-    
-    <lastmod>2019-10-23T04:43:25.880Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://purumir.github.io/2019/10/21/Moving-Average-%EC%88%98%EC%8B%9D-%EC%9C%A0%EB%8F%84/</loc>
-    
-    <lastmod>2019-10-23T04:37:55.772Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://purumir.github.io/2019/10/17/chatbot-digital-transformation/</loc>
-    
-    <lastmod>2019-10-17T01:53:05.230Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://purumir.github.io/2019/09/29/%EB%A6%AC%EB%8D%94%EC%8B%AD-%EA%B4%80%EB%A6%AC-%EA%B8%B0%EC%88%A0/</loc>
-    
-    <lastmod>2019-10-12T05:25:20.151Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://purumir.github.io/2019/10/06/%EC%A7%80%EC%88%98%ED%8F%89%ED%99%9C%EB%B2%95-exponential-smoothing/</loc>
-    
-    <lastmod>2019-10-09T09:48:08.420Z</lastmod>
     
   </url>
   
