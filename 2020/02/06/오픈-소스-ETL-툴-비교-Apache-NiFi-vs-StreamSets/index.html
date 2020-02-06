@@ -5,18 +5,18 @@
   
   <title>오픈 소스 ETL 툴 비교(Apache NiFi vs StreamSets) | Purumir&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="빅데이터, AI 시대에 데이터가 존재하는 origin으로부터 데이터를 가져오고 이를 처리후 적재하기 위한 ETL(Extract-Transformation-Load) Tools가 존재합니다.  대표적인 것이 Apache NiFi, Apache Airflow, Streamsets등이 존재합니다. 이 글에서는 Apache NiFi와 StreamSets를 비교해">
+  <meta name="description" content="빅데이터, AI 시대에 데이터가 존재하는 origin으로부터 데이터를 가져오고 이를 처리후 적재하기 위한 ETL(Extract-Transformation-Load) Tools가 존재합니다.  대표적인 것이 Apache NiFi, Apache Airflow, StreamSets등이 존재합니다. 과거 분석을 위해서는 BI(Business Intelligence">
 <meta name="keywords" content="machine learning,ETL">
 <meta property="og:type" content="article">
 <meta property="og:title" content="오픈 소스 ETL 툴 비교(Apache NiFi vs StreamSets)">
 <meta property="og:url" content="https://purumir.github.io/2020/02/06/오픈-소스-ETL-툴-비교-Apache-NiFi-vs-StreamSets/index.html">
 <meta property="og:site_name" content="Purumir&#39;s Blog">
-<meta property="og:description" content="빅데이터, AI 시대에 데이터가 존재하는 origin으로부터 데이터를 가져오고 이를 처리후 적재하기 위한 ETL(Extract-Transformation-Load) Tools가 존재합니다.  대표적인 것이 Apache NiFi, Apache Airflow, Streamsets등이 존재합니다. 이 글에서는 Apache NiFi와 StreamSets를 비교해">
+<meta property="og:description" content="빅데이터, AI 시대에 데이터가 존재하는 origin으로부터 데이터를 가져오고 이를 처리후 적재하기 위한 ETL(Extract-Transformation-Load) Tools가 존재합니다.  대표적인 것이 Apache NiFi, Apache Airflow, StreamSets등이 존재합니다. 과거 분석을 위해서는 BI(Business Intelligence">
 <meta property="og:locale" content="ko">
-<meta property="og:updated_time" content="2020-02-06T06:53:17.794Z">
+<meta property="og:updated_time" content="2020-02-06T07:32:23.729Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="오픈 소스 ETL 툴 비교(Apache NiFi vs StreamSets)">
-<meta name="twitter:description" content="빅데이터, AI 시대에 데이터가 존재하는 origin으로부터 데이터를 가져오고 이를 처리후 적재하기 위한 ETL(Extract-Transformation-Load) Tools가 존재합니다.  대표적인 것이 Apache NiFi, Apache Airflow, Streamsets등이 존재합니다. 이 글에서는 Apache NiFi와 StreamSets를 비교해">
+<meta name="twitter:description" content="빅데이터, AI 시대에 데이터가 존재하는 origin으로부터 데이터를 가져오고 이를 처리후 적재하기 위한 ETL(Extract-Transformation-Load) Tools가 존재합니다.  대표적인 것이 Apache NiFi, Apache Airflow, StreamSets등이 존재합니다. 과거 분석을 위해서는 BI(Business Intelligence">
   
     <link rel="alternate" href="/atom.xml" title="Purumir&#39;s Blog" type="application/atom+xml">
   
@@ -111,7 +111,28 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p>빅데이터, AI 시대에 데이터가 존재하는 origin으로부터 데이터를 가져오고 이를 처리후 적재하기 위한 ETL(Extract-Transformation-Load) Tools가 존재합니다.  대표적인 것이 Apache NiFi, Apache Airflow, Streamsets등이 존재합니다.</p>
+        <p>빅데이터, AI 시대에 데이터가 존재하는 origin으로부터 데이터를 가져오고 이를 처리후 적재하기 위한 ETL(Extract-Transformation-Load) Tools가 존재합니다.  대표적인 것이 Apache NiFi, Apache Airflow, StreamSets등이 존재합니다.</p>
+<p>과거 분석을 위해서는 BI(Business Intelligence)와 이를 위한 저장소로 DW(DataWare House)가 사용되었습니다. 최근에는 이러한 아키텍처 보다는 데이터 orgin으로부터 데이터를 수집해 저장하고, R이나 머신러닝/딥러닝등을 이용한 Analyze가 주류를 이루고 있습니다.</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">구분</th>
+<th style="text-align:center">설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Past</td>
+<td style="text-align:center">Apps/RDBMS(계정계)-&gt; ETL -&gt; DW(Data WareHouse) -&gt; ETL -&gt; BI(Business Intelligence)(정보계)</td>
+</tr>
+<tr>
+<td style="text-align:center">Emerging<br>(Current)</td>
+<td style="text-align:center">Data Sources(Log/Device/Streams/Apps) -&gt; Ingest -&gt; Data Stores -&gt; Analyze -&gt; Data Consumers(R/ML, Search, BI, Apps)</td>
+</tr>
+</tbody>
+</table>
+</div>
 <p>이 글에서는 Apache NiFi와 StreamSets를 비교해 보고자 합니다.</p>
 <div class="table-container">
 <table>
@@ -195,7 +216,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2020/02/06/오픈-소스-ETL-툴-비교-Apache-NiFi-vs-StreamSets/" data-id="ck6adwe5x000fm8v0i8jvxjlx" class="article-share-link">
+      <a data-url="https://purumir.github.io/2020/02/06/오픈-소스-ETL-툴-비교-Apache-NiFi-vs-StreamSets/" data-id="ck6afbl04000anov0ue4ltvmn" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
