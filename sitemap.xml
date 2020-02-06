@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://purumir.github.io/2020/02/06/%EC%98%A4%ED%94%88-%EC%86%8C%EC%8A%A4-ETL-%ED%88%B4-%EB%B9%84%EA%B5%90-Apache-NiFi-vs-StreamSets/</loc>
+    
+    <lastmod>2020-02-06T06:33:19.666Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://purumir.github.io/2019/10/21/Moving-Average-%EC%88%98%EC%8B%9D-%EC%9C%A0%EB%8F%84/</loc>
     
     <lastmod>2020-02-03T07:13:50.820Z</lastmod>
