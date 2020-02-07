@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="Purumir&#39;s Blog">
 <meta property="og:description" content="빅데이터, AI 시대에 데이터가 존재하는 origin으로부터 데이터를 가져오고 이를 처리후 적재하기 위한 ETL(Extract-Transformation-Load) Tools가 존재합니다.  대표적인 것이 Apache NiFi, Apache Airflow, StreamSets등이 존재합니다. 과거 분석을 위해서는 BI(Business Intelligence">
 <meta property="og:locale" content="ko">
-<meta property="og:updated_time" content="2020-02-06T08:39:21.303Z">
+<meta property="og:updated_time" content="2020-02-07T01:29:02.427Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="오픈 소스 ETL 툴 비교(Apache NiFi vs StreamSets)">
 <meta name="twitter:description" content="빅데이터, AI 시대에 데이터가 존재하는 origin으로부터 데이터를 가져오고 이를 처리후 적재하기 위한 ETL(Extract-Transformation-Load) Tools가 존재합니다.  대표적인 것이 Apache NiFi, Apache Airflow, StreamSets등이 존재합니다. 과거 분석을 위해서는 BI(Business Intelligence">
@@ -102,7 +102,7 @@
     
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/data-analytics/">data analytics</a> / <a class="article-category-link" href="/categories/data-analytics/business-intelligence/">business intelligence</a> / <a class="article-category-link" href="/categories/data-analytics/business-intelligence/ETL/">ETL</a> / <a class="article-category-link" href="/categories/data-analytics/business-intelligence/ETL/workflow/">workflow</a>
+    <a class="article-category-link" href="/categories/data-analytics/">data analytics</a> / <a class="article-category-link" href="/categories/data-analytics/business-intelligence/">business intelligence</a> / <a class="article-category-link" href="/categories/data-analytics/business-intelligence/ETL/">ETL</a> / <a class="article-category-link" href="/categories/data-analytics/business-intelligence/ETL/workflow/">workflow</a> / <a class="article-category-link" href="/categories/data-analytics/business-intelligence/ETL/workflow/Apache-NiFi/">Apache NiFi</a> / <a class="article-category-link" href="/categories/data-analytics/business-intelligence/ETL/workflow/Apache-NiFi/StreamSets/">StreamSets</a>
   </div>
 
 
@@ -111,8 +111,8 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p>빅데이터, AI 시대에 데이터가 존재하는 origin으로부터 데이터를 가져오고 이를 처리후 적재하기 위한 ETL(Extract-Transformation-Load) Tools가 존재합니다.  대표적인 것이 Apache NiFi, Apache Airflow, StreamSets등이 존재합니다.</p>
-<p>과거 분석을 위해서는 BI(Business Intelligence)와 이를 위한 저장소로 DW(DataWare House)가 사용되었습니다. 최근에는 이러한 아키텍처 보다는 데이터 orgin으로부터 데이터를 수집해 저장하고, R이나 머신러닝/딥러닝등을 이용한 Analyze가 주류를 이루고 있습니다.</p>
+        <p>빅데이터, AI 시대에 데이터가 존재하는 origin으로부터 데이터를 가져오고 이를 처리후 적재하기 위한 ETL(Extract-Transformation-Load) Tools가 존재합니다.  대표적인 것이 Apache NiFi, Apache Airflow, StreamSets등이 존재합니다.<br></p>
+<p>과거 분석을 위해서는 BI(Business Intelligence)와 이를 위한 저장소로 DW(DataWare House)가 사용되었습니다. 최근에는 이러한 아키텍처 보다는 데이터 orgin으로부터 데이터를 수집해 저장하고, R이나 머신러닝/딥러닝등을 이용한 Analyze가 주류를 이루고 있습니다.<br></p>
 <div class="table-container">
 <table>
 <thead>
@@ -133,6 +133,7 @@
 </tbody>
 </table>
 </div>
+<p><br></p>
 <p>이 글에서는 Apache NiFi와 StreamSets를 비교해 보고자 합니다.</p>
 <div class="table-container">
 <table>
@@ -180,27 +181,24 @@
 <td>CSV, Other Record-Based Data 등</td>
 </tr>
 <tr>
-<td></td>
-<td></td>
-<td></td>
+<td>Components</td>
+<td>[Data Provenance] <br>- dataflow내에서 거의 모든 것을 기록하는 Big Brother service <br>- dataflow 수행 history 기록 <br><br>[Controller Service]<br>-processor를 위한 유용한 정보를 제공<br>- SSL certificates, JDBC 설정등,<br>  schema definition <br>- 동일 configuration의 동시 설정을 지원<br><br>[Process Groups] (이것 자체가 dataflows가 됨) <br>- 개별 dataflow를 Process Group으로 묶는 것이 가능<br><br> [Processor Outputs] <br>- Original : FlowFile의 origin <br>- Failure : FlowFile이 처리 오류 발생시 <br>- Success : FlowFilw이 정상적으로 처리시</td>
+<td>[Origins] <br>- 데이터가 존재하는 external sources. <br>- dataflow내에서 한개의 origin만이 존재가능<br><br>[Processors]  <br>- data transformers. <br><br>[Destinations] <br>- 데이터 저장 stores<br><br>[Executors] <br>- 다른 processor들에 의해 생성된 event처리 <br> - Email처리 시 Error발생시 이를 처리 → EMail Executor</td>
 </tr>
 <tr>
-<td></td>
-<td></td>
-<td></td>
+<td>특징</td>
+<td>- Processor간에 Queue가 존재하여 Flow Control <br>- 핸들링 하는 데이터 포맷에 맞춰 다른 버전의 Processor를 가져야 함.(CSV, XLS별도식)</td>
+<td>- Processor간에 Queue가 존재하지 않음 <br>- binary file을 processing가능함 <br>- kakfa conumer가 processor에 binary를 그대로 전송 가능함</td>
 </tr>
 <tr>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
+<td>장단점</td>
+<td>장점)<br> - dataflow programming concept을 효율적 구현<br>- binary data 처리 가능<br>Data Provenance <br>단점) <br>-Spartan User Interface <br>-record단위 모니터링, 디버깅, 통계 제공 안함.</td>
+<td>장점)<br>- record단위 모니터링, 디버깅, 통계 제공<br>- record단위 data와 streaming을 위한 갈끔한 UI <br><br>단점)<br>- 단일 processor 수정을 위해 전체 dataflow의 stop필요<br>- No reusable configuration for processors</td>
 </tr>
 </tbody>
 </table>
 </div>
+<p>위 비교표에서 볼수 있듯이 큰 차이점은 StreamSets의 경우 한개의 processor의 configuration을 수정하기 위해 전체 dataflow를 정지시켜야 합니다. UI상 Stop버튼을 눌러야 수정을 할 수 있도록 구성 되어 있습니다. StreamSets의 경우 Startup에서 지속적으로 관리하는 형태라 UI의 구성 자체가 NiFi대비 우수하다고 볼 수 있습니다.  또한, 설치도 docker 형태를 제공하고 있어 편리하게 구성후 테스트를 진행 할 수 있습니다.</p>
 <script data-ad-client="ca-pub-4548072043503266" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
       
     </div>
@@ -211,7 +209,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2020/02/06/오픈-소스-ETL-툴-비교-Apache-NiFi-vs-StreamSets/" data-id="ck6ahp6x5000imcv028b4w7nm" class="article-share-link">
+      <a data-url="https://purumir.github.io/2020/02/06/오픈-소스-ETL-툴-비교-Apache-NiFi-vs-StreamSets/" data-id="ck6bhquof000dl8v06rcn3q6v" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -258,7 +256,7 @@ If you are curious about me, contact me <a href="mailto:typenew96@naver.com">[Ma
   
   <div class="sidebar-module">
     <h4>Categories</h4>
-    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/data-analytics/">data analytics</a><span class="sidebar-module-list-count">2</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/data-analytics/business-intelligence/">business intelligence</a><span class="sidebar-module-list-count">2</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/data-analytics/business-intelligence/ETL/">ETL</a><span class="sidebar-module-list-count">1</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/data-analytics/business-intelligence/ETL/workflow/">workflow</a><span class="sidebar-module-list-count">1</span></li></ul></li></ul></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/digital-transformation/">digital transformation</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/machine-learning/">machine learning</a><span class="sidebar-module-list-count">6</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/machine-learning/computer-vision/">computer vision</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/machine-learning/data-analytics/">data analytics</a><span class="sidebar-module-list-count">3</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/machine-learning/data-analytics/timeseries/">timeseries</a><span class="sidebar-module-list-count">2</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/machine-learning/learning/">learning</a><span class="sidebar-module-list-count">1</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/machine-learning/learning/architecture/">architecture</a><span class="sidebar-module-list-count">1</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/machine-learning/natural-language-processing/">natural language processing</a><span class="sidebar-module-list-count">1</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/management/">management</a><span class="sidebar-module-list-count">2</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/management/leadership/">leadership</a><span class="sidebar-module-list-count">2</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/market/">market</a><span class="sidebar-module-list-count">1</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/market/startup/">startup</a><span class="sidebar-module-list-count">1</span></li></ul></li></ul>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/data-analytics/">data analytics</a><span class="sidebar-module-list-count">2</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/data-analytics/business-intelligence/">business intelligence</a><span class="sidebar-module-list-count">2</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/data-analytics/business-intelligence/ETL/">ETL</a><span class="sidebar-module-list-count">1</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/data-analytics/business-intelligence/ETL/workflow/">workflow</a><span class="sidebar-module-list-count">1</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/data-analytics/business-intelligence/ETL/workflow/Apache-NiFi/">Apache NiFi</a><span class="sidebar-module-list-count">1</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/data-analytics/business-intelligence/ETL/workflow/Apache-NiFi/StreamSets/">StreamSets</a><span class="sidebar-module-list-count">1</span></li></ul></li></ul></li></ul></li></ul></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/digital-transformation/">digital transformation</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/machine-learning/">machine learning</a><span class="sidebar-module-list-count">6</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/machine-learning/computer-vision/">computer vision</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/machine-learning/data-analytics/">data analytics</a><span class="sidebar-module-list-count">3</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/machine-learning/data-analytics/timeseries/">timeseries</a><span class="sidebar-module-list-count">2</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/machine-learning/learning/">learning</a><span class="sidebar-module-list-count">1</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/machine-learning/learning/architecture/">architecture</a><span class="sidebar-module-list-count">1</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/machine-learning/natural-language-processing/">natural language processing</a><span class="sidebar-module-list-count">1</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/management/">management</a><span class="sidebar-module-list-count">2</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/management/leadership/">leadership</a><span class="sidebar-module-list-count">2</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/market/">market</a><span class="sidebar-module-list-count">1</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/market/startup/">startup</a><span class="sidebar-module-list-count">1</span></li></ul></li></ul>
   </div>
 
 
