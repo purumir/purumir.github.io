@@ -1,0 +1,500 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Purumir&#39;s Blog</title>
+  <icon>https://purumir.github.io/icon.png</icon>
+  <subtitle>Machine Learning, SW architect, Management, favorites</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://purumir.github.io/"/>
+  <updated>2020-02-07T02:03:50.781Z</updated>
+  <id>https://purumir.github.io/</id>
+  
+  <author>
+    <name>Purumir. This articles are licensed under CC BY-NC 4.0.</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>오픈 소스 ETL 툴 비교(Apache NiFi vs StreamSets)</title>
+    <link href="https://purumir.github.io/2020/02/06/%EC%98%A4%ED%94%88-%EC%86%8C%EC%8A%A4-ETL-%ED%88%B4-%EB%B9%84%EA%B5%90-Apache-NiFi-vs-StreamSets/"/>
+    <id>https://purumir.github.io/2020/02/06/%EC%98%A4%ED%94%88-%EC%86%8C%EC%8A%A4-ETL-%ED%88%B4-%EB%B9%84%EA%B5%90-Apache-NiFi-vs-StreamSets/</id>
+    <published>2020-02-06T06:32:43.000Z</published>
+    <updated>2020-02-07T02:03:50.781Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;빅데이터, AI 시대에 데이터가 존재하는 origin으로부터 데이터를 가져오고 이를 처리후 적재하기 위한 ETL(Extract-Transformation-Load) Tools가 존재합니다.  대표적인 것이 Apache NiFi, Apache
+        
+      
+    
+    </summary>
+    
+    
+      <category term="data analytics" scheme="https://purumir.github.io/categories/data-analytics/"/>
+    
+      <category term="ETL" scheme="https://purumir.github.io/categories/data-analytics/ETL/"/>
+    
+    
+      <category term="machine learning" scheme="https://purumir.github.io/tags/machine-learning/"/>
+    
+      <category term="ETL" scheme="https://purumir.github.io/tags/ETL/"/>
+    
+      <category term="business intelligence" scheme="https://purumir.github.io/tags/business-intelligence/"/>
+    
+      <category term="workflow" scheme="https://purumir.github.io/tags/workflow/"/>
+    
+      <category term="Apache NiFi" scheme="https://purumir.github.io/tags/Apache-NiFi/"/>
+    
+      <category term="StreamSets" scheme="https://purumir.github.io/tags/StreamSets/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Dark Knowledge (Knowledge Distillation)</title>
+    <link href="https://purumir.github.io/2020/01/28/dark-knowledge-machine-learning-architecture/"/>
+    <id>https://purumir.github.io/2020/01/28/dark-knowledge-machine-learning-architecture/</id>
+    <published>2020-01-28T03:47:34.000Z</published>
+    <updated>2020-01-30T05:37:55.927Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;이글은 Medium( &lt;a href=&quot;https://medium.com/@mahendrakariya/dark-knowledge-in-neural-networks-467e5d699181&quot; target=&quot;_blank&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="machine learning" scheme="https://purumir.github.io/categories/machine-learning/"/>
+    
+      <category term="learning" scheme="https://purumir.github.io/categories/machine-learning/learning/"/>
+    
+      <category term="architecture" scheme="https://purumir.github.io/categories/machine-learning/learning/architecture/"/>
+    
+    
+      <category term="machine learning" scheme="https://purumir.github.io/tags/machine-learning/"/>
+    
+      <category term="learning" scheme="https://purumir.github.io/tags/learning/"/>
+    
+      <category term="knowledge distillation" scheme="https://purumir.github.io/tags/knowledge-distillation/"/>
+    
+      <category term="dark knowledge" scheme="https://purumir.github.io/tags/dark-knowledge/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>급변의 시기를 겪는 아시아의 4마리용, 대만 탐방기</title>
+    <link href="https://purumir.github.io/2020/01/20/%EA%B8%89%EB%B3%80%EC%9D%98-%EC%8B%9C%EA%B8%B0%EB%A5%BC-%EA%B2%AA%EB%8A%94-%EC%95%84%EC%8B%9C%EC%95%84%EC%9D%98-4%EB%A7%88%EB%A6%AC%EC%9A%A9-%EB%8C%80%EB%A7%8C-%ED%83%90%EB%B0%A9%EA%B8%B0/"/>
+    <id>https://purumir.github.io/2020/01/20/%EA%B8%89%EB%B3%80%EC%9D%98-%EC%8B%9C%EA%B8%B0%EB%A5%BC-%EA%B2%AA%EB%8A%94-%EC%95%84%EC%8B%9C%EC%95%84%EC%9D%98-4%EB%A7%88%EB%A6%AC%EC%9A%A9-%EB%8C%80%EB%A7%8C-%ED%83%90%EB%B0%A9%EA%B8%B0/</id>
+    <published>2020-01-20T01:47:41.000Z</published>
+    <updated>2020-01-20T01:47:41.455Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>합성곱 신경망(CNN)을 통한 폐기물 분류</title>
+    <link href="https://purumir.github.io/2020/01/07/%ED%95%A9%EC%84%B1%EA%B3%B1-%EC%8B%A0%EA%B2%BD%EB%A7%9D-CNN-%EC%9D%84-%ED%86%B5%ED%95%9C-%ED%8F%90%EA%B8%B0%EB%AC%BC-%EB%B6%84%EB%A5%98/"/>
+    <id>https://purumir.github.io/2020/01/07/%ED%95%A9%EC%84%B1%EA%B3%B1-%EC%8B%A0%EA%B2%BD%EB%A7%9D-CNN-%EC%9D%84-%ED%86%B5%ED%95%9C-%ED%8F%90%EA%B8%B0%EB%AC%BC-%EB%B6%84%EB%A5%98/</id>
+    <published>2020-01-07T04:53:31.000Z</published>
+    <updated>2020-01-07T04:53:31.669Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>출생아수 분석 #1(추세 그래프)</title>
+    <link href="https://purumir.github.io/2019/12/22/%EC%B6%9C%EC%83%9D%EC%95%84%EC%88%98-%EB%B6%84%EC%84%9D-1-%EC%B6%94%EC%84%B8-%EA%B7%B8%EB%9E%98%ED%94%84/"/>
+    <id>https://purumir.github.io/2019/12/22/%EC%B6%9C%EC%83%9D%EC%95%84%EC%88%98-%EB%B6%84%EC%84%9D-1-%EC%B6%94%EC%84%B8-%EA%B7%B8%EB%9E%98%ED%94%84/</id>
+    <published>2019-12-22T06:33:18.000Z</published>
+    <updated>2020-02-03T07:13:17.162Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;출생아수 저하는 경제력 저하로 이어진다는 말을 많이 들어왔습니다. 직접 분석을 위해서 출생아수 조사를 해보니 출생아수의 감소가 대부분의 광역자치단체에서 발생하고 있습니다. 이러한 추세를 한번 확인해 보고 그 의미를 분석해보고자
+        
+      
+    
+    </summary>
+    
+    
+      <category term="machine learning" scheme="https://purumir.github.io/categories/machine-learning/"/>
+    
+      <category term="data analytics" scheme="https://purumir.github.io/categories/machine-learning/data-analytics/"/>
+    
+      <category term="timeseries" scheme="https://purumir.github.io/categories/machine-learning/data-analytics/timeseries/"/>
+    
+    
+      <category term="machine learning" scheme="https://purumir.github.io/tags/machine-learning/"/>
+    
+      <category term="timeseries" scheme="https://purumir.github.io/tags/timeseries/"/>
+    
+      <category term="시계열" scheme="https://purumir.github.io/tags/%EC%8B%9C%EA%B3%84%EC%97%B4/"/>
+    
+      <category term="출생아수" scheme="https://purumir.github.io/tags/%EC%B6%9C%EC%83%9D%EC%95%84%EC%88%98/"/>
+    
+      <category term="광역자치단체" scheme="https://purumir.github.io/tags/%EA%B4%91%EC%97%AD%EC%9E%90%EC%B9%98%EB%8B%A8%EC%B2%B4/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>스타트업 창업자의 학력 부풀리기 용인에 대한 윤리적 접근</title>
+    <link href="https://purumir.github.io/2019/11/27/%EC%8A%A4%ED%83%80%ED%8A%B8%EC%97%85-%EC%B0%BD%EC%97%85%EC%9E%90%EC%9D%98-%ED%95%99%EB%A0%A5-%EB%B6%80%ED%92%80%EB%A6%AC%EA%B8%B0-%EC%9A%A9%EC%9D%B8%EC%97%90-%EB%8C%80%ED%95%9C-%EC%9C%A4%EB%A6%AC%EC%A0%81-%EC%A0%91%EA%B7%BC/"/>
+    <id>https://purumir.github.io/2019/11/27/%EC%8A%A4%ED%83%80%ED%8A%B8%EC%97%85-%EC%B0%BD%EC%97%85%EC%9E%90%EC%9D%98-%ED%95%99%EB%A0%A5-%EB%B6%80%ED%92%80%EB%A6%AC%EA%B8%B0-%EC%9A%A9%EC%9D%B8%EC%97%90-%EB%8C%80%ED%95%9C-%EC%9C%A4%EB%A6%AC%EC%A0%81-%EC%A0%91%EA%B7%BC/</id>
+    <published>2019-11-27T10:56:47.000Z</published>
+    <updated>2020-01-28T00:19:16.968Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;최근 스타트업계에서 이슈화 되고 있는 CEO의 학력 위조에 대해서 ‘기업윤리’에서 배우는 윤리적 관점에서 질문을 던져보고자 합니다. 정답이 없는 내용이지만 이 문제는 한번 쯤 깊이 생각해볼 주제라고 생각됩니다.&lt;/p&gt;
+&lt;p&gt;&lt;img
+        
+      
+    
+    </summary>
+    
+    
+      <category term="market" scheme="https://purumir.github.io/categories/market/"/>
+    
+      <category term="startup" scheme="https://purumir.github.io/categories/market/startup/"/>
+    
+    
+      <category term="스타트업" scheme="https://purumir.github.io/tags/%EC%8A%A4%ED%83%80%ED%8A%B8%EC%97%85/"/>
+    
+      <category term="창업" scheme="https://purumir.github.io/tags/%EC%B0%BD%EC%97%85/"/>
+    
+      <category term="학력" scheme="https://purumir.github.io/tags/%ED%95%99%EB%A0%A5/"/>
+    
+      <category term="스펙" scheme="https://purumir.github.io/tags/%EC%8A%A4%ED%8E%99/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Autoregressive 수식 유도</title>
+    <link href="https://purumir.github.io/2019/11/23/Autoregressive-%EC%88%98%EC%8B%9D-%EC%9C%A0%EB%8F%84/"/>
+    <id>https://purumir.github.io/2019/11/23/Autoregressive-%EC%88%98%EC%8B%9D-%EC%9C%A0%EB%8F%84/</id>
+    <published>2019-11-23T02:11:33.000Z</published>
+    <updated>2019-11-23T02:11:33.829Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>정형데이터 분석에서의 BI툴의 사용</title>
+    <link href="https://purumir.github.io/2019/10/23/%EC%A0%95%ED%98%95%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%B6%84%EC%84%9D%EC%97%90%EC%84%9C%EC%9D%98-BI%ED%88%B4%EC%9D%98-%EC%82%AC%EC%9A%A9/"/>
+    <id>https://purumir.github.io/2019/10/23/%EC%A0%95%ED%98%95%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%B6%84%EC%84%9D%EC%97%90%EC%84%9C%EC%9D%98-BI%ED%88%B4%EC%9D%98-%EC%82%AC%EC%9A%A9/</id>
+    <published>2019-10-23T12:40:05.000Z</published>
+    <updated>2020-02-03T07:13:06.769Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;예측을 포함하지 않는 정형데이터 분석의 경우 Tableau, Power BI, 엑셀을 통해 분석하는것이 효율적이라 생각된다.배우다 보니 굳이 정형데이터의 경우 Pandas등을 쓸 필요가 있을까도 싶다. 그리고 이미 엑셀은 무한 row를
+        
+      
+    
+    </summary>
+    
+    
+      <category term="data analytics" scheme="https://purumir.github.io/categories/data-analytics/"/>
+    
+      <category term="business intelligence" scheme="https://purumir.github.io/categories/data-analytics/business-intelligence/"/>
+    
+    
+      <category term="business intelligence" scheme="https://purumir.github.io/tags/business-intelligence/"/>
+    
+      <category term="ms power bi" scheme="https://purumir.github.io/tags/ms-power-bi/"/>
+    
+      <category term="excel" scheme="https://purumir.github.io/tags/excel/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Moving_Average_수식_유도</title>
+    <link href="https://purumir.github.io/2019/10/21/Moving-Average-%EC%88%98%EC%8B%9D-%EC%9C%A0%EB%8F%84/"/>
+    <id>https://purumir.github.io/2019/10/21/Moving-Average-%EC%88%98%EC%8B%9D-%EC%9C%A0%EB%8F%84/</id>
+    <published>2019-10-21T01:14:17.000Z</published>
+    <updated>2020-02-03T07:13:50.820Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;Moving-Average의-개념&quot;&gt;&lt;a href=&quot;#Moving-Average의-개념&quot; class=&quot;headerlink&quot; title=&quot;Moving Average의 개념&quot;&gt;&lt;/a&gt;Moving Average의
+        
+      
+    
+    </summary>
+    
+    
+      <category term="machine learning" scheme="https://purumir.github.io/categories/machine-learning/"/>
+    
+      <category term="data analytics" scheme="https://purumir.github.io/categories/machine-learning/data-analytics/"/>
+    
+      <category term="timeseries" scheme="https://purumir.github.io/categories/machine-learning/data-analytics/timeseries/"/>
+    
+    
+      <category term="machine learning" scheme="https://purumir.github.io/tags/machine-learning/"/>
+    
+      <category term="timeseries" scheme="https://purumir.github.io/tags/timeseries/"/>
+    
+      <category term="시계열" scheme="https://purumir.github.io/tags/%EC%8B%9C%EA%B3%84%EC%97%B4/"/>
+    
+      <category term="moving average" scheme="https://purumir.github.io/tags/moving-average/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Convolutional-Neural-Network-Part1</title>
+    <link href="https://purumir.github.io/2019/10/20/Convolutional-Neural-Network-Part1/"/>
+    <id>https://purumir.github.io/2019/10/20/Convolutional-Neural-Network-Part1/</id>
+    <published>2019-10-20T02:51:58.000Z</published>
+    <updated>2020-02-03T07:13:35.060Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;Convolutional-Neural-Network-개요&quot;&gt;&lt;a href=&quot;#Convolutional-Neural-Network-개요&quot; class=&quot;headerlink&quot; title=&quot;Convolutional Neural Network
+        
+      
+    
+    </summary>
+    
+    
+      <category term="machine learning" scheme="https://purumir.github.io/categories/machine-learning/"/>
+    
+      <category term="computer vision" scheme="https://purumir.github.io/categories/machine-learning/computer-vision/"/>
+    
+    
+      <category term="machine learning" scheme="https://purumir.github.io/tags/machine-learning/"/>
+    
+      <category term="computer vision" scheme="https://purumir.github.io/tags/computer-vision/"/>
+    
+      <category term="convolutional neural network" scheme="https://purumir.github.io/tags/convolutional-neural-network/"/>
+    
+      <category term="cnn" scheme="https://purumir.github.io/tags/cnn/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>chatbot@digital transformation</title>
+    <link href="https://purumir.github.io/2019/10/17/chatbot-digital-transformation/"/>
+    <id>https://purumir.github.io/2019/10/17/chatbot-digital-transformation/</id>
+    <published>2019-10-17T01:28:49.000Z</published>
+    <updated>2020-02-03T07:13:29.600Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;MBA과정 중 제약회사에 다니는 형님 한분이 이런 말씀을 하셨다.&lt;/p&gt;
+&lt;p&gt;“공대는 이유를 이야기하고, 문과는 명분을 이야기한다”&lt;/p&gt;
+&lt;p&gt;이 이야기를 듣고 학교에 잘 들어왔다는 생각을 했다.                         
+        
+      
+    
+    </summary>
+    
+    
+      <category term="digital transformation" scheme="https://purumir.github.io/categories/digital-transformation/"/>
+    
+    
+      <category term="management" scheme="https://purumir.github.io/tags/management/"/>
+    
+      <category term="digital transformation" scheme="https://purumir.github.io/tags/digital-transformation/"/>
+    
+      <category term="chatbot" scheme="https://purumir.github.io/tags/chatbot/"/>
+    
+      <category term="명분" scheme="https://purumir.github.io/tags/%EB%AA%85%EB%B6%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>세종대왕의 리더십</title>
+    <link href="https://purumir.github.io/2019/10/11/%EC%84%B8%EC%A2%85%EB%8C%80%EC%99%95%EC%9D%98-%EB%A6%AC%EB%8D%94%EC%8B%AD/"/>
+    <id>https://purumir.github.io/2019/10/11/%EC%84%B8%EC%A2%85%EB%8C%80%EC%99%95%EC%9D%98-%EB%A6%AC%EB%8D%94%EC%8B%AD/</id>
+    <published>2019-10-11T08:43:39.000Z</published>
+    <updated>2020-02-03T07:12:58.501Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;세종대왕은 우리가 익히 알기를 한글 창제의 주역(세종이 주도했다는 것이 정설이라고 하며, 최근 개봉한 ‘나랏말싸미’는 다른 의견을 기초로 한다.)이시기도 하고, 장영실의 등용을 비롯한 많은 과학기술의 발전을 이루어낸 분이시다. 하지만 본인의
+        
+      
+    
+    </summary>
+    
+    
+      <category term="management" scheme="https://purumir.github.io/categories/management/"/>
+    
+      <category term="leadership" scheme="https://purumir.github.io/categories/management/leadership/"/>
+    
+    
+      <category term="리더십" scheme="https://purumir.github.io/tags/%EB%A6%AC%EB%8D%94%EC%8B%AD/"/>
+    
+      <category term="세종대왕" scheme="https://purumir.github.io/tags/%EC%84%B8%EC%A2%85%EB%8C%80%EC%99%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>구간평균법, 지수평활법(exponential smoothing)</title>
+    <link href="https://purumir.github.io/2019/10/06/%EC%A7%80%EC%88%98%ED%8F%89%ED%99%9C%EB%B2%95-exponential-smoothing/"/>
+    <id>https://purumir.github.io/2019/10/06/%EC%A7%80%EC%88%98%ED%8F%89%ED%99%9C%EB%B2%95-exponential-smoothing/</id>
+    <published>2019-10-06T13:53:36.000Z</published>
+    <updated>2020-02-03T07:13:12.149Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;시계열-timeseries-데이터-구성-요소&quot;&gt;&lt;a href=&quot;#시계열-timeseries-데이터-구성-요소&quot; class=&quot;headerlink&quot; title=&quot;시계열(timeseries) 데이터 구성
+        
+      
+    
+    </summary>
+    
+    
+      <category term="machine learning" scheme="https://purumir.github.io/categories/machine-learning/"/>
+    
+      <category term="data analytics" scheme="https://purumir.github.io/categories/machine-learning/data-analytics/"/>
+    
+    
+      <category term="machine learning" scheme="https://purumir.github.io/tags/machine-learning/"/>
+    
+      <category term="timeseries" scheme="https://purumir.github.io/tags/timeseries/"/>
+    
+      <category term="시계열" scheme="https://purumir.github.io/tags/%EC%8B%9C%EA%B3%84%EC%97%B4/"/>
+    
+      <category term="구간평균법" scheme="https://purumir.github.io/tags/%EA%B5%AC%EA%B0%84%ED%8F%89%EA%B7%A0%EB%B2%95/"/>
+    
+      <category term="지수평활법" scheme="https://purumir.github.io/tags/%EC%A7%80%EC%88%98%ED%8F%89%ED%99%9C%EB%B2%95/"/>
+    
+      <category term="exponential smoothing" scheme="https://purumir.github.io/tags/exponential-smoothing/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>cs224n-Lecture 1(Introduction and Word Vectors)</title>
+    <link href="https://purumir.github.io/2019/10/05/cs224n-Lecture01/"/>
+    <id>https://purumir.github.io/2019/10/05/cs224n-Lecture01/</id>
+    <published>2019-10-05T07:15:05.000Z</published>
+    <updated>2020-02-03T07:13:40.709Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;Lecture-1-Introduction-and-Word-Vectors&quot;&gt;&lt;a href=&quot;#Lecture-1-Introduction-and-Word-Vectors&quot; class=&quot;headerlink&quot; title=&quot;Lecture
+        
+      
+    
+    </summary>
+    
+    
+      <category term="machine learning" scheme="https://purumir.github.io/categories/machine-learning/"/>
+    
+      <category term="natural language processing" scheme="https://purumir.github.io/categories/machine-learning/natural-language-processing/"/>
+    
+    
+      <category term="machine learning" scheme="https://purumir.github.io/tags/machine-learning/"/>
+    
+      <category term="natural language processing" scheme="https://purumir.github.io/tags/natural-language-processing/"/>
+    
+      <category term="cs224n" scheme="https://purumir.github.io/tags/cs224n/"/>
+    
+      <category term="word2vec" scheme="https://purumir.github.io/tags/word2vec/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>리더십 관리 기술</title>
+    <link href="https://purumir.github.io/2019/09/29/%EB%A6%AC%EB%8D%94%EC%8B%AD-%EA%B4%80%EB%A6%AC-%EA%B8%B0%EC%88%A0/"/>
+    <id>https://purumir.github.io/2019/09/29/%EB%A6%AC%EB%8D%94%EC%8B%AD-%EA%B4%80%EB%A6%AC-%EA%B8%B0%EC%88%A0/</id>
+    <published>2019-09-29T08:12:36.000Z</published>
+    <updated>2020-02-06T06:53:14.425Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;시간이 지나면서 위 아래로 같이 일하는 사람이 늘어나면서리더십이 무엇인가에 대해서 생각을 하게 된다.&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;‘Leadership(Theory, application &amp;amp; Skill Development/Robert N.
+        
+      
+    
+    </summary>
+    
+    
+      <category term="management" scheme="https://purumir.github.io/categories/management/"/>
+    
+      <category term="leadership" scheme="https://purumir.github.io/categories/management/leadership/"/>
+    
+    
+      <category term="리더십" scheme="https://purumir.github.io/tags/%EB%A6%AC%EB%8D%94%EC%8B%AD/"/>
+    
+      <category term="leadership" scheme="https://purumir.github.io/tags/leadership/"/>
+    
+      <category term="professionalskills" scheme="https://purumir.github.io/tags/professionalskills/"/>
+    
+      <category term="interpersonalskills" scheme="https://purumir.github.io/tags/interpersonalskills/"/>
+    
+      <category term="decisionmakingskills" scheme="https://purumir.github.io/tags/decisionmakingskills/"/>
+    
+      <category term="내가준비하고있는리더십" scheme="https://purumir.github.io/tags/%EB%82%B4%EA%B0%80%EC%A4%80%EB%B9%84%ED%95%98%EA%B3%A0%EC%9E%88%EB%8A%94%EB%A6%AC%EB%8D%94%EC%8B%AD/"/>
+    
+  </entry>
+  
+</feed>
