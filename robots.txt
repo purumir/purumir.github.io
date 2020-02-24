@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://purumir.github.io/sitemap.xml

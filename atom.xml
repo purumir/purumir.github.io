@@ -93,21 +93,6 @@
   </entry>
   
   <entry>
-    <title>급변의 시기를 겪는 아시아의 4마리용, 대만 탐방기</title>
-    <link href="https://purumir.github.io/2020/01/20/%EA%B8%89%EB%B3%80%EC%9D%98-%EC%8B%9C%EA%B8%B0%EB%A5%BC-%EA%B2%AA%EB%8A%94-%EC%95%84%EC%8B%9C%EC%95%84%EC%9D%98-4%EB%A7%88%EB%A6%AC%EC%9A%A9-%EB%8C%80%EB%A7%8C-%ED%83%90%EB%B0%A9%EA%B8%B0/"/>
-    <id>https://purumir.github.io/2020/01/20/%EA%B8%89%EB%B3%80%EC%9D%98-%EC%8B%9C%EA%B8%B0%EB%A5%BC-%EA%B2%AA%EB%8A%94-%EC%95%84%EC%8B%9C%EC%95%84%EC%9D%98-4%EB%A7%88%EB%A6%AC%EC%9A%A9-%EB%8C%80%EB%A7%8C-%ED%83%90%EB%B0%A9%EA%B8%B0/</id>
-    <published>2020-01-20T01:47:41.000Z</published>
-    <updated>2020-01-20T01:47:41.455Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-    
-  </entry>
-  
-  <entry>
     <title>합성곱 신경망(CNN)을 통한 폐기물 분류</title>
     <link href="https://purumir.github.io/2020/01/07/%ED%95%A9%EC%84%B1%EA%B3%B1-%EC%8B%A0%EA%B2%BD%EB%A7%9D-CNN-%EC%9D%84-%ED%86%B5%ED%95%9C-%ED%8F%90%EA%B8%B0%EB%AC%BC-%EB%B6%84%EB%A5%98/"/>
     <id>https://purumir.github.io/2020/01/07/%ED%95%A9%EC%84%B1%EA%B3%B1-%EC%8B%A0%EA%B2%BD%EB%A7%9D-CNN-%EC%9D%84-%ED%86%B5%ED%95%9C-%ED%8F%90%EA%B8%B0%EB%AC%BC-%EB%B6%84%EB%A5%98/</id>
@@ -283,41 +268,6 @@
   </entry>
   
   <entry>
-    <title>Convolutional-Neural-Network-Part1</title>
-    <link href="https://purumir.github.io/2019/10/20/Convolutional-Neural-Network-Part1/"/>
-    <id>https://purumir.github.io/2019/10/20/Convolutional-Neural-Network-Part1/</id>
-    <published>2019-10-20T02:51:58.000Z</published>
-    <updated>2020-02-03T07:13:35.060Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h3 id=&quot;Convolutional-Neural-Network-개요&quot;&gt;&lt;a href=&quot;#Convolutional-Neural-Network-개요&quot; class=&quot;headerlink&quot; title=&quot;Convolutional Neural Network
-        
-      
-    
-    </summary>
-    
-    
-      <category term="machine learning" scheme="https://purumir.github.io/categories/machine-learning/"/>
-    
-      <category term="computer vision" scheme="https://purumir.github.io/categories/machine-learning/computer-vision/"/>
-    
-    
-      <category term="machine learning" scheme="https://purumir.github.io/tags/machine-learning/"/>
-    
-      <category term="computer vision" scheme="https://purumir.github.io/tags/computer-vision/"/>
-    
-      <category term="convolutional neural network" scheme="https://purumir.github.io/tags/convolutional-neural-network/"/>
-    
-      <category term="cnn" scheme="https://purumir.github.io/tags/cnn/"/>
-    
-  </entry>
-  
-  <entry>
     <title>chatbot@digital transformation</title>
     <link href="https://purumir.github.io/2019/10/17/chatbot-digital-transformation/"/>
     <id>https://purumir.github.io/2019/10/17/chatbot-digital-transformation/</id>
@@ -419,41 +369,6 @@
       <category term="지수평활법" scheme="https://purumir.github.io/tags/%EC%A7%80%EC%88%98%ED%8F%89%ED%99%9C%EB%B2%95/"/>
     
       <category term="exponential smoothing" scheme="https://purumir.github.io/tags/exponential-smoothing/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>cs224n-Lecture 1(Introduction and Word Vectors)</title>
-    <link href="https://purumir.github.io/2019/10/05/cs224n-Lecture01/"/>
-    <id>https://purumir.github.io/2019/10/05/cs224n-Lecture01/</id>
-    <published>2019-10-05T07:15:05.000Z</published>
-    <updated>2020-02-03T07:13:40.709Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;Lecture-1-Introduction-and-Word-Vectors&quot;&gt;&lt;a href=&quot;#Lecture-1-Introduction-and-Word-Vectors&quot; class=&quot;headerlink&quot; title=&quot;Lecture
-        
-      
-    
-    </summary>
-    
-    
-      <category term="machine learning" scheme="https://purumir.github.io/categories/machine-learning/"/>
-    
-      <category term="natural language processing" scheme="https://purumir.github.io/categories/machine-learning/natural-language-processing/"/>
-    
-    
-      <category term="machine learning" scheme="https://purumir.github.io/tags/machine-learning/"/>
-    
-      <category term="natural language processing" scheme="https://purumir.github.io/tags/natural-language-processing/"/>
-    
-      <category term="cs224n" scheme="https://purumir.github.io/tags/cs224n/"/>
-    
-      <category term="word2vec" scheme="https://purumir.github.io/tags/word2vec/"/>
     
   </entry>
   
