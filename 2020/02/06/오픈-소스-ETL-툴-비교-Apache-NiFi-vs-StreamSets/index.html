@@ -6,14 +6,14 @@
   <title>오픈 소스 ETL 툴 비교(Apache NiFi vs StreamSets) | Purumir&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="빅데이터, AI 시대에 데이터가 존재하는 origin으로부터 데이터를 가져오고 이를 처리후 적재하기 위한 ETL(Extract-Transformation-Load) Tools가 존재합니다.  대표적인 것이 Apache NiFi, Apache Airflow, StreamSets등이 존재합니다. 과거 분석을 위해서는 BI(Business Intelligence">
-<meta name="keywords" content="machine learning,ETL,business intelligence,workflow,Apache NiFi,StreamSets">
+<meta name="keywords" content="machine learning,business intelligence,ETL,workflow,Apache NiFi,StreamSets">
 <meta property="og:type" content="article">
 <meta property="og:title" content="오픈 소스 ETL 툴 비교(Apache NiFi vs StreamSets)">
 <meta property="og:url" content="https://purumir.github.io/2020/02/06/오픈-소스-ETL-툴-비교-Apache-NiFi-vs-StreamSets/index.html">
 <meta property="og:site_name" content="Purumir&#39;s Blog">
 <meta property="og:description" content="빅데이터, AI 시대에 데이터가 존재하는 origin으로부터 데이터를 가져오고 이를 처리후 적재하기 위한 ETL(Extract-Transformation-Load) Tools가 존재합니다.  대표적인 것이 Apache NiFi, Apache Airflow, StreamSets등이 존재합니다. 과거 분석을 위해서는 BI(Business Intelligence">
 <meta property="og:locale" content="ko">
-<meta property="og:updated_time" content="2020-02-07T02:03:50.781Z">
+<meta property="og:updated_time" content="2020-02-24T14:49:05.658Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="오픈 소스 ETL 툴 비교(Apache NiFi vs StreamSets)">
 <meta name="twitter:description" content="빅데이터, AI 시대에 데이터가 존재하는 origin으로부터 데이터를 가져오고 이를 처리후 적재하기 위한 ETL(Extract-Transformation-Load) Tools가 존재합니다.  대표적인 것이 Apache NiFi, Apache Airflow, StreamSets등이 존재합니다. 과거 분석을 위해서는 BI(Business Intelligence">
@@ -201,6 +201,15 @@
 <p>위 비교표에서 볼수 있듯이 큰 차이점은 StreamSets의 경우 한개의 processor의 configuration을 수정하기 위해 전체 dataflow를 정지시켜야 합니다. UI상 Stop버튼을 눌러야 수정을 할 수 있도록 구성 되어 있습니다. </p>
 <p>StreamSets의 경우 Startup에서 지속적으로 관리하는 형태라 UI의 구성 자체가 NiFi대비 우수하다고 볼 수 있습니다.  또한, 설치도 docker 형태를 제공하고 있어 편리하게 구성후 테스트를 진행 할 수 있습니다.</p>
 <script data-ad-client="ca-pub-4548072043503266" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-158998069-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-158998069-1');
+</script>
       
     </div>
 
@@ -210,7 +219,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2020/02/06/오픈-소스-ETL-툴-비교-Apache-NiFi-vs-StreamSets/" data-id="ck70ihevw000fmsv04uedqks3" class="article-share-link">
+      <a data-url="https://purumir.github.io/2020/02/06/오픈-소스-ETL-툴-비교-Apache-NiFi-vs-StreamSets/" data-id="ck70kyllu000io4v0f7tc69k4" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -339,5 +348,21 @@ If you are curious about me, contact me <a href="mailto:typenew96@naver.com">[Ma
 
 <script src="/js/script.js"></script>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!--script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script-->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
 </body>
 </html>

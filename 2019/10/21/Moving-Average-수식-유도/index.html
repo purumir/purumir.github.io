@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="Purumir&#39;s Blog">
 <meta property="og:description" content="Moving Average의 개념Moving Average의 개념은 지난 post에서 언급한 글(https://purumir.github.io/2019/10/06/지수평활법-exponential-smoothing/ )의 내용을 참조하시기 바랍니다.  Moving Average(1) 수식유도moving average(1)의 수식은 아래와 같이 정의될 수 있습">
 <meta property="og:locale" content="ko">
-<meta property="og:updated_time" content="2020-02-03T07:13:50.820Z">
+<meta property="og:updated_time" content="2020-02-24T14:52:30.360Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Moving_Average_수식_유도">
 <meta name="twitter:description" content="Moving Average의 개념Moving Average의 개념은 지난 post에서 언급한 글(https://purumir.github.io/2019/10/06/지수평활법-exponential-smoothing/ )의 내용을 참조하시기 바랍니다.  Moving Average(1) 수식유도moving average(1)의 수식은 아래와 같이 정의될 수 있습">
@@ -191,6 +191,15 @@ r_{x}(3) = 0(~t-3이~없으므로~모두~0이~된다.)</script><p>5) 자기상�
 h=0일때~\frac{\gamma_{x}(0)}{\gamma_{x}(0)}=1\\
 h=1일때~\frac{\gamma_{x}(1)}{\gamma_{x}(0)}=\frac{(-\theta_{1}+\theta_{1}\theta_{2}){\sigma{a}^2}}{(1+\theta_{1}^2+\theta_{2}^2){\sigma{a}^2}}=\frac{(-\theta_{1}+\theta_{1}\theta_{2})}{(1+\theta_{1}^2+\theta_{2}^2)}\\
 h=2일때~\frac{\gamma_{x}(2)}{\gamma_{x}(0)}=\frac{ -\theta_{2}{\sigma{a}^2}}{(1+\theta_{1}^2+\theta_{2}^2){\sigma{a}^2}}=\frac{-\theta_{2}}{1+\theta_{1}^2+\theta_{2}^2}</script><script data-ad-client="ca-pub-4548072043503266" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-158998069-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-158998069-1');
+</script>
       
     </div>
 
@@ -200,7 +209,7 @@ h=2일때~\frac{\gamma_{x}(2)}{\gamma_{x}(0)}=\frac{ -\theta_{2}{\sigma{a}^2}}{(
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2019/10/21/Moving-Average-수식-유도/" data-id="ck70ihevm0006msv0r04dy4bb" class="article-share-link">
+      <a data-url="https://purumir.github.io/2019/10/21/Moving-Average-수식-유도/" data-id="ck70kyll20002o4v0ntvk6i0c" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -336,5 +345,21 @@ If you are curious about me, contact me <a href="mailto:typenew96@naver.com">[Ma
 
 <script src="/js/script.js"></script>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!--script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script-->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
 </body>
 </html>

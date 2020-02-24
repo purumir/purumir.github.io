@@ -14,7 +14,7 @@
 <meta property="og:description" content="이글은 Medium( https://medium.com/@mahendrakariya/dark-knowledge-in-neural-networks-467e5d699181 ) 글의 내용을 학습하면서 정리한 글입니다.  Neural Network는 그 목적이 각기 다름에도 불구하고, training과정에서 사용하는 network와 deployment과정에서 사용">
 <meta property="og:locale" content="ko">
 <meta property="og:image" content="https://purumir.github.io/images/machine_learning/dark_knowledge_student_teacher_architecture_concept_v20200128.jpg">
-<meta property="og:updated_time" content="2020-01-30T05:37:55.927Z">
+<meta property="og:updated_time" content="2020-02-24T14:50:34.917Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Dark Knowledge (Knowledge Distillation)">
 <meta name="twitter:description" content="이글은 Medium( https://medium.com/@mahendrakariya/dark-knowledge-in-neural-networks-467e5d699181 ) 글의 내용을 학습하면서 정리한 글입니다.  Neural Network는 그 목적이 각기 다름에도 불구하고, training과정에서 사용하는 network와 deployment과정에서 사용">
@@ -167,6 +167,15 @@ p_{i}= -\frac{exp(z_{i}/T)}{\sum_{j}{exp(z_{j}/T)}}\\T~is~the~temperature~parame
 <p>이 그림에서 <strong>New Small Model</strong>이 우리가 학습시키는 Student Network가 됩니다. 이 모델은 먼저 Small Model을 만들어 Teacher Model에서 사용한 학습데이터(x_train, y_train)를 통해 학습을 하고 마진가지로 <strong>logits</strong>를 추출하여, <strong>New Small Model</strong>을 만들게 됩니다. 이 모델에 최종적으로 <strong>학습 데이터(x_train, softened_softmax_probaibilties)</strong>를 학습시키는 과정을 통해 dark knowledge를 tranfering하게 됩니다.</p>
 <p>이러한 과정을 통해 이미지 분류를 위해서 통상적으로 사용하는 Convolution Network보다 훨씬 파라미터수가 적은 비교적 단순한 Dense Network를 통해서 이미지 분류 문제를 수행할 수 있게 됩니다. light-weight Model을 통해 Performance에 크게 손실이 없는 결과를 도출할 수 있게 됩니다.</p>
 <script data-ad-client="ca-pub-4548072043503266" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-158998069-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-158998069-1');
+</script>
       
     </div>
 
@@ -176,7 +185,7 @@ p_{i}= -\frac{exp(z_{i}/T)}{\sum_{j}{exp(z_{j}/T)}}\\T~is~the~temperature~parame
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2020/01/28/dark-knowledge-machine-learning-architecture/" data-id="ck70ihevo0007msv09jbean87" class="article-share-link">
+      <a data-url="https://purumir.github.io/2020/01/28/dark-knowledge-machine-learning-architecture/" data-id="ck70kyllj000bo4v0ud29llsp" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -312,5 +321,21 @@ If you are curious about me, contact me <a href="mailto:typenew96@naver.com">[Ma
 
 <script src="/js/script.js"></script>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!--script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script-->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
 </body>
 </html>
