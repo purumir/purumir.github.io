@@ -5,19 +5,19 @@
   
   <title>Kafka와 SparkStreaming을 통한 시계열 데이터 저장 | Purumir&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="다음과 같은 상황에서 시계열 데이터를 저장하는 과정을 기술하고자 합니다. 3개 지역에서 온도 데이터가 수집되고 이를 kafka를 통해 수집하고, spark streaming으로 처리한후 이를 elasticsearch에 저장하는 과정입니다. 데이터의 수집 현황을 kibana를 통해서 실시간 모니터링 하는 구조입니다. 복잡한 처리를 중간에 하지는 않고 수집된">
-<meta name="keywords" content="timeseries,data analytics,kafka,sparkstreaming,elasticsearch,kibana">
+  <meta name="description" content="다음과 같은 상황에서 시계열 데이터를 저장하는 과정을 기술하고자 합니다. 3개 지역에서 온도 데이터가 수집되고 이를 kafka를 통해 수집하고, spark streaming으로 처리한후 이를 elasticsearch에 저장하는 과정입니다. 데이터의 수집 현황을 kibana를 통해서 실시간 모니터링합니다. 복잡한 처리를 중간에 하지는 않고 수집된 데이터를 바">
+<meta name="keywords" content="data analytics,timeseries,kafka,sparkstreaming,elasticsearch,kibana">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Kafka와 SparkStreaming을 통한 시계열 데이터 저장">
 <meta property="og:url" content="https://purumir.github.io/2020/05/14/Kafka와-SparkStreaming을-통한-시계열-데이터-저장/index.html">
 <meta property="og:site_name" content="Purumir&#39;s Blog">
-<meta property="og:description" content="다음과 같은 상황에서 시계열 데이터를 저장하는 과정을 기술하고자 합니다. 3개 지역에서 온도 데이터가 수집되고 이를 kafka를 통해 수집하고, spark streaming으로 처리한후 이를 elasticsearch에 저장하는 과정입니다. 데이터의 수집 현황을 kibana를 통해서 실시간 모니터링 하는 구조입니다. 복잡한 처리를 중간에 하지는 않고 수집된">
+<meta property="og:description" content="다음과 같은 상황에서 시계열 데이터를 저장하는 과정을 기술하고자 합니다. 3개 지역에서 온도 데이터가 수집되고 이를 kafka를 통해 수집하고, spark streaming으로 처리한후 이를 elasticsearch에 저장하는 과정입니다. 데이터의 수집 현황을 kibana를 통해서 실시간 모니터링합니다. 복잡한 처리를 중간에 하지는 않고 수집된 데이터를 바">
 <meta property="og:locale" content="ko">
 <meta property="og:image" content="https://purumir.github.io/images/machine_learning/timeseries_concept_image_v20200514.png">
-<meta property="og:updated_time" content="2020-05-14T08:20:55.247Z">
+<meta property="og:updated_time" content="2020-05-14T08:24:15.380Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Kafka와 SparkStreaming을 통한 시계열 데이터 저장">
-<meta name="twitter:description" content="다음과 같은 상황에서 시계열 데이터를 저장하는 과정을 기술하고자 합니다. 3개 지역에서 온도 데이터가 수집되고 이를 kafka를 통해 수집하고, spark streaming으로 처리한후 이를 elasticsearch에 저장하는 과정입니다. 데이터의 수집 현황을 kibana를 통해서 실시간 모니터링 하는 구조입니다. 복잡한 처리를 중간에 하지는 않고 수집된">
+<meta name="twitter:description" content="다음과 같은 상황에서 시계열 데이터를 저장하는 과정을 기술하고자 합니다. 3개 지역에서 온도 데이터가 수집되고 이를 kafka를 통해 수집하고, spark streaming으로 처리한후 이를 elasticsearch에 저장하는 과정입니다. 데이터의 수집 현황을 kibana를 통해서 실시간 모니터링합니다. 복잡한 처리를 중간에 하지는 않고 수집된 데이터를 바">
 <meta name="twitter:image" content="https://purumir.github.io/images/machine_learning/timeseries_concept_image_v20200514.png">
   
     <link rel="alternate" href="/atom.xml" title="Purumir&#39;s Blog" type="application/atom+xml">
@@ -113,7 +113,7 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p>다음과 같은 상황에서 시계열 데이터를 저장하는 과정을 기술하고자 합니다. 3개 지역에서 온도 데이터가 수집되고 이를 kafka를 통해 수집하고, spark streaming으로 처리한후 이를 elasticsearch에 저장하는 과정입니다. 데이터의 수집 현황을 kibana를 통해서 실시간 모니터링 하는 구조입니다.</p>
+        <p>다음과 같은 상황에서 시계열 데이터를 저장하는 과정을 기술하고자 합니다. 3개 지역에서 온도 데이터가 수집되고 이를 kafka를 통해 수집하고, spark streaming으로 처리한후 이를 elasticsearch에 저장하는 과정입니다. 데이터의 수집 현황을 kibana를 통해서 실시간 모니터링합니다.</p>
 <p>복잡한 처리를 중간에 하지는 않고 수집된 데이터를 바로 저장하는 단순한 패턴입니다. </p>
 <p><img src="/images/machine_learning/timeseries_concept_image_v20200514.png" alt></p>
 
@@ -126,7 +126,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2020/05/14/Kafka와-SparkStreaming을-통한-시계열-데이터-저장/" data-id="cka6i70kx0005qkv03ly9cx70" class="article-share-link">
+      <a data-url="https://purumir.github.io/2020/05/14/Kafka와-SparkStreaming을-통한-시계열-데이터-저장/" data-id="cka6ibbpf0002r0v0088n4qzm" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
