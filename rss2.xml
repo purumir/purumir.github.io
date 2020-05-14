@@ -15,8 +15,29 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>This blog contains the items about machine learning, sw architect, management and my favorites.</description>
-    <pubDate>Mon, 24 Feb 2020 14:49:05 GMT</pubDate>
+    <pubDate>Thu, 14 May 2020 08:17:38 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Kafka와 SparkStreaming을 통한 시계열 데이터 저장</title>
+      <link>https://purumir.github.io/2020/05/14/Kafka%EC%99%80-SparkStreaming%EC%9D%84-%ED%86%B5%ED%95%9C-%EC%8B%9C%EA%B3%84%EC%97%B4-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%A0%80%EC%9E%A5/</link>
+      <guid>https://purumir.github.io/2020/05/14/Kafka%EC%99%80-SparkStreaming%EC%9D%84-%ED%86%B5%ED%95%9C-%EC%8B%9C%EA%B3%84%EC%97%B4-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%A0%80%EC%9E%A5/</guid>
+      <pubDate>Wed, 13 May 2020 23:29:09 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;다음과 같은 상황에서 시계열 데이터를 저장하는 과정을 기술하고자 합니다. 3개 지역에서 온도 데이터가 수집되고 이를 kafka를 통해 수집하고, spark streaming으로 처리한후 이를 elasticsearch에 저장하는 과정입니다.
+          
+        
+      
+      </description>
+      
+      
+      <comments>https://purumir.github.io/2020/05/14/Kafka%EC%99%80-SparkStreaming%EC%9D%84-%ED%86%B5%ED%95%9C-%EC%8B%9C%EA%B3%84%EC%97%B4-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%A0%80%EC%9E%A5/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>오픈 소스 ETL 툴 비교(Apache NiFi vs StreamSets)</title>
