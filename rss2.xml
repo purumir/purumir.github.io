@@ -15,7 +15,7 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>This blog contains the items about machine learning, sw architect, management and my favorites.</description>
-    <pubDate>Thu, 14 May 2020 08:26:33 GMT</pubDate>
+    <pubDate>Thu, 14 May 2020 23:58:57 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
@@ -29,7 +29,7 @@
         
           
           
-            &lt;p&gt;다음과 같은 상황에서 시계열 데이터를 저장하는 과정을 기술하고자 합니다. 3개 지역의 온도 데이터를 수집되고 이를 kafka를 통해 수집하고, spark streaming으로 처리한후 이를 elasticsearch에 저장하는 과정입니다.
+            &lt;p&gt;다음과 같은 상황에서 시계열 데이터를 저장하는 과정을 기술하고자 합니다. 3개 지역의 온도 데이터를 kafka를 통해 수집하고, spark streaming으로 처리한후 이를 elasticsearch에 저장하는 과정입니다. 데이터의 수집 현황을
           
         
       

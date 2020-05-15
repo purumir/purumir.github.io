@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://purumir.github.io/"/>
-  <updated>2020-05-14T08:26:33.854Z</updated>
+  <updated>2020-05-14T23:58:57.044Z</updated>
   <id>https://purumir.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://purumir.github.io/2020/05/14/Kafka%EC%99%80-SparkStreaming%EC%9D%84-%ED%86%B5%ED%95%9C-%EC%8B%9C%EA%B3%84%EC%97%B4-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%A0%80%EC%9E%A5/"/>
     <id>https://purumir.github.io/2020/05/14/Kafka%EC%99%80-SparkStreaming%EC%9D%84-%ED%86%B5%ED%95%9C-%EC%8B%9C%EA%B3%84%EC%97%B4-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%A0%80%EC%9E%A5/</id>
     <published>2020-05-13T23:29:09.000Z</published>
-    <updated>2020-05-14T08:26:33.854Z</updated>
+    <updated>2020-05-14T23:58:57.044Z</updated>
     
     <summary type="html">
     
@@ -29,7 +29,7 @@
       
         
         
-          &lt;p&gt;다음과 같은 상황에서 시계열 데이터를 저장하는 과정을 기술하고자 합니다. 3개 지역의 온도 데이터를 수집되고 이를 kafka를 통해 수집하고, spark streaming으로 처리한후 이를 elasticsearch에 저장하는 과정입니다.
+          &lt;p&gt;다음과 같은 상황에서 시계열 데이터를 저장하는 과정을 기술하고자 합니다. 3개 지역의 온도 데이터를 kafka를 통해 수집하고, spark streaming으로 처리한후 이를 elasticsearch에 저장하는 과정입니다. 데이터의 수집 현황을
         
       
     
@@ -41,9 +41,9 @@
       <category term="timeseries" scheme="https://purumir.github.io/categories/data-analytics/timeseries/"/>
     
     
-      <category term="timeseries" scheme="https://purumir.github.io/tags/timeseries/"/>
-    
       <category term="data analytics" scheme="https://purumir.github.io/tags/data-analytics/"/>
+    
+      <category term="timeseries" scheme="https://purumir.github.io/tags/timeseries/"/>
     
       <category term="kafka" scheme="https://purumir.github.io/tags/kafka/"/>
     
@@ -208,9 +208,9 @@
       <category term="timeseries" scheme="https://purumir.github.io/categories/machine-learning/data-analytics/timeseries/"/>
     
     
-      <category term="machine learning" scheme="https://purumir.github.io/tags/machine-learning/"/>
-    
       <category term="timeseries" scheme="https://purumir.github.io/tags/timeseries/"/>
+    
+      <category term="machine learning" scheme="https://purumir.github.io/tags/machine-learning/"/>
     
       <category term="시계열" scheme="https://purumir.github.io/tags/%EC%8B%9C%EA%B3%84%EC%97%B4/"/>
     
@@ -341,9 +341,9 @@
       <category term="timeseries" scheme="https://purumir.github.io/categories/machine-learning/data-analytics/timeseries/"/>
     
     
-      <category term="machine learning" scheme="https://purumir.github.io/tags/machine-learning/"/>
-    
       <category term="timeseries" scheme="https://purumir.github.io/tags/timeseries/"/>
+    
+      <category term="machine learning" scheme="https://purumir.github.io/tags/machine-learning/"/>
     
       <category term="시계열" scheme="https://purumir.github.io/tags/%EC%8B%9C%EA%B3%84%EC%97%B4/"/>
     
@@ -477,9 +477,9 @@
       <category term="data analytics" scheme="https://purumir.github.io/categories/machine-learning/data-analytics/"/>
     
     
-      <category term="machine learning" scheme="https://purumir.github.io/tags/machine-learning/"/>
-    
       <category term="timeseries" scheme="https://purumir.github.io/tags/timeseries/"/>
+    
+      <category term="machine learning" scheme="https://purumir.github.io/tags/machine-learning/"/>
     
       <category term="시계열" scheme="https://purumir.github.io/tags/%EC%8B%9C%EA%B3%84%EC%97%B4/"/>
     
