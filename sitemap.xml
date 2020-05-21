@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://purumir.github.io/2019/10/05/cs224n-Lecture01/</loc>
+    
+    <lastmod>2020-05-21T12:07:37.153Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://purumir.github.io/2020/01/28/dark-knowledge-machine-learning-architecture/</loc>
+    
+    <lastmod>2020-05-21T12:03:39.414Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://purumir.github.io/2020/05/14/Kafka%EC%99%80-SparkStreaming%EC%9D%84-%ED%86%B5%ED%95%9C-%EC%8B%9C%EA%B3%84%EC%97%B4-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%A0%80%EC%9E%A5/</loc>
     
     <lastmod>2020-05-21T12:03:35.979Z</lastmod>
@@ -9,16 +23,16 @@
   </url>
   
   <url>
-    <loc>https://purumir.github.io/2020/05/21/kubernetes%EB%A1%9C-spark-submit%ED%95%98%EA%B8%B0-spark-submit-to-kubernetes/</loc>
+    <loc>https://purumir.github.io/2019/10/21/Moving-Average-%EC%88%98%EC%8B%9D-%EC%9C%A0%EB%8F%84/</loc>
     
-    <lastmod>2020-05-21T12:02:02.196Z</lastmod>
+    <lastmod>2020-05-21T12:02:08.652Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://purumir.github.io/2019/10/21/Moving-Average-%EC%88%98%EC%8B%9D-%EC%9C%A0%EB%8F%84/</loc>
+    <loc>https://purumir.github.io/2020/05/21/kubernetes%EB%A1%9C-spark-submit%ED%95%98%EA%B8%B0-spark-submit-to-kubernetes/</loc>
     
-    <lastmod>2020-02-24T14:52:30.360Z</lastmod>
+    <lastmod>2020-05-21T12:02:02.196Z</lastmod>
     
   </url>
   
@@ -47,20 +61,6 @@
     <loc>https://purumir.github.io/2019/09/29/%EB%A6%AC%EB%8D%94%EC%8B%AD-%EA%B4%80%EB%A6%AC-%EA%B8%B0%EC%88%A0/</loc>
     
     <lastmod>2020-02-24T14:50:55.951Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://purumir.github.io/2020/01/28/dark-knowledge-machine-learning-architecture/</loc>
-    
-    <lastmod>2020-02-24T14:50:34.917Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://purumir.github.io/2019/10/05/cs224n-Lecture01/</loc>
-    
-    <lastmod>2020-02-24T14:50:28.106Z</lastmod>
     
   </url>
   
