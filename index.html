@@ -112,7 +112,9 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p>spark 공식 사이트( <a href="https://spark.apache.org/docs/latest/running-on-kubernetes.html" target="_blank" rel="noopener">https://spark.apache.org/docs/latest/running-on-kubernetes.html</a> ) 에 spark-submit을 kubernetes상에서 수행하는 방법에 대해서 나와 있습니다. 가이드에 따라서 container를 빌드하고 이를 이용해 spark-submit을 하는 상황입니다.</p>
+        <p>spark 공식 사이트( <a href="https://spark.apache.org/docs/latest/running-on-kubernetes.html" target="_blank" rel="noopener">https://spark.apache.org/docs/latest/running-on-kubernetes.html</a> ) 에 spark-submit을 kubernetes상에서 수행하는 방법에 대해서 나와 있습니다. 가이드에 따라서 container를 빌드하고 이를 이용해 spark-submit을 하는 상황입니다. 이 작업의 컨셉 다이어 그램은 아래와 같습니다.</p>
+<p><img src="/images/machine_learning/spark_submit_concept_diagram_v20200521.png" alt></p>
+<hr>
 <p>제가 겪은 상황은 spark-submit을 kubernetes cluster상에 namespace를 생성하고, 해당 namespace에 istio-injection:enabled를 했을 경우 겪게 되었던 “Initial Job has not accepted any resources: check your cluster UI to ensure that workers are registered and have sufficient resources”에 대한 트러블 슈팅에 대한 내용입니다. 특히 kubeflow를 설치시 istio관련 많은 컴포넌트들이 설치되는데 이로 인해서 위와 같은 에러 상황을 마주하게 되었습니다.</p>
 <p>해결책은 spark-submit시 istio-injection을 false처리하는 것입니다. 이를 통해서 spark-submit시 (특히 client mode시) spark driver와 spark executor의 communication이 되지 않아 발생하는 “Initial Job has not accepted any resources: check your cluster UI to ensure that workers are registered and have sufficient resources” 의 트러블 슈팅이 가능합니다.</p>
 <p>kubernetes에서 spark-submit을 수행하기 위해서는 다음과 같은 절차를 따릅니다.</p>
@@ -141,7 +143,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2020/05/21/kubernetes로-spark-submit하기-spark-submit-to-kubernetes/" data-id="ckagdpvi80007wgv0rc3oqsz9" class="article-share-link">
+      <a data-url="https://purumir.github.io/2020/05/21/kubernetes로-spark-submit하기-spark-submit-to-kubernetes/" data-id="ckage2tah000byov0dvm26nim" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -200,7 +202,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2020/05/14/Kafka와-SparkStreaming을-통한-시계열-데이터-저장/" data-id="ckagdpvi60006wgv0g7b9ujxc" class="article-share-link">
+      <a data-url="https://purumir.github.io/2020/05/14/Kafka와-SparkStreaming을-통한-시계열-데이터-저장/" data-id="ckage2ta70005yov023um641l" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -354,7 +356,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2020/02/06/오픈-소스-ETL-툴-비교-Apache-NiFi-vs-StreamSets/" data-id="ckagdpvip000jwgv05rdisd49" class="article-share-link">
+      <a data-url="https://purumir.github.io/2020/02/06/오픈-소스-ETL-툴-비교-Apache-NiFi-vs-StreamSets/" data-id="ckage2tat000jyov064vxlbvw" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -472,7 +474,7 @@ p_{i}= -\frac{exp(z_{i}/T)}{\sum_{j}{exp(z_{j}/T)}}\\T~is~the~temperature~parame
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2020/01/28/dark-knowledge-machine-learning-architecture/" data-id="ckagdpvie000bwgv08320hqbl" class="article-share-link">
+      <a data-url="https://purumir.github.io/2020/01/28/dark-knowledge-machine-learning-architecture/" data-id="ckage2tae000ayov0ilnxmzmx" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -535,7 +537,7 @@ p_{i}= -\frac{exp(z_{i}/T)}{\sum_{j}{exp(z_{j}/T)}}\\T~is~the~temperature~parame
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2020/01/20/급변의-시기를-겪는-아시아의-4마리용-대만-탐방기/" data-id="ckagdpvih000ewgv0pjulqk8b" class="article-share-link">
+      <a data-url="https://purumir.github.io/2020/01/20/급변의-시기를-겪는-아시아의-4마리용-대만-탐방기/" data-id="ckage2tap000fyov03xn0fdyx" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -594,7 +596,7 @@ p_{i}= -\frac{exp(z_{i}/T)}{\sum_{j}{exp(z_{j}/T)}}\\T~is~the~temperature~parame
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2020/01/07/합성곱-신경망-CNN-을-통한-폐기물-분류/" data-id="ckagdpvj3000vwgv06bvismh3" class="article-share-link">
+      <a data-url="https://purumir.github.io/2020/01/07/합성곱-신경망-CNN-을-통한-폐기물-분류/" data-id="ckage2tba000vyov0gj4l7wrd" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -665,7 +667,7 @@ p_{i}= -\frac{exp(z_{i}/T)}{\sum_{j}{exp(z_{j}/T)}}\\T~is~the~temperature~parame
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2019/12/22/출생아수-분석-1-추세-그래프/" data-id="ckagdpvj1000twgv06zriekmt" class="article-share-link">
+      <a data-url="https://purumir.github.io/2019/12/22/출생아수-분석-1-추세-그래프/" data-id="ckage2tb7000tyov07tg1b505" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -739,7 +741,7 @@ p_{i}= -\frac{exp(z_{i}/T)}{\sum_{j}{exp(z_{j}/T)}}\\T~is~the~temperature~parame
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2019/11/27/스타트업-창업자의-학력-부풀리기-용인에-대한-윤리적-접근/" data-id="ckagdpvin000iwgv053pfe49j" class="article-share-link">
+      <a data-url="https://purumir.github.io/2019/11/27/스타트업-창업자의-학력-부풀리기-용인에-대한-윤리적-접근/" data-id="ckage2tas000iyov0m3x4p00d" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -800,7 +802,7 @@ p_{i}= -\frac{exp(z_{i}/T)}{\sum_{j}{exp(z_{j}/T)}}\\T~is~the~temperature~parame
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2019/11/23/Autoregressive-수식-유도/" data-id="ckagdpvhl0000wgv03s2ewdzr" class="article-share-link">
+      <a data-url="https://purumir.github.io/2019/11/23/Autoregressive-수식-유도/" data-id="ckage2t9q0000yov0r9wwavu1" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -869,7 +871,7 @@ p_{i}= -\frac{exp(z_{i}/T)}{\sum_{j}{exp(z_{j}/T)}}\\T~is~the~temperature~parame
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2019/10/23/정형데이터-분석에서의-BI툴의-사용/" data-id="ckagdpvis000nwgv0jkbrn5lo" class="article-share-link">
+      <a data-url="https://purumir.github.io/2019/10/23/정형데이터-분석에서의-BI툴의-사용/" data-id="ckage2tb4000oyov0clmr1r2j" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -991,21 +993,5 @@ If you are curious about me, contact me <a href="mailto:typenew96@naver.com">[Ma
 
 <script src="/js/script.js"></script>
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<!--script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script-->
-<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
 </body>
 </html>
