@@ -14,7 +14,7 @@
 <meta property="og:description" content="spark 공식 사이트( https://spark.apache.org/docs/latest/running-on-kubernetes.html ) 에 spark-submit을 kubernetes상에서 수행하는 방법에 대해서 나와 있습니다. 가이드에 따라서 container를 빌드하고 이를 이용해 spark-submit을 하는 상황입니다. 제가 겪은 상황은 sp">
 <meta property="og:locale" content="ko">
 <meta property="og:image" content="https://purumir.github.io/images/machine_learning/spark_submit_to_kubernets_dashboard_v20200521.png">
-<meta property="og:updated_time" content="2020-05-21T06:06:41.423Z">
+<meta property="og:updated_time" content="2020-05-21T06:10:36.959Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="kubernetes로 spark-submit하기(spark-submit to kubernetes)">
 <meta name="twitter:description" content="spark 공식 사이트( https://spark.apache.org/docs/latest/running-on-kubernetes.html ) 에 spark-submit을 kubernetes상에서 수행하는 방법에 대해서 나와 있습니다. 가이드에 따라서 container를 빌드하고 이를 이용해 spark-submit을 하는 상황입니다. 제가 겪은 상황은 sp">
@@ -119,9 +119,9 @@
 <p>kubernetes에서 spark-submit을 수행하기 위해서는 다음과 같은 절차를 따릅니다.</p>
 <p>1) Namespace 생성 &amp; Service Account 생성 &amp; ClusterRoleBinding 수행</p>
 <ul>
-<li>Namespace 생성</li>
+<li>Namespace 생성 &amp; istio-injection enable</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl create namespace data-platform</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">kubectl create namespace data-platform</span><br><span class="line">kubectl label namespace data-platform istio-injection=enabled</span><br></pre></td></tr></table></figure>
 <ul>
 <li>Service Account &amp; ClusterRoleBinding 생성</li>
 </ul>
@@ -142,7 +142,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2020/05/21/kubernetes로-spark-submit하기-spark-submit-to-kubernetes/" data-id="ckagdhbol000a3gv0mjnlp3ym" class="article-share-link">
+      <a data-url="https://purumir.github.io/2020/05/21/kubernetes로-spark-submit하기-spark-submit-to-kubernetes/" data-id="ckagdme7z000esgv0wzwtkiyx" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
