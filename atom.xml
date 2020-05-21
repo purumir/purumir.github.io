@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://purumir.github.io/"/>
-  <updated>2020-05-14T23:58:57.044Z</updated>
+  <updated>2020-05-21T06:04:02.668Z</updated>
   <id>https://purumir.github.io/</id>
   
   <author>
@@ -15,6 +15,49 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>kubernetes로 spark-submit하기(spark-submit to kubernetes)</title>
+    <link href="https://purumir.github.io/2020/05/21/kubernetes%EB%A1%9C-spark-submit%ED%95%98%EA%B8%B0-spark-submit-to-kubernetes/"/>
+    <id>https://purumir.github.io/2020/05/21/kubernetes%EB%A1%9C-spark-submit%ED%95%98%EA%B8%B0-spark-submit-to-kubernetes/</id>
+    <published>2020-05-21T05:09:05.000Z</published>
+    <updated>2020-05-21T06:04:02.668Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;spark 공식 사이트(&lt;a href=&quot;https://spark.apache.org/docs/latest/running-on-kubernetes.html)에&quot; target=&quot;_blank&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="data analytics" scheme="https://purumir.github.io/categories/data-analytics/"/>
+    
+      <category term="spark" scheme="https://purumir.github.io/categories/data-analytics/spark/"/>
+    
+      <category term="timeseries" scheme="https://purumir.github.io/categories/data-analytics/spark/timeseries/"/>
+    
+    
+      <category term="data analytics" scheme="https://purumir.github.io/tags/data-analytics/"/>
+    
+      <category term="kafka" scheme="https://purumir.github.io/tags/kafka/"/>
+    
+      <category term="sparkstreaming" scheme="https://purumir.github.io/tags/sparkstreaming/"/>
+    
+      <category term="elasticsearch" scheme="https://purumir.github.io/tags/elasticsearch/"/>
+    
+      <category term="spark" scheme="https://purumir.github.io/tags/spark/"/>
+    
+      <category term="kubernetes" scheme="https://purumir.github.io/tags/kubernetes/"/>
+    
+      <category term="istio" scheme="https://purumir.github.io/tags/istio/"/>
+    
+  </entry>
   
   <entry>
     <title>Kafka와 SparkStreaming을 통한 시계열 데이터 저장</title>
@@ -41,9 +84,9 @@
       <category term="timeseries" scheme="https://purumir.github.io/categories/data-analytics/timeseries/"/>
     
     
-      <category term="data analytics" scheme="https://purumir.github.io/tags/data-analytics/"/>
-    
       <category term="timeseries" scheme="https://purumir.github.io/tags/timeseries/"/>
+    
+      <category term="data analytics" scheme="https://purumir.github.io/tags/data-analytics/"/>
     
       <category term="kafka" scheme="https://purumir.github.io/tags/kafka/"/>
     
@@ -208,9 +251,9 @@
       <category term="timeseries" scheme="https://purumir.github.io/categories/machine-learning/data-analytics/timeseries/"/>
     
     
-      <category term="timeseries" scheme="https://purumir.github.io/tags/timeseries/"/>
-    
       <category term="machine learning" scheme="https://purumir.github.io/tags/machine-learning/"/>
+    
+      <category term="timeseries" scheme="https://purumir.github.io/tags/timeseries/"/>
     
       <category term="시계열" scheme="https://purumir.github.io/tags/%EC%8B%9C%EA%B3%84%EC%97%B4/"/>
     
@@ -341,9 +384,9 @@
       <category term="timeseries" scheme="https://purumir.github.io/categories/machine-learning/data-analytics/timeseries/"/>
     
     
-      <category term="timeseries" scheme="https://purumir.github.io/tags/timeseries/"/>
-    
       <category term="machine learning" scheme="https://purumir.github.io/tags/machine-learning/"/>
+    
+      <category term="timeseries" scheme="https://purumir.github.io/tags/timeseries/"/>
     
       <category term="시계열" scheme="https://purumir.github.io/tags/%EC%8B%9C%EA%B3%84%EC%97%B4/"/>
     
@@ -477,9 +520,9 @@
       <category term="data analytics" scheme="https://purumir.github.io/categories/machine-learning/data-analytics/"/>
     
     
-      <category term="timeseries" scheme="https://purumir.github.io/tags/timeseries/"/>
-    
       <category term="machine learning" scheme="https://purumir.github.io/tags/machine-learning/"/>
+    
+      <category term="timeseries" scheme="https://purumir.github.io/tags/timeseries/"/>
     
       <category term="시계열" scheme="https://purumir.github.io/tags/%EC%8B%9C%EA%B3%84%EC%97%B4/"/>
     
