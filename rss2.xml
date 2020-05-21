@@ -15,7 +15,7 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>This blog contains the items about machine learning, sw architect, management and my favorites.</description>
-    <pubDate>Thu, 21 May 2020 06:05:49 GMT</pubDate>
+    <pubDate>Thu, 21 May 2020 06:06:41 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
@@ -29,7 +29,7 @@
         
           
           
-            &lt;p&gt;spark 공식 사이트(&lt;a href=&quot;https://spark.apache.org/docs/latest/running-on-kubernetes.html)에&quot; target=&quot;_blank&quot;
+            &lt;p&gt;spark 공식 사이트( &lt;a href=&quot;https://spark.apache.org/docs/latest/running-on-kubernetes.html&quot; target=&quot;_blank&quot;
           
         
       
