@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://purumir.github.io/2020/05/14/Kafka%EC%99%80-SparkStreaming%EC%9D%84-%ED%86%B5%ED%95%9C-%EC%8B%9C%EA%B3%84%EC%97%B4-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%A0%80%EC%9E%A5/</loc>
+    
+    <lastmod>2020-05-29T07:29:54.452Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://purumir.github.io/2019/10/05/cs224n-Lecture01/</loc>
     
     <lastmod>2020-05-21T12:07:37.153Z</lastmod>
@@ -12,13 +19,6 @@
     <loc>https://purumir.github.io/2020/01/28/dark-knowledge-machine-learning-architecture/</loc>
     
     <lastmod>2020-05-21T12:03:39.414Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://purumir.github.io/2020/05/14/Kafka%EC%99%80-SparkStreaming%EC%9D%84-%ED%86%B5%ED%95%9C-%EC%8B%9C%EA%B3%84%EC%97%B4-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%A0%80%EC%9E%A5/</loc>
-    
-    <lastmod>2020-05-21T12:03:35.979Z</lastmod>
     
   </url>
   
