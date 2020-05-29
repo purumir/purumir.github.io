@@ -64,7 +64,7 @@
     <link href="https://purumir.github.io/2020/05/14/Kafka%EC%99%80-SparkStreaming%EC%9D%84-%ED%86%B5%ED%95%9C-%EC%8B%9C%EA%B3%84%EC%97%B4-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%A0%80%EC%9E%A5/"/>
     <id>https://purumir.github.io/2020/05/14/Kafka%EC%99%80-SparkStreaming%EC%9D%84-%ED%86%B5%ED%95%9C-%EC%8B%9C%EA%B3%84%EC%97%B4-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%A0%80%EC%9E%A5/</id>
     <published>2020-05-13T23:29:09.000Z</published>
-    <updated>2020-05-29T07:37:57.565Z</updated>
+    <updated>2020-05-29T08:03:14.101Z</updated>
     
     <summary type="html">
     
@@ -125,9 +125,9 @@
     
       <category term="machine learning" scheme="https://purumir.github.io/tags/machine-learning/"/>
     
-      <category term="business intelligence" scheme="https://purumir.github.io/tags/business-intelligence/"/>
-    
       <category term="ETL" scheme="https://purumir.github.io/tags/ETL/"/>
+    
+      <category term="business intelligence" scheme="https://purumir.github.io/tags/business-intelligence/"/>
     
       <category term="workflow" scheme="https://purumir.github.io/tags/workflow/"/>
     
