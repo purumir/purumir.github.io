@@ -6,7 +6,7 @@
   <title>Kafka와 SparkStreaming을 통한 시계열 데이터 저장(on kubernetes) | Purumir&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="다음과 같은 상황에서 시계열 데이터를 저장하는 과정을 기술하고자 합니다. 3개 지역의 온도 데이터를 kafka를 통해 수집하고, spark streaming으로 처리한후 이를 elasticsearch에 저장하는 과정입니다. 데이터의 수집 현황을 kibana를 통해서 실시간 모니터링합니다.   아키텍처 설명) 복잡한 처리를 중간에 하지는 않고 수집된 데이터를">
-<meta name="keywords" content="timeseries,data analytics,kafka,sparkstreaming,elasticsearch,kibana">
+<meta name="keywords" content="data analytics,timeseries,kafka,sparkstreaming,elasticsearch,kibana">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Kafka와 SparkStreaming을 통한 시계열 데이터 저장(on kubernetes)">
 <meta property="og:url" content="https://purumir.github.io/2020/05/14/Kafka와-SparkStreaming을-통한-시계열-데이터-저장/index.html">
@@ -15,7 +15,7 @@
 <meta property="og:locale" content="ko">
 <meta property="og:image" content="https://purumir.github.io/images/machine_learning/timeseries_concept_image_v20200514.png">
 <meta property="og:image" content="https://purumir.github.io/images/machine_learning/spark_submit_from_outside_concept_architecture_v20200529.png">
-<meta property="og:updated_time" content="2020-05-29T07:29:54.452Z">
+<meta property="og:updated_time" content="2020-05-29T07:37:57.565Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Kafka와 SparkStreaming을 통한 시계열 데이터 저장(on kubernetes)">
 <meta name="twitter:description" content="다음과 같은 상황에서 시계열 데이터를 저장하는 과정을 기술하고자 합니다. 3개 지역의 온도 데이터를 kafka를 통해 수집하고, spark streaming으로 처리한후 이를 elasticsearch에 저장하는 과정입니다. 데이터의 수집 현황을 kibana를 통해서 실시간 모니터링합니다.   아키텍처 설명) 복잡한 처리를 중간에 하지는 않고 수집된 데이터를">
@@ -118,7 +118,7 @@
 <p><img src="/images/machine_learning/timeseries_concept_image_v20200514.png" alt></p>
 <hr>
 <p><strong>아키텍처 설명)</strong></p>
-<p>복잡한 처리를 중간에 하지는 않고 수집된 데이터를 바로 저장하는 단순한 패턴입니다.  추후 spark를 통한 시계열 분석은 진행할 예정입니다. 다만 Spark, ElasticSearch는 kubernetes상에서 배포합니다. Kafka는 istio환경에서 helm chart(<a href="https://github.com/helm/charts/tree/master/incubator/kafka)를" target="_blank" rel="noopener">https://github.com/helm/charts/tree/master/incubator/kafka)를</a> 이용해 배포시 kafka Pod가 zookeeper에 access하지 못하는 현상이 있어 kafka는 kubernetes외부에 deploy한다는 가정입니다. 따라서, 아키텍처 컨셉은 다음과 같습니다.</p>
+<p>복잡한 처리를 중간에 하지는 않고 수집된 데이터를 바로 저장하는 단순한 패턴입니다.  추후 spark를 통한 시계열 분석은 진행할 예정입니다. 다만 Spark, ElasticSearch는 kubernetes상에서 배포합니다. Kafka는 istio환경에서 helm chart(<a href="https://github.com/helm/charts/tree/master/incubator/kafka" target="_blank" rel="noopener">https://github.com/helm/charts/tree/master/incubator/kafka</a>) 를 이용해 배포시 kafka Pod가 zookeeper Pod (zookeeper-headless.es.svc.cluster.local로 access가 안됨) 에 access하지 못하는 현상이 있어 kafka는 kubernetes외부에 deploy한다는 가정입니다. 따라서, 아키텍처 컨셉은 다음과 같습니다.</p>
 <p><img src="/images/machine_learning/spark_submit_from_outside_concept_architecture_v20200529.png" alt></p>
 <p>Spark Client Mode로 Spark Job Submit을 kubernetes API Server를 통해서 수행하게 됩니다. 이 방법에 대한 내용은 다음 글을 참조하시기 바랍니다.</p>
 <script data-ad-client="ca-pub-4548072043503266" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -140,7 +140,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2020/05/14/Kafka와-SparkStreaming을-통한-시계열-데이터-저장/" data-id="ckarvzb7g0005l4v0tiaad4mw" class="article-share-link">
+      <a data-url="https://purumir.github.io/2020/05/14/Kafka와-SparkStreaming을-통한-시계열-데이터-저장/" data-id="ckarw9flv0006k4v02uda3pme" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
