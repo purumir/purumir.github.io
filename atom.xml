@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://purumir.github.io/"/>
-  <updated>2020-05-21T12:02:02.196Z</updated>
+  <updated>2021-03-29T15:34:05.953Z</updated>
   <id>https://purumir.github.io/</id>
   
   <author>
@@ -15,6 +15,43 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ResNet</title>
+    <link href="https://purumir.github.io/2021/03/30/ResNet/"/>
+    <id>https://purumir.github.io/2021/03/30/ResNet/</id>
+    <published>2021-03-29T15:29:22.000Z</published>
+    <updated>2021-03-29T15:34:05.953Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;Deep Network는 Low/Mid/High level features를 추출하여 이를 통해 여러가지 작업을 수행한다. network depth는 이 경우 중요한 요소가 되는데 network가 깊어 질수록 degradation
+        
+      
+    
+    </summary>
+    
+    
+      <category term="machine learning" scheme="https://purumir.github.io/categories/machine-learning/"/>
+    
+      <category term="computer vision" scheme="https://purumir.github.io/categories/machine-learning/computer-vision/"/>
+    
+    
+      <category term="machine learning" scheme="https://purumir.github.io/tags/machine-learning/"/>
+    
+      <category term="computer vision" scheme="https://purumir.github.io/tags/computer-vision/"/>
+    
+      <category term="convolutional neural network" scheme="https://purumir.github.io/tags/convolutional-neural-network/"/>
+    
+      <category term="cnn" scheme="https://purumir.github.io/tags/cnn/"/>
+    
+      <category term="resnet" scheme="https://purumir.github.io/tags/resnet/"/>
+    
+  </entry>
   
   <entry>
     <title>kubernetes로 spark-submit하기(spark-submit to kubernetes)</title>
@@ -64,7 +101,7 @@
     <link href="https://purumir.github.io/2020/05/14/Kafka%EC%99%80-SparkStreaming%EC%9D%84-%ED%86%B5%ED%95%9C-%EC%8B%9C%EA%B3%84%EC%97%B4-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%A0%80%EC%9E%A5/"/>
     <id>https://purumir.github.io/2020/05/14/Kafka%EC%99%80-SparkStreaming%EC%9D%84-%ED%86%B5%ED%95%9C-%EC%8B%9C%EA%B3%84%EC%97%B4-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%A0%80%EC%9E%A5/</id>
     <published>2020-05-13T23:29:09.000Z</published>
-    <updated>2020-05-29T08:03:14.101Z</updated>
+    <updated>2020-05-29T08:07:38.017Z</updated>
     
     <summary type="html">
     
@@ -84,9 +121,9 @@
       <category term="timeseries" scheme="https://purumir.github.io/categories/data-analytics/timeseries/"/>
     
     
-      <category term="data analytics" scheme="https://purumir.github.io/tags/data-analytics/"/>
-    
       <category term="timeseries" scheme="https://purumir.github.io/tags/timeseries/"/>
+    
+      <category term="data analytics" scheme="https://purumir.github.io/tags/data-analytics/"/>
     
       <category term="kafka" scheme="https://purumir.github.io/tags/kafka/"/>
     
@@ -304,7 +341,7 @@
     <link href="https://purumir.github.io/2019/11/23/Autoregressive-%EC%88%98%EC%8B%9D-%EC%9C%A0%EB%8F%84/"/>
     <id>https://purumir.github.io/2019/11/23/Autoregressive-%EC%88%98%EC%8B%9D-%EC%9C%A0%EB%8F%84/</id>
     <published>2019-11-23T02:11:33.000Z</published>
-    <updated>2020-02-24T14:52:05.028Z</updated>
+    <updated>2021-03-29T15:25:51.151Z</updated>
     
     <summary type="html">
     

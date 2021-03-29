@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://purumir.github.io/2021/03/30/ResNet/</loc>
+    
+    <lastmod>2021-03-29T15:34:05.953Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://purumir.github.io/2019/11/23/Autoregressive-%EC%88%98%EC%8B%9D-%EC%9C%A0%EB%8F%84/</loc>
+    
+    <lastmod>2021-03-29T15:25:51.151Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://purumir.github.io/2020/05/14/Kafka%EC%99%80-SparkStreaming%EC%9D%84-%ED%86%B5%ED%95%9C-%EC%8B%9C%EA%B3%84%EC%97%B4-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%A0%80%EC%9E%A5/</loc>
     
-    <lastmod>2020-05-29T08:03:14.101Z</lastmod>
+    <lastmod>2020-05-29T08:07:38.017Z</lastmod>
     
   </url>
   
@@ -33,13 +47,6 @@
     <loc>https://purumir.github.io/2020/05/21/kubernetes%EB%A1%9C-spark-submit%ED%95%98%EA%B8%B0-spark-submit-to-kubernetes/</loc>
     
     <lastmod>2020-05-21T12:02:02.196Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://purumir.github.io/2019/11/23/Autoregressive-%EC%88%98%EC%8B%9D-%EC%9C%A0%EB%8F%84/</loc>
-    
-    <lastmod>2020-02-24T14:52:05.028Z</lastmod>
     
   </url>
   

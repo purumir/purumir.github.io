@@ -15,8 +15,29 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>This blog contains the items about machine learning, sw architect, management and my favorites.</description>
-    <pubDate>Thu, 21 May 2020 12:02:02 GMT</pubDate>
+    <pubDate>Mon, 29 Mar 2021 15:34:05 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>ResNet</title>
+      <link>https://purumir.github.io/2021/03/30/ResNet/</link>
+      <guid>https://purumir.github.io/2021/03/30/ResNet/</guid>
+      <pubDate>Mon, 29 Mar 2021 15:29:22 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;Deep Network는 Low/Mid/High level features를 추출하여 이를 통해 여러가지 작업을 수행한다. network depth는 이 경우 중요한 요소가 되는데 network가 깊어 질수록 degradation
+          
+        
+      
+      </description>
+      
+      
+      <comments>https://purumir.github.io/2021/03/30/ResNet/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>kubernetes로 spark-submit하기(spark-submit to kubernetes)</title>
