@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://purumir.github.io/"/>
-  <updated>2021-03-30T15:27:03.691Z</updated>
+  <updated>2021-03-30T16:00:07.353Z</updated>
   <id>https://purumir.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://purumir.github.io/2021/03/30/ResNet/"/>
     <id>https://purumir.github.io/2021/03/30/ResNet/</id>
     <published>2021-03-29T15:29:22.000Z</published>
-    <updated>2021-03-30T15:27:03.691Z</updated>
+    <updated>2021-03-30T16:00:07.353Z</updated>
     
     <summary type="html">
     
@@ -121,9 +121,9 @@
       <category term="timeseries" scheme="https://purumir.github.io/categories/data-analytics/timeseries/"/>
     
     
-      <category term="data analytics" scheme="https://purumir.github.io/tags/data-analytics/"/>
-    
       <category term="timeseries" scheme="https://purumir.github.io/tags/timeseries/"/>
+    
+      <category term="data analytics" scheme="https://purumir.github.io/tags/data-analytics/"/>
     
       <category term="kafka" scheme="https://purumir.github.io/tags/kafka/"/>
     
