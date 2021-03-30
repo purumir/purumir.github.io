@@ -13,10 +13,12 @@
 <meta property="og:site_name" content="Purumir&#39;s Blog">
 <meta property="og:description" content="Deep Network는 Low/Mid/High level features를 추출하여 이를 통해 여러가지 작업을 수행한다. network depth는 이 경우 중요한 요소가 되는데 network가 깊어 질수록 degradation problem이 발생한다.  with the network depth increasing, accuracy gets satura">
 <meta property="og:locale" content="ko">
-<meta property="og:updated_time" content="2021-03-29T15:45:43.252Z">
+<meta property="og:image" content="https://purumir.github.io/images/machine_learning/resnet_building_block_v20210330.jpg">
+<meta property="og:updated_time" content="2021-03-30T14:53:29.736Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ResNet">
 <meta name="twitter:description" content="Deep Network는 Low/Mid/High level features를 추출하여 이를 통해 여러가지 작업을 수행한다. network depth는 이 경우 중요한 요소가 되는데 network가 깊어 질수록 degradation problem이 발생한다.  with the network depth increasing, accuracy gets satura">
+<meta name="twitter:image" content="https://purumir.github.io/images/machine_learning/resnet_building_block_v20210330.jpg">
   
     <link rel="alternate" href="/atom.xml" title="Purumir&#39;s Blog" type="application/atom+xml">
   
@@ -116,7 +118,10 @@
 <p>with the network depth increasing, accuracy gets saturated (which might be uprising) and then degrades rapidly.</p>
 <p>(from “Deep Residual Learning for Image Recognition”)</p>
 </blockquote>
-<p>위 정의와 같이 network depth가 증가할 수록 accuracy가 일정 수준까지 증가후 급격히 감소하는 현상이 발생하게 된다.</p>
+<p>위 정의와 같이 network depth가 증가할 수록 accuracy가 일정 수준까지 증가후 급격히 감소하는 현상이 발생하게 된다.    </p>
+<p>network depth가 높으면 train error, test error가 모두 높은 현상이 발생하게 된다. 이는 deeper network를 통해 얻고자 하는 목적과 배치되게 된다.</p>
+<p>ResNet은 이 degradation problem을 deep residual learning framework를 통해서 해결하고자 한다. </p>
+<p><img src="/images/machine_learning/resnet_building_block_v20210330.jpg" alt></p>
 
       
     </div>
@@ -127,7 +132,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2021/03/30/ResNet/" data-id="ckmurjmva000a7ov0ew1gp2qp" class="article-share-link">
+      <a data-url="https://purumir.github.io/2021/03/30/ResNet/" data-id="ckmw559lp0002rkv0r1n9w6c1" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
