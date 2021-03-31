@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://purumir.github.io/"/>
-  <updated>2021-03-30T16:00:07.353Z</updated>
+  <updated>2021-03-31T15:53:47.109Z</updated>
   <id>https://purumir.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://purumir.github.io/2021/03/30/ResNet/"/>
     <id>https://purumir.github.io/2021/03/30/ResNet/</id>
     <published>2021-03-29T15:29:22.000Z</published>
-    <updated>2021-03-30T16:00:07.353Z</updated>
+    <updated>2021-03-31T15:53:47.109Z</updated>
     
     <summary type="html">
     
@@ -121,9 +121,9 @@
       <category term="timeseries" scheme="https://purumir.github.io/categories/data-analytics/timeseries/"/>
     
     
-      <category term="timeseries" scheme="https://purumir.github.io/tags/timeseries/"/>
-    
       <category term="data analytics" scheme="https://purumir.github.io/tags/data-analytics/"/>
+    
+      <category term="timeseries" scheme="https://purumir.github.io/tags/timeseries/"/>
     
       <category term="kafka" scheme="https://purumir.github.io/tags/kafka/"/>
     
@@ -162,9 +162,9 @@
     
       <category term="machine learning" scheme="https://purumir.github.io/tags/machine-learning/"/>
     
-      <category term="ETL" scheme="https://purumir.github.io/tags/ETL/"/>
-    
       <category term="business intelligence" scheme="https://purumir.github.io/tags/business-intelligence/"/>
+    
+      <category term="ETL" scheme="https://purumir.github.io/tags/ETL/"/>
     
       <category term="workflow" scheme="https://purumir.github.io/tags/workflow/"/>
     
@@ -399,7 +399,7 @@
     <link href="https://purumir.github.io/2019/10/21/Moving-Average-%EC%88%98%EC%8B%9D-%EC%9C%A0%EB%8F%84/"/>
     <id>https://purumir.github.io/2019/10/21/Moving-Average-%EC%88%98%EC%8B%9D-%EC%9C%A0%EB%8F%84/</id>
     <published>2019-10-21T01:14:17.000Z</published>
-    <updated>2020-05-21T12:02:08.652Z</updated>
+    <updated>2021-03-31T15:34:15.338Z</updated>
     
     <summary type="html">
     
@@ -576,7 +576,7 @@
     <link href="https://purumir.github.io/2019/10/05/cs224n-Lecture01/"/>
     <id>https://purumir.github.io/2019/10/05/cs224n-Lecture01/</id>
     <published>2019-10-05T07:15:05.000Z</published>
-    <updated>2020-05-21T12:07:37.153Z</updated>
+    <updated>2021-03-31T15:35:34.030Z</updated>
     
     <summary type="html">
     

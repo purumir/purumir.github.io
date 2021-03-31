@@ -14,7 +14,7 @@
 <meta property="og:description" content="Deep Network는 Low/Mid/High level features를 추출하여 이를 통해 여러가지 작업을 수행한다. network depth는 이 경우 중요한 요소가 되는데 network가 깊어 질수록 degradation problem이 발생한다.  with the network depth increasing, accuracy gets satura">
 <meta property="og:locale" content="ko">
 <meta property="og:image" content="https://purumir.github.io/images/machine_learning/resnet_building_block_v20210330.jpg">
-<meta property="og:updated_time" content="2021-03-30T16:00:07.353Z">
+<meta property="og:updated_time" content="2021-03-31T15:53:47.109Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ResNet">
 <meta name="twitter:description" content="Deep Network는 Low/Mid/High level features를 추출하여 이를 통해 여러가지 작업을 수행한다. network depth는 이 경우 중요한 요소가 되는데 network가 깊어 질수록 degradation problem이 발생한다.  with the network depth increasing, accuracy gets satura">
@@ -120,17 +120,30 @@
 </blockquote>
 <p>위 정의와 같이 network depth가 증가할 수록 accuracy가 일정 수준까지 증가후 급격히 감소하는 현상이 발생하게 된다.    </p>
 <p>network depth가 높으면 train error, test error가 모두 높은 현상이 발생하게 된다. 이는 deeper network를 통해 얻고자 하는 목적과 배치되게 된다.</p>
-<p>ResNet은 이 degradation problem을 deep residual learning framework를 통해서 해결하고자 한다. </p>
+<p>ResNet은 이 degradation problem을 deep residual learning framework를 통해서 해결하고자 한다.  Residual Network는 plan network를 기반으로 shortcut connections를 추가한것이다.</p>
 <p><img src="/images/machine_learning/resnet_building_block_v20210330.jpg" alt></p>
 <blockquote>
 <p>[출처] “Deep Residual Learning for Image Recognition”</p>
 </blockquote>
 <p>위 stacked nonlinear layers에 의한 매핑을 H(x)라고 하면, 다른 stacked nonlinear layers mapping을 F(x):=H(x)-x라 할수 있다. 즉. H(x)=F(x)+x로 표현이 가능하다.  이를 통해 H(x) 대신에 Residual Function인 F(x)를 알아냄으로서 문제를 해결할수 있다. 이것이 Residual Learning의 개념이다. </p>
+<hr>
+<p><strong><em>[Identity Mapping by Shortcuts]</em></strong></p>
+<p>identity mapping의 경우 위 그림을 수식으로 좀 더 구체적으로 표현하면 다음과 같다.</p>
+<script type="math/tex; mode=display">
+y=F(x, \{W_{i}\})+x\\
+\text{x,y는 input과 output이며}, F(x,{W_{i}})\text{는 학습될 residual mapping을 나타낸다.}</script><blockquote>
+<p>위와 같은 identity mapping에서는 input, output의 dimension이 동일해야 한다.</p>
+</blockquote>
 <p>위와 같은 identity mapping의 경우 추가적인 parameter 혹은 computational complexity를 유발하지 않는다. 학습에 있어서도 SGD with backpropagation을 통해서 학습이 가능하다.</p>
 <blockquote>
 <p>pytorch resnet에서는 위의 building block을 BasicBlock으로 naming하고 있다.</p>
 </blockquote>
 <p>Residual Net은 깊이가 증가함에 따라 accuracy도 같이 증가하여 기존의 network들보다 깊이가 깊어져도 성능저하를 예방할수 있다.</p>
+<p>이 논문에서는 plain network(normal CNN)와 residual  network간 parameter, depth, width and computational cost가 같으므로 상대적인 성능을 비교할수 있어 이를 비교하고 있다.</p>
+<p><strong><em>[Projection Mapping by Shortcuts]</em></strong></p>
+<p>input, output의 dimension이 다른 경우는 다음과 같이 linear projection을 통해 연산을 한다.</p>
+<script type="math/tex; mode=display">
+y=F(x, \{W_{i}\})+W_{s}x</script><hr>
 
       
     </div>
@@ -141,7 +154,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2021/03/30/ResNet/" data-id="ckmw7ifyj0005xsv02zq08oyw" class="article-share-link">
+      <a data-url="https://purumir.github.io/2021/03/30/ResNet/" data-id="ckmxmq99t0006hkv0v3totes6" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -270,21 +283,5 @@ If you are curious about me, contact me <a href="mailto:typenew96@naver.com">[Ma
 
 <script src="/js/script.js"></script>
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<!--script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script-->
-<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
 </body>
 </html>
