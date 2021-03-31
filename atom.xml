@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://purumir.github.io/"/>
-  <updated>2021-03-31T16:01:59.707Z</updated>
+  <updated>2021-03-31T16:03:47.938Z</updated>
   <id>https://purumir.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://purumir.github.io/2021/03/30/ResNet/"/>
     <id>https://purumir.github.io/2021/03/30/ResNet/</id>
     <published>2021-03-29T15:29:22.000Z</published>
-    <updated>2021-03-31T16:01:59.707Z</updated>
+    <updated>2021-03-31T16:03:47.938Z</updated>
     
     <summary type="html">
     
@@ -162,9 +162,9 @@
     
       <category term="machine learning" scheme="https://purumir.github.io/tags/machine-learning/"/>
     
-      <category term="ETL" scheme="https://purumir.github.io/tags/ETL/"/>
-    
       <category term="business intelligence" scheme="https://purumir.github.io/tags/business-intelligence/"/>
+    
+      <category term="ETL" scheme="https://purumir.github.io/tags/ETL/"/>
     
       <category term="workflow" scheme="https://purumir.github.io/tags/workflow/"/>
     
