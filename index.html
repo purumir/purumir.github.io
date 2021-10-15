@@ -128,6 +128,7 @@
 </ul>
 <p><strong>코드에서 HdfsSensor 모듈 import를 통한 sensor 기능 사용</strong></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> airflow.providers.apache.hdfs.sensors.hdfs <span class="keyword">import</span> HdfsSensor</span><br><span class="line"></span><br><span class="line">hdfs_sensor = HdfsSensor(</span><br><span class="line">    task_id = <span class="string">"hdfs_path_sensor"</span>,</span><br><span class="line">    filepath = <span class="string">"모니터링 하고자 하는 파일의 full path(파일명포함)"</span>,</span><br><span class="line">    hdfs_conn_id = <span class="string">"hdfs_connection"</span>, <span class="comment"># airflow &gt; Admin &gt; Connections 에 설정한 hdfs connection 명</span></span><br><span class="line">    queue =<span class="string">"queue"</span>, <span class="comment"># airflow사용 queue,</span></span><br><span class="line">    poke_interval=<span class="number">30</span>, <span class="comment"># 지정한 interval이 지난후 체크</span></span><br><span class="line">    timeout=<span class="number">11400</span>, <span class="comment"># 지정한 timeout 시간동안 체크를 지속</span></span><br><span class="line">    dag=dag</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p><br></p>
 <p>아래 그림과 같이 Task간에 선행 작업에서 필수적인 파일을 생성했는지 여부를 체크하여, 후행 작업의 시작을 파일이 생성될때까지 순연시키는 효과를 거둘수 있습니다.</p>
 <p><img src="/images/sw/airflow_hdfs_sensor_usecase_20211115.JPG" alt></p>
 <script data-ad-client="ca-pub-4548072043503266" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -153,7 +154,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2021/10/15/airflow-hdfs-sensor/" data-id="ckus3ux1t000avwv07jmm1sx2" class="article-share-link">
+      <a data-url="https://purumir.github.io/2021/10/15/airflow-hdfs-sensor/" data-id="ckus3vkq80005asv0opb35m3x" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -235,7 +236,7 @@ y=F(x, \{W_{i}\})+W_{s}x</script><p>{작성중}</p>
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2021/03/30/ResNet/" data-id="ckus3ux1n0005vwv0as4ffpkz" class="article-share-link">
+      <a data-url="https://purumir.github.io/2021/03/30/ResNet/" data-id="ckus3vkqd000aasv0iexhr3dv" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -323,7 +324,7 @@ y=F(x, \{W_{i}\})+W_{s}x</script><p>{작성중}</p>
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2020/05/21/kubernetes로-spark-submit하기-spark-submit-to-kubernetes/" data-id="ckus3ux21000evwv0p0jymoyf" class="article-share-link">
+      <a data-url="https://purumir.github.io/2020/05/21/kubernetes로-spark-submit하기-spark-submit-to-kubernetes/" data-id="ckus3vkql000fasv0k2gaskee" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -399,7 +400,7 @@ y=F(x, \{W_{i}\})+W_{s}x</script><p>{작성중}</p>
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2020/05/14/Kafka와-SparkStreaming을-통한-시계열-데이터-저장/" data-id="ckus3ux1h0002vwv0gtx0cqv0" class="article-share-link">
+      <a data-url="https://purumir.github.io/2020/05/14/Kafka와-SparkStreaming을-통한-시계열-데이터-저장/" data-id="ckus3vkq30002asv0exgnind9" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -553,7 +554,7 @@ y=F(x, \{W_{i}\})+W_{s}x</script><p>{작성중}</p>
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2020/02/06/오픈-소스-ETL-툴-비교-Apache-NiFi-vs-StreamSets/" data-id="ckus3ux29000mvwv0sb3rgzk7" class="article-share-link">
+      <a data-url="https://purumir.github.io/2020/02/06/오픈-소스-ETL-툴-비교-Apache-NiFi-vs-StreamSets/" data-id="ckus3vkqt000oasv0dbz5au0u" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -671,7 +672,7 @@ p_{i}= -\frac{exp(z_{i}/T)}{\sum_{j}{exp(z_{j}/T)}}\\T~is~the~temperature~parame
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2020/01/28/dark-knowledge-machine-learning-architecture/" data-id="ckus3ux1v000bvwv04x3ucbbv" class="article-share-link">
+      <a data-url="https://purumir.github.io/2020/01/28/dark-knowledge-machine-learning-architecture/" data-id="ckus3vkq90006asv0cj9tvfrb" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -734,7 +735,7 @@ p_{i}= -\frac{exp(z_{i}/T)}{\sum_{j}{exp(z_{j}/T)}}\\T~is~the~temperature~parame
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2020/01/20/급변의-시기를-겪는-아시아의-4마리용-대만-탐방기/" data-id="ckus3ux2g000uvwv02bgu4o5c" class="article-share-link">
+      <a data-url="https://purumir.github.io/2020/01/20/급변의-시기를-겪는-아시아의-4마리용-대만-탐방기/" data-id="ckus3vkqr000masv0dlavy9zp" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -793,7 +794,7 @@ p_{i}= -\frac{exp(z_{i}/T)}{\sum_{j}{exp(z_{j}/T)}}\\T~is~the~temperature~parame
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2020/01/07/합성곱-신경망-CNN-을-통한-폐기물-분류/" data-id="ckus3ux2d000rvwv0onddsdpz" class="article-share-link">
+      <a data-url="https://purumir.github.io/2020/01/07/합성곱-신경망-CNN-을-통한-폐기물-분류/" data-id="ckus3vktd005easv0n48sit00" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -864,7 +865,7 @@ p_{i}= -\frac{exp(z_{i}/T)}{\sum_{j}{exp(z_{j}/T)}}\\T~is~the~temperature~parame
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2019/12/22/출생아수-분석-1-추세-그래프/" data-id="ckus3ux4x0058vwv02jsma0m2" class="article-share-link">
+      <a data-url="https://purumir.github.io/2019/12/22/출생아수-분석-1-추세-그래프/" data-id="ckus3vktb005dasv031lyo7bi" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -938,7 +939,7 @@ p_{i}= -\frac{exp(z_{i}/T)}{\sum_{j}{exp(z_{j}/T)}}\\T~is~the~temperature~parame
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2019/11/27/스타트업-창업자의-학력-부풀리기-용인에-대한-윤리적-접근/" data-id="ckus3ux27000jvwv0w9foh9ii" class="article-share-link">
+      <a data-url="https://purumir.github.io/2019/11/27/스타트업-창업자의-학력-부풀리기-용인에-대한-윤리적-접근/" data-id="ckus3vkqp000jasv0pklp2075" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
