@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://purumir.github.io/"/>
-  <updated>2021-10-15T08:25:12.042Z</updated>
+  <updated>2021-10-15T08:27:24.563Z</updated>
   <id>https://purumir.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://purumir.github.io/2021/10/15/airflow-hdfs-sensor/"/>
     <id>https://purumir.github.io/2021/10/15/airflow-hdfs-sensor/</id>
     <published>2021-10-15T07:37:31.000Z</published>
-    <updated>2021-10-15T08:25:12.042Z</updated>
+    <updated>2021-10-15T08:27:24.563Z</updated>
     
     <summary type="html">
     
@@ -30,9 +30,8 @@
         
         
           &lt;p&gt;airflow에는 HDFS상에서 파일의 존재유무를 체크하는(poke)하는 hdfs_sensor라는 기능이 있습니다.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;hdfs sensor를 위한 필요 패키지 설치&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;pip
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;hdfs sensor를 위한 필요 패키지
         
       
     
