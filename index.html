@@ -122,9 +122,9 @@
 <ul>
 <li>airflow &gt; Admin &gt; Connections 에서 hdfs sensor에서 접근할 hdfs 정보를 입력<ul>
 <li>hdfs_connection / IP / Port 정보</li>
+<li>HDFS Name Node 정보를 입력 (IP, Port 8020)</li>
 </ul>
 </li>
-<li>HDFS Name Node 정보를 입력 (IP, Port 8020)</li>
 </ul>
 <p><strong>코드에서 HdfsSensor 모듈 import를 통한 sensor 기능 사용</strong></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> airflow.providers.apache.hdfs.sensors.hdfs <span class="keyword">import</span> HdfsSensor</span><br><span class="line"></span><br><span class="line">hdfs_sensor = HdfsSensor(</span><br><span class="line">    task_id = <span class="string">"hdfs_path_sensor"</span>,</span><br><span class="line">    filepath = <span class="string">"모니터링 하고자 하는 파일의 full path(파일명포함)"</span>,</span><br><span class="line">    hdfs_conn_id = <span class="string">"hdfs_connection"</span>, <span class="comment"># airflow &gt; Admin &gt; Connections 에 설정한 hdfs connection 명</span></span><br><span class="line">    queue =<span class="string">"queue"</span>, <span class="comment"># airflow사용 queue,</span></span><br><span class="line">    poke_interval=<span class="number">30</span>, <span class="comment"># 지정한 interval이 지난후 체크</span></span><br><span class="line">    timeout=<span class="number">11400</span>, <span class="comment"># 지정한 timeout 시간동안 체크를 지속</span></span><br><span class="line">    dag=dag</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
@@ -153,7 +153,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2021/10/15/airflow-hdfs-sensor/" data-id="ckus3odri0005iov0zaljn8ey" class="article-share-link">
+      <a data-url="https://purumir.github.io/2021/10/15/airflow-hdfs-sensor/" data-id="ckus3phgo000f6cv01h2950m9" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -235,7 +235,7 @@ y=F(x, \{W_{i}\})+W_{s}x</script><p>{작성중}</p>
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2021/03/30/ResNet/" data-id="ckus3odrt000eiov001c93zwb" class="article-share-link">
+      <a data-url="https://purumir.github.io/2021/03/30/ResNet/" data-id="ckus3phg900076cv0kzw0bibw" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -323,7 +323,7 @@ y=F(x, \{W_{i}\})+W_{s}x</script><p>{작성중}</p>
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2020/05/21/kubernetes로-spark-submit하기-spark-submit-to-kubernetes/" data-id="ckus3odrv000fiov0wi6lu43t" class="article-share-link">
+      <a data-url="https://purumir.github.io/2020/05/21/kubernetes로-spark-submit하기-spark-submit-to-kubernetes/" data-id="ckus3phgm000e6cv0bdx6lie2" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -399,7 +399,7 @@ y=F(x, \{W_{i}\})+W_{s}x</script><p>{작성중}</p>
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2020/05/14/Kafka와-SparkStreaming을-통한-시계열-데이터-저장/" data-id="ckus3odrq000biov0yp2d3ryn" class="article-share-link">
+      <a data-url="https://purumir.github.io/2020/05/14/Kafka와-SparkStreaming을-통한-시계열-데이터-저장/" data-id="ckus3phg700066cv0feydicxp" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -553,7 +553,7 @@ y=F(x, \{W_{i}\})+W_{s}x</script><p>{작성중}</p>
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2020/02/06/오픈-소스-ETL-툴-비교-Apache-NiFi-vs-StreamSets/" data-id="ckus3ods4000oiov0nvignymr" class="article-share-link">
+      <a data-url="https://purumir.github.io/2020/02/06/오픈-소스-ETL-툴-비교-Apache-NiFi-vs-StreamSets/" data-id="ckus3phje003p6cv0nz32n2ol" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -671,7 +671,7 @@ p_{i}= -\frac{exp(z_{i}/T)}{\sum_{j}{exp(z_{j}/T)}}\\T~is~the~temperature~parame
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2020/01/28/dark-knowledge-machine-learning-architecture/" data-id="ckus3odro000aiov07uoroqbw" class="article-share-link">
+      <a data-url="https://purumir.github.io/2020/01/28/dark-knowledge-machine-learning-architecture/" data-id="ckus3phge000a6cv0dz7srip3" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -734,7 +734,7 @@ p_{i}= -\frac{exp(z_{i}/T)}{\sum_{j}{exp(z_{j}/T)}}\\T~is~the~temperature~parame
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2020/01/20/급변의-시기를-겪는-아시아의-4마리용-대만-탐방기/" data-id="ckus3odry000iiov0wf4kpm3b" class="article-share-link">
+      <a data-url="https://purumir.github.io/2020/01/20/급변의-시기를-겪는-아시아의-4마리용-대만-탐방기/" data-id="ckus3phgr000i6cv0qr5pqkfr" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -793,7 +793,7 @@ p_{i}= -\frac{exp(z_{i}/T)}{\sum_{j}{exp(z_{j}/T)}}\\T~is~the~temperature~parame
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2020/01/07/합성곱-신경망-CNN-을-통한-폐기물-분류/" data-id="ckus3oduo005hiov0122tr8f8" class="article-share-link">
+      <a data-url="https://purumir.github.io/2020/01/07/합성곱-신경망-CNN-을-통한-폐기물-분류/" data-id="ckus3phjz003w6cv0d1upuu65" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -864,7 +864,7 @@ p_{i}= -\frac{exp(z_{i}/T)}{\sum_{j}{exp(z_{j}/T)}}\\T~is~the~temperature~parame
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2019/12/22/출생아수-분석-1-추세-그래프/" data-id="ckus3odun005giov0sj50cio4" class="article-share-link">
+      <a data-url="https://purumir.github.io/2019/12/22/출생아수-분석-1-추세-그래프/" data-id="ckus3phjv003u6cv03l387q9e" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -938,7 +938,7 @@ p_{i}= -\frac{exp(z_{i}/T)}{\sum_{j}{exp(z_{j}/T)}}\\T~is~the~temperature~parame
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2019/11/27/스타트업-창업자의-학력-부풀리기-용인에-대한-윤리적-접근/" data-id="ckus3ods9000viov0g3tmvf5q" class="article-share-link">
+      <a data-url="https://purumir.github.io/2019/11/27/스타트업-창업자의-학력-부풀리기-용인에-대한-윤리적-접근/" data-id="ckus3phj8003m6cv0t5ogwhjw" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -1059,21 +1059,5 @@ I am curious about machine learning, business intelligence, sw architect, digita
 
 <script src="/js/script.js"></script>
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<!--script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script-->
-<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
 </body>
 </html>

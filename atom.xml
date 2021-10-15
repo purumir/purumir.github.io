@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://purumir.github.io/"/>
-  <updated>2021-10-15T08:19:35.715Z</updated>
+  <updated>2021-10-15T08:20:26.448Z</updated>
   <id>https://purumir.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://purumir.github.io/2021/10/15/airflow-hdfs-sensor/"/>
     <id>https://purumir.github.io/2021/10/15/airflow-hdfs-sensor/</id>
     <published>2021-10-15T07:37:31.000Z</published>
-    <updated>2021-10-15T08:19:35.715Z</updated>
+    <updated>2021-10-15T08:20:26.448Z</updated>
     
     <summary type="html">
     
@@ -198,9 +198,9 @@
     
       <category term="machine learning" scheme="https://purumir.github.io/tags/machine-learning/"/>
     
-      <category term="business intelligence" scheme="https://purumir.github.io/tags/business-intelligence/"/>
-    
       <category term="ETL" scheme="https://purumir.github.io/tags/ETL/"/>
+    
+      <category term="business intelligence" scheme="https://purumir.github.io/tags/business-intelligence/"/>
     
       <category term="workflow" scheme="https://purumir.github.io/tags/workflow/"/>
     

@@ -14,7 +14,7 @@
 <meta property="og:description" content="airflow에는 HDFS상에서 파일의 존재유무를 체크하는(poke)하는 hdfs_sensor라는 기능이 있습니다. hdfs sensor를 위한 필요 패키지 설치  pip install apache-airflow-providers-apache-hdfs pip install snakebite-py3  hdfs sensor 사용을 위한 connection 정보">
 <meta property="og:locale" content="ko">
 <meta property="og:image" content="https://purumir.github.io/images/sw/airflow_hdfs_sensor_usecase_20211115.JPG">
-<meta property="og:updated_time" content="2021-10-15T08:19:35.715Z">
+<meta property="og:updated_time" content="2021-10-15T08:20:26.448Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="airflow hdfs sensor 설정과 사용법">
 <meta name="twitter:description" content="airflow에는 HDFS상에서 파일의 존재유무를 체크하는(poke)하는 hdfs_sensor라는 기능이 있습니다. hdfs sensor를 위한 필요 패키지 설치  pip install apache-airflow-providers-apache-hdfs pip install snakebite-py3  hdfs sensor 사용을 위한 connection 정보">
@@ -123,9 +123,9 @@
 <ul>
 <li>airflow &gt; Admin &gt; Connections 에서 hdfs sensor에서 접근할 hdfs 정보를 입력<ul>
 <li>hdfs_connection / IP / Port 정보</li>
+<li>HDFS Name Node 정보를 입력 (IP, Port 8020)</li>
 </ul>
 </li>
-<li>HDFS Name Node 정보를 입력 (IP, Port 8020)</li>
 </ul>
 <p><strong>코드에서 HdfsSensor 모듈 import를 통한 sensor 기능 사용</strong></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> airflow.providers.apache.hdfs.sensors.hdfs <span class="keyword">import</span> HdfsSensor</span><br><span class="line"></span><br><span class="line">hdfs_sensor = HdfsSensor(</span><br><span class="line">    task_id = <span class="string">"hdfs_path_sensor"</span>,</span><br><span class="line">    filepath = <span class="string">"모니터링 하고자 하는 파일의 full path(파일명포함)"</span>,</span><br><span class="line">    hdfs_conn_id = <span class="string">"hdfs_connection"</span>, <span class="comment"># airflow &gt; Admin &gt; Connections 에 설정한 hdfs connection 명</span></span><br><span class="line">    queue =<span class="string">"queue"</span>, <span class="comment"># airflow사용 queue,</span></span><br><span class="line">    poke_interval=<span class="number">30</span>, <span class="comment"># 지정한 interval이 지난후 체크</span></span><br><span class="line">    timeout=<span class="number">11400</span>, <span class="comment"># 지정한 timeout 시간동안 체크를 지속</span></span><br><span class="line">    dag=dag</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
@@ -154,7 +154,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2021/10/15/airflow-hdfs-sensor/" data-id="ckus3odri0005iov0zaljn8ey" class="article-share-link">
+      <a data-url="https://purumir.github.io/2021/10/15/airflow-hdfs-sensor/" data-id="ckus3phgo000f6cv01h2950m9" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -282,21 +282,5 @@ I am curious about machine learning, business intelligence, sw architect, digita
 
 <script src="/js/script.js"></script>
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<!--script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script-->
-<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
 </body>
 </html>
