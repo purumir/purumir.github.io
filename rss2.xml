@@ -15,7 +15,7 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>This blog contains the items about machine learning, sw architect, management and my favorites.</description>
-    <pubDate>Fri, 15 Oct 2021 08:06:27 GMT</pubDate>
+    <pubDate>Fri, 15 Oct 2021 08:13:55 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
@@ -30,9 +30,9 @@
           
           
             &lt;p&gt;airflow에는 HDFS상에서 파일의 존재유무를 체크하는(poke)하는 hdfs_sensor라는 기능이 있습니다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;hdfs sensor를 위한 필요 패키지 설치&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;[x] hdfs sensor를 위한 필요 패키지 설치&lt;/li&gt;
-&lt;li&gt;pip install
+&lt;li&gt;pip
           
         
       

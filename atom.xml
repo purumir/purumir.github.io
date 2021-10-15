@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://purumir.github.io/"/>
-  <updated>2021-10-15T08:06:27.757Z</updated>
+  <updated>2021-10-15T08:13:55.176Z</updated>
   <id>https://purumir.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://purumir.github.io/2021/10/15/airflow-hdfs-sensor/"/>
     <id>https://purumir.github.io/2021/10/15/airflow-hdfs-sensor/</id>
     <published>2021-10-15T07:37:31.000Z</published>
-    <updated>2021-10-15T08:06:27.757Z</updated>
+    <updated>2021-10-15T08:13:55.176Z</updated>
     
     <summary type="html">
     
@@ -30,9 +30,9 @@
         
         
           &lt;p&gt;airflow에는 HDFS상에서 파일의 존재유무를 체크하는(poke)하는 hdfs_sensor라는 기능이 있습니다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;hdfs sensor를 위한 필요 패키지 설치&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;[x] hdfs sensor를 위한 필요 패키지 설치&lt;/li&gt;
-&lt;li&gt;pip install
+&lt;li&gt;pip
         
       
     
@@ -198,9 +198,9 @@
     
       <category term="machine learning" scheme="https://purumir.github.io/tags/machine-learning/"/>
     
-      <category term="business intelligence" scheme="https://purumir.github.io/tags/business-intelligence/"/>
-    
       <category term="ETL" scheme="https://purumir.github.io/tags/ETL/"/>
+    
+      <category term="business intelligence" scheme="https://purumir.github.io/tags/business-intelligence/"/>
     
       <category term="workflow" scheme="https://purumir.github.io/tags/workflow/"/>
     
@@ -324,9 +324,9 @@
       <category term="timeseries" scheme="https://purumir.github.io/categories/machine-learning/data-analytics/timeseries/"/>
     
     
-      <category term="machine learning" scheme="https://purumir.github.io/tags/machine-learning/"/>
-    
       <category term="timeseries" scheme="https://purumir.github.io/tags/timeseries/"/>
+    
+      <category term="machine learning" scheme="https://purumir.github.io/tags/machine-learning/"/>
     
       <category term="시계열" scheme="https://purumir.github.io/tags/%EC%8B%9C%EA%B3%84%EC%97%B4/"/>
     
@@ -457,9 +457,9 @@
       <category term="timeseries" scheme="https://purumir.github.io/categories/machine-learning/data-analytics/timeseries/"/>
     
     
-      <category term="machine learning" scheme="https://purumir.github.io/tags/machine-learning/"/>
-    
       <category term="timeseries" scheme="https://purumir.github.io/tags/timeseries/"/>
+    
+      <category term="machine learning" scheme="https://purumir.github.io/tags/machine-learning/"/>
     
       <category term="시계열" scheme="https://purumir.github.io/tags/%EC%8B%9C%EA%B3%84%EC%97%B4/"/>
     
@@ -593,9 +593,9 @@
       <category term="data analytics" scheme="https://purumir.github.io/categories/machine-learning/data-analytics/"/>
     
     
-      <category term="machine learning" scheme="https://purumir.github.io/tags/machine-learning/"/>
-    
       <category term="timeseries" scheme="https://purumir.github.io/tags/timeseries/"/>
+    
+      <category term="machine learning" scheme="https://purumir.github.io/tags/machine-learning/"/>
     
       <category term="시계열" scheme="https://purumir.github.io/tags/%EC%8B%9C%EA%B3%84%EC%97%B4/"/>
     
