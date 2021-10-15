@@ -15,8 +15,32 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>This blog contains the items about machine learning, sw architect, management and my favorites.</description>
-    <pubDate>Wed, 31 Mar 2021 16:03:47 GMT</pubDate>
+    <pubDate>Fri, 15 Oct 2021 08:06:27 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>airflow hdfs sensor 설정과 사용법</title>
+      <link>https://purumir.github.io/2021/10/15/airflow-hdfs-sensor/</link>
+      <guid>https://purumir.github.io/2021/10/15/airflow-hdfs-sensor/</guid>
+      <pubDate>Fri, 15 Oct 2021 07:37:31 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;airflow에는 HDFS상에서 파일의 존재유무를 체크하는(poke)하는 hdfs_sensor라는 기능이 있습니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;[x] hdfs sensor를 위한 필요 패키지 설치&lt;/li&gt;
+&lt;li&gt;pip install
+          
+        
+      
+      </description>
+      
+      
+      <comments>https://purumir.github.io/2021/10/15/airflow-hdfs-sensor/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>ResNet</title>

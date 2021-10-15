@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://purumir.github.io/"/>
-  <updated>2021-03-31T16:03:47.938Z</updated>
+  <updated>2021-10-15T08:06:27.757Z</updated>
   <id>https://purumir.github.io/</id>
   
   <author>
@@ -15,6 +15,42 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>airflow hdfs sensor 설정과 사용법</title>
+    <link href="https://purumir.github.io/2021/10/15/airflow-hdfs-sensor/"/>
+    <id>https://purumir.github.io/2021/10/15/airflow-hdfs-sensor/</id>
+    <published>2021-10-15T07:37:31.000Z</published>
+    <updated>2021-10-15T08:06:27.757Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;airflow에는 HDFS상에서 파일의 존재유무를 체크하는(poke)하는 hdfs_sensor라는 기능이 있습니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;[x] hdfs sensor를 위한 필요 패키지 설치&lt;/li&gt;
+&lt;li&gt;pip install
+        
+      
+    
+    </summary>
+    
+    
+      <category term="data analytics" scheme="https://purumir.github.io/categories/data-analytics/"/>
+    
+      <category term="ETL" scheme="https://purumir.github.io/categories/data-analytics/ETL/"/>
+    
+    
+      <category term="airflow" scheme="https://purumir.github.io/tags/airflow/"/>
+    
+      <category term="hdfssensor" scheme="https://purumir.github.io/tags/hdfssensor/"/>
+    
+      <category term="hdfs" scheme="https://purumir.github.io/tags/hdfs/"/>
+    
+  </entry>
   
   <entry>
     <title>ResNet</title>
@@ -121,9 +157,9 @@
       <category term="timeseries" scheme="https://purumir.github.io/categories/data-analytics/timeseries/"/>
     
     
-      <category term="timeseries" scheme="https://purumir.github.io/tags/timeseries/"/>
-    
       <category term="data analytics" scheme="https://purumir.github.io/tags/data-analytics/"/>
+    
+      <category term="timeseries" scheme="https://purumir.github.io/tags/timeseries/"/>
     
       <category term="kafka" scheme="https://purumir.github.io/tags/kafka/"/>
     
@@ -140,7 +176,7 @@
     <link href="https://purumir.github.io/2020/02/06/%EC%98%A4%ED%94%88-%EC%86%8C%EC%8A%A4-ETL-%ED%88%B4-%EB%B9%84%EA%B5%90-Apache-NiFi-vs-StreamSets/"/>
     <id>https://purumir.github.io/2020/02/06/%EC%98%A4%ED%94%88-%EC%86%8C%EC%8A%A4-ETL-%ED%88%B4-%EB%B9%84%EA%B5%90-Apache-NiFi-vs-StreamSets/</id>
     <published>2020-02-06T06:32:43.000Z</published>
-    <updated>2020-02-24T14:49:05.658Z</updated>
+    <updated>2021-10-15T08:03:26.310Z</updated>
     
     <summary type="html">
     
@@ -288,9 +324,9 @@
       <category term="timeseries" scheme="https://purumir.github.io/categories/machine-learning/data-analytics/timeseries/"/>
     
     
-      <category term="machine learning" scheme="https://purumir.github.io/tags/machine-learning/"/>
-    
       <category term="timeseries" scheme="https://purumir.github.io/tags/timeseries/"/>
+    
+      <category term="machine learning" scheme="https://purumir.github.io/tags/machine-learning/"/>
     
       <category term="시계열" scheme="https://purumir.github.io/tags/%EC%8B%9C%EA%B3%84%EC%97%B4/"/>
     
@@ -421,9 +457,9 @@
       <category term="timeseries" scheme="https://purumir.github.io/categories/machine-learning/data-analytics/timeseries/"/>
     
     
-      <category term="machine learning" scheme="https://purumir.github.io/tags/machine-learning/"/>
-    
       <category term="timeseries" scheme="https://purumir.github.io/tags/timeseries/"/>
+    
+      <category term="machine learning" scheme="https://purumir.github.io/tags/machine-learning/"/>
     
       <category term="시계열" scheme="https://purumir.github.io/tags/%EC%8B%9C%EA%B3%84%EC%97%B4/"/>
     
@@ -557,9 +593,9 @@
       <category term="data analytics" scheme="https://purumir.github.io/categories/machine-learning/data-analytics/"/>
     
     
-      <category term="machine learning" scheme="https://purumir.github.io/tags/machine-learning/"/>
-    
       <category term="timeseries" scheme="https://purumir.github.io/tags/timeseries/"/>
+    
+      <category term="machine learning" scheme="https://purumir.github.io/tags/machine-learning/"/>
     
       <category term="시계열" scheme="https://purumir.github.io/tags/%EC%8B%9C%EA%B3%84%EC%97%B4/"/>
     

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>airflow hdfs sensor 설정과 사용법 | Purumir&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="airflow에는 HDFS상에서 파일의 존재유무를 체크하는(poke)하는 hdfs_sensor라는 기능이 있습니다.  [x] hdfs sensor를 위한 필요 패키지 설치 pip install apache-airflow-providers-apache-hdfs pip install snakebite-py-3   [x] hdfs sensor 사용을 위한 con">
+<meta name="keywords" content="airflow,hdfssensor,hdfs">
+<meta property="og:type" content="article">
+<meta property="og:title" content="airflow hdfs sensor 설정과 사용법">
+<meta property="og:url" content="https://purumir.github.io/2021/10/15/airflow-hdfs-sensor/index.html">
+<meta property="og:site_name" content="Purumir&#39;s Blog">
+<meta property="og:description" content="airflow에는 HDFS상에서 파일의 존재유무를 체크하는(poke)하는 hdfs_sensor라는 기능이 있습니다.  [x] hdfs sensor를 위한 필요 패키지 설치 pip install apache-airflow-providers-apache-hdfs pip install snakebite-py-3   [x] hdfs sensor 사용을 위한 con">
+<meta property="og:locale" content="ko">
+<meta property="og:image" content="https://purumir.github.io/images/sw/airflow_hdfs_sensor_usecase_20211115.JPG">
+<meta property="og:updated_time" content="2021-10-15T08:06:27.757Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="airflow hdfs sensor 설정과 사용법">
+<meta name="twitter:description" content="airflow에는 HDFS상에서 파일의 존재유무를 체크하는(poke)하는 hdfs_sensor라는 기능이 있습니다.  [x] hdfs sensor를 위한 필요 패키지 설치 pip install apache-airflow-providers-apache-hdfs pip install snakebite-py-3   [x] hdfs sensor 사용을 위한 con">
+<meta name="twitter:image" content="https://purumir.github.io/images/sw/airflow_hdfs_sensor_usecase_20211115.JPG">
+  
+    <link rel="alternate" href="/atom.xml" title="Purumir&#39;s Blog" type="application/atom+xml">
+  
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="/css/styles.css">
+  
+
+</head>
+</html>
+<body>
+  <nav class="navbar navbar-inverse">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="main-menu-navbar">
+      <ul class="nav navbar-nav">
+        
+          <li><a class=""
+                 href="/index.html">Home</a></li>
+        
+          <li><a class=""
+                 href="/archives/">Archives</a></li>
+        
+      </ul>
+
+      <!--
+      <ul class="nav navbar-nav navbar-right">
+        
+          <li><a href="/atom.xml" title="RSS Feed"><i class="fa fa-rss"></i></a></li>
+        
+      </ul>
+      -->
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+  <div class="container">
+    <div class="blog-header">
+  <h1 class="blog-title">Purumir&#39;s Blog</h1>
+  
+    <p class="lead blog-description">Machine Learning, SW architect, Management, favorites</p>
+  
+</div>
+
+    <div class="row">
+        <div class="col-sm-8 blog-main">
+          <article id="post-airflow-hdfs-sensor" class="article article-type-post" itemscope itemprop="blogPost">
+
+  <header class="article-header">
+    
+  
+    <h1 class="article-title" itemprop="name">
+      airflow hdfs sensor 설정과 사용법
+    </h1>
+  
+
+
+  </header>
+
+  <div class="article-meta">
+    <div class="article-datetime">
+  <a href="/2021/10/15/airflow-hdfs-sensor/" class="article-date"><time datetime="2021-10-15T07:37:31.000Z" itemprop="datePublished">2021-10-15</time></a>
+</div>
+
+    
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/data-analytics/">data analytics</a> / <a class="article-category-link" href="/categories/data-analytics/ETL/">ETL</a>
+  </div>
+
+
+  </div>
+  <div class="article-inner">
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>airflow에는 HDFS상에서 파일의 존재유무를 체크하는(poke)하는 hdfs_sensor라는 기능이 있습니다.</p>
+<ul>
+<li>[x] hdfs sensor를 위한 필요 패키지 설치</li>
+<li>pip install apache-airflow-providers-apache-hdfs</li>
+<li>pip install snakebite-py-3</li>
+</ul>
+<ul>
+<li>[x] hdfs sensor 사용을 위한 connection 정보 설정<ul>
+<li>airflow &gt; Admin &gt; Connections 에서 hdfs sensor에서 접근할 hdfs 정보를 입력<ul>
+<li>hdfs_connection / IP / Port 정보</li>
+</ul>
+</li>
+<li>HDFS Name Node 정보를 입력 (IP, Port 8020)</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>[x] 코드에서 HdfsSensor 모듈 import를 통한 sensor 기능 사용</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> airflow.providers.apache.hdfs.sensors.hdfs <span class="keyword">import</span> HdfsSensor</span><br><span class="line"></span><br><span class="line">hdfs_sensor = HdfsSensor(</span><br><span class="line">    task_id = <span class="string">"hdfs_path_sensor"</span>,</span><br><span class="line">    filepath = <span class="string">"모니터링 하고자 하는 파일의 full path(파일명포함)"</span>,</span><br><span class="line">    hdfs_conn_id = <span class="string">"hdfs_connection"</span>, <span class="comment"># airflow &gt; Admin &gt; Connections 에 설정한 hdfs connection 명</span></span><br><span class="line">    queue =<span class="string">"queue"</span>, <span class="comment"># airflow사용 queue,</span></span><br><span class="line">    poke_interval=<span class="number">30</span>, <span class="comment"># 지정한 interval이 지난후 체크</span></span><br><span class="line">    timeout=<span class="number">11400</span>, <span class="comment"># 지정한 timeout 시간동안 체크를 지속</span></span><br><span class="line">    dag=dag</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>아래 그림과 같이 Task간에 선행 작업에서 필수적인 파일을 생성했는지 여부를 체크하여, 후행 작업의 시작을 파일이 생성될때까지 순연시키는 효과를 거둘수 있습니다.</p>
+<p><img src="/images/sw/airflow_hdfs_sensor_usecase_20211115.JPG" alt></p>
+<script data-ad-client="ca-pub-4548072043503266" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-158998069-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-158998069-1');
+</script>
+
+
+      
+    </div>
+
+    
+      
+
+    
+
+    <footer class="article-footer">
+      <a data-url="https://purumir.github.io/2021/10/15/airflow-hdfs-sensor/" data-id="ckus37i9400060wv0tuvjvj7u" class="article-share-link">
+        <i class="fa fa-share"></i> Share
+      </a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/airflow/">airflow</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hdfs/">hdfs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hdfssensor/">hdfssensor</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+    
+<ul id="article-nav" class="nav nav-pills nav-justified">
+  
+  <li role="presentation">
+    <a href="/2021/03/30/ResNet/" id="article-nav-older" class="article-nav-link-wrap">
+      <i class="fa fa-chevron-left pull-left"></i>
+      <span class="article-nav-link-title">ResNet</span>
+    </a>
+  </li>
+  
+  
+</ul>
+
+
+  
+</article>
+
+
+
+
+        </div>
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+          
+  <div class="sidebar-module sidebar-module-inset">
+  <h4>About</h4>
+  
+Machine Learning Dreamer/Product Manager/Project Manager<br><br>
+I am curious about machine learning, business intelligence, sw architect, digital transformation and management.<br>
+If you are curious about me, contact me <a href="mailto:typenew96@naver.com">[Mail to Purumir]</a>
+
+</div>
+
+
+  
+  <div class="sidebar-module">
+    <h4>Categories</h4>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/data-analytics/">data analytics</a><span class="sidebar-module-list-count">5</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/data-analytics/ETL/">ETL</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/data-analytics/business-intelligence/">business intelligence</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/data-analytics/spark/">spark</a><span class="sidebar-module-list-count">1</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/data-analytics/spark/timeseries/">timeseries</a><span class="sidebar-module-list-count">1</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/data-analytics/timeseries/">timeseries</a><span class="sidebar-module-list-count">1</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/digital-transformation/">digital transformation</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/machine-learning/">machine learning</a><span class="sidebar-module-list-count">7</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/machine-learning/computer-vision/">computer vision</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/machine-learning/data-analytics/">data analytics</a><span class="sidebar-module-list-count">3</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/machine-learning/data-analytics/timeseries/">timeseries</a><span class="sidebar-module-list-count">2</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/machine-learning/learning/">learning</a><span class="sidebar-module-list-count">1</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/machine-learning/learning/architecture/">architecture</a><span class="sidebar-module-list-count">1</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/machine-learning/natural-language-processing/">natural language processing</a><span class="sidebar-module-list-count">1</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/management/">management</a><span class="sidebar-module-list-count">2</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/management/leadership/">leadership</a><span class="sidebar-module-list-count">2</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/market/">market</a><span class="sidebar-module-list-count">1</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/market/startup/">startup</a><span class="sidebar-module-list-count">1</span></li></ul></li></ul>
+  </div>
+
+
+
+  
+  <div class="sidebar-module">
+    <h4>Tags</h4>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Apache-NiFi/">Apache NiFi</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/ETL/">ETL</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/StreamSets/">StreamSets</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/airflow/">airflow</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/business-intelligence/">business intelligence</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/chatbot/">chatbot</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/cnn/">cnn</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/computer-vision/">computer vision</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/convolutional-neural-network/">convolutional neural network</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/cs224n/">cs224n</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/dark-knowledge/">dark knowledge</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/data-analytics/">data analytics</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/decisionmakingskills/">decisionmakingskills</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/digital-transformation/">digital transformation</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/elasticsearch/">elasticsearch</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/excel/">excel</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/exponential-smoothing/">exponential smoothing</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/hdfs/">hdfs</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/hdfssensor/">hdfssensor</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/interpersonalskills/">interpersonalskills</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/istio/">istio</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/kafka/">kafka</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/kibana/">kibana</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/knowledge-distillation/">knowledge distillation</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/kubernetes/">kubernetes</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/leadership/">leadership</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/learning/">learning</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/machine-learning/">machine learning</a><span class="sidebar-module-list-count">8</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/management/">management</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/moving-average/">moving average</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/ms-power-bi/">ms power bi</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/natural-language-processing/">natural language processing</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/professionalskills/">professionalskills</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/resnet/">resnet</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/spark/">spark</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/sparkstreaming/">sparkstreaming</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/timeseries/">timeseries</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/word2vec/">word2vec</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/workflow/">workflow</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/광역자치단체/">광역자치단체</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/구간평균법/">구간평균법</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/내가준비하고있는리더십/">내가준비하고있는리더십</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/리더십/">리더십</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/명분/">명분</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/세종대왕/">세종대왕</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/스타트업/">스타트업</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/스펙/">스펙</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/시계열/">시계열</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/지수평활법/">지수평활법</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/창업/">창업</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/출생아수/">출생아수</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/학력/">학력</a><span class="sidebar-module-list-count">1</span></li></ul>
+  </div>
+
+
+
+  
+  <div class="sidebar-module">
+    <h4>Tag Cloud</h4>
+    <p class="tagcloud">
+      <a href="/tags/Apache-NiFi/" style="font-size: 10px;">Apache NiFi</a> <a href="/tags/ETL/" style="font-size: 10px;">ETL</a> <a href="/tags/StreamSets/" style="font-size: 10px;">StreamSets</a> <a href="/tags/airflow/" style="font-size: 10px;">airflow</a> <a href="/tags/business-intelligence/" style="font-size: 12.5px;">business intelligence</a> <a href="/tags/chatbot/" style="font-size: 10px;">chatbot</a> <a href="/tags/cnn/" style="font-size: 12.5px;">cnn</a> <a href="/tags/computer-vision/" style="font-size: 12.5px;">computer vision</a> <a href="/tags/convolutional-neural-network/" style="font-size: 12.5px;">convolutional neural network</a> <a href="/tags/cs224n/" style="font-size: 10px;">cs224n</a> <a href="/tags/dark-knowledge/" style="font-size: 10px;">dark knowledge</a> <a href="/tags/data-analytics/" style="font-size: 12.5px;">data analytics</a> <a href="/tags/decisionmakingskills/" style="font-size: 10px;">decisionmakingskills</a> <a href="/tags/digital-transformation/" style="font-size: 10px;">digital transformation</a> <a href="/tags/elasticsearch/" style="font-size: 12.5px;">elasticsearch</a> <a href="/tags/excel/" style="font-size: 10px;">excel</a> <a href="/tags/exponential-smoothing/" style="font-size: 10px;">exponential smoothing</a> <a href="/tags/hdfs/" style="font-size: 10px;">hdfs</a> <a href="/tags/hdfssensor/" style="font-size: 10px;">hdfssensor</a> <a href="/tags/interpersonalskills/" style="font-size: 10px;">interpersonalskills</a> <a href="/tags/istio/" style="font-size: 10px;">istio</a> <a href="/tags/kafka/" style="font-size: 12.5px;">kafka</a> <a href="/tags/kibana/" style="font-size: 10px;">kibana</a> <a href="/tags/knowledge-distillation/" style="font-size: 10px;">knowledge distillation</a> <a href="/tags/kubernetes/" style="font-size: 10px;">kubernetes</a> <a href="/tags/leadership/" style="font-size: 10px;">leadership</a> <a href="/tags/learning/" style="font-size: 10px;">learning</a> <a href="/tags/machine-learning/" style="font-size: 20px;">machine learning</a> <a href="/tags/management/" style="font-size: 10px;">management</a> <a href="/tags/moving-average/" style="font-size: 10px;">moving average</a> <a href="/tags/ms-power-bi/" style="font-size: 10px;">ms power bi</a> <a href="/tags/natural-language-processing/" style="font-size: 10px;">natural language processing</a> <a href="/tags/professionalskills/" style="font-size: 10px;">professionalskills</a> <a href="/tags/resnet/" style="font-size: 10px;">resnet</a> <a href="/tags/spark/" style="font-size: 10px;">spark</a> <a href="/tags/sparkstreaming/" style="font-size: 12.5px;">sparkstreaming</a> <a href="/tags/timeseries/" style="font-size: 17.5px;">timeseries</a> <a href="/tags/word2vec/" style="font-size: 10px;">word2vec</a> <a href="/tags/workflow/" style="font-size: 10px;">workflow</a> <a href="/tags/광역자치단체/" style="font-size: 10px;">광역자치단체</a> <a href="/tags/구간평균법/" style="font-size: 10px;">구간평균법</a> <a href="/tags/내가준비하고있는리더십/" style="font-size: 10px;">내가준비하고있는리더십</a> <a href="/tags/리더십/" style="font-size: 12.5px;">리더십</a> <a href="/tags/명분/" style="font-size: 10px;">명분</a> <a href="/tags/세종대왕/" style="font-size: 10px;">세종대왕</a> <a href="/tags/스타트업/" style="font-size: 10px;">스타트업</a> <a href="/tags/스펙/" style="font-size: 10px;">스펙</a> <a href="/tags/시계열/" style="font-size: 15px;">시계열</a> <a href="/tags/지수평활법/" style="font-size: 10px;">지수평활법</a> <a href="/tags/창업/" style="font-size: 10px;">창업</a> <a href="/tags/출생아수/" style="font-size: 10px;">출생아수</a> <a href="/tags/학력/" style="font-size: 10px;">학력</a>
+    </p>
+  </div>
+
+
+  
+  <div class="sidebar-module">
+    <h4>Archives</h4>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2021/10/">10월 2021</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2021/03/">3월 2021</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2020/05/">5월 2020</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2020/02/">2월 2020</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2020/01/">1월 2020</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/12/">12월 2019</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/11/">11월 2019</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/10/">10월 2019</a><span class="sidebar-module-list-count">7</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/09/">9월 2019</a><span class="sidebar-module-list-count">1</span></li></ul>
+  </div>
+
+
+
+  
+  <div class="sidebar-module">
+    <h4>Recents</h4>
+    <ul class="sidebar-module-list">
+      
+        <li>
+          <a href="/2021/10/15/airflow-hdfs-sensor/">airflow hdfs sensor 설정과 사용법</a>
+        </li>
+      
+        <li>
+          <a href="/2021/03/30/ResNet/">ResNet</a>
+        </li>
+      
+        <li>
+          <a href="/2020/05/21/kubernetes로-spark-submit하기-spark-submit-to-kubernetes/">kubernetes로 spark-submit하기(spark-submit to kubernetes)</a>
+        </li>
+      
+        <li>
+          <a href="/2020/05/14/Kafka와-SparkStreaming을-통한-시계열-데이터-저장/">Kafka와 SparkStreaming을 통한 시계열 데이터 저장(on kubernetes)</a>
+        </li>
+      
+        <li>
+          <a href="/2020/02/06/오픈-소스-ETL-툴-비교-Apache-NiFi-vs-StreamSets/">오픈 소스 ETL 툴 비교(Apache NiFi vs StreamSets)</a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+
+        </div>
+    </div>
+  </div>
+  <footer class="blog-footer">
+  <div class="container">
+    <div id="footer-info" class="inner">
+      &copy; 2021 Purumir. This articles are licensed under CC BY-NC 4.0.<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+  
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" integrity="sha384-8gBf6Y4YYq7Jx97PIqmTwLPin4hxIzQw5aDmUg/DDhul9fFpbbLcLh3nTIIDJKhx" crossorigin="anonymous"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+
+
+<script src="/js/script.js"></script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!--script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script-->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
+</body>
+</html>
