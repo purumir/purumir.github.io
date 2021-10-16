@@ -197,9 +197,9 @@
     
       <category term="machine learning" scheme="https://purumir.github.io/tags/machine-learning/"/>
     
-      <category term="business intelligence" scheme="https://purumir.github.io/tags/business-intelligence/"/>
-    
       <category term="ETL" scheme="https://purumir.github.io/tags/ETL/"/>
+    
+      <category term="business intelligence" scheme="https://purumir.github.io/tags/business-intelligence/"/>
     
       <category term="workflow" scheme="https://purumir.github.io/tags/workflow/"/>
     
@@ -323,9 +323,9 @@
       <category term="timeseries" scheme="https://purumir.github.io/categories/machine-learning/data-analytics/timeseries/"/>
     
     
-      <category term="timeseries" scheme="https://purumir.github.io/tags/timeseries/"/>
-    
       <category term="machine learning" scheme="https://purumir.github.io/tags/machine-learning/"/>
+    
+      <category term="timeseries" scheme="https://purumir.github.io/tags/timeseries/"/>
     
       <category term="시계열" scheme="https://purumir.github.io/tags/%EC%8B%9C%EA%B3%84%EC%97%B4/"/>
     
@@ -456,9 +456,9 @@
       <category term="timeseries" scheme="https://purumir.github.io/categories/machine-learning/data-analytics/timeseries/"/>
     
     
-      <category term="timeseries" scheme="https://purumir.github.io/tags/timeseries/"/>
-    
       <category term="machine learning" scheme="https://purumir.github.io/tags/machine-learning/"/>
+    
+      <category term="timeseries" scheme="https://purumir.github.io/tags/timeseries/"/>
     
       <category term="시계열" scheme="https://purumir.github.io/tags/%EC%8B%9C%EA%B3%84%EC%97%B4/"/>
     
@@ -592,9 +592,9 @@
       <category term="data analytics" scheme="https://purumir.github.io/categories/machine-learning/data-analytics/"/>
     
     
-      <category term="timeseries" scheme="https://purumir.github.io/tags/timeseries/"/>
-    
       <category term="machine learning" scheme="https://purumir.github.io/tags/machine-learning/"/>
+    
+      <category term="timeseries" scheme="https://purumir.github.io/tags/timeseries/"/>
     
       <category term="시계열" scheme="https://purumir.github.io/tags/%EC%8B%9C%EA%B3%84%EC%97%B4/"/>
     
