@@ -5,18 +5,20 @@
   
   <title>2021년 서울지하철을 통해 본 사람들의 이동 | Purumir&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="window.dataLayer = window.dataLayer || [];   function gtag(){dataLayer.push(arguments);}   gtag(&apos;js&apos;, new Date());   gtag(&apos;config&apos;, &apos;UA-158998069-1&apos;); 우리는 언제(When) 어디(Where) 를 통해 어디(Where)로 이동하">
+  <meta name="description" content="window.dataLayer = window.dataLayer || [];   function gtag(){dataLayer.push(arguments);}   gtag(&apos;js&apos;, new Date());   gtag(&apos;config&apos;, &apos;UA-158998069-1&apos;);   우리는 언제(When) 어디(Where) 를 통해 어디(Where)로 이">
 <meta name="keywords" content="subway station,getting on,gettinf off,movement pattern">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2021년 서울지하철을 통해 본 사람들의 이동">
 <meta property="og:url" content="https://purumir.github.io/2022/01/22/2021년-서울지하철을-통해-본-사람들의-이동/index.html">
 <meta property="og:site_name" content="Purumir&#39;s Blog">
-<meta property="og:description" content="window.dataLayer = window.dataLayer || [];   function gtag(){dataLayer.push(arguments);}   gtag(&apos;js&apos;, new Date());   gtag(&apos;config&apos;, &apos;UA-158998069-1&apos;); 우리는 언제(When) 어디(Where) 를 통해 어디(Where)로 이동하">
+<meta property="og:description" content="window.dataLayer = window.dataLayer || [];   function gtag(){dataLayer.push(arguments);}   gtag(&apos;js&apos;, new Date());   gtag(&apos;config&apos;, &apos;UA-158998069-1&apos;);   우리는 언제(When) 어디(Where) 를 통해 어디(Where)로 이">
 <meta property="og:locale" content="ko">
-<meta property="og:updated_time" content="2022-01-22T13:56:27.957Z">
+<meta property="og:image" content="https://purumir.github.io/images/data_analytics/seoul_subway_station_gettingon_gettingoff_dataset_20220122.jpg%22">
+<meta property="og:updated_time" content="2022-01-22T14:14:45.981Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="2021년 서울지하철을 통해 본 사람들의 이동">
-<meta name="twitter:description" content="window.dataLayer = window.dataLayer || [];   function gtag(){dataLayer.push(arguments);}   gtag(&apos;js&apos;, new Date());   gtag(&apos;config&apos;, &apos;UA-158998069-1&apos;); 우리는 언제(When) 어디(Where) 를 통해 어디(Where)로 이동하">
+<meta name="twitter:description" content="window.dataLayer = window.dataLayer || [];   function gtag(){dataLayer.push(arguments);}   gtag(&apos;js&apos;, new Date());   gtag(&apos;config&apos;, &apos;UA-158998069-1&apos;);   우리는 언제(When) 어디(Where) 를 통해 어디(Where)로 이">
+<meta name="twitter:image" content="https://purumir.github.io/images/data_analytics/seoul_subway_station_gettingon_gettingoff_dataset_20220122.jpg%22">
   
     <link rel="alternate" href="/atom.xml" title="Purumir&#39;s Blog" type="application/atom+xml">
   
@@ -120,21 +122,28 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'UA-158998069-1');
-</script><br><strong>우리는 언제(When) 어디(Where) 를 통해 어디(Where)로 이동하는가</strong></p>
-<p>2021년 한해동안 사람들은 어떤 식으로 움직였을지에 대해서 분석할수 없을까라는 생각을 하게 되었습니다. 우리는 도보, 자건거등 개인이동수단(비동력), 자동차(자가용, 택시, 공유 차량), 버스, 지하철, 비행기등의 수단을 통해 이곳에서 저곳으로 다시 저곳에서 또 다른 곳으로 계속적인 이동을 합니다. </p>
-<p>하지만 경제 생활 인구의 대부분은 아침에 직장이 위치하는 곳으로 이동하고, 저녁에는 다시 집으로 돌아오는 반복적인 패턴을 보일 것입니다.</p>
-<p>이러한 여러가지 이동 수단중 가장 많은 비중을 차지할 것으로 예상되는 서울지하철을 통해서 사람들의 이동 패턴이 궁금해졌습니다.  이를 위해 공공 데이터 포털(data.go.kr)에 공개된 데이터를 찾아볼수 있었습니다.</p>
-<p>사용된 데이터셋은 다음과 같습니다. 두 데이터셋이 거의 포맷이 유사하여, 약간의 정제를 통해 데이터셋을 하나로 병합하였습니다.</p>
+</script></p>
+<blockquote>
+<p><strong>우리는 언제(When) 어디(Where) 를 통해 어디(Where)로 이동하는가</strong></p>
+</blockquote>
+<p>2021년 한해동안 사람들은 어떤 식으로 움직였을지에 대해서 분석할수 없을까라는 생각을 하게 되었습니다. 우리는 도보, 자전거등 개인이동수단(비동력), 자동차(자가용, 택시, 공유 차량), 버스, 지하철, 비행기등의 수단을 통해 이곳에서 저곳으로 다시 저곳에서 또 다른 곳으로 계속적인 이동을 합니다. </p>
+<p>하지만 경제 생활 인구의 대부분은 아침에 직장이 위치하는 곳으로 이동하고, 저녁에는 다시 집으로 돌아오는 반복적인 패턴을 보일 것입니다. </p>
+<p>이러한 여러가지 이동 수단중 가장 많은 비중을 차지할 것으로 예상되는 서울지하철을 통해서 사람들이 어떻게 이동하는지 이동 패턴이 궁금해졌습니다.  이를 위해 공공 데이터 포털(data.go.kr)에 공개된 데이터를 찾아보았고, 1~9호선의 승하차 데이터를 찾을수 있었습니다.</p>
+<p>사용된 데이터셋은 다음과 같습니다. 두 데이터셋이 거의 포맷이 유사하여, 약간의 정제를 통해 데이터셋을 하나로 병합하였습니다. 아쉬운 점은 공개된 데이터셋이 11월 데이터까지만을 포함하여 12월 패턴을 볼수 없다는 점입니다.</p>
 <ul>
-<li>서울 교통공사_역별 일별 시간대별 승하차인원 정보 (2021-01~2021-11)<ul>
+<li>서울 교통공사_역별 일별 시간대별 승하차인원 정보 <ul>
+<li>데이터 구간 : 2021-01~2021-11</li>
 <li><a href="https://www.data.go.kr/data/15048032/fileData.do" target="_blank" rel="noopener">https://www.data.go.kr/data/15048032/fileData.do</a></li>
 </ul>
 </li>
-<li>서울교통공사_9호선2_3단계 역별일별시간대별승하차인원 (2021-01~2021-11)<ul>
+<li>서울교통공사_9호선2_3단계 역별일별시간대별승하차인원<ul>
+<li>데이터 구간 : 2021-01~2021-11</li>
 <li><a href="https://www.data.go.kr/data/15060424/fileData.do" target="_blank" rel="noopener">https://www.data.go.kr/data/15060424/fileData.do</a></li>
 </ul>
 </li>
 </ul>
+<p>데이터셋 형태는 아래와 같이 일자, 지하철호선번호 , 지하철역번호 , 지하철역명 , 승차 혹은 하차 / 9호선은 일부 환승승차/환승 하차가 포함된 형태로 구성되어 있습니다.</p>
+<p><img src="/images/data_analytics/seoul_subway_station_gettingon_gettingoff_dataset_20220122.jpg&quot;" alt></p>
 <p>이번 조사를 통해서 9호선이 민자 구간이 있다는 것은 익히 알고 있었지만, 2~3단계(언주역~종합운동장역/2단계, 종합운동장역~중앙보훈병원역/3단계)는 공공이 참여하여 서울 교통공사가 운영한다는 사실을 알수 있었고 이 구간의 데이터는 공공 데이터 포탈에 공개가 되어 있다는 것을 확인할수 있었습니다. </p>
 
       
@@ -146,7 +155,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2022/01/22/2021년-서울지하철을-통해-본-사람들의-이동/" data-id="ckypwb2dc0000ucv03l5dtaz3" class="article-share-link">
+      <a data-url="https://purumir.github.io/2022/01/22/2021년-서울지하철을-통해-본-사람들의-이동/" data-id="ckypwx01w00002ov06pap5xtw" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
