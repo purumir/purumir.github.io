@@ -17,7 +17,7 @@
 <meta property="og:image" content="https://purumir.github.io/images/data_analytics/seoul_subway_station_gettingon_gettingoff_date_0708_20220122.jpg">
 <meta property="og:image" content="https://purumir.github.io/images/data_analytics/seoul_subway_station_gettingon_gettingoff_date_0809_20220122.jpg">
 <meta property="og:image" content="https://purumir.github.io/images/data_analytics/seoul_subway_station_gettingon_gettingoff_date_0910_20220122.jpg">
-<meta property="og:updated_time" content="2022-01-23T13:07:48.598Z">
+<meta property="og:updated_time" content="2022-01-23T13:11:11.563Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="2021년 서울지하철을 통해 본 사람들의 이동-(노선별) 일별&#x2F;요일별&#x2F;월별 승&#x2F;하차">
 <meta name="twitter:description" content="window.dataLayer = window.dataLayer || [];   function gtag(){dataLayer.push(arguments);}   gtag(&apos;js&apos;, new Date());   gtag(&apos;config&apos;, &apos;UA-158998069-1&apos;);   사람들은  수 많은 지하철역중에 어디를 이용할까? (작성중)  11개월의">
@@ -132,15 +132,15 @@
 <p>11개월의 데이터( <a href="https://purumir.github.io/2022/01/22/2021년-서울지하철을-통해-본-사람들의-이동/">이전포스팅</a> 에서 이야기 한대로 data.go.kr 에 공개된 데이터가 2021.01~2021.11까지 공개되어 있습니다.) 를 가지고 각 일자별, 요일별, 월별 흐름을 보기로 하였습니다. 1시간마다 기록되어 있는 승/하차 인원중 출근 시간(06:00~10:00, 4시간) 과 퇴근시간(05:00~09:00, 4시간)을 중점적으로 살펴보겠습니다.</p>
 <p>사용된 툴은 일종의 BI툴이라고 할수 있는 Google Analytics 제품군의 일부인 data studio ( <a href="https://datastudio.google.com/" target="_blank" rel="noopener">https://datastudio.google.com/</a> )를 사용하였습니다.</p>
 <hr>
-<h3 id="날짜-date-로-본-승-하차-패턴"><a href="#날짜-date-로-본-승-하차-패턴" class="headerlink" title="날짜(date)로 본 승/하차 패턴"></a>날짜(date)로 본 승/하차 패턴</h3><p><img src="/images/data_analytics/seoul_subway_station_gettingon_gettingoff_date_0607_20220122.jpg" alt></p>
-<p><sup><a href="#fn_" id="reffn_"></a></sup>: 일자별(date)로 본 06~07시 승/하차 노선별 현황</p>
+<h3 id="날짜-date-로-본-승하차-패턴"><a href="#날짜-date-로-본-승하차-패턴" class="headerlink" title="날짜(date)로 본 승하차 패턴"></a>날짜(date)로 본 승하차 패턴</h3><p><img src="/images/data_analytics/seoul_subway_station_gettingon_gettingoff_date_0607_20220122.jpg" alt></p>
+<p><sup><a href="#fn_" id="reffn_"></a></sup>: 일자별(date)로 본 06~07시 승하차 노선별 현황</p>
 <p><img src="/images/data_analytics/seoul_subway_station_gettingon_gettingoff_date_0708_20220122.jpg" alt></p>
-<p><sup><a href="#fn_" id="reffn_"></a></sup>: 일자별(date)로 본 07~08시 승/하차 노선별 현황</p>
+<p><sup><a href="#fn_" id="reffn_"></a></sup>: 일자별(date)로 본 07~08시 승하차 노선별 현황</p>
 <p><img src="/images/data_analytics/seoul_subway_station_gettingon_gettingoff_date_0809_20220122.jpg" alt></p>
-<p><sup><a href="#fn_" id="reffn_"></a></sup>: 일자별(date)로 본 08~09시 승/하차 노선별 현황</p>
+<p><sup><a href="#fn_" id="reffn_"></a></sup>: 일자별(date)로 본 08~09시 승하차 노선별 현황</p>
 <p><img src="/images/data_analytics/seoul_subway_station_gettingon_gettingoff_date_0910_20220122.jpg" alt></p>
-<p><sup><a href="#fn_" id="reffn_"></a></sup>: 일자별(date)로 본 09~10시 승/하차 노선별 현황</p>
-<p>약 4시간(06:00~10:00) 출근 시간동안 비슷한 패턴을 보이는데 2-&gt;7-&gt;5-&gt;3-&gt;4-&gt;6-&gt;8-&gt;1-&gt;9 호선 같은 순서로 사람들이 승/하차를 많이 함을 알수 있습니다.  앞선 포스팅에서 이야기 하였듯이 9호선은 2~3단계 노선의 승/하차 인원만 존재하여 가장 순위가 낮지만 실제로는 상위순위일 것으로 예상됩니다.</p>
+<p><sup><a href="#fn_" id="reffn_"></a></sup>: 일자별(date)로 본 09~10시 승하차 노선별 현황</p>
+<p>약 4시간(06:00~10:00) 출근 시간동안 비슷한 패턴을 보이는데 2-&gt;7-&gt;5-&gt;3-&gt;4-&gt;6-&gt;8-&gt;1-&gt;9 호선 같은 순서로 사람들이 승/하차를 많이 함을 알수 있습니다.  앞선 포스팅에서 이야기 하였듯이 9호선은 2~3단계 노선의 승하차 인원만 존재하여 가장 순위가 낮지만 실제로는 상위순위일 것으로 예상됩니다.</p>
 <p>그래프에서 출근시간대에 <strong><em>7월~8월 중순까지 그래프가 움푹 파인 구간</em></strong>이 있는데 이 구간은 여름휴가 기간동안 승하차 인원이 감소하는 것으로 생각할 수 있습니다.</p>
 <p>아래표는 11개월동안 출근 시간 구간의 승하차 인원의 평균입니다.</p>
 <div class="table-container">
@@ -240,7 +240,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2022/01/23/2021년-서울지하철을-통해-본-사람들의-이동-노선별-일별-요일별-월별-승-하차/" data-id="ckyra0alg00018cv0s0gsb2nx" class="article-share-link">
+      <a data-url="https://purumir.github.io/2022/01/23/2021년-서울지하철을-통해-본-사람들의-이동-노선별-일별-요일별-월별-승-하차/" data-id="ckyra4na200050gv04im4gbcv" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
