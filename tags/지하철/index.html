@@ -3,20 +3,19 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
-  <title>cs224n-Lecture 1(Introduction and Word Vectors) | Purumir&#39;s Blog</title>
+  <title>Tag: 지하철 | Purumir&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Lecture 1(Introduction and Word Vectors)전통적인 NLP 단어를 discrete한 심볼로 생각 (one-hot vector) Localist Representation 영어는 단어를 무한대로 만들 수 있기 때문에 very 큰 vector size 필요 (50만) 또한 “모텔”과 “호텔”은 비슷한 단어지만 one-hot vect">
-<meta name="keywords" content="machine learning,natural language processing,cs224n,word2vec">
-<meta property="og:type" content="article">
-<meta property="og:title" content="cs224n-Lecture 1(Introduction and Word Vectors)">
-<meta property="og:url" content="https://purumir.github.io/2019/10/05/cs224n-Lecture01/index.html">
+  <meta name="description" content="This blog contains the items about machine learning, sw architect, management and my favorites.">
+<meta name="keywords" content="machine learning, sw architecture, management, favorites">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Purumir&#39;s Blog">
+<meta property="og:url" content="https://purumir.github.io/tags/지하철/index.html">
 <meta property="og:site_name" content="Purumir&#39;s Blog">
-<meta property="og:description" content="Lecture 1(Introduction and Word Vectors)전통적인 NLP 단어를 discrete한 심볼로 생각 (one-hot vector) Localist Representation 영어는 단어를 무한대로 만들 수 있기 때문에 very 큰 vector size 필요 (50만) 또한 “모텔”과 “호텔”은 비슷한 단어지만 one-hot vect">
+<meta property="og:description" content="This blog contains the items about machine learning, sw architect, management and my favorites.">
 <meta property="og:locale" content="ko">
-<meta property="og:updated_time" content="2021-03-31T15:35:34.030Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="cs224n-Lecture 1(Introduction and Word Vectors)">
-<meta name="twitter:description" content="Lecture 1(Introduction and Word Vectors)전통적인 NLP 단어를 discrete한 심볼로 생각 (one-hot vector) Localist Representation 영어는 단어를 무한대로 만들 수 있기 때문에 very 큰 vector size 필요 (50만) 또한 “모텔”과 “호텔”은 비슷한 단어지만 one-hot vect">
+<meta name="twitter:title" content="Purumir&#39;s Blog">
+<meta name="twitter:description" content="This blog contains the items about machine learning, sw architect, management and my favorites.">
   
     <link rel="alternate" href="/atom.xml" title="Purumir&#39;s Blog" type="application/atom+xml">
   
@@ -81,207 +80,40 @@
 
     <div class="row">
         <div class="col-sm-8 blog-main">
-          <article id="post-cs224n-Lecture01" class="article article-type-post" itemscope itemprop="blogPost">
-
-  <header class="article-header">
+          
+  
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2022" class="archive-year">2022</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <header class="archive-article-header">
     
   
-    <h1 class="article-title" itemprop="name">
-      cs224n-Lecture 1(Introduction and Word Vectors)
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2022/01/22/2021년-서울지하철을-통해-본-사람들의-이동/">2021년 서울지하철을 통해 본 사람들의 이동- 목표 그리고 데이터셋</a>
     </h1>
   
 
 
-  </header>
-
-  <div class="article-meta">
     <div class="article-datetime">
-  <a href="/2019/10/05/cs224n-Lecture01/" class="article-date"><time datetime="2019-10-05T07:15:05.000Z" itemprop="datePublished">2019-10-05</time></a>
+  <a href="/2022/01/22/2021년-서울지하철을-통해-본-사람들의-이동/" class="archive-article-date"><time datetime="2022-01-22T13:28:24.000Z" itemprop="datePublished">1월 22일</time></a>
 </div>
 
-    
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/machine-learning/">machine learning</a> / <a class="article-category-link" href="/categories/machine-learning/natural-language-processing/">natural language processing</a>
-  </div>
-
-
-  </div>
-  <div class="article-inner">
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Lecture-1-Introduction-and-Word-Vectors"><a href="#Lecture-1-Introduction-and-Word-Vectors" class="headerlink" title="Lecture 1(Introduction and Word Vectors)"></a>Lecture 1(Introduction and Word Vectors)</h2><h3 id="전통적인-NLP"><a href="#전통적인-NLP" class="headerlink" title="전통적인 NLP"></a>전통적인 NLP</h3><ul>
-<li>단어를 discrete한 심볼로 생각 (one-hot vector)</li>
-<li>Localist Representation</li>
-<li>영어는 단어를 무한대로 만들 수 있기 때문에 very 큰 vector size 필요 (50만)</li>
-<li>또한 “모텔”과 “호텔”은 비슷한 단어지만 one-hot vector는 오쏘고널<ul>
-<li>자연적인 연관성 없음</li>
-</ul>
-</li>
-</ul>
-<h2 id><a href="#" class="headerlink" title=" "></a> </h2><h3 id="SVD-based-methods"><a href="#SVD-based-methods" class="headerlink" title="SVD based methods"></a>SVD based methods</h3><ul>
-<li>간단 설명<ul>
-<li>고정된 size의 window를 이용해 특정 단어 주변에 나타나는 단어들의 수를 표현한 co-occurrence matrix를 만듦</li>
-<li>이것을 SVD를 통해 차원을 줄여 word vector로 만든다..</li>
-</ul>
-</li>
-<li>단점<ul>
-<li>단어가 추가될 때 마다 matrix의 차원이 계속 바뀐다</li>
-<li>matrix가 극단적으로 sparse하다. (대부분의 단어가 co-occur 하지 않아서)</li>
-<li>차원수가 엄청나게 높다 (10^6*10^6)</li>
-<li>학습에 쿼드라틱 코스트 (O(N^2)?) 가 든다. (SVD) 등등</li>
-</ul>
-</li>
-</ul>
-<h3 id="최근-NLP"><a href="#최근-NLP" class="headerlink" title="최근 NLP"></a>최근 NLP</h3><ul>
-<li>Distributional Semantics<ul>
-<li>The only difference between <strong>localist</strong> and <strong>distributed</strong> <strong>representation</strong> is whether individual units have “meaning and interpretation” or not.</li>
-</ul>
-</li>
-<li>컨텍스트에서 나타나는 것에 따라 의미 (좌우문맥)</li>
-<li>Word vector = [0.285, -0.332, …, 0.271]<ul>
-<li>Dense vector (차원수 많아 야 4000)</li>
-<li>=워드임베딩, 워드리프리젠테이션</li>
-<li>비슷한 뜻의 단어는 거리가 가깝다</li>
-</ul>
-</li>
-</ul>
-<h3 id="Word2Vec-2013"><a href="#Word2Vec-2013" class="headerlink" title="Word2Vec(2013)"></a>Word2Vec(2013)</h3><ul>
-<li>엄청큰 말뭉치 있음</li>
-<li>모든 단어는 벡터로 표현</li>
-<li>모둔 단어는 포지션 t를 갖는데, 가운데인 c와 콘텍스트(바깥쪽)인 o 를 가짐</li>
-</ul>
-<ul>
-<li>Main Concept<ul>
-<li>모든 Word는 각각의 Word Vector를 가진다</li>
-<li>여기에선 Center Word일 때와 Context Word일 때 두 개의 Vector를 가짐 (v-&gt;center,u-&gt;context)</li>
-<li>좌우 문맥(Context)를 통해 단어를 추정하는 과정에서 Word Vector 추정</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>Likelihood</li>
-</ul>
-<script type="math/tex; mode=display">
-Likelihood = L(\theta) = \prod_{t=1}^{T}\prod_{-m\leq j\leq m} P(w_{t+j}|w_{t};\theta)</script><p>​        m =&gt; window size</p>
-<p>​        t =&gt; each position</p>
-<p>Likelihood가 최대가 되는 theta를 찾는다</p>
-<ul>
-<li>P(x|y) y가 일어났을 때 x의 확률</li>
-</ul>
-<script type="math/tex; mode=display">
-P(x|y) 는 \ y가\ 일어났을\ 때의\ x가\ 일어날\ 확률\\
- P(w_{t+j}|w_t)\text{는 center word가 } w_t\text{일 때}\\ \text{position  }t+j\text{의 context word가 }w_{t+j}\text{일 확률}</script><ul>
-<li><p>Objective Function</p>
-<ul>
-<li><p>theta를 최적화 하기 위한 Function</p>
-</li>
-<li><p>= Loss Function</p>
-<script type="math/tex; mode=display">
-J(\theta) = -\frac{1}{T}\log L(\theta)</script><ul>
-<li>음수인 이유는 maximize가 아니라 minimize 하기 위해</li>
-<li>log는 L(theta)의 곱을 합으로 바꿔주기 위해 (-&gt; 계산 쉬워지라고) </li>
-<li>log : underflow 막기 위해</li>
-<li>T로 나누는 이유는 Average를 취하기 위해</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><p>P(o|c)</p>
-<script type="math/tex; mode=display">
-P(o|c) = \cfrac{\exp({\vec{u}_o^\top\vec{v}_c})}{\sum_{w\in V}\exp({\vec{u}_w^\top\vec{v}_c})}</script><ul>
-<li>Softmax Function<ul>
-<li>max =&gt; 여러 개의 x_i 중 가장 큰 확률을 증폭</li>
-<li>soft =&gt; 작은 x_i에도 확률 부여</li>
-</ul>
-</li>
-<li>결론 : P(o|c)는 o와 c의 유사도의 softmax function</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><p>Optimization</p>
-<ul>
-<li><p>theta는 model의 모든 parameter</p>
-</li>
-<li><p>크기 d-dim <em> 2</em>V-length (word vector이 context, center 두개가 있으므로)</p>
-</li>
-<li><p>Derivative of Objective Function</p>
-<script type="math/tex; mode=display">
-J(\theta) = -\frac{1}{T}\log L(\theta)</script></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>Vector Composition<ul>
-<li>이렇게 만들어진 Word Vector들은 Vector Composition 가능</li>
-<li>ex) Queen - Woman + Man = King</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>Two model variants<ul>
-<li>Skip-grams : center word로 context word 예측 -&gt; 현재 한 방법</li>
-<li>Continuous Bag of words : context word로 center word 예측 : 적은 DB에서도 잘 작동한다.</li>
-</ul>
-</li>
-</ul>
-<script data-ad-client="ca-pub-4548072043503266" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-158998069-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'UA-158998069-1');
-</script>
-      
-    </div>
-
-    
-      
-
-    
-
-    <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2019/10/05/cs224n-Lecture01/" data-id="ckyr77jid000d4kv0nrvsxzfk" class="article-share-link">
-        <i class="fa fa-share"></i> Share
-      </a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cs224n/">cs224n</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/machine-learning/">machine learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/natural-language-processing/">natural language processing</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/word2vec/">word2vec</a></li></ul>
-
-
-    </footer>
-  </div>
-  
-    
-<ul id="article-nav" class="nav nav-pills nav-justified">
-  
-  <li role="presentation">
-    <a href="/2019/09/29/리더십-관리-기술/" id="article-nav-older" class="article-nav-link-wrap">
-      <i class="fa fa-chevron-left pull-left"></i>
-      <span class="article-nav-link-title">리더십 관리 기술</span>
-    </a>
-  </li>
-  
-  
-  <li role="presentation">
-    <a href="/2019/10/06/지수평활법-exponential-smoothing/" id="article-nav-newer" class="article-nav-link-wrap">
-      <span class="article-nav-link-title">구간평균법, 지수평활법(exponential smoothing)</span>
-      <i class="fa fa-chevron-right pull-right"></i>
-    </a>
-  </li>
-  
-</ul>
-
-
-  
+  </header>
 </article>
+
+  
+  
+    </div></section>
+  
 
 
 
