@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://purumir.github.io/"/>
-  <updated>2022-01-23T11:48:32.020Z</updated>
+  <updated>2022-01-23T12:29:53.395Z</updated>
   <id>https://purumir.github.io/</id>
   
   <author>
@@ -15,6 +15,51 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2021년 서울지하철을 통해 본 사람들의 이동-(노선별) 일별/요일별/월별 승/하차</title>
+    <link href="https://purumir.github.io/2022/01/23/2021%EB%85%84-%EC%84%9C%EC%9A%B8%EC%A7%80%ED%95%98%EC%B2%A0%EC%9D%84-%ED%86%B5%ED%95%B4-%EB%B3%B8-%EC%82%AC%EB%9E%8C%EB%93%A4%EC%9D%98-%EC%9D%B4%EB%8F%99-%EB%85%B8%EC%84%A0%EB%B3%84-%EC%9D%BC%EB%B3%84-%EC%9A%94%EC%9D%BC%EB%B3%84-%EC%9B%94%EB%B3%84-%EC%8A%B9-%ED%95%98%EC%B0%A8/"/>
+    <id>https://purumir.github.io/2022/01/23/2021%EB%85%84-%EC%84%9C%EC%9A%B8%EC%A7%80%ED%95%98%EC%B2%A0%EC%9D%84-%ED%86%B5%ED%95%B4-%EB%B3%B8-%EC%82%AC%EB%9E%8C%EB%93%A4%EC%9D%98-%EC%9D%B4%EB%8F%99-%EB%85%B8%EC%84%A0%EB%B3%84-%EC%9D%BC%EB%B3%84-%EC%9A%94%EC%9D%BC%EB%B3%84-%EC%9B%94%EB%B3%84-%EC%8A%B9-%ED%95%98%EC%B0%A8/</id>
+    <published>2022-01-23T11:53:14.000Z</published>
+    <updated>2022-01-23T12:29:53.395Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;script data-ad-client=&quot;ca-pub-4548072043503266&quot; async src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
+
+&lt;!--
+        
+      
+    
+    </summary>
+    
+    
+      <category term="data anlytics" scheme="https://purumir.github.io/categories/data-anlytics/"/>
+    
+      <category term="usecases" scheme="https://purumir.github.io/categories/data-anlytics/usecases/"/>
+    
+      <category term="subway station" scheme="https://purumir.github.io/categories/data-anlytics/usecases/subway-station/"/>
+    
+    
+      <category term="subway station" scheme="https://purumir.github.io/tags/subway-station/"/>
+    
+      <category term="getting on" scheme="https://purumir.github.io/tags/getting-on/"/>
+    
+      <category term="gettinf off" scheme="https://purumir.github.io/tags/gettinf-off/"/>
+    
+      <category term="movement pattern" scheme="https://purumir.github.io/tags/movement-pattern/"/>
+    
+      <category term="지하철" scheme="https://purumir.github.io/tags/%EC%A7%80%ED%95%98%EC%B2%A0/"/>
+    
+      <category term="승차" scheme="https://purumir.github.io/tags/%EC%8A%B9%EC%B0%A8/"/>
+    
+      <category term="하차" scheme="https://purumir.github.io/tags/%ED%95%98%EC%B0%A8/"/>
+    
+  </entry>
   
   <entry>
     <title>2021년 서울지하철을 통해 본 사람들의 이동- 목표 그리고 데이터셋</title>
@@ -368,9 +413,9 @@
       <category term="timeseries" scheme="https://purumir.github.io/categories/machine-learning/data-analytics/timeseries/"/>
     
     
-      <category term="machine learning" scheme="https://purumir.github.io/tags/machine-learning/"/>
-    
       <category term="timeseries" scheme="https://purumir.github.io/tags/timeseries/"/>
+    
+      <category term="machine learning" scheme="https://purumir.github.io/tags/machine-learning/"/>
     
       <category term="시계열" scheme="https://purumir.github.io/tags/%EC%8B%9C%EA%B3%84%EC%97%B4/"/>
     
@@ -465,9 +510,9 @@
       <category term="timeseries" scheme="https://purumir.github.io/categories/machine-learning/data-analytics/timeseries/"/>
     
     
-      <category term="machine learning" scheme="https://purumir.github.io/tags/machine-learning/"/>
-    
       <category term="timeseries" scheme="https://purumir.github.io/tags/timeseries/"/>
+    
+      <category term="machine learning" scheme="https://purumir.github.io/tags/machine-learning/"/>
     
       <category term="시계열" scheme="https://purumir.github.io/tags/%EC%8B%9C%EA%B3%84%EC%97%B4/"/>
     
@@ -601,9 +646,9 @@
       <category term="data analytics" scheme="https://purumir.github.io/categories/machine-learning/data-analytics/"/>
     
     
-      <category term="machine learning" scheme="https://purumir.github.io/tags/machine-learning/"/>
-    
       <category term="timeseries" scheme="https://purumir.github.io/tags/timeseries/"/>
+    
+      <category term="machine learning" scheme="https://purumir.github.io/tags/machine-learning/"/>
     
       <category term="시계열" scheme="https://purumir.github.io/tags/%EC%8B%9C%EA%B3%84%EC%97%B4/"/>
     

@@ -15,8 +15,31 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>This blog contains the items about machine learning, sw architect, management and my favorites.</description>
-    <pubDate>Sun, 23 Jan 2022 11:48:32 GMT</pubDate>
+    <pubDate>Sun, 23 Jan 2022 12:29:53 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>2021년 서울지하철을 통해 본 사람들의 이동-(노선별) 일별/요일별/월별 승/하차</title>
+      <link>https://purumir.github.io/2022/01/23/2021%EB%85%84-%EC%84%9C%EC%9A%B8%EC%A7%80%ED%95%98%EC%B2%A0%EC%9D%84-%ED%86%B5%ED%95%B4-%EB%B3%B8-%EC%82%AC%EB%9E%8C%EB%93%A4%EC%9D%98-%EC%9D%B4%EB%8F%99-%EB%85%B8%EC%84%A0%EB%B3%84-%EC%9D%BC%EB%B3%84-%EC%9A%94%EC%9D%BC%EB%B3%84-%EC%9B%94%EB%B3%84-%EC%8A%B9-%ED%95%98%EC%B0%A8/</link>
+      <guid>https://purumir.github.io/2022/01/23/2021%EB%85%84-%EC%84%9C%EC%9A%B8%EC%A7%80%ED%95%98%EC%B2%A0%EC%9D%84-%ED%86%B5%ED%95%B4-%EB%B3%B8-%EC%82%AC%EB%9E%8C%EB%93%A4%EC%9D%98-%EC%9D%B4%EB%8F%99-%EB%85%B8%EC%84%A0%EB%B3%84-%EC%9D%BC%EB%B3%84-%EC%9A%94%EC%9D%BC%EB%B3%84-%EC%9B%94%EB%B3%84-%EC%8A%B9-%ED%95%98%EC%B0%A8/</guid>
+      <pubDate>Sun, 23 Jan 2022 11:53:14 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;script data-ad-client=&quot;ca-pub-4548072043503266&quot; async src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
+
+&lt;!--
+          
+        
+      
+      </description>
+      
+      
+      <comments>https://purumir.github.io/2022/01/23/2021%EB%85%84-%EC%84%9C%EC%9A%B8%EC%A7%80%ED%95%98%EC%B2%A0%EC%9D%84-%ED%86%B5%ED%95%B4-%EB%B3%B8-%EC%82%AC%EB%9E%8C%EB%93%A4%EC%9D%98-%EC%9D%B4%EB%8F%99-%EB%85%B8%EC%84%A0%EB%B3%84-%EC%9D%BC%EB%B3%84-%EC%9A%94%EC%9D%BC%EB%B3%84-%EC%9B%94%EB%B3%84-%EC%8A%B9-%ED%95%98%EC%B0%A8/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>2021년 서울지하철을 통해 본 사람들의 이동- 목표 그리고 데이터셋</title>
