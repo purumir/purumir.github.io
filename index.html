@@ -125,14 +125,17 @@
 <blockquote>
 <p><strong>사람들은  수 많은 지하철역중에 어디를 이용할까? (작성중)</strong></p>
 </blockquote>
-<p>11개월의 데이터( <a href="https://purumir.github.io/2022/01/22/2021년-서울지하철을-통해-본-사람들의-이동/">이전포스팅</a> 에서 이야기 한대로 data.go.kr 에 공개된 데이터가 2021.01~2021.11까지 공개되어 있습니다.) 를 가지고 각 일자별, 요일별, 월별 흐름을 보기로 하였습니다. 1시간마다 기록되어 있는 승/하차 인원중 출근 시간(06:00~10:00, 4시간) 과 퇴근시간(05:00~09:00, 4시간)을 중점적으로 살펴보겠습니다.</p>
+<p>11개월의 데이터( <a href="https://purumir.github.io/2022/01/22/2021년-서울지하철을-통해-본-사람들의-이동/">이전포스팅</a> 에서 이야기 한대로 data.go.kr 에 공개된 데이터가 2021.01~2021.11까지 공개되어 있습니다.) 를 가지고 각 일자별, 요일별, 월별 흐름을 보기로 하였습니다. 1시간마다 기록되어 있는 승/하차 인원중 전체를 살펴보고, 이후 출근 시간(06:00~10:00, 4시간) 과 퇴근시간(05:00~09:00, 4시간)을 중점적으로 살펴보겠습니다.</p>
 <p>사용된 툴은 일종의 BI툴이라고 할수 있는 Google Analytics 제품군의 일부인 data studio ( <a href="https://datastudio.google.com/" target="_blank" rel="noopener">https://datastudio.google.com/</a> )와 Google Sheet(데이터셋을 업로드) 사용하였습니다. </p>
 <hr>
 <h3 id="LINE-호선-별-전체-승하차-인원"><a href="#LINE-호선-별-전체-승하차-인원" class="headerlink" title="LINE(호선)별 전체 승하차 인원"></a>LINE(호선)별 전체 승하차 인원</h3><p>지난 2021년 01월~2021년 11월까지 1호선~9호선(2~3단계)까지 전체 승하차 인원은 24억 1천만명에 달합니다. 1호선과 2호선의 이용객수 차이는 6.14배가 넘습니다. 순환 노선인 2호선이 다른 호선에 비해서 압도적으로 많은 이용객수가 있다고 볼수 있고, 서울을 북동 &lt;-&gt; 서로 가로지르는 7호선(3억 6천 8백만) 과 북서 &lt;-&gt; 동으로 가로지르는 5호선(3억 3천 6백만)이 뒤를 이어 이용객수가 많습니다.</p>
 <p><img src="/images/data_analytics/seoul_subway_station_gettingon_gettingoff_total_20220122.jpg" alt></p>
+<p><sup><a href="#fn_" id="reffn_"></a></sup>: 11개월동안 전체 승하차 인원표</p>
 <p>승차(승차/환승승차) 와 하차(하차/환승하차)를 각각 분리하여 보면 다음과 같습니다. 승차 인원은 전체 12억 5백9십만정도이고, 하차 인원은 12억 4백6십만 정도입니다.  승차를 했으면 하차를 해야 하는데 이 수치가 50대 50이 되지 않는 이유는 무엇일까요?</p>
 <p><img src="/images/data_analytics/seoul_subway_station_gettingon_total_20220122.jpg" alt></p>
+<p><sup><a href="#fn_" id="reffn_"></a></sup>: 11개월동안 전체 승차인원표</p>
 <p><img src="/images/data_analytics/seoul_subway_station_gettingoff_total_20220122.jpg" alt></p>
+<p><sup><a href="#fn_" id="reffn_"></a></sup>: 11개월동안 전체 하차 인원표</p>
 <hr>
 <h3 id="날짜-date-로-본-승하차-패턴"><a href="#날짜-date-로-본-승하차-패턴" class="headerlink" title="날짜(date)로 본 승하차 패턴"></a>날짜(date)로 본 승하차 패턴</h3><p><img src="/images/data_analytics/seoul_subway_station_gettingon_gettingoff_date_0607_20220122.jpg" alt></p>
 <p><sup><a href="#fn_" id="reffn_"></a></sup>: 일자별(date)로 본 06~07시 승하차 노선별 현황</p>
@@ -242,7 +245,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2022/01/23/2021년-서울지하철을-통해-본-사람들의-이동-노선별-일별-요일별-월별-승-하차/" data-id="ckyu5ir61000yqsv0pl5eint3" class="article-share-link">
+      <a data-url="https://purumir.github.io/2022/01/23/2021년-서울지하철을-통해-본-사람들의-이동-노선별-일별-요일별-월별-승-하차/" data-id="ckyu5ur9q00007cv0d82gst2d" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -333,7 +336,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2022/01/22/2021년-서울지하철을-통해-본-사람들의-이동/" data-id="ckyu5ir2x0000qsv07l70jbga" class="article-share-link">
+      <a data-url="https://purumir.github.io/2022/01/22/2021년-서울지하철을-통해-본-사람들의-이동/" data-id="ckyu5ura100017cv0k9gi9c20" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -424,7 +427,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2021/10/15/airflow-hdfs-sensor/" data-id="ckyu5ir4b000aqsv0a0pmm19a" class="article-share-link">
+      <a data-url="https://purumir.github.io/2021/10/15/airflow-hdfs-sensor/" data-id="ckyu5urao000d7cv0blmh9gql" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -517,7 +520,7 @@ y=F(x, \{W_{i}\})+W_{s}x</script><p>{작성중}</p>
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2021/03/30/ResNet/" data-id="ckyu5ir3u0005qsv04jxkhcwf" class="article-share-link">
+      <a data-url="https://purumir.github.io/2021/03/30/ResNet/" data-id="ckyu5urak000a7cv0bn0h6tb7" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -605,7 +608,7 @@ y=F(x, \{W_{i}\})+W_{s}x</script><p>{작성중}</p>
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2020/05/21/kubernetes로-spark-submit하기-spark-submit-to-kubernetes/" data-id="ckyu5ir5c000lqsv0ykgjfomq" class="article-share-link">
+      <a data-url="https://purumir.github.io/2020/05/21/kubernetes로-spark-submit하기-spark-submit-to-kubernetes/" data-id="ckyu5urb1000m7cv087scx2nl" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -681,7 +684,7 @@ y=F(x, \{W_{i}\})+W_{s}x</script><p>{작성중}</p>
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2020/05/14/Kafka와-SparkStreaming을-통한-시계열-데이터-저장/" data-id="ckyu5ir480009qsv0glue49ad" class="article-share-link">
+      <a data-url="https://purumir.github.io/2020/05/14/Kafka와-SparkStreaming을-통한-시계열-데이터-저장/" data-id="ckyu5urad00067cv0b3t2z2mn" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -835,7 +838,7 @@ y=F(x, \{W_{i}\})+W_{s}x</script><p>{작성중}</p>
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2020/02/06/오픈-소스-ETL-툴-비교-Apache-NiFi-vs-StreamSets/" data-id="ckyu5ir5i000oqsv0374zisls" class="article-share-link">
+      <a data-url="https://purumir.github.io/2020/02/06/오픈-소스-ETL-툴-비교-Apache-NiFi-vs-StreamSets/" data-id="ckyu5urb5000q7cv0xrjriv2e" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -953,7 +956,7 @@ p_{i}= -\frac{exp(z_{i}/T)}{\sum_{j}{exp(z_{j}/T)}}\\T~is~the~temperature~parame
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2020/01/28/dark-knowledge-machine-learning-architecture/" data-id="ckyu5ir4w000hqsv0iy46jm5e" class="article-share-link">
+      <a data-url="https://purumir.github.io/2020/01/28/dark-knowledge-machine-learning-architecture/" data-id="ckyu5uraw000i7cv0fsd15cag" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -1016,7 +1019,7 @@ p_{i}= -\frac{exp(z_{i}/T)}{\sum_{j}{exp(z_{j}/T)}}\\T~is~the~temperature~parame
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2020/01/20/급변의-시기를-겪는-아시아의-4마리용-대만-탐방기/" data-id="ckyu5ir53000iqsv00lmek6t8" class="article-share-link">
+      <a data-url="https://purumir.github.io/2020/01/20/급변의-시기를-겪는-아시아의-4마리용-대만-탐방기/" data-id="ckyu5uraz000l7cv0iws8t0ek" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -1075,7 +1078,7 @@ p_{i}= -\frac{exp(z_{i}/T)}{\sum_{j}{exp(z_{j}/T)}}\\T~is~the~temperature~parame
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2020/01/07/합성곱-신경망-CNN-을-통한-폐기물-분류/" data-id="ckyu5ir5v000vqsv01hwc307b" class="article-share-link">
+      <a data-url="https://purumir.github.io/2020/01/07/합성곱-신경망-CNN-을-통한-폐기물-분류/" data-id="ckyu5urbd000w7cv0cgt1ft0x" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
