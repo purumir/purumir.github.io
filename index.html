@@ -131,13 +131,13 @@
 <h3 id="LINE-호선-별-전체-승하차-인원"><a href="#LINE-호선-별-전체-승하차-인원" class="headerlink" title="LINE(호선)별 전체 승하차 인원"></a>LINE(호선)별 전체 승하차 인원</h3><p>지난 2021년 01월~2021년 11월까지 1호선~9호선(2~3단계)까지 전체 승하차 인원은 24억 1천만명에 달합니다. 1호선과 2호선의 이용객수 차이는 6.14배가 넘습니다. 순환 노선인 2호선이 다른 호선에 비해서 압도적으로 많은 이용객수가 있다고 볼수 있고, 서울을 북동 &lt;-&gt; 서로 가로지르는 7호선(3억 6천 8백만) 과 북서 &lt;-&gt; 동으로 가로지르는 5호선(3억 3천 6백만)이 뒤를 이어 이용객수가 많습니다.</p>
 <p><img src="/images/data_analytics/seoul_subway_station_gettingon_gettingoff_total_20220122.jpg" alt></p>
 <p><sup><a href="#fn_" id="reffn_"></a></sup>: 11개월동안 전체 승하차 인원표</p>
-<p>승차(승차/환승승차) 와 하차(하차/환승하차)를 각각 분리하여 보면 다음과 같습니다. 승차 인원은 전체 12억 5백9십만정도이고, 하차 인원은 12억 4백6십만 정도입니다.  승차를 했으면 하차를 해야 하는데 이 수치가 130만정도가 차이가 나는데, 이것은 9호선 1~2단계 구간(민자구간)과 중앙선, 분당선, 신분당선등 다른 노선으로 하차한 승객들 때문일 것으로 보입니다.</p>
+<p>승차(승차/환승승차) 와 하차(하차/환승하차)를 각각 분리하여 보면 다음과 같습니다. 승차 인원은 전체 12억 5백9십만정도이고, 하차 인원은 12억 4백6십만 정도입니다.  승차를 했으면 하차를 해야 하는데 이 수치가 130만정도가 차이가 나는데, 이것은 9호선 1~2단계 구간(민자구간)과 중앙선, 분당선, 신분당선등 다른 노선으로 하차한 승객들 때문일 것으로 보입니다. 이 비중은 1%안쪽으로 비중이 크지 않습니다.</p>
 <p><img src="/images/data_analytics/seoul_subway_station_gettingon_total_20220122.jpg" alt></p>
 <p><sup><a href="#fn_" id="reffn_"></a></sup>: 11개월동안 전체 승차인원표</p>
 <p><img src="/images/data_analytics/seoul_subway_station_gettingoff_total_20220122.jpg" alt></p>
 <p><sup><a href="#fn_" id="reffn_"></a></sup>: 11개월동안 전체 하차 인원표</p>
 <hr>
-<h3 id="날짜-date-로-본-승하차-패턴"><a href="#날짜-date-로-본-승하차-패턴" class="headerlink" title="날짜(date)로 본 승하차 패턴"></a>날짜(date)로 본 승하차 패턴</h3><p><img src="/images/data_analytics/seoul_subway_station_gettingon_gettingoff_date_0607_20220122.jpg" alt></p>
+<h3 id="날짜-date-로-본-출퇴근-시간-승하차-패턴"><a href="#날짜-date-로-본-출퇴근-시간-승하차-패턴" class="headerlink" title="날짜(date)로 본 출퇴근 시간 승하차 패턴"></a>날짜(date)로 본 출퇴근 시간 승하차 패턴</h3><p><img src="/images/data_analytics/seoul_subway_station_gettingon_gettingoff_date_0607_20220122.jpg" alt></p>
 <p><sup><a href="#fn_" id="reffn_"></a></sup>: 일자별(date)로 본 06~07시 승하차 노선별 현황</p>
 <p><img src="/images/data_analytics/seoul_subway_station_gettingon_gettingoff_date_0708_20220122.jpg" alt></p>
 <p><sup><a href="#fn_" id="reffn_"></a></sup>: 일자별(date)로 본 07~08시 승하차 노선별 현황</p>
@@ -145,12 +145,31 @@
 <p><sup><a href="#fn_" id="reffn_"></a></sup>: 일자별(date)로 본 08~09시 승하차 노선별 현황</p>
 <p><img src="/images/data_analytics/seoul_subway_station_gettingon_gettingoff_date_0910_20220122.jpg" alt></p>
 <p><sup><a href="#fn_" id="reffn_"></a></sup>: 일자별(date)로 본 09~10시 승하차 노선별 현황</p>
-<p>약 4시간(06:00~10:00) 출근 시간동안 비슷한 패턴을 보이는데 2-&gt;7-&gt;5-&gt;3-&gt;4-&gt;6-&gt;8-&gt;1-&gt;9 호선 같은 순서로 사람들이 승/하차를 많이 함을 알수 있습니다.  앞선 포스팅에서 이야기 하였듯이 9호선은 2~3단계 노선의 승하차 인원만 존재하여 가장 순위가 낮지만 실제로는 상위순위일 것으로 예상됩니다.</p>
-<p>그래프에서 출근시간대에 <strong><em>7월~8월 중순까지 그래프가 움푹 파인 구간</em></strong>이 있는데 이 구간은 여름휴가 기간동안 승하차 인원이 감소하는 것으로 생각할 수 있습니다.</p>
-<p>아래표는 11개월동안 출근 시간 구간의 승하차 인원의 합계입니다.</p>
+<p>위 그래프에서 약 4시간(06:00~10:00) 출근 시간동안 비슷한 패턴을 보이는데 2-&gt;7-&gt;5-&gt;3-&gt;4-&gt;6-&gt;8-&gt;1-&gt;9 호선 같은 순서로 사람들이 승하차를 많이 함을 알수 있습니다.  앞선 포스팅에서 이야기 하였듯이 9호선은 2~3단계 노선의 승하차 인원만 존재하여 가장 순위가 낮지만 실제로는 상위순위일 것으로 예상됩니다.</p>
+<p>위 그래프에서 출근시간대에 <strong><em>7월~8월 중순까지 그래프가 움푹 파인 구간</em></strong>이 있는데 이 구간은 여름휴가 기간동안 승하차 인원이 감소하는 것으로 생각할 수 있습니다.</p>
+<hr>
+<p><strong>11개월 구간 출퇴근 시간 전체 승하차 인원</strong></p>
+<p>아래표는 11개월동안 출근 시간 구간의 승하차 인원의 전체 합계입니다.</p>
 <p><img src="/images/data_analytics/seoul_subway_station_gettingon_gettingoff_morning_20220122.jpg" alt></p>
+<p><sup><a href="#fn_" id="reffn_"></a></sup>: 오전 출근시간동안 승하차 인원표</p>
+<p>약 4시간에 달하는 출근 시간동안 전체 승하차인원(24억 1천만)의 약 27%가 집중되고 있습니다.  08:00~09:00시간대에 승하차인원(2억 6천 2백만, 11%)이 가장 많음을 알수 있습니다. 09:00~10:00까지도 이러한 경향은 계속된다고 볼수 있습니다.</p>
 <p>아래표는 11개월동안 퇴근 시간 구간의 승하차 인원의 합계입니다.</p>
 <p><img src="/images/data_analytics/seoul_subway_station_gettingon_gettingoff_afternoon_20220122.jpg" alt></p>
+<p><sup><a href="#fn_" id="reffn_"></a></sup>: 오후 퇴근시간동안 승하차 인원표</p>
+<p>약 4시간에 달하는 퇴근 시간동안 전체 승하차인원(24억 1천만)의 약 30%가 집중되고 있습니다. 18:00~19:00시간대에 승하차 인원(2억 6천 1백만, 11%)이 집중되고 있습니다. 18:00~19:00 보다 17:00~18:00의 수치가 더 높아 이때부터 퇴근이 많이 발생한다고 예상할수 있습니다.</p>
+<p>위 표들은 승하차인원의 합계이기 때문에, 이를 상세화 하면 다음과 같이 승하차를 구분지어 생각할 수 있습니다.</p>
+<ul>
+<li>아침 출근 시간대<ul>
+<li>승차 : 거주지 근처 역에서 승차 , 버스에서 내린 후 지하철에 승차하는 경우</li>
+<li>하차 : 주로 일을 하게 되는 사무실 주변역</li>
+</ul>
+</li>
+<li>저녁 퇴근 시간대<ul>
+<li>승차 : 주로 일을 하게 되는 사무실 주변역</li>
+<li>하차 : 거주지 근처역에서 하차 , 버스를 타기 위해 지하철에서 하차 하는 경우</li>
+</ul>
+</li>
+</ul>
 
       
     </div>
@@ -161,7 +180,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2022/01/23/2021년-서울지하철을-통해-본-사람들의-이동-노선별-일별-요일별-월별-승-하차/" data-id="ckyu6tppi0000b8v0lca376wn" class="article-share-link">
+      <a data-url="https://purumir.github.io/2022/01/23/2021년-서울지하철을-통해-본-사람들의-이동-노선별-일별-요일별-월별-승-하차/" data-id="ckyx2qi830001k4v012s9w4sk" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -252,7 +271,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2022/01/22/2021년-서울지하철을-통해-본-사람들의-이동/" data-id="ckyu6tppx0001b8v061aaoy8b" class="article-share-link">
+      <a data-url="https://purumir.github.io/2022/01/22/2021년-서울지하철을-통해-본-사람들의-이동/" data-id="ckyx2qi860002k4v0ahnl50io" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -343,7 +362,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2021/10/15/airflow-hdfs-sensor/" data-id="ckyu6tpqr000db8v0fmhrn9do" class="article-share-link">
+      <a data-url="https://purumir.github.io/2021/10/15/airflow-hdfs-sensor/" data-id="ckyx2qi95000ik4v01kytdcdw" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -436,7 +455,7 @@ y=F(x, \{W_{i}\})+W_{s}x</script><p>{작성중}</p>
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2021/03/30/ResNet/" data-id="ckyu6tpqn000ab8v0e5ronidd" class="article-share-link">
+      <a data-url="https://purumir.github.io/2021/03/30/ResNet/" data-id="ckyx2qi8d0005k4v0vg0isbdz" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -524,7 +543,7 @@ y=F(x, \{W_{i}\})+W_{s}x</script><p>{작성중}</p>
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2020/05/21/kubernetes로-spark-submit하기-spark-submit-to-kubernetes/" data-id="ckyu6tprb000lb8v0h47ihe16" class="article-share-link">
+      <a data-url="https://purumir.github.io/2020/05/21/kubernetes로-spark-submit하기-spark-submit-to-kubernetes/" data-id="ckyx2qi91000fk4v0dhy1ho75" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -600,7 +619,7 @@ y=F(x, \{W_{i}\})+W_{s}x</script><p>{작성중}</p>
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2020/05/14/Kafka와-SparkStreaming을-통한-시계열-데이터-저장/" data-id="ckyu6tpqd0006b8v02ryyie7u" class="article-share-link">
+      <a data-url="https://purumir.github.io/2020/05/14/Kafka와-SparkStreaming을-통한-시계열-데이터-저장/" data-id="ckyx2qi8g0006k4v0kg03odtb" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -754,7 +773,7 @@ y=F(x, \{W_{i}\})+W_{s}x</script><p>{작성중}</p>
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2020/02/06/오픈-소스-ETL-툴-비교-Apache-NiFi-vs-StreamSets/" data-id="ckyu6tpri000qb8v0z17iv1rv" class="article-share-link">
+      <a data-url="https://purumir.github.io/2020/02/06/오픈-소스-ETL-툴-비교-Apache-NiFi-vs-StreamSets/" data-id="ckyx2qi9b000mk4v00jf8upyb" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -872,7 +891,7 @@ p_{i}= -\frac{exp(z_{i}/T)}{\sum_{j}{exp(z_{j}/T)}}\\T~is~the~temperature~parame
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2020/01/28/dark-knowledge-machine-learning-architecture/" data-id="ckyu6tpr4000ib8v0sz5pg8yw" class="article-share-link">
+      <a data-url="https://purumir.github.io/2020/01/28/dark-knowledge-machine-learning-architecture/" data-id="ckyx2qi8o000ak4v0nbks8icp" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -935,7 +954,7 @@ p_{i}= -\frac{exp(z_{i}/T)}{\sum_{j}{exp(z_{j}/T)}}\\T~is~the~temperature~parame
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2020/01/20/급변의-시기를-겪는-아시아의-4마리용-대만-탐방기/" data-id="ckyu6tprd000mb8v0wxwtmdrd" class="article-share-link">
+      <a data-url="https://purumir.github.io/2020/01/20/급변의-시기를-겪는-아시아의-4마리용-대만-탐방기/" data-id="ckyx2qi97000jk4v0uezll8rc" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -994,7 +1013,7 @@ p_{i}= -\frac{exp(z_{i}/T)}{\sum_{j}{exp(z_{j}/T)}}\\T~is~the~temperature~parame
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2020/01/07/합성곱-신경망-CNN-을-통한-폐기물-분류/" data-id="ckyu6tpru000yb8v0rr058t37" class="article-share-link">
+      <a data-url="https://purumir.github.io/2020/01/07/합성곱-신경망-CNN-을-통한-폐기물-분류/" data-id="ckyx2qie20066k4v0hmcrtz99" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
