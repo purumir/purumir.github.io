@@ -6,7 +6,7 @@
   <title>Kafka와 SparkStreaming을 통한 시계열 데이터 저장(on kubernetes) | Purumir&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="다음과 같은 상황에서 시계열 데이터를 저장하는 과정을 기술하고자 합니다. 3개 지역의 온도 데이터를 kafka를 통해 수집하고, spark streaming으로 처리한후 이를 elasticsearch에 저장하는 과정입니다. 데이터의 수집 현황을 kibana를 통해서 실시간 모니터링합니다.   아키텍처 설명) 복잡한 처리를 중간에 하지는 않고 수집된 데이터를">
-<meta name="keywords" content="timeseries,data analytics,kafka,sparkstreaming,elasticsearch,kibana">
+<meta name="keywords" content="data analytics,timeseries,kafka,sparkstreaming,elasticsearch,kibana">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Kafka와 SparkStreaming을 통한 시계열 데이터 저장(on kubernetes)">
 <meta property="og:url" content="https://purumir.github.io/2020/05/14/Kafka와-SparkStreaming을-통한-시계열-데이터-저장/index.html">
@@ -144,7 +144,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2020/05/14/Kafka와-SparkStreaming을-통한-시계열-데이터-저장/" data-id="ckyzrwvgs000a34v0ykcvukw5" class="article-share-link">
+      <a data-url="https://purumir.github.io/2020/05/14/Kafka와-SparkStreaming을-통한-시계열-데이터-저장/" data-id="ckyzs1hyu0005vkv0fuejwgm5" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -278,21 +278,5 @@ I am curious about machine learning, business intelligence, sw architect, digita
 
 <script src="/js/script.js"></script>
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<!--script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script-->
-<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
 </body>
 </html>
