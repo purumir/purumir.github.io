@@ -118,7 +118,7 @@
 <p>코드를 살펴보면 다음과 같습니다.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">weekly_branch_shell</span><span class="params">(dag : DAG, task_id : str)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    주 1회(일요일) 실행되는 배치에 대한 Branch 처리</span></span><br><span class="line"><span class="string">    execution_date를 기준으로 일요일만 Task 실행(배치 실행), 나머지 요일은 DummyOperator 실행</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="comment"># 0 : Monday ~ 6 : Sunday로 인덱싱</span></span><br><span class="line">    tabDays = [<span class="string">"monday"</span>, <span class="string">"tuesday"</span>, <span class="string">"wednesday"</span>, <span class="string">"thursday"</span>, <span class="string">"friday"</span>, <span class="string">"saturday"</span>, <span class="string">"sunday"</span>]</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_weekday</span><span class="params">(**kwargs)</span>:</span></span><br><span class="line">        execution_date = kwargs[<span class="string">'ti'</span>].execution_date</span><br><span class="line">        <span class="comment"># 요일에 해당하는 숫자 (0 : Monday ~ 6: Sunday)를 XCom에 담습니다.</span></span><br><span class="line">        kwargs[<span class="string">'ti'</span>].xcom_push(key=<span class="string">'execution_date_weekday'</span>, value=execution_date.weekday())</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">weekday_branch</span><span class="params">(**kwargs)</span>:</span></span><br><span class="line">        execution_date_weekday = kwargs[<span class="string">'ti'</span>].xcom_pull(task_ids=<span class="string">'week_day_'</span>+task_id, key=<span class="string">'execution_date_weekday'</span>)</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># sunday</span></span><br><span class="line">        <span class="keyword">if</span> execution_date_weekdy == <span class="number">6</span>:</span><br><span class="line">            <span class="keyword">return</span> task_id</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="comment"># 요일과 실행하려는 Task명을 붙여서 월~토까지 DummyTask명을 만듭니다.</span></span><br><span class="line">            <span class="keyword">return</span> <span class="string">"DummyTask_for_"</span> + tabDays[execution_date_weekday] + <span class="string">"-"</span> + task_id</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># get_weekday를 호출하여 요일정보를 XCom에 담습니다.</span></span><br><span class="line">        get_weekday_oper = PythonOperator(</span><br><span class="line">            task_id = <span class="string">'weekday_'</span> + task_id,</span><br><span class="line">            python_callable = get_weekday,</span><br><span class="line">            provide_context = <span class="literal">True</span>,</span><br><span class="line">            queue = <span class="string">'&#123;사용하는 airflow queue 이름&#125;'</span>,</span><br><span class="line">            dag = dag</span><br><span class="line">        )</span><br><span class="line">        </span><br><span class="line">        fork_oper = BranchPythonOperator(</span><br><span class="line">            task_id = <span class="string">'branching_'</span> + task_id, </span><br><span class="line">            python_callable = weekday_branch,</span><br><span class="line">            provide_context = <span class="literal">True</span>,</span><br><span class="line">            queue = <span class="string">'&#123;사용하는 airflow queue 이름&#125;'</span>,</span><br><span class="line">            dag = dag</span><br><span class="line">        )</span><br><span class="line">        </span><br><span class="line">        get_weekday_oper.set_downstream(fork_oper)</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 분기후 실행하여야 하는 Task, DummyTask를 연결합니다.</span></span><br><span class="line">        <span class="keyword">for</span> day <span class="keyword">in</span> range(<span class="number">0</span>, <span class="number">7</span>): </span><br><span class="line">            <span class="keyword">if</span> day == <span class="number">6</span>:</span><br><span class="line">                batch_shell_oper = BashOperator(task_id = task_id,</span><br><span class="line">                                                bash_command = <span class="string">'&#123;실행하려는 쉘 정보&#125;'</span>,</span><br><span class="line">                                                queue = <span class="string">'&#123;사용하는 airflow queue 이름&#125;'</span>,</span><br><span class="line">            								 dag = dag</span><br><span class="line">                                               )</span><br><span class="line">                <span class="comment"># 분기 branch에 이어 붙입니다.</span></span><br><span class="line">                fork_oper.set_downstream(batch_shell_oper)</span><br><span class="line">			<span class="keyword">else</span>:</span><br><span class="line">                fork_oper.set_downstream(DummyOperator(task_id=<span class="string">'DummyTask_for_'</span> + tabDays[day] + <span class="string">"-"</span> + task_id, dag=dag)</span><br><span class="line">       <span class="comment"># 구성이 된 operators를 리턴</span></span><br><span class="line">       <span class="keyword">return</span> get_weekday_oper</span><br></pre></td></tr></table></figure>
 <p>위 코드를 airflow UI에서 확인하면 아래와 같은 형태로 일요일만 해당 쉘을 실행하도록 Task 구조가 생성됩니다. 다른 요일에는 DummyTask가 실행됩니다.</p>
-<p><img src="/images/sw/airflow/airflow_execution_date_branching_concept_20220329.JPG" alt></p>
+<p><img src="/images/sw/airflow/airflow_execution_date_branching_concept_20220329.jpg" alt></p>
 <script data-ad-client="ca-pub-4548072043503266" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -139,7 +139,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2022/03/29/airflow-execution-date에-따른-특정-일자-task실행-처리/" data-id="cl1bibrm20009d0v0a95mymbo" class="article-share-link">
+      <a data-url="https://purumir.github.io/2022/03/29/airflow-execution-date에-따른-특정-일자-task실행-처리/" data-id="cl1bipj4b005cwsv0mc2c4spm" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -277,7 +277,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2022/01/23/2021년-서울지하철을-통해-본-사람들의-이동-노선별-일별-요일별-월별-승-하차/" data-id="cl1bibru5006nd0v0r4z2mgpo" class="article-share-link">
+      <a data-url="https://purumir.github.io/2022/01/23/2021년-서울지하철을-통해-본-사람들의-이동-노선별-일별-요일별-월별-승-하차/" data-id="cl1bipj46005awsv0723bzmcu" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -368,7 +368,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2022/01/22/2021년-서울지하철을-통해-본-사람들의-이동/" data-id="cl1bibrjt0000d0v0qij1jy0d" class="article-share-link">
+      <a data-url="https://purumir.github.io/2022/01/22/2021년-서울지하철을-통해-본-사람들의-이동/" data-id="cl1bipiw50000wsv0bvogxeij" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -458,7 +458,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2021/10/15/airflow-hdfs-sensor/" data-id="cl1bibrmh000dd0v0wh09hjig" class="article-share-link">
+      <a data-url="https://purumir.github.io/2021/10/15/airflow-hdfs-sensor/" data-id="cl1bipixs000ewsv065qhvd0o" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -551,7 +551,7 @@ y=F(x, \{W_{i}\})+W_{s}x</script><p>{작성중}</p>
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2021/03/30/ResNet/" data-id="cl1bibrm7000ad0v0porx187n" class="article-share-link">
+      <a data-url="https://purumir.github.io/2021/03/30/ResNet/" data-id="cl1bipix30006wsv0its0zaqq" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -639,7 +639,7 @@ y=F(x, \{W_{i}\})+W_{s}x</script><p>{작성중}</p>
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2020/05/21/kubernetes로-spark-submit하기-spark-submit-to-kubernetes/" data-id="cl1bibrna000md0v0pihyfi8k" class="article-share-link">
+      <a data-url="https://purumir.github.io/2020/05/21/kubernetes로-spark-submit하기-spark-submit-to-kubernetes/" data-id="cl1bipiyi000owsv0td7w419i" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -715,7 +715,7 @@ y=F(x, \{W_{i}\})+W_{s}x</script><p>{작성중}</p>
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2020/05/14/Kafka와-SparkStreaming을-통한-시계열-데이터-저장/" data-id="cl1bibrlu0006d0v0c349a618" class="article-share-link">
+      <a data-url="https://purumir.github.io/2020/05/14/Kafka와-SparkStreaming을-통한-시계열-데이터-저장/" data-id="cl1bipix90009wsv0bb4n2vfu" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -869,7 +869,7 @@ y=F(x, \{W_{i}\})+W_{s}x</script><p>{작성중}</p>
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2020/02/06/오픈-소스-ETL-툴-비교-Apache-NiFi-vs-StreamSets/" data-id="cl1bibrno000qd0v0tx5pew5o" class="article-share-link">
+      <a data-url="https://purumir.github.io/2020/02/06/오픈-소스-ETL-툴-비교-Apache-NiFi-vs-StreamSets/" data-id="cl1bipiye000mwsv015t5758b" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -987,7 +987,7 @@ p_{i}= -\frac{exp(z_{i}/T)}{\sum_{j}{exp(z_{j}/T)}}\\T~is~the~temperature~parame
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2020/01/28/dark-knowledge-machine-learning-architecture/" data-id="cl1bibrmy000id0v0b7nllfob" class="article-share-link">
+      <a data-url="https://purumir.github.io/2020/01/28/dark-knowledge-machine-learning-architecture/" data-id="cl1bipixn000dwsv0n7e8hg3w" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -1050,7 +1050,7 @@ p_{i}= -\frac{exp(z_{i}/T)}{\sum_{j}{exp(z_{j}/T)}}\\T~is~the~temperature~parame
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2020/01/20/급변의-시기를-겪는-아시아의-4마리용-대만-탐방기/" data-id="cl1bibrnh000od0v07vuv6sis" class="article-share-link">
+      <a data-url="https://purumir.github.io/2020/01/20/급변의-시기를-겪는-아시아의-4마리용-대만-탐방기/" data-id="cl1bipiy0000hwsv07b3j4mis" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
