@@ -15,7 +15,7 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>This blog contains the items about machine learning, sw architect, management and my favorites.</description>
-    <pubDate>Tue, 29 Mar 2022 02:33:55 GMT</pubDate>
+    <pubDate>Tue, 29 Mar 2022 02:37:13 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
@@ -30,7 +30,7 @@
           
           
             &lt;p&gt;&lt;strong&gt;execution_date의 요일에 따른 Task 분기 처리&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;월요일~일요일까지의 요일중에서 특정 요일에만 Task를 실행하고, 다른 요일에는 Task실행을 하지 않거나 DummyTask 실행을 하려
+&lt;p&gt;월요일~일요일까지의 요일중에서 특정 요일에만 Task를 실행하고, 다른 요일에는 Task실행을 하지 않거나 DummyTask 실행을 하는
           
         
       

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://purumir.github.io/"/>
-  <updated>2022-03-29T02:33:55.330Z</updated>
+  <updated>2022-03-29T02:37:13.111Z</updated>
   <id>https://purumir.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://purumir.github.io/2022/03/29/airflow-execution-date%EC%97%90-%EB%94%B0%EB%A5%B8-%ED%8A%B9%EC%A0%95-%EC%9D%BC%EC%9E%90-task%EC%8B%A4%ED%96%89-%EC%B2%98%EB%A6%AC/"/>
     <id>https://purumir.github.io/2022/03/29/airflow-execution-date%EC%97%90-%EB%94%B0%EB%A5%B8-%ED%8A%B9%EC%A0%95-%EC%9D%BC%EC%9E%90-task%EC%8B%A4%ED%96%89-%EC%B2%98%EB%A6%AC/</id>
     <published>2022-03-29T01:35:43.000Z</published>
-    <updated>2022-03-29T02:33:55.330Z</updated>
+    <updated>2022-03-29T02:37:13.111Z</updated>
     
     <summary type="html">
     
@@ -30,7 +30,7 @@
         
         
           &lt;p&gt;&lt;strong&gt;execution_date의 요일에 따른 Task 분기 처리&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;월요일~일요일까지의 요일중에서 특정 요일에만 Task를 실행하고, 다른 요일에는 Task실행을 하지 않거나 DummyTask 실행을 하려
+&lt;p&gt;월요일~일요일까지의 요일중에서 특정 요일에만 Task를 실행하고, 다른 요일에는 Task실행을 하지 않거나 DummyTask 실행을 하는
         
       
     
@@ -453,9 +453,9 @@
       <category term="timeseries" scheme="https://purumir.github.io/categories/machine-learning/data-analytics/timeseries/"/>
     
     
-      <category term="machine learning" scheme="https://purumir.github.io/tags/machine-learning/"/>
-    
       <category term="timeseries" scheme="https://purumir.github.io/tags/timeseries/"/>
+    
+      <category term="machine learning" scheme="https://purumir.github.io/tags/machine-learning/"/>
     
       <category term="시계열" scheme="https://purumir.github.io/tags/%EC%8B%9C%EA%B3%84%EC%97%B4/"/>
     
@@ -550,9 +550,9 @@
       <category term="timeseries" scheme="https://purumir.github.io/categories/machine-learning/data-analytics/timeseries/"/>
     
     
-      <category term="machine learning" scheme="https://purumir.github.io/tags/machine-learning/"/>
-    
       <category term="timeseries" scheme="https://purumir.github.io/tags/timeseries/"/>
+    
+      <category term="machine learning" scheme="https://purumir.github.io/tags/machine-learning/"/>
     
       <category term="시계열" scheme="https://purumir.github.io/tags/%EC%8B%9C%EA%B3%84%EC%97%B4/"/>
     
@@ -686,9 +686,9 @@
       <category term="data analytics" scheme="https://purumir.github.io/categories/machine-learning/data-analytics/"/>
     
     
-      <category term="machine learning" scheme="https://purumir.github.io/tags/machine-learning/"/>
-    
       <category term="timeseries" scheme="https://purumir.github.io/tags/timeseries/"/>
+    
+      <category term="machine learning" scheme="https://purumir.github.io/tags/machine-learning/"/>
     
       <category term="시계열" scheme="https://purumir.github.io/tags/%EC%8B%9C%EA%B3%84%EC%97%B4/"/>
     
