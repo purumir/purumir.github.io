@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://purumir.github.io/2022/03/29/airflow-execution-date%EC%97%90-%EB%94%B0%EB%A5%B8-%ED%8A%B9%EC%A0%95-%EC%9D%BC%EC%9E%90-task%EC%8B%A4%ED%96%89-%EC%B2%98%EB%A6%AC/</loc>
+    
+    <lastmod>2022-03-29T02:15:26.218Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://purumir.github.io/2021/10/15/airflow-hdfs-sensor/</loc>
+    
+    <lastmod>2022-03-29T01:36:39.054Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://purumir.github.io/2022/01/23/2021%EB%85%84-%EC%84%9C%EC%9A%B8%EC%A7%80%ED%95%98%EC%B2%A0%EC%9D%84-%ED%86%B5%ED%95%B4-%EB%B3%B8-%EC%82%AC%EB%9E%8C%EB%93%A4%EC%9D%98-%EC%9D%B4%EB%8F%99-%EB%85%B8%EC%84%A0%EB%B3%84-%EC%9D%BC%EB%B3%84-%EC%9A%94%EC%9D%BC%EB%B3%84-%EC%9B%94%EB%B3%84-%EC%8A%B9-%ED%95%98%EC%B0%A8/</loc>
     
     <lastmod>2022-01-29T12:41:40.389Z</lastmod>
@@ -19,13 +33,6 @@
     <loc>https://purumir.github.io/2021/03/30/ResNet/</loc>
     
     <lastmod>2022-01-22T13:31:09.100Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://purumir.github.io/2021/10/15/airflow-hdfs-sensor/</loc>
-    
-    <lastmod>2021-10-16T00:30:08.629Z</lastmod>
     
   </url>
   

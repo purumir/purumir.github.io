@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://purumir.github.io/"/>
-  <updated>2022-01-29T12:41:40.389Z</updated>
+  <updated>2022-03-29T02:15:26.218Z</updated>
   <id>https://purumir.github.io/</id>
   
   <author>
@@ -15,6 +15,40 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>[airflow] execution_date에 따른 특정 일자 task실행 처리</title>
+    <link href="https://purumir.github.io/2022/03/29/airflow-execution-date%EC%97%90-%EB%94%B0%EB%A5%B8-%ED%8A%B9%EC%A0%95-%EC%9D%BC%EC%9E%90-task%EC%8B%A4%ED%96%89-%EC%B2%98%EB%A6%AC/"/>
+    <id>https://purumir.github.io/2022/03/29/airflow-execution-date%EC%97%90-%EB%94%B0%EB%A5%B8-%ED%8A%B9%EC%A0%95-%EC%9D%BC%EC%9E%90-task%EC%8B%A4%ED%96%89-%EC%B2%98%EB%A6%AC/</id>
+    <published>2022-03-29T01:35:43.000Z</published>
+    <updated>2022-03-29T02:15:26.218Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;strong&gt;execution_date의 요일에 따른 Task 분기 처리&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;월요일~일요일까지의 요일중에서 특정 요일에만 Task를 실행하고, 다른 요일에는 Task실행을 하지 않거나 DummyTask 실행을 하려
+        
+      
+    
+    </summary>
+    
+    
+      <category term="data analytics" scheme="https://purumir.github.io/categories/data-analytics/"/>
+    
+      <category term="ETL" scheme="https://purumir.github.io/categories/data-analytics/ETL/"/>
+    
+    
+      <category term="airflow" scheme="https://purumir.github.io/tags/airflow/"/>
+    
+      <category term="execution_date" scheme="https://purumir.github.io/tags/execution-date/"/>
+    
+      <category term="분기처리" scheme="https://purumir.github.io/tags/%EB%B6%84%EA%B8%B0%EC%B2%98%EB%A6%AC/"/>
+    
+  </entry>
   
   <entry>
     <title>2021년 서울지하철을 통해 본 사람들의 이동-(노선별) 일별 승하차</title>
@@ -115,7 +149,7 @@
     <link href="https://purumir.github.io/2021/10/15/airflow-hdfs-sensor/"/>
     <id>https://purumir.github.io/2021/10/15/airflow-hdfs-sensor/</id>
     <published>2021-10-15T07:37:31.000Z</published>
-    <updated>2021-10-16T00:30:08.629Z</updated>
+    <updated>2022-03-29T01:36:39.054Z</updated>
     
     <summary type="html">
     
@@ -250,9 +284,9 @@
       <category term="timeseries" scheme="https://purumir.github.io/categories/data-analytics/timeseries/"/>
     
     
-      <category term="data analytics" scheme="https://purumir.github.io/tags/data-analytics/"/>
-    
       <category term="timeseries" scheme="https://purumir.github.io/tags/timeseries/"/>
+    
+      <category term="data analytics" scheme="https://purumir.github.io/tags/data-analytics/"/>
     
       <category term="kafka" scheme="https://purumir.github.io/tags/kafka/"/>
     
@@ -696,46 +730,6 @@
       <category term="cs224n" scheme="https://purumir.github.io/tags/cs224n/"/>
     
       <category term="word2vec" scheme="https://purumir.github.io/tags/word2vec/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>리더십 관리 기술</title>
-    <link href="https://purumir.github.io/2019/09/29/%EB%A6%AC%EB%8D%94%EC%8B%AD-%EA%B4%80%EB%A6%AC-%EA%B8%B0%EC%88%A0/"/>
-    <id>https://purumir.github.io/2019/09/29/%EB%A6%AC%EB%8D%94%EC%8B%AD-%EA%B4%80%EB%A6%AC-%EA%B8%B0%EC%88%A0/</id>
-    <published>2019-09-29T08:12:36.000Z</published>
-    <updated>2020-02-24T14:50:55.951Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;시간이 지나면서 위 아래로 같이 일하는 사람이 늘어나면서리더십이 무엇인가에 대해서 생각을 하게 된다.&lt;br&gt;&lt;/p&gt;
-&lt;p&gt;‘Leadership(Theory, application &amp;amp; Skill Development/Robert N.
-        
-      
-    
-    </summary>
-    
-    
-      <category term="management" scheme="https://purumir.github.io/categories/management/"/>
-    
-      <category term="leadership" scheme="https://purumir.github.io/categories/management/leadership/"/>
-    
-    
-      <category term="리더십" scheme="https://purumir.github.io/tags/%EB%A6%AC%EB%8D%94%EC%8B%AD/"/>
-    
-      <category term="leadership" scheme="https://purumir.github.io/tags/leadership/"/>
-    
-      <category term="professionalskills" scheme="https://purumir.github.io/tags/professionalskills/"/>
-    
-      <category term="interpersonalskills" scheme="https://purumir.github.io/tags/interpersonalskills/"/>
-    
-      <category term="decisionmakingskills" scheme="https://purumir.github.io/tags/decisionmakingskills/"/>
-    
-      <category term="내가준비하고있는리더십" scheme="https://purumir.github.io/tags/%EB%82%B4%EA%B0%80%EC%A4%80%EB%B9%84%ED%95%98%EA%B3%A0%EC%9E%88%EB%8A%94%EB%A6%AC%EB%8D%94%EC%8B%AD/"/>
     
   </entry>
   

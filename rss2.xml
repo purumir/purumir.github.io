@@ -15,8 +15,30 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>This blog contains the items about machine learning, sw architect, management and my favorites.</description>
-    <pubDate>Sat, 29 Jan 2022 12:41:40 GMT</pubDate>
+    <pubDate>Tue, 29 Mar 2022 02:15:26 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>[airflow] execution_date에 따른 특정 일자 task실행 처리</title>
+      <link>https://purumir.github.io/2022/03/29/airflow-execution-date%EC%97%90-%EB%94%B0%EB%A5%B8-%ED%8A%B9%EC%A0%95-%EC%9D%BC%EC%9E%90-task%EC%8B%A4%ED%96%89-%EC%B2%98%EB%A6%AC/</link>
+      <guid>https://purumir.github.io/2022/03/29/airflow-execution-date%EC%97%90-%EB%94%B0%EB%A5%B8-%ED%8A%B9%EC%A0%95-%EC%9D%BC%EC%9E%90-task%EC%8B%A4%ED%96%89-%EC%B2%98%EB%A6%AC/</guid>
+      <pubDate>Tue, 29 Mar 2022 01:35:43 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;&lt;strong&gt;execution_date의 요일에 따른 Task 분기 처리&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;월요일~일요일까지의 요일중에서 특정 요일에만 Task를 실행하고, 다른 요일에는 Task실행을 하지 않거나 DummyTask 실행을 하려
+          
+        
+      
+      </description>
+      
+      
+      <comments>https://purumir.github.io/2022/03/29/airflow-execution-date%EC%97%90-%EB%94%B0%EB%A5%B8-%ED%8A%B9%EC%A0%95-%EC%9D%BC%EC%9E%90-task%EC%8B%A4%ED%96%89-%EC%B2%98%EB%A6%AC/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>2021년 서울지하철을 통해 본 사람들의 이동-(노선별) 일별 승하차</title>
@@ -429,28 +451,6 @@
       
       
       <comments>https://purumir.github.io/2019/10/05/cs224n-Lecture01/#disqus_thread</comments>
-    </item>
-    
-    <item>
-      <title>리더십 관리 기술</title>
-      <link>https://purumir.github.io/2019/09/29/%EB%A6%AC%EB%8D%94%EC%8B%AD-%EA%B4%80%EB%A6%AC-%EA%B8%B0%EC%88%A0/</link>
-      <guid>https://purumir.github.io/2019/09/29/%EB%A6%AC%EB%8D%94%EC%8B%AD-%EA%B4%80%EB%A6%AC-%EA%B8%B0%EC%88%A0/</guid>
-      <pubDate>Sun, 29 Sep 2019 08:12:36 GMT</pubDate>
-      <description>
-      
-        
-        
-          
-          
-            &lt;p&gt;시간이 지나면서 위 아래로 같이 일하는 사람이 늘어나면서리더십이 무엇인가에 대해서 생각을 하게 된다.&lt;br&gt;&lt;/p&gt;
-&lt;p&gt;‘Leadership(Theory, application &amp;amp; Skill Development/Robert N.
-          
-        
-      
-      </description>
-      
-      
-      <comments>https://purumir.github.io/2019/09/29/%EB%A6%AC%EB%8D%94%EC%8B%AD-%EA%B4%80%EB%A6%AC-%EA%B8%B0%EC%88%A0/#disqus_thread</comments>
     </item>
     
   </channel>
