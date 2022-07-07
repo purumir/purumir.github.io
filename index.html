@@ -119,8 +119,9 @@
 <p><img src="/images/sw/airflow/externalTaskSenssor를 통한 DAG간 Dependency_20220707.jpg" alt></p>
 <p>위 그림에서 선행 DAG의 마지막 Task를 센싱하는 ExternalTaskSensor를 후행 DAG의 앞에 둠으로써 ExternalTaskSensor가 선행 DAG의 마지막 Task의 완료를 센싱할때까지 후행 DAG의 실행(triggering)을 하지 않도록 하는 구조입니다. ExternalTaskSensor는 선행 DAG의 마지막 Task가 완료가 되면 이를 센싱하고 후행 DAG를 TriggerDagRunOperator를 통해서 triggering하게 됩니다.</p>
 <p>이러한 방식의 장점은 각 DAG의 스케줄링 시간을 정의하고 time interval에 의해서 실행간 제어를 할 경우 선행 DAG가 완료되지 않았음에도 후행 DAG를 실행하는 문제점에 대한 대안으로 사용 할 수 있고, _SUCCESS 같은 마커를 통한 흐름제어보다 개선된 방식이라고 할 수 있습니다.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## ExternalTaskSensor 예시</span></span><br><span class="line">dag_id = <span class="string">'pre-DAG'</span></span><br><span class="line">sensor_task = <span class="string">'pre-DAG-final-Task'</span></span><br><span class="line"></span><br><span class="line">sensor_task = ExternalTaskSensor(</span><br><span class="line">    task_id = <span class="string">f'sensor_<span class="subst">&#123;dag_id&#125;</span>'</span>,</span><br><span class="line">    external_dag_id = dag_id,</span><br><span class="line">    external_task_id = sensor_task,</span><br><span class="line">    execution_date = <span class="string">'YYYYMMDD'</span>, <span class="comment"># 센싱을 원하는 execution_date</span></span><br><span class="line">    mode = <span class="string">'reschedule'</span>,</span><br><span class="line">    timeout = <span class="number">3600</span>, <span class="comment"># 60 분</span></span><br><span class="line">    queue = <span class="string">'queue_name'</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## TriggerDagRunOperator 예시</span></span><br><span class="line">dag_id = <span class="string">'DAG-A'</span></span><br><span class="line"></span><br><span class="line">trigger_task = TriggerDagRunOperator(</span><br><span class="line">    task_id = <span class="string">f'trigger_<span class="subst">&#123;dag_id&#125;</span>'</span>, <span class="comment"># DAG-A 를 triggering함.</span></span><br><span class="line">    trigger_dag_id = dag_id,</span><br><span class="line">    execution_date = <span class="string">'YYYYMMDD'</span>, <span class="comment"># triggering시 execution date</span></span><br><span class="line">    queue = <span class="string">'queue name'</span>,</span><br><span class="line">    reset_dag_run = <span class="literal">True</span> <span class="comment"># 이미 존재하는 dag run이 있을 경우 이를 clear하고 실행할지 여부 </span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## ExternalTaskSensor 예시</span></span><br><span class="line">sensor_task = ExternalTaskSensor(</span><br><span class="line">    task_id = <span class="string">f'sensor_pre-DAG'</span>,</span><br><span class="line">    external_dag_id = <span class="string">'pre-DAG'</span>,</span><br><span class="line">    external_task_id = <span class="string">'pre-DAG-final-Task'</span>,</span><br><span class="line">    execution_date = <span class="string">'YYYYMMDD'</span>, <span class="comment"># 센싱을 원하는 execution_date</span></span><br><span class="line">    mode = <span class="string">'reschedule'</span>,</span><br><span class="line">    timeout = <span class="number">3600</span>, <span class="comment"># 60 분</span></span><br><span class="line">    queue = <span class="string">'queue_name'</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## TriggerDagRunOperator 예시</span></span><br><span class="line">trigger_task = TriggerDagRunOperator(</span><br><span class="line">    task_id = <span class="string">f'trigger_DAG-A'</span>, <span class="comment"># DAG-A 를 triggering함.</span></span><br><span class="line">    trigger_dag_id = <span class="string">'DAG-A'</span>,</span><br><span class="line">    execution_date = <span class="string">'YYYYMMDD'</span>, <span class="comment"># triggering시 execution date</span></span><br><span class="line">    queue = <span class="string">'queue name'</span>,</span><br><span class="line">    reset_dag_run = <span class="literal">True</span> <span class="comment"># 이미 존재하는 dag run이 있을 경우 이를 clear하고 실행할지 여부 </span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 'pre-DAG'의 'pre-DAG-final-Task'가 성공하면, DAG-A를 triggering한다.</span></span><br><span class="line">sensor_task &gt;&gt; trigger_task</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -131,7 +132,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2022/07/07/TriggerDagRunOperator와-ExternalTaskSensor를-통한-배치-DAG구성/" data-id="cl5ael3ic000aigv0sqpvfg7r" class="article-share-link">
+      <a data-url="https://purumir.github.io/2022/07/07/TriggerDagRunOperator와-ExternalTaskSensor를-통한-배치-DAG구성/" data-id="cl5azbqos000674v0s4qbyofv" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -205,7 +206,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2022/03/29/airflow-execution-date에-따른-특정-일자-task실행-처리/" data-id="cl5ael3if000digv0ovbxn89r" class="article-share-link">
+      <a data-url="https://purumir.github.io/2022/03/29/airflow-execution-date에-따른-특정-일자-task실행-처리/" data-id="cl5azbqp8000a74v0xiv7jsj9" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -343,7 +344,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2022/01/23/2021년-서울지하철을-통해-본-사람들의-이동-노선별-일별-요일별-월별-승-하차/" data-id="cl5ael3pl0075igv05en79uv1" class="article-share-link">
+      <a data-url="https://purumir.github.io/2022/01/23/2021년-서울지하철을-통해-본-사람들의-이동-노선별-일별-요일별-월별-승-하차/" data-id="cl5azbqzo007774v00jdwliux" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -434,7 +435,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2022/01/22/2021년-서울지하철을-통해-본-사람들의-이동/" data-id="cl5ael3hn0000igv0opvt7ib3" class="article-share-link">
+      <a data-url="https://purumir.github.io/2022/01/22/2021년-서울지하철을-통해-본-사람들의-이동/" data-id="cl5azbqnu000174v0wmnuymyu" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -524,7 +525,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2021/10/15/airflow-hdfs-sensor/" data-id="cl5ael3im000higv01wn4hd3j" class="article-share-link">
+      <a data-url="https://purumir.github.io/2021/10/15/airflow-hdfs-sensor/" data-id="cl5azbqq2000f74v06x4rth56" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -617,7 +618,7 @@ y=F(x, \{W_{i}\})+W_{s}x</script><p>{작성중}</p>
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2021/03/30/ResNet/" data-id="cl5ael3ia0009igv09g5rrnvq" class="article-share-link">
+      <a data-url="https://purumir.github.io/2021/03/30/ResNet/" data-id="cl5azbqol000574v0i68vxtts" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -705,7 +706,7 @@ y=F(x, \{W_{i}\})+W_{s}x</script><p>{작성중}</p>
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2020/05/21/kubernetes로-spark-submit하기-spark-submit-to-kubernetes/" data-id="cl5ael3it000ligv0m0imjxl5" class="article-share-link">
+      <a data-url="https://purumir.github.io/2020/05/21/kubernetes로-spark-submit하기-spark-submit-to-kubernetes/" data-id="cl5azbqqx000m74v00rs14e2c" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -781,7 +782,7 @@ y=F(x, \{W_{i}\})+W_{s}x</script><p>{작성중}</p>
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2020/05/14/Kafka와-SparkStreaming을-통한-시계열-데이터-저장/" data-id="cl5ael3i40005igv0fcfjwb40" class="article-share-link">
+      <a data-url="https://purumir.github.io/2020/05/14/Kafka와-SparkStreaming을-통한-시계열-데이터-저장/" data-id="cl5azbqo2000274v0mdhvc0si" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -935,7 +936,7 @@ y=F(x, \{W_{i}\})+W_{s}x</script><p>{작성중}</p>
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2020/02/06/오픈-소스-ETL-툴-비교-Apache-NiFi-vs-StreamSets/" data-id="cl5ael3j8000vigv0zftm98fg" class="article-share-link">
+      <a data-url="https://purumir.github.io/2020/02/06/오픈-소스-ETL-툴-비교-Apache-NiFi-vs-StreamSets/" data-id="cl5azbqr0000n74v0d85vpeo1" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -1053,7 +1054,7 @@ p_{i}= -\frac{exp(z_{i}/T)}{\sum_{j}{exp(z_{j}/T)}}\\T~is~the~temperature~parame
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2020/01/28/dark-knowledge-machine-learning-architecture/" data-id="cl5ael3iz000oigv0vy1ubvm8" class="article-share-link">
+      <a data-url="https://purumir.github.io/2020/01/28/dark-knowledge-machine-learning-architecture/" data-id="cl5azbqqs000j74v0xw0kujtv" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
