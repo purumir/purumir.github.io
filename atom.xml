@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://purumir.github.io/"/>
-  <updated>2022-03-29T02:37:13.111Z</updated>
+  <updated>2022-07-07T02:18:24.276Z</updated>
   <id>https://purumir.github.io/</id>
   
   <author>
@@ -15,6 +15,42 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>[airflow] TriggerDagRunOperator와 ExternalTaskSensor를 통한 배치 흐름 제어</title>
+    <link href="https://purumir.github.io/2022/07/07/TriggerDagRunOperator%EC%99%80-ExternalTaskSensor%EB%A5%BC-%ED%86%B5%ED%95%9C-%EB%B0%B0%EC%B9%98-DAG%EA%B5%AC%EC%84%B1/"/>
+    <id>https://purumir.github.io/2022/07/07/TriggerDagRunOperator%EC%99%80-ExternalTaskSensor%EB%A5%BC-%ED%86%B5%ED%95%9C-%EB%B0%B0%EC%B9%98-DAG%EA%B5%AC%EC%84%B1/</id>
+    <published>2022-07-07T02:16:35.000Z</published>
+    <updated>2022-07-07T02:18:24.276Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;strong&gt;수백개의 배치를 그룹으로 구성하고 그 그룹간의 Dependency를 둘 수 없을까?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;수백개가 넘는 배치를 하나의 DAG에 넣는 것은 유지보수도 어렵게 하고, 동시 작업성 측면에서도 좋지 않다고 생각되어
+        
+      
+    
+    </summary>
+    
+    
+      <category term="data analytics" scheme="https://purumir.github.io/categories/data-analytics/"/>
+    
+      <category term="workflow" scheme="https://purumir.github.io/categories/data-analytics/workflow/"/>
+    
+    
+      <category term="airflow" scheme="https://purumir.github.io/tags/airflow/"/>
+    
+      <category term="TriggerDagRunOperator" scheme="https://purumir.github.io/tags/TriggerDagRunOperator/"/>
+    
+      <category term="ExternalTaskSensor" scheme="https://purumir.github.io/tags/ExternalTaskSensor/"/>
+    
+      <category term="배치구성" scheme="https://purumir.github.io/tags/%EB%B0%B0%EC%B9%98%EA%B5%AC%EC%84%B1/"/>
+    
+  </entry>
   
   <entry>
     <title>[airflow] execution_date에 따른 특정 일자 task실행 처리</title>
@@ -286,9 +322,9 @@
       <category term="timeseries" scheme="https://purumir.github.io/categories/data-analytics/timeseries/"/>
     
     
-      <category term="timeseries" scheme="https://purumir.github.io/tags/timeseries/"/>
-    
       <category term="data analytics" scheme="https://purumir.github.io/tags/data-analytics/"/>
+    
+      <category term="timeseries" scheme="https://purumir.github.io/tags/timeseries/"/>
     
       <category term="kafka" scheme="https://purumir.github.io/tags/kafka/"/>
     
@@ -697,41 +733,6 @@
       <category term="지수평활법" scheme="https://purumir.github.io/tags/%EC%A7%80%EC%88%98%ED%8F%89%ED%99%9C%EB%B2%95/"/>
     
       <category term="exponential smoothing" scheme="https://purumir.github.io/tags/exponential-smoothing/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>cs224n-Lecture 1(Introduction and Word Vectors)</title>
-    <link href="https://purumir.github.io/2019/10/05/cs224n-Lecture01/"/>
-    <id>https://purumir.github.io/2019/10/05/cs224n-Lecture01/</id>
-    <published>2019-10-05T07:15:05.000Z</published>
-    <updated>2021-03-31T15:35:34.030Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;Lecture-1-Introduction-and-Word-Vectors&quot;&gt;&lt;a href=&quot;#Lecture-1-Introduction-and-Word-Vectors&quot; class=&quot;headerlink&quot; title=&quot;Lecture
-        
-      
-    
-    </summary>
-    
-    
-      <category term="machine learning" scheme="https://purumir.github.io/categories/machine-learning/"/>
-    
-      <category term="natural language processing" scheme="https://purumir.github.io/categories/machine-learning/natural-language-processing/"/>
-    
-    
-      <category term="machine learning" scheme="https://purumir.github.io/tags/machine-learning/"/>
-    
-      <category term="natural language processing" scheme="https://purumir.github.io/tags/natural-language-processing/"/>
-    
-      <category term="cs224n" scheme="https://purumir.github.io/tags/cs224n/"/>
-    
-      <category term="word2vec" scheme="https://purumir.github.io/tags/word2vec/"/>
     
   </entry>
   
