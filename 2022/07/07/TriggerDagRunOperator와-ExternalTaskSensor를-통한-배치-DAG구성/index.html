@@ -14,7 +14,7 @@
 <meta property="og:description" content="수백개의 배치를 그룹으로 구성하고 그 그룹간의 Dependency를 둘 수 없을까? 수백개가 넘는 배치를 하나의 DAG에 넣는 것은 유지보수도 어렵게 하고, 동시 작업성 측면에서도 좋지 않다고 생각되어 이를 그룹화(각 DAG를 그룹화의 단위로 정의)하였습니다. 이 DAGs간의 dependency를 줄 수 있는 방법에 대해서 고민하게 되었습니다.  처음에는">
 <meta property="og:locale" content="ko">
 <meta property="og:image" content="https://purumir.github.io/images/sw/airflow/externalTaskSenssor를%20통한%20DAG간%20Dependency_20220707.jpg">
-<meta property="og:updated_time" content="2022-07-07T02:18:24.276Z">
+<meta property="og:updated_time" content="2022-07-07T02:22:35.578Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[airflow] TriggerDagRunOperator와 ExternalTaskSensor를 통한 배치 흐름 제어">
 <meta name="twitter:description" content="수백개의 배치를 그룹으로 구성하고 그 그룹간의 Dependency를 둘 수 없을까? 수백개가 넘는 배치를 하나의 DAG에 넣는 것은 유지보수도 어렵게 하고, 동시 작업성 측면에서도 좋지 않다고 생각되어 이를 그룹화(각 DAG를 그룹화의 단위로 정의)하였습니다. 이 DAGs간의 dependency를 줄 수 있는 방법에 대해서 고민하게 되었습니다.  처음에는">
@@ -104,7 +104,7 @@
     
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/data-analytics/">data analytics</a> / <a class="article-category-link" href="/categories/data-analytics/workflow/">workflow</a>
+    <a class="article-category-link" href="/categories/data-analytics/">data analytics</a> / <a class="article-category-link" href="/categories/data-analytics/workflow/">workflow</a> / <a class="article-category-link" href="/categories/data-analytics/workflow/airflow/">airflow</a>
   </div>
 
 
@@ -115,7 +115,7 @@
       
         <p><strong>수백개의 배치를 그룹으로 구성하고 그 그룹간의 Dependency를 둘 수 없을까?</strong></p>
 <p>수백개가 넘는 배치를 하나의 DAG에 넣는 것은 유지보수도 어렵게 하고, 동시 작업성 측면에서도 좋지 않다고 생각되어 이를 그룹화(각 DAG를 그룹화의 단위로 정의)하였습니다. 이 DAGs간의 dependency를 줄 수 있는 방법에 대해서 고민하게 되었습니다.  처음에는 후속 DAG에서 앞의 DAG의 마지막 Task의 결과를 확인하고 데이터가 생성되어 있지 않으면 생성이 될 때까지 대기하는 방법을 사용하였습니다.(hdfs sensor를 통해서 _SUCCESS 같은 마커가 생성될때까지 대기하도록 구성)</p>
-<p>보다 개선된 방법으로 airflow에서 ExternalTaskSensor를 제공하는 것을 확인하여 이를 병행하는 방식으로 DAG간의 dependency를 Task 센싱을 통해서 주도록 구성하였습니다.</p>
+<p>보다 개선된 방법으로 airflow에서 ExternalTaskSensor를 제공하는 것을 확인하여 이를 병행하는 방식으로 DAG간의 dependency를 Task 센싱을 통해서 처리하도록 구성하였습니다.</p>
 <p>개념적으로 다음과 같은 형태로 구성을 하였습니다.</p>
 <p><img src="/images/sw/airflow/externalTaskSenssor를 통한 DAG간 Dependency_20220707.jpg" alt></p>
 <p>위 그림에서 선행 DAG의 마지막 Task를 센싱하는 ExternalTaskSensor를 후행 DAG의 앞에 둠으로써 ExternalTaskSensor가 선행 DAG의 마지막 Task의 완료를 센싱할때까지 후행 DAG의 실행(triggering)을 하지 않도록 하는 구조입니다. ExternalTaskSensor는 선행 DAG의 마지막 Task가 완료가 되면 이를 센싱하고 후행 DAG를 TriggerDagRunOperator를 통해서 triggering하게 됩니다.</p>
@@ -132,7 +132,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2022/07/07/TriggerDagRunOperator와-ExternalTaskSensor를-통한-배치-DAG구성/" data-id="cl5aegkvd0000eov05eb6q2pb" class="article-share-link">
+      <a data-url="https://purumir.github.io/2022/07/07/TriggerDagRunOperator와-ExternalTaskSensor를-통한-배치-DAG구성/" data-id="cl5ael3ic000aigv0sqpvfg7r" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -177,7 +177,7 @@ I am curious about machine learning, business intelligence, sw architect, digita
   
   <div class="sidebar-module">
     <h4>Categories</h4>
-    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/data-analytics/">data analytics</a><span class="sidebar-module-list-count">7</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/data-analytics/ETL/">ETL</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/data-analytics/business-intelligence/">business intelligence</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/data-analytics/spark/">spark</a><span class="sidebar-module-list-count">1</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/data-analytics/spark/timeseries/">timeseries</a><span class="sidebar-module-list-count">1</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/data-analytics/timeseries/">timeseries</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/data-analytics/workflow/">workflow</a><span class="sidebar-module-list-count">3</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/data-anlytics/">data anlytics</a><span class="sidebar-module-list-count">2</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/data-anlytics/usecases/">usecases</a><span class="sidebar-module-list-count">2</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/data-anlytics/usecases/subway-station/">subway station</a><span class="sidebar-module-list-count">2</span></li></ul></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/digital-transformation/">digital transformation</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/machine-learning/">machine learning</a><span class="sidebar-module-list-count">7</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/machine-learning/computer-vision/">computer vision</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/machine-learning/data-analytics/">data analytics</a><span class="sidebar-module-list-count">3</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/machine-learning/data-analytics/timeseries/">timeseries</a><span class="sidebar-module-list-count">2</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/machine-learning/learning/">learning</a><span class="sidebar-module-list-count">1</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/machine-learning/learning/architecture/">architecture</a><span class="sidebar-module-list-count">1</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/machine-learning/natural-language-processing/">natural language processing</a><span class="sidebar-module-list-count">1</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/management/">management</a><span class="sidebar-module-list-count">2</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/management/leadership/">leadership</a><span class="sidebar-module-list-count">2</span></li></ul></li></ul>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/data-analytics/">data analytics</a><span class="sidebar-module-list-count">7</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/data-analytics/ETL/">ETL</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/data-analytics/business-intelligence/">business intelligence</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/data-analytics/spark/">spark</a><span class="sidebar-module-list-count">1</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/data-analytics/spark/timeseries/">timeseries</a><span class="sidebar-module-list-count">1</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/data-analytics/timeseries/">timeseries</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/data-analytics/workflow/">workflow</a><span class="sidebar-module-list-count">3</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/data-analytics/workflow/airflow/">airflow</a><span class="sidebar-module-list-count">3</span></li></ul></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/data-anlytics/">data anlytics</a><span class="sidebar-module-list-count">2</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/data-anlytics/usecases/">usecases</a><span class="sidebar-module-list-count">2</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/data-anlytics/usecases/subway-station/">subway station</a><span class="sidebar-module-list-count">2</span></li></ul></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/digital-transformation/">digital transformation</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/machine-learning/">machine learning</a><span class="sidebar-module-list-count">7</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/machine-learning/computer-vision/">computer vision</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/machine-learning/data-analytics/">data analytics</a><span class="sidebar-module-list-count">3</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/machine-learning/data-analytics/timeseries/">timeseries</a><span class="sidebar-module-list-count">2</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/machine-learning/learning/">learning</a><span class="sidebar-module-list-count">1</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/machine-learning/learning/architecture/">architecture</a><span class="sidebar-module-list-count">1</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/machine-learning/natural-language-processing/">natural language processing</a><span class="sidebar-module-list-count">1</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/management/">management</a><span class="sidebar-module-list-count">2</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/management/leadership/">leadership</a><span class="sidebar-module-list-count">2</span></li></ul></li></ul>
   </div>
 
 
@@ -259,5 +259,21 @@ I am curious about machine learning, business intelligence, sw architect, digita
 
 <script src="/js/script.js"></script>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!--script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script-->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
 </body>
 </html>
