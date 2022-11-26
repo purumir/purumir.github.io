@@ -123,7 +123,7 @@
 <p>At the smaller DW systems, some KUDU tables which have same schema of the KUDU tables in the bigger DW system were created for managing the code values.</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- This is the example</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> code_table</span><br><span class="line">(</span><br><span class="line">	code1 <span class="keyword">STRING</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">ENCODING</span> AUTO_ENCODING COMPRESSION DEFAULT_COMPRESSION,</span><br><span class="line">	code2 <span class="keyword">STRING</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">ENCODING</span> AUTO_ENCODING COMPRESSION DEFAULT_COMPRESSION,</span><br><span class="line">	PRIMARY <span class="keyword">KEY</span>(code <span class="number">1</span>)</span><br><span class="line">)</span><br><span class="line"><span class="keyword">STORED</span> <span class="keyword">AS</span> KUDU</span><br><span class="line">TBLPROPERTIES(</span><br><span class="line">	<span class="string">'kudu.master_addresses'</span>=<span class="string">'&lt;KUDU Master Host #1&gt;,&lt;KUDU Master Host #2&gt;..&lt;KUDU Master Host #N&gt;'</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 <p><strong>SparkSubmitOperator Code</strong></p>
-<p>The Airflow provide the SparkSubmitOperator for the submitting the spark job. Because the DW system of my own are using the Hadoop, some libraries were used for the submitting the spark job.</p>
+<p>The Airflow provide the SparkSubmitOperator for the submitting the spark job. Additionally, some libraries were used for the submitting the spark job.</p>
 <p>In below code, a spark code snippet is located in the line of ‘spark_scripts’.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> airflow.plugins_manager <span class="keyword">import</span> AirflowPlugin</span><br><span class="line"><span class="keyword">from</span> airflow.utils.decorators <span class="keyword">import</span> apply_defaults</span><br><span class="line"><span class="keyword">from</span> airflow.contrib.operators.spark_submit_operator <span class="keyword">import</span> SparkSubmitOperator</span><br><span class="line"><span class="keyword">from</span> airflow.models <span class="keyword">import</span> Variable</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PullKuduTablesSparkSubmitOperator</span><span class="params">(SparkSubmitOperator)</span>:</span></span><br><span class="line"><span class="meta">    @apply_defaults</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">        self,</span></span></span><br><span class="line"><span class="function"><span class="params">        applications=<span class="string">''</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">        conn_id=<span class="string">'spark_default'</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">        ~</span></span></span><br><span class="line"><span class="function"><span class="params">        executor_memory=<span class="string">'&lt;Executor Memory Size&gt;'</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">        driver_memory=<span class="string">'&lt;Driver Memory Size&gt;'</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">        ~</span></span></span><br><span class="line"><span class="function"><span class="params">        name=<span class="string">'pull_kudu_tables'</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">        ~</span></span></span><br><span class="line"><span class="function"><span class="params">        spark_binary=<span class="string">'&lt;lib&gt;/spark/bin/spark-submit'</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">        *args,</span></span></span><br><span class="line"><span class="function"><span class="params">        **kwargs)</span>:</span></span><br><span class="line">        </span><br><span class="line">        super(SparkSubmitOperator, self).__init__(*args, **kwargs)</span><br><span class="line">        </span><br><span class="line">        self._application = application</span><br><span class="line">        ~</span><br><span class="line">        self._spark_binary = spark_binary</span><br><span class="line">        self._hook = <span class="literal">None</span></span><br><span class="line">        self._conn_id = conn_id</span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">execute</span><span class="params">(self, context)</span>:</span></span><br><span class="line">        spark_scripts = Variable.get(<span class="string">'spark_scripts'</span>, deserialize_json=<span class="literal">True</span>)</span><br><span class="line">        self._application = spark_scripts <span class="comment"># spark submit code</span></span><br><span class="line">        </span><br><span class="line">        super(PullKuduTablesSparkSubmitOperator, self).execute(context)</span><br><span class="line">        </span><br><span class="line">    </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PullKuduTablesSparkSubmitPlugin</span><span class="params">(AirflowPlugin)</span>:</span></span><br><span class="line">    name = <span class="string">'pull_kudu_tables_spark_submit_plugin'</span></span><br><span class="line">    operators = [ PullKuduTablesSparkSubmitOperator ]</span><br></pre></td></tr></table></figure>
 <p><strong>Spark  Scripts</strong></p>
@@ -146,7 +146,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2022/11/25/Continuous-kudu-table-migration-using-the-Airflow-SparkOperator/" data-id="claxw1b900004eov03uv8u82l" class="article-share-link">
+      <a data-url="https://purumir.github.io/2022/11/25/Continuous-kudu-table-migration-using-the-Airflow-SparkOperator/" data-id="claxwh0d80004n4v005qqybm1" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -213,7 +213,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2022/07/07/TriggerDagRunOperator와-ExternalTaskSensor를-통한-배치-DAG구성/" data-id="claxw1b9j000aeov0hxxbix94" class="article-share-link">
+      <a data-url="https://purumir.github.io/2022/07/07/TriggerDagRunOperator와-ExternalTaskSensor를-통한-배치-DAG구성/" data-id="claxwh0el000en4v0a0js4hdq" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -287,7 +287,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2022/03/29/airflow-execution-date에-따른-특정-일자-task실행-처리/" data-id="claxw1b9o000deov0eokgu6t2" class="article-share-link">
+      <a data-url="https://purumir.github.io/2022/03/29/airflow-execution-date에-따른-특정-일자-task실행-처리/" data-id="claxwh0eg000dn4v0kwtpj3ro" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -425,7 +425,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2022/01/23/2021년-서울지하철을-통해-본-사람들의-이동-노선별-일별-요일별-월별-승-하차/" data-id="claxw1bje007keov04p7jcnn6" class="article-share-link">
+      <a data-url="https://purumir.github.io/2022/01/23/2021년-서울지하철을-통해-본-사람들의-이동-노선별-일별-요일별-월별-승-하차/" data-id="claxwh0ow007kn4v0nuq11i06" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -516,7 +516,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2022/01/22/2021년-서울지하철을-통해-본-사람들의-이동/" data-id="claxw1b8c0000eov0892hwn8y" class="article-share-link">
+      <a data-url="https://purumir.github.io/2022/01/22/2021년-서울지하철을-통해-본-사람들의-이동/" data-id="claxwh0cd0000n4v01rufxrsx" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -606,7 +606,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2021/10/15/airflow-hdfs-sensor/" data-id="claxw1ba0000heov0nmvdrpae" class="article-share-link">
+      <a data-url="https://purumir.github.io/2021/10/15/airflow-hdfs-sensor/" data-id="claxwh0et000hn4v0rmqsido6" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -699,7 +699,7 @@ y=F(x, \{W_{i}\})+W_{s}x</script><p>{작성중}</p>
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2021/03/30/ResNet/" data-id="claxw1b9f0009eov0oa61uelu" class="article-share-link">
+      <a data-url="https://purumir.github.io/2021/03/30/ResNet/" data-id="claxwh0dh0006n4v021cgrtey" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -787,7 +787,7 @@ y=F(x, \{W_{i}\})+W_{s}x</script><p>{작성중}</p>
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2020/05/21/kubernetes로-spark-submit하기-spark-submit-to-kubernetes/" data-id="claxw1baq000oeov02pqasqnd" class="article-share-link">
+      <a data-url="https://purumir.github.io/2020/05/21/kubernetes로-spark-submit하기-spark-submit-to-kubernetes/" data-id="claxwh0fj000on4v0zc6u81cq" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -863,7 +863,7 @@ y=F(x, \{W_{i}\})+W_{s}x</script><p>{작성중}</p>
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2020/05/14/Kafka와-SparkStreaming을-통한-시계열-데이터-저장/" data-id="claxw1b990006eov0mbju3seu" class="article-share-link">
+      <a data-url="https://purumir.github.io/2020/05/14/Kafka와-SparkStreaming을-통한-시계열-데이터-저장/" data-id="claxwh0e00009n4v0mpfwll56" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -1017,7 +1017,7 @@ y=F(x, \{W_{i}\})+W_{s}x</script><p>{작성중}</p>
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2020/02/06/오픈-소스-ETL-툴-비교-Apache-NiFi-vs-StreamSets/" data-id="claxw1bb2000ueov0xwpxfvxn" class="article-share-link">
+      <a data-url="https://purumir.github.io/2020/02/06/오픈-소스-ETL-툴-비교-Apache-NiFi-vs-StreamSets/" data-id="claxwh0g2000un4v0cdpnqnxw" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
