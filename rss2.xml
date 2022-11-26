@@ -15,14 +15,14 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>This blog contains the items about machine learning, sw architect, management and my favorites.</description>
-    <pubDate>Sat, 26 Nov 2022 11:38:12 GMT</pubDate>
+    <pubDate>Sat, 26 Nov 2022 12:00:52 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
-      <title>Continuous kudu table migration using the Airflow SparkOperator</title>
+      <title>(airflow) Continuous kudu table migration using the Airflow SparkOperator</title>
       <link>https://purumir.github.io/2022/11/25/Continuous-kudu-table-migration-using-the-Airflow-SparkOperator/</link>
       <guid>https://purumir.github.io/2022/11/25/Continuous-kudu-table-migration-using-the-Airflow-SparkOperator/</guid>
-      <pubDate>Fri, 25 Nov 2022 02:16:49 GMT</pubDate>
+      <pubDate>Fri, 25 Nov 2022 12:00:15 GMT</pubDate>
       <description>
       
         
