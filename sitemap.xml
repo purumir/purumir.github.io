@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://purumir.github.io/2022/11/25/Continuous-kudu-table-migration-using-the-Airflow-SparkOperator/</loc>
+    
+    <lastmod>2022-11-26T11:34:19.369Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://purumir.github.io/2022/07/07/TriggerDagRunOperator%EC%99%80-ExternalTaskSensor%EB%A5%BC-%ED%86%B5%ED%95%9C-%EB%B0%B0%EC%B9%98-DAG%EA%B5%AC%EC%84%B1/</loc>
     
-    <lastmod>2022-07-07T12:39:39.057Z</lastmod>
+    <lastmod>2022-07-07T12:41:26.438Z</lastmod>
     
   </url>
   

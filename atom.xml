@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://purumir.github.io/"/>
-  <updated>2022-07-07T12:39:39.057Z</updated>
+  <updated>2022-11-26T11:34:19.369Z</updated>
   <id>https://purumir.github.io/</id>
   
   <author>
@@ -17,11 +17,49 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Continuous kudu table migration using the Airflow SparkOperator</title>
+    <link href="https://purumir.github.io/2022/11/25/Continuous-kudu-table-migration-using-the-Airflow-SparkOperator/"/>
+    <id>https://purumir.github.io/2022/11/25/Continuous-kudu-table-migration-using-the-Airflow-SparkOperator/</id>
+    <published>2022-11-25T02:16:49.000Z</published>
+    <updated>2022-11-26T11:34:19.369Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;strong&gt;Background&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;In my case, a big scale system was splitted into several small systems. But, some code values in a
+        
+      
+    
+    </summary>
+    
+    
+      <category term="data analytics" scheme="https://purumir.github.io/categories/data-analytics/"/>
+    
+      <category term="workflow" scheme="https://purumir.github.io/categories/data-analytics/workflow/"/>
+    
+      <category term="airflow" scheme="https://purumir.github.io/categories/data-analytics/workflow/airflow/"/>
+    
+    
+      <category term="airflow" scheme="https://purumir.github.io/tags/airflow/"/>
+    
+      <category term="sparkOperator" scheme="https://purumir.github.io/tags/sparkOperator/"/>
+    
+      <category term="KUDU" scheme="https://purumir.github.io/tags/KUDU/"/>
+    
+      <category term="migration" scheme="https://purumir.github.io/tags/migration/"/>
+    
+  </entry>
+  
+  <entry>
     <title>[airflow] TriggerDagRunOperator와 ExternalTaskSensor를 통한 배치 흐름 제어</title>
     <link href="https://purumir.github.io/2022/07/07/TriggerDagRunOperator%EC%99%80-ExternalTaskSensor%EB%A5%BC-%ED%86%B5%ED%95%9C-%EB%B0%B0%EC%B9%98-DAG%EA%B5%AC%EC%84%B1/"/>
     <id>https://purumir.github.io/2022/07/07/TriggerDagRunOperator%EC%99%80-ExternalTaskSensor%EB%A5%BC-%ED%86%B5%ED%95%9C-%EB%B0%B0%EC%B9%98-DAG%EA%B5%AC%EC%84%B1/</id>
     <published>2022-07-07T02:16:35.000Z</published>
-    <updated>2022-07-07T12:39:39.057Z</updated>
+    <updated>2022-07-07T12:41:26.438Z</updated>
     
     <summary type="html">
     
@@ -369,9 +407,9 @@
     
       <category term="machine learning" scheme="https://purumir.github.io/tags/machine-learning/"/>
     
-      <category term="ETL" scheme="https://purumir.github.io/tags/ETL/"/>
-    
       <category term="business intelligence" scheme="https://purumir.github.io/tags/business-intelligence/"/>
+    
+      <category term="ETL" scheme="https://purumir.github.io/tags/ETL/"/>
     
       <category term="workflow" scheme="https://purumir.github.io/tags/workflow/"/>
     
@@ -700,45 +738,6 @@
       <category term="리더십" scheme="https://purumir.github.io/tags/%EB%A6%AC%EB%8D%94%EC%8B%AD/"/>
     
       <category term="세종대왕" scheme="https://purumir.github.io/tags/%EC%84%B8%EC%A2%85%EB%8C%80%EC%99%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>구간평균법, 지수평활법(exponential smoothing)</title>
-    <link href="https://purumir.github.io/2019/10/06/%EC%A7%80%EC%88%98%ED%8F%89%ED%99%9C%EB%B2%95-exponential-smoothing/"/>
-    <id>https://purumir.github.io/2019/10/06/%EC%A7%80%EC%88%98%ED%8F%89%ED%99%9C%EB%B2%95-exponential-smoothing/</id>
-    <published>2019-10-06T13:53:36.000Z</published>
-    <updated>2020-02-24T14:49:25.766Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h3 id=&quot;시계열-timeseries-데이터-구성-요소&quot;&gt;&lt;a href=&quot;#시계열-timeseries-데이터-구성-요소&quot; class=&quot;headerlink&quot; title=&quot;시계열(timeseries) 데이터 구성
-        
-      
-    
-    </summary>
-    
-    
-      <category term="machine learning" scheme="https://purumir.github.io/categories/machine-learning/"/>
-    
-      <category term="data analytics" scheme="https://purumir.github.io/categories/machine-learning/data-analytics/"/>
-    
-    
-      <category term="machine learning" scheme="https://purumir.github.io/tags/machine-learning/"/>
-    
-      <category term="timeseries" scheme="https://purumir.github.io/tags/timeseries/"/>
-    
-      <category term="시계열" scheme="https://purumir.github.io/tags/%EC%8B%9C%EA%B3%84%EC%97%B4/"/>
-    
-      <category term="구간평균법" scheme="https://purumir.github.io/tags/%EA%B5%AC%EA%B0%84%ED%8F%89%EA%B7%A0%EB%B2%95/"/>
-    
-      <category term="지수평활법" scheme="https://purumir.github.io/tags/%EC%A7%80%EC%88%98%ED%8F%89%ED%99%9C%EB%B2%95/"/>
-    
-      <category term="exponential smoothing" scheme="https://purumir.github.io/tags/exponential-smoothing/"/>
     
   </entry>
   

@@ -15,8 +15,30 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>This blog contains the items about machine learning, sw architect, management and my favorites.</description>
-    <pubDate>Thu, 07 Jul 2022 12:39:39 GMT</pubDate>
+    <pubDate>Sat, 26 Nov 2022 11:34:19 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Continuous kudu table migration using the Airflow SparkOperator</title>
+      <link>https://purumir.github.io/2022/11/25/Continuous-kudu-table-migration-using-the-Airflow-SparkOperator/</link>
+      <guid>https://purumir.github.io/2022/11/25/Continuous-kudu-table-migration-using-the-Airflow-SparkOperator/</guid>
+      <pubDate>Fri, 25 Nov 2022 02:16:49 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;&lt;strong&gt;Background&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;In my case, a big scale system was splitted into several small systems. But, some code values in a
+          
+        
+      
+      </description>
+      
+      
+      <comments>https://purumir.github.io/2022/11/25/Continuous-kudu-table-migration-using-the-Airflow-SparkOperator/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>[airflow] TriggerDagRunOperator와 ExternalTaskSensor를 통한 배치 흐름 제어</title>
@@ -431,27 +453,6 @@
       
       
       <comments>https://purumir.github.io/2019/10/11/%EC%84%B8%EC%A2%85%EB%8C%80%EC%99%95%EC%9D%98-%EB%A6%AC%EB%8D%94%EC%8B%AD/#disqus_thread</comments>
-    </item>
-    
-    <item>
-      <title>구간평균법, 지수평활법(exponential smoothing)</title>
-      <link>https://purumir.github.io/2019/10/06/%EC%A7%80%EC%88%98%ED%8F%89%ED%99%9C%EB%B2%95-exponential-smoothing/</link>
-      <guid>https://purumir.github.io/2019/10/06/%EC%A7%80%EC%88%98%ED%8F%89%ED%99%9C%EB%B2%95-exponential-smoothing/</guid>
-      <pubDate>Sun, 06 Oct 2019 13:53:36 GMT</pubDate>
-      <description>
-      
-        
-        
-          
-          
-            &lt;h3 id=&quot;시계열-timeseries-데이터-구성-요소&quot;&gt;&lt;a href=&quot;#시계열-timeseries-데이터-구성-요소&quot; class=&quot;headerlink&quot; title=&quot;시계열(timeseries) 데이터 구성
-          
-        
-      
-      </description>
-      
-      
-      <comments>https://purumir.github.io/2019/10/06/%EC%A7%80%EC%88%98%ED%8F%89%ED%99%9C%EB%B2%95-exponential-smoothing/#disqus_thread</comments>
     </item>
     
   </channel>
