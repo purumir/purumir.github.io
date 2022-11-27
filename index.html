@@ -135,7 +135,7 @@
 <p>The Variable feature (Menu Location : Airflow Admin &gt; Variable) could be used for saving some kind of the static information. So, I have registered not only the address of the KUDU masters of the source cluster, but also the address of the KUDU masters of the destination cluster. </p>
 <p>The SparkSubmitOpeator pull the KUDU table from the source cluster to the desination cluster per a table.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> airflow <span class="keyword">import</span> DAG</span><br><span class="line"><span class="keyword">from</span> airflow.models <span class="keyword">import</span> Variable</span><br><span class="line"><span class="keyword">from</span> custom_operators.pull_kudu_tables_spark_submit_operator <span class="keyword">import</span> PullKuduTablesSparkSubmitOperator</span><br><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime, timedelta</span><br><span class="line"><span class="keyword">from</span> pyspark.sql <span class="keyword">import</span> SparkSession</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line">default_args =&#123;</span><br><span class="line">    <span class="string">'owner'</span>: <span class="string">'&lt;user name&gt;'</span>,</span><br><span class="line">    <span class="string">'start_date'</span> : datetime(<span class="number">2022</span>, <span class="number">10</span>, <span class="number">11</span>),</span><br><span class="line">    <span class="string">'email'</span>: [<span class="string">'&lt;EMAIL ADDRESS&gt;'</span>],</span><br><span class="line">    <span class="string">'email_on_failure'</span>: <span class="literal">True</span>,</span><br><span class="line">    <span class="string">'email_on_retry'</span>: <span class="literal">False</span>,</span><br><span class="line">    <span class="string">'retries'</span>: <span class="number">5</span>,</span><br><span class="line">    <span class="string">'retry_delay'</span>: timedelta(minutes=<span class="number">10</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># The KUDU Masters of the source cluster and the destination cluster</span></span><br><span class="line">kudu_masters = Variable.get(<span class="string">"kudu_masters"</span>, deserialize_json=<span class="literal">True</span>)</span><br><span class="line"><span class="comment"># The table name for the migration.</span></span><br><span class="line">kudu_tables = Variable.get(<span class="string">"kudu_tables"</span>, deserialize_json=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> DAG(</span><br><span class="line">	dag_id = <span class="string">'pull_kudu_tables'</span>,</span><br><span class="line">    default_args=default_args,</span><br><span class="line">    schedule_interval=<span class="string">'&lt;Schedule Interval&gt;'</span>,</span><br><span class="line">    tags=[<span class="string">'KUDU'</span>, <span class="string">'Migration'</span>]</span><br><span class="line">) <span class="keyword">as</span> dag:</span><br><span class="line">    </span><br><span class="line">    process_list = []</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> table <span class="keyword">in</span> kudu_tables:</span><br><span class="line">        application_args = [table, </span><br><span class="line">                            <span class="string">','</span>.join(map(str, kudu_masters[<span class="string">'source_cluster'</span>])), </span><br><span class="line">                            <span class="string">','</span>.join(map(str, kudu_masters[<span class="string">'destination_cluster'</span>]))</span><br><span class="line">                           ]</span><br><span class="line">        </span><br><span class="line">        remove_detination_kudu_table </span><br><span class="line">        	= BashOperator(</span><br><span class="line">                task_id = <span class="string">'remove_kudu_table'</span>,</span><br><span class="line">                bash_command = <span class="string">""" env -i impala-shell -i &lt;Impala Server Address&gt; -q 'delete from &lt;destination database name&gt;.&#123;table_name&#125;' """</span>.format(table_name=table),</span><br><span class="line">                queue=<span class="string">'&lt;Airflow Queue Name&gt;'</span>,</span><br><span class="line">                dag=dag</span><br><span class="line">              )	 </span><br><span class="line">            </span><br><span class="line">        pull_kudu_spark_operator </span><br><span class="line">        	= PullKuduTablesSparkSubmitOperator(</span><br><span class="line">                task_id = <span class="string">'pull_kudu_table_&#123;table_name&#125;'</span>.format(table_name=table),</span><br><span class="line">                jars=<span class="string">'&lt;lib&gt;/kudu/kudu_spark_&lt;your version&gt;.jar, &lt;lib&gt;/kudu/kudu_spark_tools_&lt;your version&gt;.jar'</span>,</span><br><span class="line">                application_args=application_args,</span><br><span class="line">                queue=<span class="string">'&lt;Airflow Queue Name&gt;'</span>,</span><br><span class="line">                dag=dag</span><br><span class="line">              )</span><br><span class="line">            </span><br><span class="line">        <span class="comment"># after removing the data, the data is inserted newly. </span></span><br><span class="line">        remove_detination_kudu_table &gt;&gt; pull_kudu_spark_operator</span><br><span class="line">        process_list.append(remove_detination_kudu_table)</span><br><span class="line">        </span><br><span class="line">    process_list <span class="comment"># Airlow tasks execution for all tables.</span></span><br></pre></td></tr></table></figure>
-<p>These works fine through the Airflow SparkSubmitOperator. In the case of operation of the code system, the Apache KUDU is the good choice.</p>
+<p>These work fine through the Airflow SparkSubmitOperator. In the case of operation of the code system, the Apache KUDU is the good choice.</p>
 <script data-ad-client="ca-pub-4548072043503266" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -156,7 +156,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2022/11/25/Continuous-kudu-table-migration-using-the-Airflow-SparkOperator/" data-id="claxwnllk006u8cv0l9o87cuz" class="article-share-link">
+      <a data-url="https://purumir.github.io/2022/11/25/Continuous-kudu-table-migration-using-the-Airflow-SparkOperator/" data-id="clayroj5j006vfsv0z9gva1gh" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -223,7 +223,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2022/07/07/TriggerDagRunOperator와-ExternalTaskSensor를-통한-배치-DAG구성/" data-id="claxwnlb1000e8cv0opcebu58" class="article-share-link">
+      <a data-url="https://purumir.github.io/2022/07/07/TriggerDagRunOperator와-ExternalTaskSensor를-통한-배치-DAG구성/" data-id="clayroit60007fsv0ii6nthxh" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -297,7 +297,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2022/03/29/airflow-execution-date에-따른-특정-일자-task실행-처리/" data-id="claxwnlal000a8cv052cumrwe" class="article-share-link">
+      <a data-url="https://purumir.github.io/2022/03/29/airflow-execution-date에-따른-특정-일자-task실행-처리/" data-id="clayroite000afsv0uax2a2k7" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -435,7 +435,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2022/01/23/2021년-서울지하철을-통해-본-사람들의-이동-노선별-일별-요일별-월별-승-하차/" data-id="claxwnllc006s8cv076q9jbjx" class="article-share-link">
+      <a data-url="https://purumir.github.io/2022/01/23/2021년-서울지하철을-통해-본-사람들의-이동-노선별-일별-요일별-월별-승-하차/" data-id="clayroj5q006xfsv0kzsgyxvz" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -526,7 +526,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2022/01/22/2021년-서울지하철을-통해-본-사람들의-이동/" data-id="claxwnl9100008cv0xuxg0ci4" class="article-share-link">
+      <a data-url="https://purumir.github.io/2022/01/22/2021년-서울지하철을-통해-본-사람들의-이동/" data-id="clayroisb0001fsv0oxfcnglz" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -616,7 +616,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2021/10/15/airflow-hdfs-sensor/" data-id="claxwnlax000d8cv0ncek1ok2" class="article-share-link">
+      <a data-url="https://purumir.github.io/2021/10/15/airflow-hdfs-sensor/" data-id="clayroiuf000ifsv0lrfx8lto" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -709,7 +709,7 @@ y=F(x, \{W_{i}\})+W_{s}x</script><p>{작성중}</p>
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2021/03/30/ResNet/" data-id="claxwnl9u00058cv0n0jrdgf6" class="article-share-link">
+      <a data-url="https://purumir.github.io/2021/03/30/ResNet/" data-id="clayroisx0005fsv0by0udoi1" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -797,7 +797,7 @@ y=F(x, \{W_{i}\})+W_{s}x</script><p>{작성중}</p>
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2020/05/21/kubernetes로-spark-submit하기-spark-submit-to-kubernetes/" data-id="claxwnlbv000m8cv0hiyzyfov" class="article-share-link">
+      <a data-url="https://purumir.github.io/2020/05/21/kubernetes로-spark-submit하기-spark-submit-to-kubernetes/" data-id="clayroium000jfsv0zug9mhcx" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -873,7 +873,7 @@ y=F(x, \{W_{i}\})+W_{s}x</script><p>{작성중}</p>
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2020/05/14/Kafka와-SparkStreaming을-통한-시계열-데이터-저장/" data-id="claxwnl9x00068cv055z787yk" class="article-share-link">
+      <a data-url="https://purumir.github.io/2020/05/14/Kafka와-SparkStreaming을-통한-시계열-데이터-저장/" data-id="clayroisi0002fsv0aaz4r9c2" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -1027,7 +1027,7 @@ y=F(x, \{W_{i}\})+W_{s}x</script><p>{작성중}</p>
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2020/02/06/오픈-소스-ETL-툴-비교-Apache-NiFi-vs-StreamSets/" data-id="claxwnlc5000r8cv0guqb6ipe" class="article-share-link">
+      <a data-url="https://purumir.github.io/2020/02/06/오픈-소스-ETL-툴-비교-Apache-NiFi-vs-StreamSets/" data-id="clayroiv5000rfsv0lms6ux2u" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
