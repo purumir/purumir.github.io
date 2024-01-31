@@ -15,8 +15,29 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>This blog contains the items about machine learning, sw architect, management and my favorites.</description>
-    <pubDate>Sun, 27 Nov 2022 02:52:53 GMT</pubDate>
+    <pubDate>Wed, 31 Jan 2024 03:29:03 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>PROMPTHON EXPERIENCE</title>
+      <link>https://purumir.github.io/2024/01/31/PROMPTHON-EXPERIENCE/</link>
+      <guid>https://purumir.github.io/2024/01/31/PROMPTHON-EXPERIENCE/</guid>
+      <pubDate>Wed, 31 Jan 2024 01:54:38 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;h1 id=&quot;PROMPTHON-EXPERIENCE&quot;&gt;&lt;a href=&quot;#PROMPTHON-EXPERIENCE&quot; class=&quot;headerlink&quot; title=&quot;PROMPTHON EXPERIENCE&quot;&gt;&lt;/a&gt;PROMPTHON
+          
+        
+      
+      </description>
+      
+      
+      <comments>https://purumir.github.io/2024/01/31/PROMPTHON-EXPERIENCE/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>(airflow) Continuous kudu table migration using the Airflow SparkOperator</title>
@@ -432,27 +453,6 @@
       
       
       <comments>https://purumir.github.io/2019/10/17/chatbot-digital-transformation/#disqus_thread</comments>
-    </item>
-    
-    <item>
-      <title>세종대왕의 리더십</title>
-      <link>https://purumir.github.io/2019/10/11/%EC%84%B8%EC%A2%85%EB%8C%80%EC%99%95%EC%9D%98-%EB%A6%AC%EB%8D%94%EC%8B%AD/</link>
-      <guid>https://purumir.github.io/2019/10/11/%EC%84%B8%EC%A2%85%EB%8C%80%EC%99%95%EC%9D%98-%EB%A6%AC%EB%8D%94%EC%8B%AD/</guid>
-      <pubDate>Fri, 11 Oct 2019 08:43:39 GMT</pubDate>
-      <description>
-      
-        
-        
-          
-          
-            &lt;p&gt;세종대왕은 우리가 익히 알기를 한글 창제의 주역(세종이 주도했다는 것이 정설이라고 하며, 최근 개봉한 ‘나랏말싸미’는 다른 의견을 기초로 한다.)이시기도 하고, 장영실의 등용을 비롯한 많은 과학기술의 발전을 이루어낸 분이시다. 하지만 본인의
-          
-        
-      
-      </description>
-      
-      
-      <comments>https://purumir.github.io/2019/10/11/%EC%84%B8%EC%A2%85%EB%8C%80%EC%99%95%EC%9D%98-%EB%A6%AC%EB%8D%94%EC%8B%AD/#disqus_thread</comments>
     </item>
     
   </channel>

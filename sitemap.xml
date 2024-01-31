@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://purumir.github.io/2024/01/31/PROMPTHON-EXPERIENCE/</loc>
+    
+    <lastmod>2024-01-31T03:29:03.884Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://purumir.github.io/2022/11/25/Continuous-kudu-table-migration-using-the-Airflow-SparkOperator/</loc>
     
     <lastmod>2022-11-27T02:52:53.372Z</lastmod>

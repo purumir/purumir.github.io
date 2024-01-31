@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://purumir.github.io/"/>
-  <updated>2022-11-27T02:52:53.372Z</updated>
+  <updated>2024-01-31T03:29:03.884Z</updated>
   <id>https://purumir.github.io/</id>
   
   <author>
@@ -15,6 +15,41 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>PROMPTHON EXPERIENCE</title>
+    <link href="https://purumir.github.io/2024/01/31/PROMPTHON-EXPERIENCE/"/>
+    <id>https://purumir.github.io/2024/01/31/PROMPTHON-EXPERIENCE/</id>
+    <published>2024-01-31T01:54:38.000Z</published>
+    <updated>2024-01-31T03:29:03.884Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;PROMPTHON-EXPERIENCE&quot;&gt;&lt;a href=&quot;#PROMPTHON-EXPERIENCE&quot; class=&quot;headerlink&quot; title=&quot;PROMPTHON EXPERIENCE&quot;&gt;&lt;/a&gt;PROMPTHON
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Gen AI" scheme="https://purumir.github.io/categories/Gen-AI/"/>
+    
+      <category term="LLMs" scheme="https://purumir.github.io/categories/Gen-AI/LLMs/"/>
+    
+    
+      <category term="Gen AI" scheme="https://purumir.github.io/tags/Gen-AI/"/>
+    
+      <category term="LLMs" scheme="https://purumir.github.io/tags/LLMs/"/>
+    
+      <category term="Prompt" scheme="https://purumir.github.io/tags/Prompt/"/>
+    
+      <category term="Prompthon" scheme="https://purumir.github.io/tags/Prompthon/"/>
+    
+  </entry>
   
   <entry>
     <title>(airflow) Continuous kudu table migration using the Airflow SparkOperator</title>
@@ -407,9 +442,9 @@
     
       <category term="machine learning" scheme="https://purumir.github.io/tags/machine-learning/"/>
     
-      <category term="business intelligence" scheme="https://purumir.github.io/tags/business-intelligence/"/>
-    
       <category term="ETL" scheme="https://purumir.github.io/tags/ETL/"/>
+    
+      <category term="business intelligence" scheme="https://purumir.github.io/tags/business-intelligence/"/>
     
       <category term="workflow" scheme="https://purumir.github.io/tags/workflow/"/>
     
@@ -533,9 +568,9 @@
       <category term="timeseries" scheme="https://purumir.github.io/categories/machine-learning/data-analytics/timeseries/"/>
     
     
-      <category term="timeseries" scheme="https://purumir.github.io/tags/timeseries/"/>
-    
       <category term="machine learning" scheme="https://purumir.github.io/tags/machine-learning/"/>
+    
+      <category term="timeseries" scheme="https://purumir.github.io/tags/timeseries/"/>
     
       <category term="시계열" scheme="https://purumir.github.io/tags/%EC%8B%9C%EA%B3%84%EC%97%B4/"/>
     
@@ -630,9 +665,9 @@
       <category term="timeseries" scheme="https://purumir.github.io/categories/machine-learning/data-analytics/timeseries/"/>
     
     
-      <category term="timeseries" scheme="https://purumir.github.io/tags/timeseries/"/>
-    
       <category term="machine learning" scheme="https://purumir.github.io/tags/machine-learning/"/>
+    
+      <category term="timeseries" scheme="https://purumir.github.io/tags/timeseries/"/>
     
       <category term="시계열" scheme="https://purumir.github.io/tags/%EC%8B%9C%EA%B3%84%EC%97%B4/"/>
     
@@ -707,37 +742,6 @@
       <category term="chatbot" scheme="https://purumir.github.io/tags/chatbot/"/>
     
       <category term="명분" scheme="https://purumir.github.io/tags/%EB%AA%85%EB%B6%84/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>세종대왕의 리더십</title>
-    <link href="https://purumir.github.io/2019/10/11/%EC%84%B8%EC%A2%85%EB%8C%80%EC%99%95%EC%9D%98-%EB%A6%AC%EB%8D%94%EC%8B%AD/"/>
-    <id>https://purumir.github.io/2019/10/11/%EC%84%B8%EC%A2%85%EB%8C%80%EC%99%95%EC%9D%98-%EB%A6%AC%EB%8D%94%EC%8B%AD/</id>
-    <published>2019-10-11T08:43:39.000Z</published>
-    <updated>2020-02-24T14:48:34.682Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;세종대왕은 우리가 익히 알기를 한글 창제의 주역(세종이 주도했다는 것이 정설이라고 하며, 최근 개봉한 ‘나랏말싸미’는 다른 의견을 기초로 한다.)이시기도 하고, 장영실의 등용을 비롯한 많은 과학기술의 발전을 이루어낸 분이시다. 하지만 본인의
-        
-      
-    
-    </summary>
-    
-    
-      <category term="management" scheme="https://purumir.github.io/categories/management/"/>
-    
-      <category term="leadership" scheme="https://purumir.github.io/categories/management/leadership/"/>
-    
-    
-      <category term="리더십" scheme="https://purumir.github.io/tags/%EB%A6%AC%EB%8D%94%EC%8B%AD/"/>
-    
-      <category term="세종대왕" scheme="https://purumir.github.io/tags/%EC%84%B8%EC%A2%85%EB%8C%80%EC%99%95/"/>
     
   </entry>
   
