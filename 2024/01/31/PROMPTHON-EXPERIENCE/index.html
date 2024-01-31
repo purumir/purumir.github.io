@@ -5,19 +5,19 @@
   
   <title>PROMPTHON EXPERIENCE | Purumir&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="PROMPTHON EXPERIENCEDesign thinking is a process that follows the steps of Empathize, Define, Ideate, Prototype and Test. In this process, listening to the Voice of the Customer (VoC) is more importan">
+  <meta name="description" content="Prototype Building with LLMsDesign thinking is a process that follows the steps of Empathize, Define, Ideate, Prototype and Test. In this process, listening to the Voice of the Customer (VoC) is more">
 <meta name="keywords" content="Gen AI,LLMs,Prompt,Prompthon">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PROMPTHON EXPERIENCE">
 <meta property="og:url" content="https://purumir.github.io/2024/01/31/PROMPTHON-EXPERIENCE/index.html">
 <meta property="og:site_name" content="Purumir&#39;s Blog">
-<meta property="og:description" content="PROMPTHON EXPERIENCEDesign thinking is a process that follows the steps of Empathize, Define, Ideate, Prototype and Test. In this process, listening to the Voice of the Customer (VoC) is more importan">
+<meta property="og:description" content="Prototype Building with LLMsDesign thinking is a process that follows the steps of Empathize, Define, Ideate, Prototype and Test. In this process, listening to the Voice of the Customer (VoC) is more">
 <meta property="og:locale" content="ko">
 <meta property="og:image" content="https://purumir.github.io/images/gen_ai/llm/prompthon_llm_v20240131.png">
-<meta property="og:updated_time" content="2024-01-31T03:29:03.884Z">
+<meta property="og:updated_time" content="2024-01-31T03:37:17.954Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PROMPTHON EXPERIENCE">
-<meta name="twitter:description" content="PROMPTHON EXPERIENCEDesign thinking is a process that follows the steps of Empathize, Define, Ideate, Prototype and Test. In this process, listening to the Voice of the Customer (VoC) is more importan">
+<meta name="twitter:description" content="Prototype Building with LLMsDesign thinking is a process that follows the steps of Empathize, Define, Ideate, Prototype and Test. In this process, listening to the Voice of the Customer (VoC) is more">
 <meta name="twitter:image" content="https://purumir.github.io/images/gen_ai/llm/prompthon_llm_v20240131.png">
   
     <link rel="alternate" href="/atom.xml" title="Purumir&#39;s Blog" type="application/atom+xml">
@@ -113,7 +113,7 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="PROMPTHON-EXPERIENCE"><a href="#PROMPTHON-EXPERIENCE" class="headerlink" title="PROMPTHON EXPERIENCE"></a>PROMPTHON EXPERIENCE</h1><p>Design thinking is a process that follows the steps of Empathize, Define, Ideate, Prototype and Test. In this process, listening to the Voice of the Customer (VoC) is more important than any other step. </p>
+        <h2 id="Prototype-Building-with-LLMs"><a href="#Prototype-Building-with-LLMs" class="headerlink" title="Prototype Building with LLMs"></a>Prototype Building with LLMs</h2><p>Design thinking is a process that follows the steps of Empathize, Define, Ideate, Prototype and Test. In this process, listening to the Voice of the Customer (VoC) is more important than any other step. </p>
 <p>For this reason, my team in the prompthon has thought that Large Language Models (LLMs) are effective tools for quickly building prototypes. Traditional coding requires time for developers to construct the logic. However, with prompt engineering, there’s no need to code the logic directly. I simply provided the user’s question, the query based on the user’s question, information about the table and my prompt. Using them, the LLM was able to return the result in an HTML table format.</p>
 <p>By integrating the HTML response with a no-code tool component, my team has demonstrated that it’s possible to create prototypes without the time-consuming coding typically required, especially for prototypes that might be discarded later.</p>
 <h2 id="langchain-Prompt"><a href="#langchain-Prompt" class="headerlink" title="langchain + Prompt"></a>langchain + Prompt</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> langchain_community.utilities.sql_database <span class="keyword">import</span> SQLDatabase</span><br><span class="line"><span class="keyword">from</span> langchain_core.prompts <span class="keyword">import</span> ChatPromtTemplate</span><br><span class="line"><span class="keyword">from</span> langchain_core.runnables <span class="keyword">import</span> RunnablePassthrough</span><br><span class="line"><span class="keyword">from</span> langchain_core.output_parsers <span class="keyword">import</span> StrOutputParser</span><br><span class="line"></span><br><span class="line">promt_query = <span class="string">"""</span></span><br><span class="line"><span class="string">Based on the table schema below,</span></span><br><span class="line"><span class="string">Write a PostgreSQL query that answer the user's question:</span></span><br><span class="line"><span class="string">&#123;schema&#125;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Question: &#123;question&#125;</span></span><br><span class="line"><span class="string">SQL Query:"""</span></span><br><span class="line"></span><br><span class="line">db = SQLDatabase.from_uri(<span class="string">"postgresql://~~"</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_schema</span><span class="params">(_)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> db.get_table_info()</span><br><span class="line"></span><br><span class="line">promt_query = ChatPromptTemplate.form_template(promt_query)</span><br><span class="line">sql_query_chain = (</span><br><span class="line">    RunnablePassthrough.assign(schema=get_schema)</span><br><span class="line">    | promt_query</span><br><span class="line">    | llm.bind(stop=[<span class="string">"\nSQLResult:"</span>])</span><br><span class="line">    | StrOutputParser()</span><br><span class="line">)</span><br><span class="line">sql_respone = sql_response_chain.invoke(&#123;<span class="string">"question"</span>: <span class="string">"&lt;USER QUESTION&gt;"</span>&#125;)</span><br></pre></td></tr></table></figure>
@@ -129,7 +129,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2024/01/31/PROMPTHON-EXPERIENCE/" data-id="cls18dxcg000alcv04zzj8jnj" class="article-share-link">
+      <a data-url="https://purumir.github.io/2024/01/31/PROMPTHON-EXPERIENCE/" data-id="cls18ldd20006lgv09ktmhkl0" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -256,5 +256,21 @@ I am curious about machine learning, business intelligence, sw architect, digita
 
 <script src="/js/script.js"></script>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!--script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script-->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
 </body>
 </html>

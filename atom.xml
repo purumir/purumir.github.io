@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://purumir.github.io/"/>
-  <updated>2024-01-31T03:29:03.884Z</updated>
+  <updated>2024-01-31T03:37:17.954Z</updated>
   <id>https://purumir.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://purumir.github.io/2024/01/31/PROMPTHON-EXPERIENCE/"/>
     <id>https://purumir.github.io/2024/01/31/PROMPTHON-EXPERIENCE/</id>
     <published>2024-01-31T01:54:38.000Z</published>
-    <updated>2024-01-31T03:29:03.884Z</updated>
+    <updated>2024-01-31T03:37:17.954Z</updated>
     
     <summary type="html">
     
@@ -29,7 +29,7 @@
       
         
         
-          &lt;h1 id=&quot;PROMPTHON-EXPERIENCE&quot;&gt;&lt;a href=&quot;#PROMPTHON-EXPERIENCE&quot; class=&quot;headerlink&quot; title=&quot;PROMPTHON EXPERIENCE&quot;&gt;&lt;/a&gt;PROMPTHON
+          &lt;h2 id=&quot;Prototype-Building-with-LLMs&quot;&gt;&lt;a href=&quot;#Prototype-Building-with-LLMs&quot; class=&quot;headerlink&quot; title=&quot;Prototype Building with
         
       
     
@@ -442,9 +442,9 @@
     
       <category term="machine learning" scheme="https://purumir.github.io/tags/machine-learning/"/>
     
-      <category term="ETL" scheme="https://purumir.github.io/tags/ETL/"/>
-    
       <category term="business intelligence" scheme="https://purumir.github.io/tags/business-intelligence/"/>
+    
+      <category term="ETL" scheme="https://purumir.github.io/tags/ETL/"/>
     
       <category term="workflow" scheme="https://purumir.github.io/tags/workflow/"/>
     

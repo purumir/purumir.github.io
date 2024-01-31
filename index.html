@@ -112,7 +112,7 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="PROMPTHON-EXPERIENCE"><a href="#PROMPTHON-EXPERIENCE" class="headerlink" title="PROMPTHON EXPERIENCE"></a>PROMPTHON EXPERIENCE</h1><p>Design thinking is a process that follows the steps of Empathize, Define, Ideate, Prototype and Test. In this process, listening to the Voice of the Customer (VoC) is more important than any other step. </p>
+        <h2 id="Prototype-Building-with-LLMs"><a href="#Prototype-Building-with-LLMs" class="headerlink" title="Prototype Building with LLMs"></a>Prototype Building with LLMs</h2><p>Design thinking is a process that follows the steps of Empathize, Define, Ideate, Prototype and Test. In this process, listening to the Voice of the Customer (VoC) is more important than any other step. </p>
 <p>For this reason, my team in the prompthon has thought that Large Language Models (LLMs) are effective tools for quickly building prototypes. Traditional coding requires time for developers to construct the logic. However, with prompt engineering, there’s no need to code the logic directly. I simply provided the user’s question, the query based on the user’s question, information about the table and my prompt. Using them, the LLM was able to return the result in an HTML table format.</p>
 <p>By integrating the HTML response with a no-code tool component, my team has demonstrated that it’s possible to create prototypes without the time-consuming coding typically required, especially for prototypes that might be discarded later.</p>
 <h2 id="langchain-Prompt"><a href="#langchain-Prompt" class="headerlink" title="langchain + Prompt"></a>langchain + Prompt</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> langchain_community.utilities.sql_database <span class="keyword">import</span> SQLDatabase</span><br><span class="line"><span class="keyword">from</span> langchain_core.prompts <span class="keyword">import</span> ChatPromtTemplate</span><br><span class="line"><span class="keyword">from</span> langchain_core.runnables <span class="keyword">import</span> RunnablePassthrough</span><br><span class="line"><span class="keyword">from</span> langchain_core.output_parsers <span class="keyword">import</span> StrOutputParser</span><br><span class="line"></span><br><span class="line">promt_query = <span class="string">"""</span></span><br><span class="line"><span class="string">Based on the table schema below,</span></span><br><span class="line"><span class="string">Write a PostgreSQL query that answer the user's question:</span></span><br><span class="line"><span class="string">&#123;schema&#125;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Question: &#123;question&#125;</span></span><br><span class="line"><span class="string">SQL Query:"""</span></span><br><span class="line"></span><br><span class="line">db = SQLDatabase.from_uri(<span class="string">"postgresql://~~"</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_schema</span><span class="params">(_)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> db.get_table_info()</span><br><span class="line"></span><br><span class="line">promt_query = ChatPromptTemplate.form_template(promt_query)</span><br><span class="line">sql_query_chain = (</span><br><span class="line">    RunnablePassthrough.assign(schema=get_schema)</span><br><span class="line">    | promt_query</span><br><span class="line">    | llm.bind(stop=[<span class="string">"\nSQLResult:"</span>])</span><br><span class="line">    | StrOutputParser()</span><br><span class="line">)</span><br><span class="line">sql_respone = sql_response_chain.invoke(&#123;<span class="string">"question"</span>: <span class="string">"&lt;USER QUESTION&gt;"</span>&#125;)</span><br></pre></td></tr></table></figure>
@@ -128,7 +128,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2024/01/31/PROMPTHON-EXPERIENCE/" data-id="cls18dxcg000alcv04zzj8jnj" class="article-share-link">
+      <a data-url="https://purumir.github.io/2024/01/31/PROMPTHON-EXPERIENCE/" data-id="cls18ldd20006lgv09ktmhkl0" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -218,7 +218,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2022/11/25/Continuous-kudu-table-migration-using-the-Airflow-SparkOperator/" data-id="cls18dxoh007flcv0tbt7lr67" class="article-share-link">
+      <a data-url="https://purumir.github.io/2022/11/25/Continuous-kudu-table-migration-using-the-Airflow-SparkOperator/" data-id="cls18ldi2003klgv0ngmiizbb" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -285,7 +285,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2022/07/07/TriggerDagRunOperator와-ExternalTaskSensor를-통한-배치-DAG구성/" data-id="cls18dxcj000dlcv0g8qqucaf" class="article-share-link">
+      <a data-url="https://purumir.github.io/2022/07/07/TriggerDagRunOperator와-ExternalTaskSensor를-통한-배치-DAG구성/" data-id="cls18lddk000dlgv04yg4z1xz" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -359,7 +359,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2022/03/29/airflow-execution-date에-따른-특정-일자-task실행-처리/" data-id="cls18dxcv000ilcv0gnlb6gdd" class="article-share-link">
+      <a data-url="https://purumir.github.io/2022/03/29/airflow-execution-date에-따른-특정-일자-task실행-처리/" data-id="cls18lddq000elgv01k5zulzo" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -497,7 +497,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2022/01/23/2021년-서울지하철을-통해-본-사람들의-이동-노선별-일별-요일별-월별-승-하차/" data-id="cls18dxoe007elcv0el0ejbjg" class="article-share-link">
+      <a data-url="https://purumir.github.io/2022/01/23/2021년-서울지하철을-통해-본-사람들의-이동-노선별-일별-요일별-월별-승-하차/" data-id="cls18ldhz003ilgv06yq69cea" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -588,7 +588,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2022/01/22/2021년-서울지하철을-통해-본-사람들의-이동/" data-id="cls18dxbk0000lcv0elchx13a" class="article-share-link">
+      <a data-url="https://purumir.github.io/2022/01/22/2021년-서울지하철을-통해-본-사람들의-이동/" data-id="cls18ldby0000lgv0u6vs3qen" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -678,7 +678,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2021/10/15/airflow-hdfs-sensor/" data-id="cls18dxcs000hlcv0zjpa38cm" class="article-share-link">
+      <a data-url="https://purumir.github.io/2021/10/15/airflow-hdfs-sensor/" data-id="cls18ldhr003flgv0myefq2n2" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -771,7 +771,7 @@ y=F(x, \{W_{i}\})+W_{s}x</script><p>{작성중}</p>
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2021/03/30/ResNet/" data-id="cls18dxca0006lcv000fwryym" class="article-share-link">
+      <a data-url="https://purumir.github.io/2021/03/30/ResNet/" data-id="cls18ldde000algv06ztj5qeh" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -859,7 +859,7 @@ y=F(x, \{W_{i}\})+W_{s}x</script><p>{작성중}</p>
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2020/05/21/kubernetes로-spark-submit하기-spark-submit-to-kubernetes/" data-id="cls18dxd6000mlcv07gdc9awq" class="article-share-link">
+      <a data-url="https://purumir.github.io/2020/05/21/kubernetes로-spark-submit하기-spark-submit-to-kubernetes/" data-id="cls18ldiq003vlgv0bvoo5smy" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -935,7 +935,7 @@ y=F(x, \{W_{i}\})+W_{s}x</script><p>{작성중}</p>
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2020/05/14/Kafka와-SparkStreaming을-통한-시계열-데이터-저장/" data-id="cls18dxc70005lcv0ud4rkko1" class="article-share-link">
+      <a data-url="https://purumir.github.io/2020/05/14/Kafka와-SparkStreaming을-통한-시계열-데이터-저장/" data-id="cls18ldcy0005lgv0byan1p29" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -1055,5 +1055,21 @@ I am curious about machine learning, business intelligence, sw architect, digita
 
 <script src="/js/script.js"></script>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!--script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script-->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
 </body>
 </html>
