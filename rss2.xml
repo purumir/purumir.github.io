@@ -15,8 +15,29 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>This blog contains the items about machine learning, sw architect, management and my favorites.</description>
-    <pubDate>Wed, 31 Jan 2024 03:37:17 GMT</pubDate>
+    <pubDate>Wed, 02 Oct 2024 09:31:53 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Flask Multitenancy Class Routing</title>
+      <link>https://purumir.github.io/2024/10/02/Flask-Multitenancy-Class-Routing/</link>
+      <guid>https://purumir.github.io/2024/10/02/Flask-Multitenancy-Class-Routing/</guid>
+      <pubDate>Wed, 02 Oct 2024 08:17:03 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;Flask를 통해서 Multitenancy를 구현하는 방법에 대해서 이야기 해보고자 합니다. 제가 사용한 방법보다 더 효과적인 방법이 있을수 있으며, 이 방식은 그 중 하나의 방법 정도로 살펴봐 주시면 좋을듯 합니다. 이 문서는 몇개의 데이터
+          
+        
+      
+      </description>
+      
+      
+      <comments>https://purumir.github.io/2024/10/02/Flask-Multitenancy-Class-Routing/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>PROMPTHON EXPERIENCE</title>
@@ -430,29 +451,6 @@
       
       
       <comments>https://purumir.github.io/2019/10/20/Convolutional-Neural-Network-Part1/#disqus_thread</comments>
-    </item>
-    
-    <item>
-      <title>chatbot@digital transformation</title>
-      <link>https://purumir.github.io/2019/10/17/chatbot-digital-transformation/</link>
-      <guid>https://purumir.github.io/2019/10/17/chatbot-digital-transformation/</guid>
-      <pubDate>Thu, 17 Oct 2019 01:28:49 GMT</pubDate>
-      <description>
-      
-        
-        
-          
-          
-            &lt;p&gt;MBA과정 중 제약회사에 다니는 형님 한분이 이런 말씀을 하셨다.&lt;/p&gt;
-&lt;p&gt;“공대는 이유를 이야기하고, 문과는 명분을 이야기한다”&lt;/p&gt;
-&lt;p&gt;이 이야기를 듣고 학교에 잘 들어왔다는 생각을 했다.                         
-          
-        
-      
-      </description>
-      
-      
-      <comments>https://purumir.github.io/2019/10/17/chatbot-digital-transformation/#disqus_thread</comments>
     </item>
     
   </channel>

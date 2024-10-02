@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>Flask Multitenancy Class Routing | Purumir&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Flask를 통해서 Multitenancy를 구현하는 방법에 대해서 이야기 해보고자 합니다. 제가 사용한 방법보다 더 효과적인 방법이 있을수 있으며, 이 방식은 그 중 하나의 방법 정도로 살펴봐 주시면 좋을듯 합니다. 이 문서는 몇개의 데이터 소스를 사전 등록하고 이 안에서 class routing을 tenant에 따라서 수행하는 방법을 다룹니다. Mult">
+<meta name="keywords" content="Framework,flask,multitenancy">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Flask Multitenancy Class Routing">
+<meta property="og:url" content="https://purumir.github.io/2024/10/02/Flask-Multitenancy-Class-Routing/index.html">
+<meta property="og:site_name" content="Purumir&#39;s Blog">
+<meta property="og:description" content="Flask를 통해서 Multitenancy를 구현하는 방법에 대해서 이야기 해보고자 합니다. 제가 사용한 방법보다 더 효과적인 방법이 있을수 있으며, 이 방식은 그 중 하나의 방법 정도로 살펴봐 주시면 좋을듯 합니다. 이 문서는 몇개의 데이터 소스를 사전 등록하고 이 안에서 class routing을 tenant에 따라서 수행하는 방법을 다룹니다. Mult">
+<meta property="og:locale" content="ko">
+<meta property="og:updated_time" content="2024-10-02T09:31:53.143Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Flask Multitenancy Class Routing">
+<meta name="twitter:description" content="Flask를 통해서 Multitenancy를 구현하는 방법에 대해서 이야기 해보고자 합니다. 제가 사용한 방법보다 더 효과적인 방법이 있을수 있으며, 이 방식은 그 중 하나의 방법 정도로 살펴봐 주시면 좋을듯 합니다. 이 문서는 몇개의 데이터 소스를 사전 등록하고 이 안에서 class routing을 tenant에 따라서 수행하는 방법을 다룹니다. Mult">
+  
+    <link rel="alternate" href="/atom.xml" title="Purumir&#39;s Blog" type="application/atom+xml">
+  
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="/css/styles.css">
+  
+
+</head>
+</html>
+<body>
+  <nav class="navbar navbar-inverse">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="main-menu-navbar">
+      <ul class="nav navbar-nav">
+        
+          <li><a class=""
+                 href="/index.html">Home</a></li>
+        
+          <li><a class=""
+                 href="/archives/">Archives</a></li>
+        
+      </ul>
+
+      <!--
+      <ul class="nav navbar-nav navbar-right">
+        
+          <li><a href="/atom.xml" title="RSS Feed"><i class="fa fa-rss"></i></a></li>
+        
+      </ul>
+      -->
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+  <div class="container">
+    <div class="blog-header">
+  <h1 class="blog-title">Purumir&#39;s Blog</h1>
+  
+    <p class="lead blog-description">Machine Learning, SW architect, Management, favorites</p>
+  
+</div>
+
+    <div class="row">
+        <div class="col-sm-8 blog-main">
+          <article id="post-Flask-Multitenancy-Class-Routing" class="article article-type-post" itemscope itemprop="blogPost">
+
+  <header class="article-header">
+    
+  
+    <h1 class="article-title" itemprop="name">
+      Flask Multitenancy Class Routing
+    </h1>
+  
+
+
+  </header>
+
+  <div class="article-meta">
+    <div class="article-datetime">
+  <a href="/2024/10/02/Flask-Multitenancy-Class-Routing/" class="article-date"><time datetime="2024-10-02T08:17:03.000Z" itemprop="datePublished">2024-10-02</time></a>
+</div>
+
+    
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Framework/">Framework</a> / <a class="article-category-link" href="/categories/Framework/backend/">backend</a> / <a class="article-category-link" href="/categories/Framework/backend/multitenancy/">multitenancy</a>
+  </div>
+
+
+  </div>
+  <div class="article-inner">
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Flask를 통해서 Multitenancy를 구현하는 방법에 대해서 이야기 해보고자 합니다. 제가 사용한 방법보다 더 효과적인 방법이 있을수 있으며, 이 방식은 그 중 하나의 방법 정도로 살펴봐 주시면 좋을듯 합니다. 이 문서는 몇개의 데이터 소스를 사전 등록하고 이 안에서 class routing을 tenant에 따라서 수행하는 방법을 다룹니다.</p>
+<h2 id="Multitenancy-Pattern"><a href="#Multitenancy-Pattern" class="headerlink" title="Multitenancy Pattern"></a>Multitenancy Pattern</h2><p><a href="https://learn.microsoft.com/en-us/azure/azure-sql/database/saas-tenancy-app-design-patterns?view=azuresql" target="_blank" rel="noopener">https://learn.microsoft.com/en-us/azure/azure-sql/database/saas-tenancy-app-design-patterns?view=azuresql</a></p>
+<p>위 글에서 제시하는 패턴 중 “D. Multitenant app with database-per-tenant”에 대해서 다루고자 합니다.</p>
+<h2 id="Flask-SQLAlchemy에서-Multi-datasource-설정"><a href="#Flask-SQLAlchemy에서-Multi-datasource-설정" class="headerlink" title="Flask-SQLAlchemy에서 Multi-datasource 설정"></a>Flask-SQLAlchemy에서 Multi-datasource 설정</h2><p><a href="https://flask-sqlalchemy.palletsprojects.com/en/3.1.x/binds/" target="_blank" rel="noopener">https://flask-sqlalchemy.palletsprojects.com/en/3.1.x/binds/</a></p>
+<p>위 Flask-SQLAlchemy의 가이드 문서를 보면 Flask에 다중 데이터 소스를 등록할 수 있습니다. SQLALCHEMY_DATABASE_URI는 서비스에서 사용하는 공통 database로 사용하고, SQLALCHEMY_BINDS는 각 tenant별 데이터 소스를 등록합니다.</p>
+<p><strong>config.py에서의 데이터 소스</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># MAIN Datasource</span></span><br><span class="line">SQLALCHEMY_DATABASE_URI = <span class="string">"postgresql:///&#123;db_username&#125;:&#123;db_password&#125;@&#123;db_host&#125;:5432/&#123;db_name&#125;"</span></span><br><span class="line"><span class="comment"># Per Tenant Datasource</span></span><br><span class="line">SQLALCHEMY_BINDS = &#123;</span><br><span class="line">    <span class="string">"tenant1_ds"</span>: <span class="string">"postgresql:///&#123;db_username&#125;:&#123;db_password&#125;@&#123;db_host&#125;:5432/&#123;db_name&#125;"</span>,</span><br><span class="line">    <span class="string">"tenant2_ds"</span>: <span class="string">"postgresql:///&#123;db_username&#125;:&#123;db_password&#125;@&#123;db_host&#125;:5432/&#123;db_name&#125;"</span>,</span><br><span class="line">    <span class="string">"tenant3_ds"</span>: <span class="string">"postgresql:///&#123;db_username&#125;:&#123;db_password&#125;@&#123;db_host&#125;:5432/&#123;db_name&#125;"</span>,</span><br></pre></td></tr></table></figure>
+<h2 id="Multitenancy-Model-Routing"><a href="#Multitenancy-Model-Routing" class="headerlink" title="Multitenancy Model Routing"></a>Multitenancy Model Routing</h2><h3 id="Flask-App기동시-Model-Initialize-최초-수행하기"><a href="#Flask-App기동시-Model-Initialize-최초-수행하기" class="headerlink" title="Flask App기동시 Model Initialize 최초 수행하기"></a><strong>Flask App기동시 Model Initialize 최초 수행하기</strong></h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Flask App 기동시 최초 1회 수행합니다.</span></span><br><span class="line"><span class="keyword">with</span> app.app_context():</span><br><span class="line">    initialize_multi_tenant_model()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Tenants</span><span class="params">(Enum)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    # tenant 목록을 Enum으로 선언합니다.</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">	TENANT1 = <span class="string">'tenant1'</span></span><br><span class="line">	TENANT2 = <span class="string">'tenant2'</span></span><br><span class="line">	TENANT3 = <span class="string">'tenant3'</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Flask가 기동하면서 로딩할 base model class를 지정합니다.</span></span><br><span class="line">base_models = [</span><br><span class="line">    <span class="comment"># base model을 지정합니다.</span></span><br><span class="line">	InBoundClassInfo </span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">InBoundClassInfo</span><span class="params">(db.Model)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    __abstract__ 를 넣어야 tenant별로 class를 동적으로 생성가능합니다.</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    __abstract__ = <span class="literal">True</span></span><br><span class="line">    __tablename__ = <span class="string">'in_bound_class_info'</span></span><br><span class="line">    </span><br><span class="line">    field1 = db.Column(db.String(<span class="number">50</span>), primary_key=<span class="literal">True</span>)</span><br><span class="line">    field2 = db.Column(db.String(<span class="number">50</span>), nullable=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">__repr__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">'&lt;%r %r&gt;'</span> % (self.__tablename__, self.field1)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">initialize_multi_tenant_model</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    Flask App Context에서 이 메소드를 실행하여 tenant별로 class를 생성하여 등록합니다.</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">	tenants= [tenant.value <span class="keyword">for</span> tenant <span class="keyword">in</span> tenants]</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">for</span> tenant <span class="keyword">in</span> tenants:</span><br><span class="line">		<span class="keyword">for</span> base_model <span class="keyword">in</span> base_models:</span><br><span class="line">             <span class="comment"># camel_to_snake는 base_model의 CamelCase를 Snake Case로 만드는 함수를 만드시면 됩니다.</span></span><br><span class="line">			initialize_model(tenant, base_model, camel_to_snake(base_model.__name__))</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">initialize_model</span><span class="params">(tenant_nm, base_cls, tbl_nm)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    파라미터로 전달된 정보를 기반으로 Model을 생성하여 dict에 등록합니다.</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="comment"># tenant1_svc_in_bound_class_info -&gt; Tenant1SvcInBoundClassInfo로 리턴하는 함수(string_transform)를 사용합니다.</span></span><br><span class="line">    cls_nm = string_transform(tenant_nm + <span class="string">'_svc_'</span> + tbl_nm )</span><br><span class="line">    Model = type(cls_nm, (base_cls,),&#123;</span><br><span class="line">        <span class="comment"># SQLALCHEMY_BINDS 에서 선언한 datasource와 일치하게 됩니다.</span></span><br><span class="line">        <span class="string">'__bind_key__'</span>: tenant_nm + <span class="string">'_ds'</span>,</span><br><span class="line">        <span class="comment"># InBoundClassInfo의 경우 in_bound_class_info로 테이블이 생성되었다고 가정합니다.</span></span><br><span class="line">        <span class="string">'__tablename__'</span>: tbl_nm,</span><br><span class="line">        <span class="comment"># 해당 datasource에서 schema 정보를 기술합니다.</span></span><br><span class="line">        <span class="string">'__table_args__'</span>: &#123;<span class="string">'schema'</span>: tenant_nm + <span class="string">'_ds'</span>&#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="comment"># Tenant1SvcInBoundClassInfo, Tenant2SvcInBoundClassInfo, Tenant3SvcInBoundClassInfo라는 이름으로 모델을 dict에 등록합니다.</span></span><br><span class="line">    flask_mdl_dict[cls_nm] = Model</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_model_class_per_tenant</span><span class="params">(tenant, base_cls_nm)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    해당 tenant + base model 정보를 기반으로 해당 tenant의 클래스를 리턴합니다.</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">	cls_nm = string_transform(tenant_nm + <span class="string">'_svc_'</span> + tbl_nm )</span><br><span class="line">	model_cls = flask_mdl_dict.get(cls_nm)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> model_cls</span><br></pre></td></tr></table></figure>
+<p>위와 같이 설정하고 나서 Flask의 서비스 클래스 등에서 다음과 같이 호출하여 db model을 사용하면 됩니다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">model_cls = get_model_class_per_tenant(tenant, <span class="string">"in_bound_class_info"</span>)</span><br><span class="line">in_bound_class_info = db.session.query(model_cls).filter(model_cls.field1 == <span class="string">'ONE'</span>).one()</span><br></pre></td></tr></table></figure>
+<p>database-per-tenant에 해당하는 Flask에서 구성가능한 Multienancy 패턴을 기술해 보았습니다. 위와 같이 구성할 경우 테넌트별로 각각 db Model을 별도로 선언하고 코딩해야 하는 코드 중복을 줄일 수 있습니다.</p>
+
+      
+    </div>
+
+    
+      
+
+    
+
+    <footer class="article-footer">
+      <a data-url="https://purumir.github.io/2024/10/02/Flask-Multitenancy-Class-Routing/" data-id="cm1ro4sp9000588v0y7qmmxt4" class="article-share-link">
+        <i class="fa fa-share"></i> Share
+      </a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Framework/">Framework</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/flask/">flask</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/multitenancy/">multitenancy</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+    
+<ul id="article-nav" class="nav nav-pills nav-justified">
+  
+  <li role="presentation">
+    <a href="/2024/01/31/PROMPTHON-EXPERIENCE/" id="article-nav-older" class="article-nav-link-wrap">
+      <i class="fa fa-chevron-left pull-left"></i>
+      <span class="article-nav-link-title">PROMPTHON EXPERIENCE</span>
+    </a>
+  </li>
+  
+  
+</ul>
+
+
+  
+</article>
+
+
+
+
+        </div>
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+          
+  <div class="sidebar-module sidebar-module-inset">
+  <h4>About</h4>
+  <p> Machine Learning Dreamer<br> Data Engineer <br> Product/Project Manager </p><br>
+I am curious about machine learning, business intelligence, sw architect, digital transformation and management.<br>
+
+</div>
+
+
+  
+  <div class="sidebar-module">
+    <h4>Categories</h4>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Framework/">Framework</a><span class="sidebar-module-list-count">1</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Framework/backend/">backend</a><span class="sidebar-module-list-count">1</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Framework/backend/multitenancy/">multitenancy</a><span class="sidebar-module-list-count">1</span></li></ul></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Gen-AI/">Gen AI</a><span class="sidebar-module-list-count">1</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Gen-AI/LLMs/">LLMs</a><span class="sidebar-module-list-count">1</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/data-analytics/">data analytics</a><span class="sidebar-module-list-count">8</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/data-analytics/ETL/">ETL</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/data-analytics/business-intelligence/">business intelligence</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/data-analytics/spark/">spark</a><span class="sidebar-module-list-count">1</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/data-analytics/spark/timeseries/">timeseries</a><span class="sidebar-module-list-count">1</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/data-analytics/timeseries/">timeseries</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/data-analytics/workflow/">workflow</a><span class="sidebar-module-list-count">4</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/data-analytics/workflow/airflow/">airflow</a><span class="sidebar-module-list-count">4</span></li></ul></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/data-anlytics/">data anlytics</a><span class="sidebar-module-list-count">2</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/data-anlytics/usecases/">usecases</a><span class="sidebar-module-list-count">2</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/data-anlytics/usecases/subway-station/">subway station</a><span class="sidebar-module-list-count">2</span></li></ul></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/digital-transformation/">digital transformation</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/machine-learning/">machine learning</a><span class="sidebar-module-list-count">7</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/machine-learning/computer-vision/">computer vision</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/machine-learning/data-analytics/">data analytics</a><span class="sidebar-module-list-count">3</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/machine-learning/data-analytics/timeseries/">timeseries</a><span class="sidebar-module-list-count">2</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/machine-learning/learning/">learning</a><span class="sidebar-module-list-count">1</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/machine-learning/learning/architecture/">architecture</a><span class="sidebar-module-list-count">1</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/machine-learning/natural-language-processing/">natural language processing</a><span class="sidebar-module-list-count">1</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/management/">management</a><span class="sidebar-module-list-count">2</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/management/leadership/">leadership</a><span class="sidebar-module-list-count">2</span></li></ul></li></ul>
+  </div>
+
+
+
+  
+  <div class="sidebar-module">
+    <h4>Tags</h4>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Apache-NiFi/">Apache NiFi</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/ETL/">ETL</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/ExternalTaskSensor/">ExternalTaskSensor</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Framework/">Framework</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Gen-AI/">Gen AI</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/KUDU/">KUDU</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/LLMs/">LLMs</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Prompt/">Prompt</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Prompthon/">Prompthon</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/StreamSets/">StreamSets</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/TriggerDagRunOperator/">TriggerDagRunOperator</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/airflow/">airflow</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/branching/">branching</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/business-intelligence/">business intelligence</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/chatbot/">chatbot</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/cnn/">cnn</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/computer-vision/">computer vision</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/convolutional-neural-network/">convolutional neural network</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/cs224n/">cs224n</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/dark-knowledge/">dark knowledge</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/data-analytics/">data analytics</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/decisionmakingskills/">decisionmakingskills</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/digital-transformation/">digital transformation</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/elasticsearch/">elasticsearch</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/excel/">excel</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/execution-date/">execution_date</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/exponential-smoothing/">exponential smoothing</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/flask/">flask</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/gettinf-off/">gettinf off</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/getting-on/">getting on</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/hdfs/">hdfs</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/hdfssensor/">hdfssensor</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/interpersonalskills/">interpersonalskills</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/istio/">istio</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/kafka/">kafka</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/kibana/">kibana</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/knowledge-distillation/">knowledge distillation</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/kubernetes/">kubernetes</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/leadership/">leadership</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/learning/">learning</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/machine-learning/">machine learning</a><span class="sidebar-module-list-count">8</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/management/">management</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/migration/">migration</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/movement-pattern/">movement pattern</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/moving-average/">moving average</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/ms-power-bi/">ms power bi</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/multitenancy/">multitenancy</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/natural-language-processing/">natural language processing</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/professionalskills/">professionalskills</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/resnet/">resnet</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/spark/">spark</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/sparkOperator/">sparkOperator</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/sparkstreaming/">sparkstreaming</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/subway-station/">subway station</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/timeseries/">timeseries</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/word2vec/">word2vec</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/workflow/">workflow</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/광역자치단체/">광역자치단체</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/구간평균법/">구간평균법</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/내가준비하고있는리더십/">내가준비하고있는리더십</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/리더십/">리더십</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/명분/">명분</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/배치구성/">배치구성</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/분기처리/">분기처리</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/세종대왕/">세종대왕</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/승차/">승차</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/시계열/">시계열</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/이용분포/">이용분포</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/일별/">일별</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/지수평활법/">지수평활법</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/지하철/">지하철</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/출생아수/">출생아수</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/하차/">하차</a><span class="sidebar-module-list-count">2</span></li></ul>
+  </div>
+
+
+
+  
+  <div class="sidebar-module">
+    <h4>Tag Cloud</h4>
+    <p class="tagcloud">
+      <a href="/tags/Apache-NiFi/" style="font-size: 10px;">Apache NiFi</a> <a href="/tags/ETL/" style="font-size: 10px;">ETL</a> <a href="/tags/ExternalTaskSensor/" style="font-size: 10px;">ExternalTaskSensor</a> <a href="/tags/Framework/" style="font-size: 10px;">Framework</a> <a href="/tags/Gen-AI/" style="font-size: 10px;">Gen AI</a> <a href="/tags/KUDU/" style="font-size: 10px;">KUDU</a> <a href="/tags/LLMs/" style="font-size: 10px;">LLMs</a> <a href="/tags/Prompt/" style="font-size: 10px;">Prompt</a> <a href="/tags/Prompthon/" style="font-size: 10px;">Prompthon</a> <a href="/tags/StreamSets/" style="font-size: 10px;">StreamSets</a> <a href="/tags/TriggerDagRunOperator/" style="font-size: 10px;">TriggerDagRunOperator</a> <a href="/tags/airflow/" style="font-size: 17.5px;">airflow</a> <a href="/tags/branching/" style="font-size: 10px;">branching</a> <a href="/tags/business-intelligence/" style="font-size: 12.5px;">business intelligence</a> <a href="/tags/chatbot/" style="font-size: 10px;">chatbot</a> <a href="/tags/cnn/" style="font-size: 12.5px;">cnn</a> <a href="/tags/computer-vision/" style="font-size: 12.5px;">computer vision</a> <a href="/tags/convolutional-neural-network/" style="font-size: 12.5px;">convolutional neural network</a> <a href="/tags/cs224n/" style="font-size: 10px;">cs224n</a> <a href="/tags/dark-knowledge/" style="font-size: 10px;">dark knowledge</a> <a href="/tags/data-analytics/" style="font-size: 12.5px;">data analytics</a> <a href="/tags/decisionmakingskills/" style="font-size: 10px;">decisionmakingskills</a> <a href="/tags/digital-transformation/" style="font-size: 10px;">digital transformation</a> <a href="/tags/elasticsearch/" style="font-size: 12.5px;">elasticsearch</a> <a href="/tags/excel/" style="font-size: 10px;">excel</a> <a href="/tags/execution-date/" style="font-size: 10px;">execution_date</a> <a href="/tags/exponential-smoothing/" style="font-size: 10px;">exponential smoothing</a> <a href="/tags/flask/" style="font-size: 10px;">flask</a> <a href="/tags/gettinf-off/" style="font-size: 12.5px;">gettinf off</a> <a href="/tags/getting-on/" style="font-size: 12.5px;">getting on</a> <a href="/tags/hdfs/" style="font-size: 10px;">hdfs</a> <a href="/tags/hdfssensor/" style="font-size: 10px;">hdfssensor</a> <a href="/tags/interpersonalskills/" style="font-size: 10px;">interpersonalskills</a> <a href="/tags/istio/" style="font-size: 10px;">istio</a> <a href="/tags/kafka/" style="font-size: 12.5px;">kafka</a> <a href="/tags/kibana/" style="font-size: 10px;">kibana</a> <a href="/tags/knowledge-distillation/" style="font-size: 10px;">knowledge distillation</a> <a href="/tags/kubernetes/" style="font-size: 10px;">kubernetes</a> <a href="/tags/leadership/" style="font-size: 10px;">leadership</a> <a href="/tags/learning/" style="font-size: 10px;">learning</a> <a href="/tags/machine-learning/" style="font-size: 20px;">machine learning</a> <a href="/tags/management/" style="font-size: 10px;">management</a> <a href="/tags/migration/" style="font-size: 10px;">migration</a> <a href="/tags/movement-pattern/" style="font-size: 12.5px;">movement pattern</a> <a href="/tags/moving-average/" style="font-size: 10px;">moving average</a> <a href="/tags/ms-power-bi/" style="font-size: 10px;">ms power bi</a> <a href="/tags/multitenancy/" style="font-size: 10px;">multitenancy</a> <a href="/tags/natural-language-processing/" style="font-size: 10px;">natural language processing</a> <a href="/tags/professionalskills/" style="font-size: 10px;">professionalskills</a> <a href="/tags/resnet/" style="font-size: 10px;">resnet</a> <a href="/tags/spark/" style="font-size: 10px;">spark</a> <a href="/tags/sparkOperator/" style="font-size: 10px;">sparkOperator</a> <a href="/tags/sparkstreaming/" style="font-size: 12.5px;">sparkstreaming</a> <a href="/tags/subway-station/" style="font-size: 12.5px;">subway station</a> <a href="/tags/timeseries/" style="font-size: 17.5px;">timeseries</a> <a href="/tags/word2vec/" style="font-size: 10px;">word2vec</a> <a href="/tags/workflow/" style="font-size: 10px;">workflow</a> <a href="/tags/광역자치단체/" style="font-size: 10px;">광역자치단체</a> <a href="/tags/구간평균법/" style="font-size: 10px;">구간평균법</a> <a href="/tags/내가준비하고있는리더십/" style="font-size: 10px;">내가준비하고있는리더십</a> <a href="/tags/리더십/" style="font-size: 12.5px;">리더십</a> <a href="/tags/명분/" style="font-size: 10px;">명분</a> <a href="/tags/배치구성/" style="font-size: 10px;">배치구성</a> <a href="/tags/분기처리/" style="font-size: 10px;">분기처리</a> <a href="/tags/세종대왕/" style="font-size: 10px;">세종대왕</a> <a href="/tags/승차/" style="font-size: 12.5px;">승차</a> <a href="/tags/시계열/" style="font-size: 15px;">시계열</a> <a href="/tags/이용분포/" style="font-size: 10px;">이용분포</a> <a href="/tags/일별/" style="font-size: 10px;">일별</a> <a href="/tags/지수평활법/" style="font-size: 10px;">지수평활법</a> <a href="/tags/지하철/" style="font-size: 12.5px;">지하철</a> <a href="/tags/출생아수/" style="font-size: 10px;">출생아수</a> <a href="/tags/하차/" style="font-size: 12.5px;">하차</a>
+    </p>
+  </div>
+
+
+  
+  <div class="sidebar-module">
+    <h4>Archives</h4>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2024/10/">10월 2024</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2024/01/">1월 2024</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2022/11/">11월 2022</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2022/07/">7월 2022</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2022/03/">3월 2022</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2022/01/">1월 2022</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2021/10/">10월 2021</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2021/03/">3월 2021</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2020/05/">5월 2020</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2020/02/">2월 2020</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2020/01/">1월 2020</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/12/">12월 2019</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/11/">11월 2019</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/10/">10월 2019</a><span class="sidebar-module-list-count">7</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/09/">9월 2019</a><span class="sidebar-module-list-count">1</span></li></ul>
+  </div>
+
+
+
+  
+  <div class="sidebar-module">
+    <h4>Recents</h4>
+    <ul class="sidebar-module-list">
+      
+        <li>
+          <a href="/2024/10/02/Flask-Multitenancy-Class-Routing/">Flask Multitenancy Class Routing</a>
+        </li>
+      
+        <li>
+          <a href="/2024/01/31/PROMPTHON-EXPERIENCE/">PROMPTHON EXPERIENCE</a>
+        </li>
+      
+        <li>
+          <a href="/2022/11/25/Continuous-kudu-table-migration-using-the-Airflow-SparkOperator/">(airflow) Continuous kudu table migration using the Airflow SparkOperator</a>
+        </li>
+      
+        <li>
+          <a href="/2022/07/07/TriggerDagRunOperator와-ExternalTaskSensor를-통한-배치-DAG구성/">[airflow] TriggerDagRunOperator와 ExternalTaskSensor를 통한 배치 흐름 제어</a>
+        </li>
+      
+        <li>
+          <a href="/2022/03/29/airflow-execution-date에-따른-특정-일자-task실행-처리/">[airflow] execution_date에 따른 특정 일자 task실행 처리</a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+
+        </div>
+    </div>
+  </div>
+  <footer class="blog-footer">
+  <div class="container">
+    <div id="footer-info" class="inner">
+      &copy; 2024 Purumir. This articles are licensed under CC BY-NC 4.0.<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+  
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" integrity="sha384-8gBf6Y4YYq7Jx97PIqmTwLPin4hxIzQw5aDmUg/DDhul9fFpbbLcLh3nTIIDJKhx" crossorigin="anonymous"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+
+
+<script src="/js/script.js"></script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!--script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script-->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
+</body>
+</html>

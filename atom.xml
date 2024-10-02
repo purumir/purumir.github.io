@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://purumir.github.io/"/>
-  <updated>2024-01-31T03:37:17.954Z</updated>
+  <updated>2024-10-02T09:31:53.143Z</updated>
   <id>https://purumir.github.io/</id>
   
   <author>
@@ -17,11 +17,46 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Flask Multitenancy Class Routing</title>
+    <link href="https://purumir.github.io/2024/10/02/Flask-Multitenancy-Class-Routing/"/>
+    <id>https://purumir.github.io/2024/10/02/Flask-Multitenancy-Class-Routing/</id>
+    <published>2024-10-02T08:17:03.000Z</published>
+    <updated>2024-10-02T09:31:53.143Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;Flask를 통해서 Multitenancy를 구현하는 방법에 대해서 이야기 해보고자 합니다. 제가 사용한 방법보다 더 효과적인 방법이 있을수 있으며, 이 방식은 그 중 하나의 방법 정도로 살펴봐 주시면 좋을듯 합니다. 이 문서는 몇개의 데이터
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Framework" scheme="https://purumir.github.io/categories/Framework/"/>
+    
+      <category term="backend" scheme="https://purumir.github.io/categories/Framework/backend/"/>
+    
+      <category term="multitenancy" scheme="https://purumir.github.io/categories/Framework/backend/multitenancy/"/>
+    
+    
+      <category term="Framework" scheme="https://purumir.github.io/tags/Framework/"/>
+    
+      <category term="flask" scheme="https://purumir.github.io/tags/flask/"/>
+    
+      <category term="multitenancy" scheme="https://purumir.github.io/tags/multitenancy/"/>
+    
+  </entry>
+  
+  <entry>
     <title>PROMPTHON EXPERIENCE</title>
     <link href="https://purumir.github.io/2024/01/31/PROMPTHON-EXPERIENCE/"/>
     <id>https://purumir.github.io/2024/01/31/PROMPTHON-EXPERIENCE/</id>
     <published>2024-01-31T01:54:38.000Z</published>
-    <updated>2024-01-31T03:37:17.954Z</updated>
+    <updated>2024-01-31T03:37:46.767Z</updated>
     
     <summary type="html">
     
@@ -707,41 +742,6 @@
       <category term="convolutional neural network" scheme="https://purumir.github.io/tags/convolutional-neural-network/"/>
     
       <category term="cnn" scheme="https://purumir.github.io/tags/cnn/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>chatbot@digital transformation</title>
-    <link href="https://purumir.github.io/2019/10/17/chatbot-digital-transformation/"/>
-    <id>https://purumir.github.io/2019/10/17/chatbot-digital-transformation/</id>
-    <published>2019-10-17T01:28:49.000Z</published>
-    <updated>2020-02-24T14:50:10.785Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;MBA과정 중 제약회사에 다니는 형님 한분이 이런 말씀을 하셨다.&lt;/p&gt;
-&lt;p&gt;“공대는 이유를 이야기하고, 문과는 명분을 이야기한다”&lt;/p&gt;
-&lt;p&gt;이 이야기를 듣고 학교에 잘 들어왔다는 생각을 했다.                         
-        
-      
-    
-    </summary>
-    
-    
-      <category term="digital transformation" scheme="https://purumir.github.io/categories/digital-transformation/"/>
-    
-    
-      <category term="management" scheme="https://purumir.github.io/tags/management/"/>
-    
-      <category term="digital transformation" scheme="https://purumir.github.io/tags/digital-transformation/"/>
-    
-      <category term="chatbot" scheme="https://purumir.github.io/tags/chatbot/"/>
-    
-      <category term="명분" scheme="https://purumir.github.io/tags/%EB%AA%85%EB%B6%84/"/>
     
   </entry>
   
