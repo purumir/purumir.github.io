@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="Purumir&#39;s Blog">
 <meta property="og:description" content="Flask를 통해서 Multitenancy를 구현하는 방법에 대해서 이야기 해보고자 합니다. 제가 사용한 방법보다 더 효과적인 방법이 있을수 있으며, 이 방식은 그 중 하나의 방법 정도로 살펴봐 주시면 좋을듯 합니다. 이 문서는 몇개의 데이터 소스를 사전 등록하고 이 안에서 class routing을 tenant에 따라서 수행하는 방법을 다룹니다. Mult">
 <meta property="og:locale" content="ko">
-<meta property="og:updated_time" content="2024-10-02T09:31:53.143Z">
+<meta property="og:updated_time" content="2024-10-02T10:03:21.404Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Flask Multitenancy Class Routing">
 <meta name="twitter:description" content="Flask를 통해서 Multitenancy를 구현하는 방법에 대해서 이야기 해보고자 합니다. 제가 사용한 방법보다 더 효과적인 방법이 있을수 있으며, 이 방식은 그 중 하나의 방법 정도로 살펴봐 주시면 좋을듯 합니다. 이 문서는 몇개의 데이터 소스를 사전 등록하고 이 안에서 class routing을 tenant에 따라서 수행하는 방법을 다룹니다. Mult">
@@ -128,6 +128,16 @@
 <p>위와 같이 설정하고 나서 Flask의 서비스 클래스 등에서 다음과 같이 호출하여 db model을 사용하면 됩니다.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">model_cls = get_model_class_per_tenant(tenant, <span class="string">"in_bound_class_info"</span>)</span><br><span class="line">in_bound_class_info = db.session.query(model_cls).filter(model_cls.field1 == <span class="string">'ONE'</span>).one()</span><br></pre></td></tr></table></figure>
 <p>database-per-tenant에 해당하는 Flask에서 구성가능한 Multienancy 패턴을 기술해 보았습니다. 위와 같이 구성할 경우 테넌트별로 각각 db Model을 별도로 선언하고 코딩해야 하는 코드 중복을 줄일 수 있습니다.</p>
+<script data-ad-client="ca-pub-4548072043503266" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-158998069-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-158998069-1');
+</script>
 
       
     </div>
@@ -138,7 +148,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2024/10/02/Flask-Multitenancy-Class-Routing/" data-id="cm1ro4sp9000588v0y7qmmxt4" class="article-share-link">
+      <a data-url="https://purumir.github.io/2024/10/02/Flask-Multitenancy-Class-Routing/" data-id="cm1rp9ft90004nsv0rswsqxtv" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       

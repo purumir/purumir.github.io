@@ -6,14 +6,14 @@
   <title>Moving_Average_수식_유도 | Purumir&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Moving Average의 개념Moving Average의 개념은 지난 post에서 언급한 글(https://purumir.github.io/2019/10/06/지수평활법-exponential-smoothing/ )의 내용을 참조하시기 바랍니다.  Moving Average(1) 수식유도moving average(1)의 수식은 아래와 같이 정의될 수 있습">
-<meta name="keywords" content="machine learning,timeseries,시계열,moving average">
+<meta name="keywords" content="timeseries,machine learning,시계열,moving average">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Moving_Average_수식_유도">
 <meta property="og:url" content="https://purumir.github.io/2019/10/21/Moving-Average-수식-유도/index.html">
 <meta property="og:site_name" content="Purumir&#39;s Blog">
 <meta property="og:description" content="Moving Average의 개념Moving Average의 개념은 지난 post에서 언급한 글(https://purumir.github.io/2019/10/06/지수평활법-exponential-smoothing/ )의 내용을 참조하시기 바랍니다.  Moving Average(1) 수식유도moving average(1)의 수식은 아래와 같이 정의될 수 있습">
 <meta property="og:locale" content="ko">
-<meta property="og:updated_time" content="2021-03-31T15:34:15.338Z">
+<meta property="og:updated_time" content="2024-10-02T10:03:10.041Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Moving_Average_수식_유도">
 <meta name="twitter:description" content="Moving Average의 개념Moving Average의 개념은 지난 post에서 언급한 글(https://purumir.github.io/2019/10/06/지수평활법-exponential-smoothing/ )의 내용을 참조하시기 바랍니다.  Moving Average(1) 수식유도moving average(1)의 수식은 아래와 같이 정의될 수 있습">
@@ -133,7 +133,7 @@ V({X}_{t}) = V({a}_{t} -{\theta}{a}_{t-1}) = V({a}_{t}) + {\theta}^2V({a}_{t-1})
 ~//Variance에서는~{\theta가~나가면서~제곱이~됩니다.}\\
 = {\sigma{a}^2} + {\theta}^2{\sigma{a}^2} = (1+{\theta}^2){\sigma{a}^2}</script><p>3) 공분산(Covariance) 전개</p>
 <script type="math/tex; mode=display">
-Cov({x}_{t}, {x}_{t-h})=Cov({a}_{t}-{\theta}{a}_{t-1}, {a}_{t-h}-{\theta{a}_{t-h-1}})\\= Cov({a}_{t}, {a}_{t-h}) - {\theta}Cov({a}_{t-1}, {a}_{t-h})\\-{\theta}Cov({a}_{t}, {a}_{t-h-1} )+{\theta}^2Cov({a}_{t-1}, {a}_{t-h-1})</script><p>4) 자기공분산(Auto Covariance Function) 전개</p>
+Cov({x}_{t}, {x}_{t-h})=Cov({a}_{t}-{\theta}{a}_{t-1}, {a}_{t-h}-{\theta{a}_{t-h-1}})\\= Cov({a}_{t}, {a}_{t-h}) - {\theta}Cov({a}_{t-1}, {a}_{t-h})\\-{\theta}Cov({a}_{t}, {a}_{t-h-1} )+{\theta}^2Cov({a}_{t-1}, {a}_{t-h-1})</script><p>4) <script data-ad-client="ca-pub-4548072043503266" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script></p>
 <script type="math/tex; mode=display">
 {\gamma}_{x}(h)~에~대한~전개\\
 
@@ -209,7 +209,7 @@ h=2일때~\frac{\gamma_{x}(2)}{\gamma_{x}(0)}=\frac{ -\theta_{2}{\sigma{a}^2}}{(
     
 
     <footer class="article-footer">
-      <a data-url="https://purumir.github.io/2019/10/21/Moving-Average-수식-유도/" data-id="cm1ro4spm000a88v0olowh1kp" class="article-share-link">
+      <a data-url="https://purumir.github.io/2019/10/21/Moving-Average-수식-유도/" data-id="cm1rp9ftb0005nsv0ng90phor" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
